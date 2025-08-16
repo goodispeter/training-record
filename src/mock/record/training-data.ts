@@ -39,7 +39,7 @@ export const mockTrainingData: TrainingResponseData = {
       year: 2025,
       month: 8,
       monthDistance: 48.16,
-      monthMovingTime: '04:28:05',
+      monthMovingTime: '17:41:49',
       monthMainTrainingCount: 3,
       monthElevationGain: 277,
       trainingRecords: [
