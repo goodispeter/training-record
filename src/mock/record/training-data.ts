@@ -1945,7 +1945,7 @@ export const mockTrainingData: TrainingResponseData = {
       trainingRecords: [
         {
           id: 14646881839,
-          name: 'SYD 44 - 三汀山三進三出',
+          name: 'SYD 44 - 越野跑 三汀山三進三出',
           startDate: '2025-05-31T06:32:35',
           sportType: 'TrailRun',
           distance: 19.34,
@@ -2549,7 +2549,7 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14286727486,
-          name: 'SYD 18 -長距離 z2 20k',
+          name: 'SYD 18 -Long Run z2 20k',
           startDate: '2025-04-26T06:56:00',
           sportType: 'Run',
           distance: 20.01,
