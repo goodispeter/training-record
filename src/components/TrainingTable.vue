@@ -171,7 +171,7 @@ const intensityTypeOptions = computed<SelectOption[]>(() => {
 const filteredRecords = computed(() => {
   if (!props.records) return []
 
-  return props.records.filter((record) => {
+  const filtered = props.records.filter((record) => {
     // Month filter
     if (selectedMonth.value && selectedMonth.value !== '') {
       const date = new Date(record.startDate)
@@ -229,6 +229,15 @@ const filteredRecords = computed(() => {
 
     return true
   })
+
+  // 強制按日期倒敘排序（最新的在上面）- 使用更明確的排序
+  const sorted = filtered.sort((a, b) => {
+    const dateA = new Date(a.startDate).getTime()
+    const dateB = new Date(b.startDate).getTime()
+    return dateB - dateA // 倒敘：最新的在前面
+  })
+
+  return sorted
 })
 
 const rowKey = (row: TrainingRecord) => row.id
@@ -241,8 +250,6 @@ const columns: DataTableColumns<TrainingRecord> = [
       const date = new Date(row.startDate)
       return date.toLocaleDateString('zh-TW', { month: 'numeric', day: 'numeric' })
     },
-    sorter: (a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime(),
-    defaultSortOrder: 'descend',
     width: 60,
   },
   {

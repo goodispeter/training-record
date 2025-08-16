@@ -107,49 +107,42 @@ export function matchTrainingType(trainingName: string): RunType[] {
   const matches: RunType[] = []
   const lowerName = trainingName.toLowerCase()
 
+  // 優先檢查特定關鍵字匹配，避免部分字符誤匹配
+  const priorityMatches: { keyword: string; type: RunType }[] = [
+    { keyword: 'tempo', type: Tempo },
+    { keyword: 'easy run', type: EasyRun },
+    { keyword: 'long run', type: LongRun },
+    { keyword: 'recovery', type: RecoveryRun },
+    { keyword: 'trail', type: Trail },
+    { keyword: '恢復', type: RecoveryRun },
+    { keyword: '賽事', type: Race },
+    { keyword: '漸速跑', type: ProgressionRun },
+    { keyword: '坡度訓練', type: SlopeTrain },
+    { keyword: '法特雷克', type: Fartlek },
+    { keyword: '短間歇', type: IntervalShort },
+    { keyword: '長間歇', type: IntervalLong },
+    { keyword: '金字塔', type: Pyramid },
+  ]
+
+  // 先檢查優先關鍵字
+  for (const { keyword, type } of priorityMatches) {
+    if (lowerName.includes(keyword.toLowerCase())) {
+      matches.push(type)
+    }
+  }
+
+  // 如果已經找到優先匹配，直接返回
+  if (matches.length > 0) {
+    return matches
+  }
+
+  // 否則進行常規匹配
   for (const runType of ALL_RUN_TYPES) {
-    // 檢查英文名稱
+    // 檢查英文名稱和代碼
     if (
       lowerName.includes(runType.name.toLowerCase()) ||
       lowerName.includes(runType.code.toLowerCase())
     ) {
-      matches.push(runType)
-      continue
-    }
-
-    // 檢查中文名稱的關鍵字 - 改為更精確的匹配
-    const chineseName = runType.chineseName
-
-    // 對於特定的訓練類型使用完整匹配或特定關鍵字
-    if (chineseName === '越野跑' && trainingName.includes('TRAIL')) {
-      matches.push(runType)
-    } else if (chineseName === '賽事' && trainingName.includes('賽事')) {
-      matches.push(runType)
-    } else if (chineseName === '長距離' && trainingName.includes('Long Run')) {
-      matches.push(runType)
-    } else if (chineseName === '節奏跑' && trainingName.includes('Tempo')) {
-      matches.push(runType)
-    } else if (chineseName === '輕鬆跑' && trainingName.includes('Easy Run')) {
-      matches.push(runType)
-    } else if (
-      chineseName === '恢復跑' &&
-      (trainingName.includes('Recovery') || trainingName.includes('恢復'))
-    ) {
-      matches.push(runType)
-    } else if (chineseName === '漸速跑' && trainingName.includes('漸速跑')) {
-      matches.push(runType)
-    } else if (
-      chineseName === '坡度訓練' &&
-      (trainingName.includes('slope') || trainingName.includes('坡度訓練'))
-    ) {
-      matches.push(runType)
-    } else if (chineseName === '法特雷克' && trainingName.includes('法特雷克')) {
-      matches.push(runType)
-    } else if (chineseName === '短間歇' && trainingName.includes('短間歇')) {
-      matches.push(runType)
-    } else if (chineseName === '長間歇' && trainingName.includes('長間歇')) {
-      matches.push(runType)
-    } else if (chineseName === '金字塔' && trainingName.includes('金字塔')) {
       matches.push(runType)
     }
   }
