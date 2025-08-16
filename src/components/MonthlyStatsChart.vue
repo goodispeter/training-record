@@ -1,12 +1,18 @@
 <template>
   <div class="w-full h-full">
-    <v-chart v-if="chartData && chartData.length > 0" :option="chartOption" class="w-full h-64" />
+    <v-chart
+      v-if="chartData && chartData.length > 0"
+      :option="chartOption"
+      class="w-full h-64"
+      ref="chartRef"
+      :autoresize="true"
+    />
     <div v-else class="flex items-center justify-center h-64 text-gray-500">暫無資料</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import VChart from 'vue-echarts'
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
@@ -21,6 +27,23 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+
+const chartRef = ref()
+
+// 處理視窗大小變化
+const handleResize = () => {
+  if (chartRef.value) {
+    chartRef.value.resize()
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
 
 const chartData = computed(() => {
   if (!props.monthlyData || props.monthlyData.length === 0) return []

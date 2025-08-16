@@ -21,25 +21,25 @@
       </div>
 
       <!-- Charts -->
-      <div class="charts-grid">
+      <div class="charts-grid" :key="chartKey">
         <div class="chart-container h-80">
           <h3 class="text-lg font-semibold mb-4">每月跑量統計</h3>
-          <MonthlyStatsChart :monthly-data="monthlyData" />
+          <MonthlyStatsChart :monthly-data="monthlyData" :key="`monthly-${chartKey}`" />
         </div>
         <div class="chart-container h-80">
           <h3 class="text-lg font-semibold mb-4">訓練類型分布</h3>
-          <TrainingTypeChart :records="allRecords" />
+          <TrainingTypeChart :records="allRecords" :key="`type-${chartKey}`" />
         </div>
       </div>
 
       <!-- Mobile: Table, Desktop: Calendar -->
       <div class="responsive-content">
         <!-- 手機顯示表格 -->
-        <div class="mobile-only">
+        <div v-if="isMobile">
           <TrainingTable :records="allRecords" />
         </div>
         <!-- 桌機顯示日曆 -->
-        <div class="desktop-only">
+        <div v-else>
           <TrainingCalendar :records="allRecords" />
         </div>
       </div>
@@ -48,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, computed } from 'vue'
+import { onMounted, onUnmounted, computed, ref, nextTick } from 'vue'
 import { useTrainingStore } from '@/stores/training'
 import SummaryCard from '@/components/SummaryCard.vue'
 import MonthlyStatsChart from '@/components/MonthlyStatsChart.vue'
@@ -58,6 +58,39 @@ import TrainingCalendar from '@/components/TrainingCalendar.vue'
 
 const store = useTrainingStore()
 
+// 響應式狀態
+const isMobile = ref(false)
+const chartKey = ref(0) // 用於強制重新渲染圖表
+
+// 檢查是否為手機設備
+const checkIsMobile = () => {
+  isMobile.value = window.innerWidth <= 768
+}
+
+// 強制圖表重新渲染
+const forceChartsResize = async () => {
+  chartKey.value++
+  await nextTick()
+  // 發送 resize 事件給 ECharts
+  setTimeout(() => {
+    window.dispatchEvent(new Event('resize'))
+  }, 100)
+}
+
+// 處理視窗大小變化
+const handleResize = () => {
+  const wasMobile = isMobile.value
+  checkIsMobile()
+
+  // 如果手機/桌機模式切換了，重新渲染圖表
+  if (wasMobile !== isMobile.value) {
+    forceChartsResize()
+  } else {
+    // 只是尺寸變化，發送 resize 事件
+    window.dispatchEvent(new Event('resize'))
+  }
+}
+
 const trainingData = computed(() => store.trainingData)
 const allRecords = computed(() => store.allRecords)
 const monthlyData = computed(() => store.monthlyData)
@@ -65,5 +98,11 @@ const totalRecords = computed(() => allRecords.value.length)
 
 onMounted(() => {
   store.fetchTrainingData()
+  checkIsMobile()
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
 })
 </script>
