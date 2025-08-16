@@ -354,7 +354,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15340745525,
           name: '傍晚跑步',
-          startDate: '2025-08-04T12:45:34Z',
+          startDate: '2025-08-04T20:45:34',
           sportType: 'Run',
           distance: 1.26,
           movingTime: '00:14:13',
@@ -364,8 +364,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15340745674,
-          name: 'SYD 98 - 低心率恢復跑35min(跑步機）',
-          startDate: '2025-08-04T11:44:21Z',
+          name: 'SYD 98 - 恢復跑 低心率35min(跑步機）',
+          startDate: '2025-08-04T19:44:21',
           sportType: 'Run',
           distance: 7.01,
           movingTime: '00:35:20',
@@ -376,7 +376,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15340745515,
           name: '傍晚跑步',
-          startDate: '2025-08-04T11:24:51Z',
+          startDate: '2025-08-04T19:24:51',
           sportType: 'Run',
           distance: 1.27,
           movingTime: '00:13:46',
@@ -386,8 +386,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15324245852,
-          name: 'SYD 97 - 明志之巔 for 雪梨馬坡度訓練',
-          startDate: '2025-08-02T21:30:33Z',
+          name: 'SYD 97 - 賽事 明志之巔 for 雪梨馬坡度訓練',
+          startDate: '2025-08-03T05:30:33',
           sportType: 'Run',
           distance: 9.17,
           movingTime: '00:44:25',
@@ -398,7 +398,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15324245733,
           name: '晨間跑步',
-          startDate: '2025-08-02T21:11:42Z',
+          startDate: '2025-08-03T05:11:42',
           sportType: 'Run',
           distance: 0.73,
           movingTime: '00:05:28',
@@ -409,7 +409,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15316536616,
           name: '午後跑步',
-          startDate: '2025-08-02T08:32:39Z',
+          startDate: '2025-08-02T16:32:39',
           sportType: 'Run',
           distance: 1.11,
           movingTime: '00:12:04',
@@ -420,7 +420,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15316536548,
           name: '午後跑步',
-          startDate: '2025-08-02T08:28:31Z',
+          startDate: '2025-08-02T16:28:31',
           sportType: 'Run',
           distance: 0.24,
           movingTime: '00:01:21',
@@ -431,7 +431,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15316536587,
           name: '午後跑步',
-          startDate: '2025-08-02T07:42:50Z',
+          startDate: '2025-08-02T15:42:50',
           sportType: 'Run',
           distance: 1.33,
           movingTime: '00:09:03',
@@ -442,7 +442,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15313540019,
           name: '晨間跑步',
-          startDate: '2025-08-01T23:14:59Z',
+          startDate: '2025-08-02T07:14:59',
           sportType: 'Run',
           distance: 3.01,
           movingTime: '00:19:20',
@@ -452,8 +452,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15313540134,
-          name: 'SYD 96 - warn up 2k + zone2 21k + cool down 3k',
-          startDate: '2025-08-01T21:15:10Z',
+          name: 'SYD 96 - Long Run  wp 2k + z2 21k + cd 3k',
+          startDate: '2025-08-02T05:15:10',
           sportType: 'Run',
           distance: 21.01,
           movingTime: '01:42:27',
@@ -464,7 +464,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15313536281,
           name: '晨間跑步',
-          startDate: '2025-08-01T21:00:07Z',
+          startDate: '2025-08-02T05:00:07',
           sportType: 'Run',
           distance: 2.02,
           movingTime: '00:10:38',
@@ -485,7 +485,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15298029735,
           name: '晚間跑步',
-          startDate: '2025-07-31T13:05:41Z',
+          startDate: '2025-07-31T21:05:41',
           sportType: 'Run',
           distance: 1.07,
           movingTime: '00:13:21',
@@ -495,8 +495,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15298028823,
-          name: 'SYD 95 -  2k 馬配 + 3k 半馬配 + 4k 馬配',
-          startDate: '2025-07-31T11:32:26Z',
+          name: 'SYD 95 - 金字塔 2k mp + 3k hmp + 4k mp',
+          startDate: '2025-07-31T19:32:26',
           sportType: 'Run',
           distance: 9.44,
           movingTime: '00:46:44',
@@ -507,7 +507,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15298028809,
           name: '傍晚跑步',
-          startDate: '2025-07-31T11:04:09Z',
+          startDate: '2025-07-31T19:04:09',
           sportType: 'Run',
           distance: 3.35,
           movingTime: '00:24:09',
@@ -518,7 +518,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15298023381,
           name: '傍晚跑步',
-          startDate: '2025-07-31T10:20:26Z',
+          startDate: '2025-07-31T18:20:26',
           sportType: 'Run',
           distance: 5.06,
           movingTime: '00:28:24',
@@ -529,7 +529,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15286379273,
           name: '傍晚跑步',
-          startDate: '2025-07-30T12:19:49Z',
+          startDate: '2025-07-30T20:19:49',
           sportType: 'Run',
           distance: 3.72,
           movingTime: '00:18:52',
@@ -540,7 +540,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15286379416,
           name: '傍晚跑步',
-          startDate: '2025-07-30T11:44:38Z',
+          startDate: '2025-07-30T19:44:38',
           sportType: 'Run',
           distance: 1.01,
           movingTime: '00:11:55',
@@ -550,8 +550,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15286379277,
-          name: 'SYD 94 - easy run 10k + 600*4+800*1 pace 4:30-4:40 r3min',
-          startDate: '2025-07-30T10:26:55Z',
+          name: 'SYD 94 - Easy Run 10k + 600*4+800*1 pace 4:30-4:40 r3min',
+          startDate: '2025-07-30T18:26:55',
           sportType: 'Run',
           distance: 10.23,
           movingTime: '00:55:46',
@@ -562,7 +562,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15274295878,
           name: '傍晚跑步',
-          startDate: '2025-07-29T12:43:37Z',
+          startDate: '2025-07-29T20:43:37',
           sportType: 'Run',
           distance: 1.3,
           movingTime: '00:10:21',
@@ -572,8 +572,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15274295949,
-          name: 'SYD 93 - 1000m*7 r400m',
-          startDate: '2025-07-29T11:36:38Z',
+          name: 'SYD 93 - 長間歇 1000m*7 200m p52-54 r400m',
+          startDate: '2025-07-29T19:36:38',
           sportType: 'Run',
           distance: 10.14,
           movingTime: '01:00:01',
@@ -584,7 +584,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15274295840,
           name: '傍晚跑步',
-          startDate: '2025-07-29T11:20:14Z',
+          startDate: '2025-07-29T19:20:14',
           sportType: 'Run',
           distance: 1.01,
           movingTime: '00:06:56',
@@ -595,7 +595,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15263132937,
           name: '傍晚跑步',
-          startDate: '2025-07-28T12:47:46Z',
+          startDate: '2025-07-28T20:47:46',
           sportType: 'Run',
           distance: 1.29,
           movingTime: '00:14:01',
@@ -605,8 +605,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15263132948,
-          name: 'SYD 92 - 1 hour easy run(跑步機）',
-          startDate: '2025-07-28T11:32:13Z',
+          name: 'SYD 92 - Easy Run 1 hour (跑步機）',
+          startDate: '2025-07-28T19:32:13',
           sportType: 'Run',
           distance: 13.1,
           movingTime: '01:00:43',
@@ -617,7 +617,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15263132952,
           name: '傍晚跑步',
-          startDate: '2025-07-28T11:12:56Z',
+          startDate: '2025-07-28T19:12:56',
           sportType: 'Run',
           distance: 1.23,
           movingTime: '00:13:20',
@@ -627,8 +627,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15247421890,
-          name: 'SYD 91 - 10k easy run',
-          startDate: '2025-07-26T22:43:36Z',
+          name: 'SYD 91 - Easy Run 10k',
+          startDate: '2025-07-27T06:43:36',
           sportType: 'Run',
           distance: 10.01,
           movingTime: '00:59:17',
@@ -639,7 +639,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15247418934,
           name: '晨間跑步',
-          startDate: '2025-07-26T22:23:36Z',
+          startDate: '2025-07-27T06:23:36',
           sportType: 'Run',
           distance: 2.19,
           movingTime: '00:16:26',
@@ -650,7 +650,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15239177197,
           name: '午後跑步',
-          startDate: '2025-07-26T08:36:38Z',
+          startDate: '2025-07-26T16:36:38',
           sportType: 'Run',
           distance: 0.33,
           movingTime: '00:05:28',
@@ -661,7 +661,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15239170896,
           name: '午後跑步',
-          startDate: '2025-07-26T08:17:10Z',
+          startDate: '2025-07-26T16:17:10',
           sportType: 'Run',
           distance: 2.57,
           movingTime: '00:17:52',
@@ -672,7 +672,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15239170693,
           name: '午後跑步',
-          startDate: '2025-07-26T07:37:09Z',
+          startDate: '2025-07-26T15:37:09',
           sportType: 'Run',
           distance: 1.9,
           movingTime: '00:11:32',
@@ -683,7 +683,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15236663699,
           name: '晨間跑步',
-          startDate: '2025-07-25T23:54:04Z',
+          startDate: '2025-07-26T07:54:04',
           sportType: 'Run',
           distance: 3.01,
           movingTime: '00:21:02',
@@ -693,8 +693,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15236663974,
-          name: 'SYD 90 - wp  2k + zone2 25k + cd 3k',
-          startDate: '2025-07-25T21:29:53Z',
+          name: 'SYD 90 - Long Run  wp  2k + z2 25k + cd 3k',
+          startDate: '2025-07-26T05:29:53',
           sportType: 'Run',
           distance: 25.01,
           movingTime: '02:05:13',
@@ -705,7 +705,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15236657375,
           name: '晨間跑步',
-          startDate: '2025-07-25T21:08:59Z',
+          startDate: '2025-07-26T05:08:59',
           sportType: 'Run',
           distance: 2.02,
           movingTime: '00:11:48',
@@ -716,7 +716,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15220334707,
           name: '傍晚跑步',
-          startDate: '2025-07-24T11:50:46Z',
+          startDate: '2025-07-24T19:50:46',
           sportType: 'Run',
           distance: 0.89,
           movingTime: '00:07:06',
@@ -726,8 +726,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15220334972,
-          name: 'SYD 89 - 5k 5:00-5:10 + 5k 4:50-5:00',
-          startDate: '2025-07-24T11:00:51Z',
+          name: 'SYD 89 - 漸速跑 5k 5:00-5:10 + 5k 4:50-5:00',
+          startDate: '2025-07-24T19:00:51',
           sportType: 'Run',
           distance: 10.01,
           movingTime: '00:49:02',
@@ -738,7 +738,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15220334788,
           name: '傍晚跑步',
-          startDate: '2025-07-24T10:28:57Z',
+          startDate: '2025-07-24T18:28:57',
           sportType: 'Run',
           distance: 5.02,
           movingTime: '00:29:03',
@@ -749,7 +749,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15209727744,
           name: '傍晚跑步',
-          startDate: '2025-07-23T12:21:31Z',
+          startDate: '2025-07-23T20:21:31',
           sportType: 'Run',
           distance: 3.05,
           movingTime: '00:16:21',
@@ -760,7 +760,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15209722121,
           name: '傍晚跑步',
-          startDate: '2025-07-23T11:51:07Z',
+          startDate: '2025-07-23T19:51:07',
           sportType: 'Run',
           distance: 1,
           movingTime: '00:07:20',
@@ -770,8 +770,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15209722228,
-          name: 'SYD 88 - easy run 10k + 400m*5 115-120s r200m',
-          startDate: '2025-07-23T10:14:30Z',
+          name: 'SYD 88 - Easy Run 10k + 400m*5 115-120s r200m',
+          startDate: '2025-07-23T18:14:30',
           sportType: 'Run',
           distance: 10.02,
           movingTime: '00:56:36',
@@ -782,7 +782,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15198047452,
           name: '傍晚跑步',
-          startDate: '2025-07-22T12:59:35Z',
+          startDate: '2025-07-22T20:59:35',
           sportType: 'Run',
           distance: 1.01,
           movingTime: '00:06:11',
@@ -792,8 +792,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15198047466,
-          name: 'SYD 87 - 400m間歇*6.5 p90s',
-          startDate: '2025-07-22T12:21:08Z',
+          name: 'SYD 87 - 短間歇 400m * 6.5 p90s',
+          startDate: '2025-07-22T20:21:08',
           sportType: 'Run',
           distance: 2.91,
           movingTime: '00:11:49',
@@ -804,7 +804,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15198047473,
           name: '傍晚跑步',
-          startDate: '2025-07-22T11:45:09Z',
+          startDate: '2025-07-22T19:45:09',
           sportType: 'Run',
           distance: 1.83,
           movingTime: '00:14:07',
@@ -815,7 +815,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15198042135,
           name: '傍晚跑步',
-          startDate: '2025-07-22T11:37:17Z',
+          startDate: '2025-07-22T19:37:17',
           sportType: 'Run',
           distance: 1.01,
           movingTime: '00:06:58',
@@ -826,7 +826,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15198042286,
           name: '傍晚跑步',
-          startDate: '2025-07-22T10:34:08Z',
+          startDate: '2025-07-22T18:34:08',
           sportType: 'Run',
           distance: 5.17,
           movingTime: '00:33:05',
@@ -837,7 +837,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15186543667,
           name: '傍晚跑步',
-          startDate: '2025-07-21T12:57:38Z',
+          startDate: '2025-07-21T20:57:38',
           sportType: 'Run',
           distance: 1.22,
           movingTime: '00:09:17',
@@ -847,8 +847,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15186543666,
-          name: 'SYD 86 - easy run 30min(跑步機）',
-          startDate: '2025-07-21T11:30:21Z',
+          name: 'SYD 86 - Easy Run 30min(跑步機）',
+          startDate: '2025-07-21T19:30:21',
           sportType: 'Run',
           distance: 6.09,
           movingTime: '00:30:12',
@@ -859,7 +859,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15186543686,
           name: '傍晚跑步',
-          startDate: '2025-07-21T11:14:15Z',
+          startDate: '2025-07-21T19:14:15',
           sportType: 'Run',
           distance: 1.25,
           movingTime: '00:13:34',
@@ -869,8 +869,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15171656958,
-          name: 'SYD 85 -  easy run 10k',
-          startDate: '2025-07-20T01:26:35Z',
+          name: 'SYD 85 -  Easy Run 10k',
+          startDate: '2025-07-20T09:26:35',
           sportType: 'Run',
           distance: 10.72,
           movingTime: '01:05:55',
@@ -880,8 +880,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15159997113,
-          name: 'SYD 84 - zone2 30k',
-          startDate: '2025-07-18T21:04:14Z',
+          name: 'SYD 84 - Long Run z2 30k',
+          startDate: '2025-07-19T05:04:14',
           sportType: 'Run',
           distance: 30.01,
           movingTime: '02:38:47',
@@ -892,7 +892,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15159993440,
           name: '晨間跑步',
-          startDate: '2025-07-18T20:46:14Z',
+          startDate: '2025-07-19T04:46:14',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:12:56',
@@ -903,7 +903,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15143889086,
           name: '傍晚跑步',
-          startDate: '2025-07-17T12:02:17Z',
+          startDate: '2025-07-17T20:02:17',
           sportType: 'Run',
           distance: 1.02,
           movingTime: '00:07:52',
@@ -913,8 +913,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15143889147,
-          name: 'SYD 83 - marathon pace 5k*2',
-          startDate: '2025-07-17T11:05:28Z',
+          name: 'SYD 83 - Tempo mp 5k*2 400m p116-118s',
+          startDate: '2025-07-17T19:05:28',
           sportType: 'Run',
           distance: 10.31,
           movingTime: '00:50:48',
@@ -925,7 +925,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15143889084,
           name: '傍晚跑步',
-          startDate: '2025-07-17T10:52:05Z',
+          startDate: '2025-07-17T18:52:05',
           sportType: 'Run',
           distance: 1.02,
           movingTime: '00:07:05',
@@ -935,8 +935,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15133091582,
-          name: 'SYD 82 - 200*5 走休2m30s',
-          startDate: '2025-07-16T12:24:27Z',
+          name: 'SYD 82 - 短間歇 200m*5 r150s',
+          startDate: '2025-07-16T20:24:27',
           sportType: 'Run',
           distance: 2.09,
           movingTime: '00:17:15',
@@ -947,7 +947,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15133091558,
           name: '傍晚跑步',
-          startDate: '2025-07-16T12:01:58Z',
+          startDate: '2025-07-16T20:01:58',
           sportType: 'Run',
           distance: 1,
           movingTime: '00:07:49',
@@ -958,7 +958,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15133085312,
           name: '傍晚跑步',
-          startDate: '2025-07-16T10:25:13Z',
+          startDate: '2025-07-16T18:25:13',
           sportType: 'Run',
           distance: 5.01,
           movingTime: '00:31:53',
@@ -968,8 +968,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15127928077,
-          name: 'SYD 81 -  真緩長跑',
-          startDate: '2025-07-15T11:37:30Z',
+          name: 'SYD 81 -  Easy Run 1 hour',
+          startDate: '2025-07-15T19:37:30',
           sportType: 'Run',
           distance: 10.65,
           movingTime: '01:06:23',
@@ -980,7 +980,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15127927757,
           name: '傍晚跑步',
-          startDate: '2025-07-15T10:43:50Z',
+          startDate: '2025-07-15T18:43:50',
           sportType: 'Run',
           distance: 5.18,
           movingTime: '00:33:23',
@@ -991,7 +991,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15110482106,
           name: '傍晚跑步',
-          startDate: '2025-07-14T12:58:08Z',
+          startDate: '2025-07-14T20:58:08',
           sportType: 'Run',
           distance: 1.25,
           movingTime: '00:08:43',
@@ -1001,8 +1001,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15110481936,
-          name: 'SYD 80 - 低心率恢復跑（跑步機）',
-          startDate: '2025-07-14T11:35:46Z',
+          name: 'SYD 80 - 恢復跑 低心率30min(跑步機)',
+          startDate: '2025-07-14T19:35:46',
           sportType: 'Run',
           distance: 5.27,
           movingTime: '00:28:24',
@@ -1013,7 +1013,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15110482103,
           name: '傍晚跑步',
-          startDate: '2025-07-14T11:22:47Z',
+          startDate: '2025-07-14T19:22:47',
           sportType: 'Run',
           distance: 1.22,
           movingTime: '00:08:53',
@@ -1024,7 +1024,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15095647730,
           name: '晨間跑步',
-          startDate: '2025-07-13T02:22:42Z',
+          startDate: '2025-07-13T10:22:42',
           sportType: 'Run',
           distance: 0.37,
           movingTime: '00:02:40',
@@ -1034,8 +1034,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15095647881,
-          name: 'SYD 79 - easy run (X) 耐熱訓練（O)',
-          startDate: '2025-07-12T21:39:40Z',
+          name: 'SYD 79 - Easy Run 四號水門->鴨頭->大稻埕',
+          startDate: '2025-07-13T05:39:40',
           sportType: 'Run',
           distance: 26.09,
           movingTime: '02:48:35',
@@ -1046,7 +1046,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15083829015,
           name: '晨間跑步',
-          startDate: '2025-07-11T23:32:45Z',
+          startDate: '2025-07-12T07:32:45',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:12:29',
@@ -1056,8 +1056,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15083825442,
-          name: 'SYD 78 -  2k warm up + 20k zone 2   + 2k cool down',
-          startDate: '2025-07-11T21:36:13Z',
+          name: 'SYD 78 - Long Run wp 2k + z2 20k   + cd 2k',
+          startDate: '2025-07-12T05:36:13',
           sportType: 'Run',
           distance: 20.01,
           movingTime: '01:44:18',
@@ -1068,7 +1068,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15083825362,
           name: '晨間跑步',
-          startDate: '2025-07-11T21:18:09Z',
+          startDate: '2025-07-12T05:18:09',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:12:30',
@@ -1078,8 +1078,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15078999430,
-          name: 'SYD 77 - easy run 8k',
-          startDate: '2025-07-11T12:35:40Z',
+          name: 'SYD 77 - Easy Run 8k',
+          startDate: '2025-07-11T20:35:40',
           sportType: 'Run',
           distance: 8.14,
           movingTime: '00:48:39',
@@ -1090,7 +1090,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15068248194,
           name: 'SYD 76 - 法特雷克 上坡快下坡慢*8',
-          startDate: '2025-07-10T11:54:11Z',
+          startDate: '2025-07-10T19:54:11',
           sportType: 'Run',
           distance: 10.55,
           movingTime: '01:06:08',
@@ -1101,7 +1101,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15057362608,
           name: '晚間跑步',
-          startDate: '2025-07-09T13:32:12Z',
+          startDate: '2025-07-09T21:32:12',
           sportType: 'Run',
           distance: 1.22,
           movingTime: '00:11:46',
@@ -1111,8 +1111,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15057362611,
-          name: 'SYD 75 - 低心率恢復跑1hr(跑步機）',
-          startDate: '2025-07-09T12:28:04Z',
+          name: 'SYD 75 -  恢復跑 低心率1hr(跑步機）',
+          startDate: '2025-07-09T20:28:04',
           sportType: 'Run',
           distance: 13.18,
           movingTime: '01:00:30',
@@ -1123,7 +1123,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15057357460,
           name: '傍晚跑步',
-          startDate: '2025-07-09T11:15:31Z',
+          startDate: '2025-07-09T19:15:31',
           sportType: 'Run',
           distance: 1.21,
           movingTime: '00:11:36',
@@ -1133,8 +1133,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15045886462,
-          name: 'SYD 74 - 安森*4 p4:40 r3:00',
-          startDate: '2025-07-08T11:55:14Z',
+          name: 'SYD 74 - 長間歇 安森*4 p4:40 r3:00',
+          startDate: '2025-07-08T19:55:14',
           sportType: 'Run',
           distance: 9.35,
           movingTime: '00:48:36',
@@ -1145,7 +1145,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15045886220,
           name: '傍晚跑步',
-          startDate: '2025-07-08T11:33:58Z',
+          startDate: '2025-07-08T19:33:58',
           sportType: 'Run',
           distance: 2.31,
           movingTime: '00:13:40',
@@ -1156,7 +1156,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15045886434,
           name: '傍晚跑步',
-          startDate: '2025-07-08T10:17:10Z',
+          startDate: '2025-07-08T18:17:10',
           sportType: 'Run',
           distance: 5.36,
           movingTime: '00:30:53',
@@ -1166,8 +1166,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15019537022,
-          name: 'SYD 73 - 明志之顛團練',
-          startDate: '2025-07-05T21:36:24Z',
+          name: 'SYD 73 - 坡度訓練 明志之顛團練',
+          startDate: '2025-07-06T05:36:24',
           sportType: 'Run',
           distance: 9.08,
           movingTime: '00:53:24',
@@ -1178,7 +1178,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15012616791,
           name: '帶小朋友跑步',
-          startDate: '2025-07-05T08:25:59Z',
+          startDate: '2025-07-05T16:25:59',
           sportType: 'Run',
           distance: 1.31,
           movingTime: '00:13:37',
@@ -1188,8 +1188,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15009580996,
-          name: 'SYD 72 - zone 2 20k',
-          startDate: '2025-07-04T20:55:07Z',
+          name: 'SYD 72 - Long Run z2 20k',
+          startDate: '2025-07-05T04:55:07',
           sportType: 'Run',
           distance: 20.01,
           movingTime: '01:52:28',
@@ -1200,7 +1200,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15004906741,
           name: '晚間跑步',
-          startDate: '2025-07-04T13:17:07Z',
+          startDate: '2025-07-04T21:17:07',
           sportType: 'Run',
           distance: 1.09,
           movingTime: '00:07:54',
@@ -1211,7 +1211,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15004906765,
           name: '傍晚跑步',
-          startDate: '2025-07-04T12:28:42Z',
+          startDate: '2025-07-04T20:28:42',
           sportType: 'Run',
           distance: 0.45,
           movingTime: '00:03:01',
@@ -1221,8 +1221,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 15004906785,
-          name: 'SYD 71 - tempo 5k',
-          startDate: '2025-07-04T12:01:50Z',
+          name: 'SYD 71 - Tempo 5k',
+          startDate: '2025-07-04T20:01:50',
           sportType: 'Run',
           distance: 5.07,
           movingTime: '00:22:31',
@@ -1233,7 +1233,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15004906748,
           name: '傍晚跑步',
-          startDate: '2025-07-04T11:42:31Z',
+          startDate: '2025-07-04T19:42:31',
           sportType: 'Run',
           distance: 1.11,
           movingTime: '00:07:02',
@@ -1244,7 +1244,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 15004906624,
           name: '傍晚跑步',
-          startDate: '2025-07-04T10:20:53Z',
+          startDate: '2025-07-04T18:20:53',
           sportType: 'Run',
           distance: 5.05,
           movingTime: '00:30:32',
@@ -1254,8 +1254,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14994356232,
-          name: 'SYD 70 -低心率輕鬆跑',
-          startDate: '2025-07-03T12:13:17Z',
+          name: 'SYD 70 - Easy Run 12k',
+          startDate: '2025-07-03T20:13:17',
           sportType: 'Run',
           distance: 12.19,
           movingTime: '01:13:44',
@@ -1265,8 +1265,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14983805695,
-          name: 'SYD 69 - 恢復跑7k',
-          startDate: '2025-07-02T12:34:47Z',
+          name: 'SYD 69 - 恢復跑 7k',
+          startDate: '2025-07-02T20:34:47',
           sportType: 'Run',
           distance: 7.09,
           movingTime: '00:42:00',
@@ -1286,8 +1286,8 @@ export const mockTrainingData: TrainingResponseData = {
       trainingRecords: [
         {
           id: 14959622368,
-          name: 'SYD 68- 單攻嘉明湖破12hr',
-          startDate: '2025-06-29T17:12:38Z',
+          name: 'SYD 68 - 越野跑 嘉明湖單攻',
+          startDate: '2025-06-30T01:12:38',
           sportType: 'TrailRun',
           distance: 28.61,
           movingTime: '06:58:23',
@@ -1298,7 +1298,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14947992694,
           name: '晨間跑步',
-          startDate: '2025-06-29T02:05:37Z',
+          startDate: '2025-06-29T10:05:37',
           sportType: 'Run',
           distance: 5.82,
           movingTime: '00:37:05',
@@ -1308,8 +1308,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14947448557,
-          name: 'SYD 67 - 信慢傳愛逐峰 第二日 6k+6k',
-          startDate: '2025-06-29T00:05:04Z',
+          name: 'SYD 67 - Tempo 信慢傳愛逐峰 第二日 6k+6k',
+          startDate: '2025-06-29T08:05:04',
           sportType: 'Run',
           distance: 6.31,
           movingTime: '00:32:08',
@@ -1320,7 +1320,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14947448446,
           name: '晨間跑步',
-          startDate: '2025-06-28T23:14:31Z',
+          startDate: '2025-06-29T07:14:31',
           sportType: 'Run',
           distance: 0.09,
           movingTime: '00:00:45',
@@ -1331,7 +1331,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14938663491,
           name: '午后跑步',
-          startDate: '2025-06-28T05:30:19Z',
+          startDate: '2025-06-28T13:30:19',
           sportType: 'Run',
           distance: 1.03,
           movingTime: '00:07:18',
@@ -1342,7 +1342,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14938663515,
           name: '午間跑步',
-          startDate: '2025-06-28T03:09:15Z',
+          startDate: '2025-06-28T11:09:15',
           sportType: 'Run',
           distance: 5.3,
           movingTime: '00:31:12',
@@ -1353,7 +1353,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14938663627,
           name: '晨間跑步',
-          startDate: '2025-06-28T01:33:56Z',
+          startDate: '2025-06-28T09:33:56',
           sportType: 'Run',
           distance: 6.16,
           movingTime: '00:29:42',
@@ -1363,8 +1363,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14936644245,
-          name: 'SYD 66 - 信慢傳愛逐峰/耕跑愛到最高點 第一日 12k+6k+6k',
-          startDate: '2025-06-27T22:11:42Z',
+          name: 'SYD 66 -  Tempo 信慢傳愛逐峰 第一日 12k+6k+6k',
+          startDate: '2025-06-28T06:11:42',
           sportType: 'Run',
           distance: 11.76,
           movingTime: '01:04:46',
@@ -1375,7 +1375,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14911553767,
           name: '晚間跑步',
-          startDate: '2025-06-25T13:16:32Z',
+          startDate: '2025-06-25T21:16:32',
           sportType: 'Run',
           distance: 1.21,
           movingTime: '00:09:19',
@@ -1385,8 +1385,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14911553756,
-          name: 'SYD 65 - 恢復30min',
-          startDate: '2025-06-25T12:14:12Z',
+          name: 'SYD 65 - 恢復跑 30min(跑步機)',
+          startDate: '2025-06-25T20:14:12',
           sportType: 'Run',
           distance: 7.21,
           movingTime: '00:32:38',
@@ -1397,7 +1397,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14911553878,
           name: '傍晚跑步',
-          startDate: '2025-06-25T12:01:35Z',
+          startDate: '2025-06-25T20:01:35',
           sportType: 'Run',
           distance: 1.2,
           movingTime: '00:08:12',
@@ -1408,7 +1408,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14901110455,
           name: 'SYD 64 - 法特雷克 大安森*5',
-          startDate: '2025-06-24T11:53:21Z',
+          startDate: '2025-06-24T19:53:21',
           sportType: 'Run',
           distance: 11.6,
           movingTime: '01:00:03',
@@ -1419,7 +1419,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14901110511,
           name: '傍晚跑步',
-          startDate: '2025-06-24T10:40:40Z',
+          startDate: '2025-06-24T18:40:40',
           sportType: 'Run',
           distance: 5.1,
           movingTime: '00:32:17',
@@ -1429,8 +1429,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14890304723,
-          name: 'SYD 63 - easy run 1 hour',
-          startDate: '2025-06-23T12:07:35Z',
+          name: 'SYD 63 - Easy Run 1 hour',
+          startDate: '2025-06-23T20:07:35',
           sportType: 'Run',
           distance: 10.34,
           movingTime: '01:00:32',
@@ -1441,7 +1441,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14876042637,
           name: '晨間跑步',
-          startDate: '2025-06-22T02:31:08Z',
+          startDate: '2025-06-22T10:31:08',
           sportType: 'Run',
           distance: 1.19,
           movingTime: '00:07:06',
@@ -1451,8 +1451,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14876000733,
-          name: 'SYD 62 - 馬配40min + easy 20min(跑步機）',
-          startDate: '2025-06-22T00:00:31Z',
+          name: 'SYD 62 - Tempo mp 40min + cd 20min(跑步機）',
+          startDate: '2025-06-22T08:00:31',
           sportType: 'Run',
           distance: 10.52,
           movingTime: '01:00:02',
@@ -1463,7 +1463,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14875569649,
           name: '晨間跑步',
-          startDate: '2025-06-21T23:41:38Z',
+          startDate: '2025-06-22T07:41:38',
           sportType: 'Run',
           distance: 1.17,
           movingTime: '00:07:44',
@@ -1474,7 +1474,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14864931587,
           name: '晨間跑步',
-          startDate: '2025-06-20T23:44:07Z',
+          startDate: '2025-06-21T07:44:07',
           sportType: 'Run',
           distance: 3,
           movingTime: '00:33:05',
@@ -1484,8 +1484,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14864931676,
-          name: 'SYD 61 - LSD 與珊神共跑',
-          startDate: '2025-06-20T21:05:06Z',
+          name: 'SYD 61 - Long Run 25k 與珊神共跑',
+          startDate: '2025-06-21T05:05:06',
           sportType: 'Run',
           distance: 25.01,
           movingTime: '02:24:00',
@@ -1496,7 +1496,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14864928280,
           name: '晨間跑步',
-          startDate: '2025-06-20T20:44:04Z',
+          startDate: '2025-06-21T04:44:04',
           sportType: 'Run',
           distance: 2.02,
           movingTime: '00:12:37',
@@ -1507,7 +1507,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14849491932,
           name: 'SYD 60 - 法特雷克 上坡快下坡慢*5',
-          startDate: '2025-06-19T12:21:59Z',
+          startDate: '2025-06-19T20:21:59',
           sportType: 'Run',
           distance: 7.01,
           movingTime: '00:45:44',
@@ -1518,7 +1518,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14839145861,
           name: '晚間跑步',
-          startDate: '2025-06-18T13:44:32Z',
+          startDate: '2025-06-18T21:44:32',
           sportType: 'Run',
           distance: 1.17,
           movingTime: '00:08:12',
@@ -1528,8 +1528,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14838950541,
-          name: 'SYD 59 - 恢復 1hour(跑步機）',
-          startDate: '2025-06-18T12:00:51Z',
+          name: 'SYD 59 - 恢復跑 1hour(跑步機）',
+          startDate: '2025-06-18T20:00:51',
           sportType: 'Run',
           distance: 13.19,
           movingTime: '01:00:02',
@@ -1540,7 +1540,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14838945705,
           name: '傍晚跑步',
-          startDate: '2025-06-18T11:46:11Z',
+          startDate: '2025-06-18T19:46:11',
           sportType: 'Run',
           distance: 1.24,
           movingTime: '00:08:41',
@@ -1550,8 +1550,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14827725525,
-          name: 'SYD 58 - 間歇  跑800+跑休800*6',
-          startDate: '2025-06-17T12:10:25Z',
+          name: 'SYD 58 - 短間歇  800m*6 r800m',
+          startDate: '2025-06-17T20:10:25',
           sportType: 'Run',
           distance: 9.72,
           movingTime: '00:55:59',
@@ -1562,7 +1562,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14827725328,
           name: '傍晚跑步',
-          startDate: '2025-06-17T11:59:45Z',
+          startDate: '2025-06-17T19:59:45',
           sportType: 'Run',
           distance: 0.63,
           movingTime: '00:04:04',
@@ -1573,7 +1573,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14827720275,
           name: '傍晚跑步',
-          startDate: '2025-06-17T11:37:43Z',
+          startDate: '2025-06-17T19:37:43',
           sportType: 'Run',
           distance: 0.62,
           movingTime: '00:04:46',
@@ -1584,7 +1584,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14827720286,
           name: '傍晚跑步',
-          startDate: '2025-06-17T11:32:32Z',
+          startDate: '2025-06-17T19:32:32',
           sportType: 'Run',
           distance: 0.26,
           movingTime: '00:02:56',
@@ -1595,7 +1595,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14827720412,
           name: '傍晚跑步',
-          startDate: '2025-06-17T10:36:03Z',
+          startDate: '2025-06-17T18:36:03',
           sportType: 'Run',
           distance: 5.13,
           movingTime: '00:31:09',
@@ -1605,8 +1605,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14802707865,
-          name: 'SYD 57 - easy run(跑步機）30min+器材*4+40min',
-          startDate: '2025-06-15T03:16:31Z',
+          name: 'SYD 57 - Easy Run 30min(跑步機)+器材*4+Easy Run 40min',
+          startDate: '2025-06-15T11:16:31',
           sportType: 'Run',
           distance: 8.55,
           movingTime: '00:40:01',
@@ -1617,7 +1617,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14802707943,
           name: '晨間跑步',
-          startDate: '2025-06-15T01:52:40Z',
+          startDate: '2025-06-15T09:52:40',
           sportType: 'Run',
           distance: 7.07,
           movingTime: '00:32:13',
@@ -1628,7 +1628,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14791304784,
           name: '晨間跑步',
-          startDate: '2025-06-14T00:12:24Z',
+          startDate: '2025-06-14T08:12:24',
           sportType: 'Run',
           distance: 0.34,
           movingTime: '00:03:55',
@@ -1638,8 +1638,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14791257279,
-          name: 'SYD 56 -汐鴿初體驗',
-          startDate: '2025-06-13T20:38:30Z',
+          name: 'SYD 56 - Long Run 汐鴿初體驗',
+          startDate: '2025-06-14T04:38:30',
           sportType: 'Run',
           distance: 27.62,
           movingTime: '02:34:31',
@@ -1650,7 +1650,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14765627451,
           name: '晚間跑步',
-          startDate: '2025-06-11T13:03:01Z',
+          startDate: '2025-06-11T21:03:01',
           sportType: 'Run',
           distance: 1.22,
           movingTime: '00:08:07',
@@ -1660,8 +1660,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14765627560,
-          name: 'SYD 55 - easy run 30min(跑步機）',
-          startDate: '2025-06-11T11:50:41Z',
+          name: 'SYD 55 - Easy Run 30min(跑步機）',
+          startDate: '2025-06-11T19:50:41',
           sportType: 'Run',
           distance: 6.48,
           movingTime: '00:30:05',
@@ -1672,7 +1672,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14765627554,
           name: '傍晚跑步',
-          startDate: '2025-06-11T11:07:53Z',
+          startDate: '2025-06-11T19:07:53',
           sportType: 'Run',
           distance: 1.18,
           movingTime: '00:07:39',
@@ -1683,7 +1683,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14755259099,
           name: '傍晚跑步',
-          startDate: '2025-06-10T12:59:55Z',
+          startDate: '2025-06-10T20:59:55',
           sportType: 'Run',
           distance: 1,
           movingTime: '00:05:32',
@@ -1693,8 +1693,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14755254340,
-          name: 'SYD 54 - 巡迴訓練',
-          startDate: '2025-06-10T12:16:41Z',
+          name: 'SYD 54 - Easy Run 巡迴訓練',
+          startDate: '2025-06-10T20:16:41',
           sportType: 'Run',
           distance: 3.04,
           movingTime: '00:19:13',
@@ -1705,7 +1705,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14755254469,
           name: '傍晚跑步',
-          startDate: '2025-06-10T11:41:52Z',
+          startDate: '2025-06-10T19:41:52',
           sportType: 'Run',
           distance: 3.03,
           movingTime: '00:18:31',
@@ -1716,7 +1716,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14755254447,
           name: '傍晚跑步',
-          startDate: '2025-06-10T11:33:48Z',
+          startDate: '2025-06-10T19:33:48',
           sportType: 'Run',
           distance: 1.01,
           movingTime: '00:06:54',
@@ -1727,7 +1727,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14755254485,
           name: '傍晚跑步',
-          startDate: '2025-06-10T10:47:06Z',
+          startDate: '2025-06-10T18:47:06',
           sportType: 'Run',
           distance: 5.01,
           movingTime: '00:30:20',
@@ -1737,8 +1737,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14744147092,
-          name: 'SYD 53 - 低心率恢復跑 5k',
-          startDate: '2025-06-09T12:28:33Z',
+          name: 'SYD 53 - 恢復跑 低心率 5k',
+          startDate: '2025-06-09T20:28:33',
           sportType: 'Run',
           distance: 5.12,
           movingTime: '00:33:27',
@@ -1749,7 +1749,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14729009789,
           name: '晨間跑步',
-          startDate: '2025-06-07T23:57:55Z',
+          startDate: '2025-06-08T07:57:55',
           sportType: 'Run',
           distance: 3.01,
           movingTime: '00:22:11',
@@ -1759,8 +1759,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14729009981,
-          name: 'SYD 52 - LSD 20k',
-          startDate: '2025-06-07T22:00:21Z',
+          name: 'SYD 52 - Long Run 20k',
+          startDate: '2025-06-08T06:00:21',
           sportType: 'Run',
           distance: 20.01,
           movingTime: '01:48:08',
@@ -1771,7 +1771,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14729009804,
           name: '晨間跑步',
-          startDate: '2025-06-07T21:37:51Z',
+          startDate: '2025-06-08T05:37:51',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:13:05',
@@ -1781,8 +1781,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14720427173,
-          name: 'SYD 51 - 600m slope *5',
-          startDate: '2025-06-07T06:50:43Z',
+          name: 'SYD 51 - 短間歇 600m slope *5',
+          startDate: '2025-06-07T14:50:43',
           sportType: 'Run',
           distance: 7.01,
           movingTime: '00:40:21',
@@ -1793,7 +1793,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14714793431,
           name: '傍晚跑步',
-          startDate: '2025-06-06T12:56:40Z',
+          startDate: '2025-06-06T20:56:40',
           sportType: 'Run',
           distance: 1.81,
           movingTime: '00:12:26',
@@ -1804,7 +1804,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14714793429,
           name: '傍晚跑步',
-          startDate: '2025-06-06T12:43:01Z',
+          startDate: '2025-06-06T20:43:01',
           sportType: 'Run',
           distance: 0.73,
           movingTime: '00:08:12',
@@ -1814,8 +1814,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14714788700,
-          name: 'SYD 50 - 低心率恢復跑',
-          startDate: '2025-06-06T11:41:07Z',
+          name: 'SYD 50 - 恢復跑 低心率8k',
+          startDate: '2025-06-06T19:41:07',
           sportType: 'Run',
           distance: 8.12,
           movingTime: '01:00:05',
@@ -1826,7 +1826,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14714788234,
           name: '傍晚跑步',
-          startDate: '2025-06-06T11:09:41Z',
+          startDate: '2025-06-06T19:09:41',
           sportType: 'Run',
           distance: 1.66,
           movingTime: '00:11:03',
@@ -1837,7 +1837,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14704053262,
           name: '傍晚跑步',
-          startDate: '2025-06-05T12:02:58Z',
+          startDate: '2025-06-05T20:02:58',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:14:34',
@@ -1847,8 +1847,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14704053308,
-          name: 'SYD 49 - 10k pace run + 400m*5',
-          startDate: '2025-06-05T10:48:31Z',
+          name: 'SYD 49 - Tempo 10k pace run + 短間歇 400m*5',
+          startDate: '2025-06-05T18:48:31',
           sportType: 'Run',
           distance: 12.47,
           movingTime: '01:10:12',
@@ -1859,7 +1859,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14704053138,
           name: '傍晚跑步',
-          startDate: '2025-06-05T10:21:39Z',
+          startDate: '2025-06-05T18:21:39',
           sportType: 'Run',
           distance: 2.22,
           movingTime: '00:15:11',
@@ -1869,8 +1869,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14693916987,
-          name: 'SYD 48 - 低心率恢復跑 8k',
-          startDate: '2025-06-04T12:34:16Z',
+          name: 'SYD 48 - 恢復跑 低心率 8k',
+          startDate: '2025-06-04T20:34:16',
           sportType: 'Run',
           distance: 8.12,
           movingTime: '00:51:38',
@@ -1881,7 +1881,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14683726049,
           name: 'SYD 47 - 法特雷克 大安森5圈',
-          startDate: '2025-06-03T12:00:35Z',
+          startDate: '2025-06-03T20:00:35',
           sportType: 'Run',
           distance: 11.52,
           movingTime: '01:00:08',
@@ -1892,7 +1892,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14683725944,
           name: '傍晚跑步',
-          startDate: '2025-06-03T11:35:19Z',
+          startDate: '2025-06-03T19:35:19',
           sportType: 'Run',
           distance: 0.28,
           movingTime: '00:02:32',
@@ -1903,7 +1903,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14683725769,
           name: '傍晚跑步',
-          startDate: '2025-06-03T10:37:06Z',
+          startDate: '2025-06-03T18:37:06',
           sportType: 'Run',
           distance: 5.01,
           movingTime: '00:29:16',
@@ -1913,8 +1913,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14672221529,
-          name: 'SYD 46 - 5k easy run',
-          startDate: '2025-06-02T12:37:16Z',
+          name: 'SYD 46 - Easy Run 5k',
+          startDate: '2025-06-02T20:37:16',
           sportType: 'Run',
           distance: 5.01,
           movingTime: '00:30:40',
@@ -1924,8 +1924,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14662118139,
-          name: 'SYD 45 - easy run 10k',
-          startDate: '2025-06-01T11:27:51Z',
+          name: 'SYD 45 - Easy Run 10k',
+          startDate: '2025-06-01T19:27:51',
           sportType: 'Run',
           distance: 10.01,
           movingTime: '00:57:46',
@@ -1946,7 +1946,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14646881839,
           name: 'SYD 44 - 三汀山三進三出',
-          startDate: '2025-05-30T22:32:35Z',
+          startDate: '2025-05-31T06:32:35',
           sportType: 'TrailRun',
           distance: 19.34,
           movingTime: '03:19:23',
@@ -1957,7 +1957,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14636221980,
           name: '晨間跑步',
-          startDate: '2025-05-29T23:07:33Z',
+          startDate: '2025-05-30T07:07:33',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:13:55',
@@ -1967,8 +1967,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14636222281,
-          name: 'SYD 43 - 1k*5 組休90-120s,每組-6s',
-          startDate: '2025-05-29T22:33:31Z',
+          name: 'SYD 43 - 漸速跑 1k*5 r90-120s 每組-6s',
+          startDate: '2025-05-30T06:33:31',
           sportType: 'Run',
           distance: 5.74,
           movingTime: '00:30:33',
@@ -1979,7 +1979,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14636222227,
           name: '晨間跑步',
-          startDate: '2025-05-29T22:16:01Z',
+          startDate: '2025-05-30T06:16:01',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:14:07',
@@ -1989,8 +1989,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14631688196,
-          name: 'SYD 42 - easy run 12k',
-          startDate: '2025-05-29T12:35:32Z',
+          name: 'SYD 42 - Easy Run 12k',
+          startDate: '2025-05-29T20:35:32',
           sportType: 'Run',
           distance: 12.18,
           movingTime: '01:13:52',
@@ -2000,8 +2000,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14620307408,
-          name: 'SYD 41 - 低心率恢復跑',
-          startDate: '2025-05-28T11:38:02Z',
+          name: 'SYD 41 - 恢復跑 低心率 8k',
+          startDate: '2025-05-28T19:38:02',
           sportType: 'Run',
           distance: 8.01,
           movingTime: '00:57:55',
@@ -2012,7 +2012,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14610470133,
           name: '晚間跑步',
-          startDate: '2025-05-27T13:06:16Z',
+          startDate: '2025-05-27T21:06:16',
           sportType: 'Run',
           distance: 1,
           movingTime: '00:05:56',
@@ -2022,8 +2022,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14610470445,
-          name: 'SYD 40 - 400m間歇*15 pace 95-100',
-          startDate: '2025-05-27T12:03:39Z',
+          name: 'SYD 40 - 短間歇 400m*15 p95-100 r90s',
+          startDate: '2025-05-27T20:03:39',
           sportType: 'Run',
           distance: 7.16,
           movingTime: '00:33:16',
@@ -2034,7 +2034,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14610470117,
           name: '傍晚跑步',
-          startDate: '2025-05-27T11:37:01Z',
+          startDate: '2025-05-27T19:37:01',
           sportType: 'Run',
           distance: 1,
           movingTime: '00:06:33',
@@ -2045,7 +2045,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14610470373,
           name: '傍晚跑步',
-          startDate: '2025-05-27T10:37:11Z',
+          startDate: '2025-05-27T18:37:11',
           sportType: 'Run',
           distance: 5.01,
           movingTime: '00:31:56',
@@ -2055,8 +2055,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14584674791,
-          name: 'SYD 39 - 世壯運zone2 21k',
-          startDate: '2025-05-24T21:00:07Z',
+          name: 'SYD 39 - 賽事 世界壯年運動會半馬組',
+          startDate: '2025-05-25T05:00:07',
           sportType: 'Run',
           distance: 21.33,
           movingTime: '01:49:21',
@@ -2067,7 +2067,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14570003433,
           name: '傍晚跑步',
-          startDate: '2025-05-23T12:43:37Z',
+          startDate: '2025-05-23T20:43:37',
           sportType: 'Run',
           distance: 1.18,
           movingTime: '00:08:19',
@@ -2077,8 +2077,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14569999466,
-          name: 'SYD 38 - 世狀運前隨便跑跑',
-          startDate: '2025-05-23T11:39:50Z',
+          name: 'SYD 38 - Easy Run 世狀運前隨便跑跑',
+          startDate: '2025-05-23T19:39:50',
           sportType: 'Run',
           distance: 10.01,
           movingTime: '00:56:09',
@@ -2088,8 +2088,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14559836723,
-          name: 'SYD 37 - 10k配速跑+看狀況跑速度訓練DNF',
-          startDate: '2025-05-22T10:47:34Z',
+          name: 'SYD 37 - Tempo 6k',
+          startDate: '2025-05-22T18:47:34',
           sportType: 'Run',
           distance: 6.25,
           movingTime: '00:32:21',
@@ -2100,7 +2100,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14559836587,
           name: '傍晚跑步',
-          startDate: '2025-05-22T10:25:03Z',
+          startDate: '2025-05-22T18:25:03',
           sportType: 'Run',
           distance: 2.19,
           movingTime: '00:14:48',
@@ -2110,8 +2110,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14550487900,
-          name: 'SYD 36 - 低心率恢復跑',
-          startDate: '2025-05-21T12:32:02Z',
+          name: 'SYD 36 - 恢復跑 低心率 8k',
+          startDate: '2025-05-21T20:32:02',
           sportType: 'Run',
           distance: 8.03,
           movingTime: '00:55:01',
@@ -2122,7 +2122,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14539707130,
           name: '晚間跑步',
-          startDate: '2025-05-20T13:09:34Z',
+          startDate: '2025-05-20T21:09:34',
           sportType: 'Run',
           distance: 1,
           movingTime: '00:05:44',
@@ -2132,8 +2132,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14539707202,
-          name: 'SYD 35 - 1000m*5 間休200m',
-          startDate: '2025-05-20T12:27:42Z',
+          name: 'SYD 35 - 長間歇 1000m*5 400m p100s r200m',
+          startDate: '2025-05-20T20:27:42',
           sportType: 'Run',
           distance: 6.2,
           movingTime: '00:32:57',
@@ -2144,7 +2144,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14539702504,
           name: '傍晚跑步',
-          startDate: '2025-05-20T11:33:44Z',
+          startDate: '2025-05-20T19:33:44',
           sportType: 'Run',
           distance: 1,
           movingTime: '00:06:36',
@@ -2154,8 +2154,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14528800588,
-          name: 'SYD 34 - easy run 12k',
-          startDate: '2025-05-19T12:28:03Z',
+          name: 'SYD 34 - Easy Run 12k',
+          startDate: '2025-05-19T20:28:03',
           sportType: 'Run',
           distance: 12.01,
           movingTime: '01:09:26',
@@ -2166,7 +2166,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14513264387,
           name: 'DoReMi路跑DNF🤣',
-          startDate: '2025-05-17T23:30:08Z',
+          startDate: '2025-05-18T07:30:08',
           sportType: 'Run',
           distance: 1.5,
           movingTime: '00:14:06',
@@ -2176,8 +2176,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14504068851,
-          name: 'SYD 33- 樹鶯越野跑',
-          startDate: '2025-05-16T23:00:44Z',
+          name: 'SYD 33-  越野跑 樹鶯縱跑',
+          startDate: '2025-05-17T07:00:44',
           sportType: 'TrailRun',
           distance: 15.01,
           movingTime: '03:44:44',
@@ -2188,7 +2188,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14504066946,
           name: '晨間跑步',
-          startDate: '2025-05-16T21:53:02Z',
+          startDate: '2025-05-17T05:53:02',
           sportType: 'Run',
           distance: 5,
           movingTime: '00:31:07',
@@ -2199,7 +2199,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14488576191,
           name: '傍晚跑步',
-          startDate: '2025-05-15T12:34:36Z',
+          startDate: '2025-05-15T20:34:36',
           sportType: 'Run',
           distance: 12.01,
           movingTime: '01:04:12',
@@ -2209,8 +2209,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14477908025,
-          name: 'SYD 32 - 恢復跑+低心率有氧',
-          startDate: '2025-05-14T12:33:22Z',
+          name: 'SYD 32 - 恢復跑 低心率 8k',
+          startDate: '2025-05-14T20:33:22',
           sportType: 'Run',
           distance: 8.01,
           movingTime: '00:55:28',
@@ -2221,7 +2221,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14466872035,
           name: '晚間跑步',
-          startDate: '2025-05-13T13:09:32Z',
+          startDate: '2025-05-13T21:09:32',
           sportType: 'Run',
           distance: 1.01,
           movingTime: '00:05:46',
@@ -2231,8 +2231,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14466872109,
-          name: 'SYD 31 - 200間歇 p45s 跑休200 20趟',
-          startDate: '2025-05-13T12:17:51Z',
+          name: 'SYD 31 - 短間歇 200m*20 p45s r200m',
+          startDate: '2025-05-13T20:17:51',
           sportType: 'Run',
           distance: 8.02,
           movingTime: '00:43:07',
@@ -2243,7 +2243,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14466872014,
           name: '傍晚跑步',
-          startDate: '2025-05-13T11:34:15Z',
+          startDate: '2025-05-13T19:34:15',
           sportType: 'Run',
           distance: 1,
           movingTime: '00:06:01',
@@ -2253,8 +2253,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14456102592,
-          name: 'SYD 30 - easy run 12k',
-          startDate: '2025-05-12T12:29:56Z',
+          name: 'SYD 30 - Easy Run 12k',
+          startDate: '2025-05-12T20:29:56',
           sportType: 'Run',
           distance: 12.01,
           movingTime: '01:07:30',
@@ -2264,8 +2264,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14430442824,
-          name: 'SYD 29 - zone1 15k',
-          startDate: '2025-05-09T22:34:08Z',
+          name: 'SYD 29 - Easy Run 15k',
+          startDate: '2025-05-10T06:34:08',
           sportType: 'Run',
           distance: 15.01,
           movingTime: '01:25:16',
@@ -2276,7 +2276,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14430442754,
           name: '晨間跑步',
-          startDate: '2025-05-09T22:11:38Z',
+          startDate: '2025-05-10T06:11:38',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:13:58',
@@ -2287,7 +2287,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14415017603,
           name: '傍晚跑步',
-          startDate: '2025-05-08T11:37:01Z',
+          startDate: '2025-05-08T19:37:01',
           sportType: 'Run',
           distance: 2.02,
           movingTime: '00:15:22',
@@ -2297,8 +2297,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14415016709,
-          name: 'SYD 28 - 2000m *4 p105 r180s',
-          startDate: '2025-05-08T10:49:01Z',
+          name: 'SYD 28 - 長間歇 2000m*4 p105s r180s',
+          startDate: '2025-05-08T18:49:01',
           sportType: 'Run',
           distance: 8.38,
           movingTime: '00:39:54',
@@ -2309,7 +2309,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14415015732,
           name: '傍晚跑步',
-          startDate: '2025-05-08T10:18:29Z',
+          startDate: '2025-05-08T18:18:29',
           sportType: 'Run',
           distance: 3.09,
           movingTime: '00:20:52',
@@ -2319,8 +2319,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14405017349,
-          name: 'SYD 27 - 低心率慢跑10k',
-          startDate: '2025-05-07T12:07:39Z',
+          name: 'SYD 27 - 恢復跑 低心率10k',
+          startDate: '2025-05-07T20:07:39',
           sportType: 'Run',
           distance: 10.01,
           movingTime: '01:02:29',
@@ -2331,7 +2331,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14394120490,
           name: '傍晚跑步',
-          startDate: '2025-05-06T11:59:05Z',
+          startDate: '2025-05-06T19:59:05',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:14:59',
@@ -2341,8 +2341,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14394119164,
-          name: 'SYD 26 - 400m*25 p120-124s  休5分 + 400m*5 p95s r90s',
-          startDate: '2025-05-06T10:41:36Z',
+          name: 'SYD 26 - Tempo 10k p120-124s  + 短間歇 400m*5 p95s r90s',
+          startDate: '2025-05-06T18:41:36',
           sportType: 'Run',
           distance: 12.85,
           movingTime: '01:14:11',
@@ -2353,7 +2353,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14394117963,
           name: '傍晚跑步',
-          startDate: '2025-05-06T10:13:32Z',
+          startDate: '2025-05-06T18:13:32',
           sportType: 'Run',
           distance: 2,
           movingTime: '00:13:50',
@@ -2363,8 +2363,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14369370287,
-          name: 'SYD 25 - 舒跑杯',
-          startDate: '2025-05-03T22:00:03Z',
+          name: 'SYD 25 - 賽事 舒跑杯',
+          startDate: '2025-05-04T06:00:03',
           sportType: 'Run',
           distance: 8.95,
           movingTime: '00:39:07',
@@ -2375,7 +2375,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14359843647,
           name: '晨間跑步',
-          startDate: '2025-05-03T01:31:29Z',
+          startDate: '2025-05-03T09:31:29',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:15:37',
@@ -2385,8 +2385,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14359843411,
-          name: 'SYD 24 - zone2 22k',
-          startDate: '2025-05-02T22:47:59Z',
+          name: 'SYD 24 - Long Run z2 22k',
+          startDate: '2025-05-03T06:47:59',
           sportType: 'Run',
           distance: 22.01,
           movingTime: '01:54:03',
@@ -2397,7 +2397,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14359842360,
           name: '晨間跑步',
-          startDate: '2025-05-02T22:19:54Z',
+          startDate: '2025-05-03T06:19:54',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:15:20',
@@ -2407,8 +2407,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14349165568,
-          name: 'SYD 23 - 長間歇 2k*2',
-          startDate: '2025-05-01T22:11:33Z',
+          name: 'SYD 23 - 長間歇 2k*2 200m p52-54s r180s',
+          startDate: '2025-05-02T06:11:33',
           sportType: 'Run',
           distance: 5.02,
           movingTime: '00:23:44',
@@ -2419,7 +2419,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14349165209,
           name: '晨間跑步',
-          startDate: '2025-05-01T21:58:58Z',
+          startDate: '2025-05-02T05:58:58',
           sportType: 'Run',
           distance: 1.01,
           movingTime: '00:06:38',
@@ -2429,8 +2429,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14340052097,
-          name: 'SYD 22 - 低心率有氧跑10k',
-          startDate: '2025-05-01T06:07:22Z',
+          name: 'SYD 22 - 恢復跑 低心率10k',
+          startDate: '2025-05-01T14:07:22',
           sportType: 'Run',
           distance: 10,
           movingTime: '01:09:10',
@@ -2451,7 +2451,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14332539170,
           name: '傍晚跑步',
-          startDate: '2025-04-30T12:23:39Z',
+          startDate: '2025-04-30T20:23:39',
           sportType: 'Run',
           distance: 2.1,
           movingTime: '00:13:47',
@@ -2461,8 +2461,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14332538447,
-          name: 'SYD 21 - 亞索800',
-          startDate: '2025-04-30T11:46:58Z',
+          name: 'SYD 21 - 短間歇 800m*6 400m p96-100s r150s',
+          startDate: '2025-04-30T19:46:58',
           sportType: 'Run',
           distance: 5.54,
           movingTime: '00:26:06',
@@ -2473,7 +2473,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14332537218,
           name: '傍晚跑步',
-          startDate: '2025-04-30T11:09:33Z',
+          startDate: '2025-04-30T19:09:33',
           sportType: 'Run',
           distance: 3.05,
           movingTime: '00:21:36',
@@ -2484,7 +2484,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14322677141,
           name: '晚間跑步',
-          startDate: '2025-04-29T13:07:32Z',
+          startDate: '2025-04-29T21:07:32',
           sportType: 'Run',
           distance: 1.73,
           movingTime: '00:09:34',
@@ -2494,8 +2494,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14322676825,
-          name: 'SYD 20 - 階梯訓練',
-          startDate: '2025-04-29T12:02:09Z',
+          name: 'SYD 20 - 坡度訓練 階梯',
+          startDate: '2025-04-29T20:02:09',
           sportType: 'Run',
           distance: 3.09,
           movingTime: '00:29:19',
@@ -2506,7 +2506,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14322675371,
           name: '傍晚跑步',
-          startDate: '2025-04-29T11:50:17Z',
+          startDate: '2025-04-29T19:50:17',
           sportType: 'Run',
           distance: 0.64,
           movingTime: '00:04:17',
@@ -2517,7 +2517,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14322674846,
           name: '傍晚跑步',
-          startDate: '2025-04-29T11:31:49Z',
+          startDate: '2025-04-29T19:31:49',
           sportType: 'Run',
           distance: 1.8,
           movingTime: '00:12:19',
@@ -2527,8 +2527,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14297143469,
-          name: 'SYD 19 - 恢復',
-          startDate: '2025-04-27T00:46:21Z',
+          name: 'SYD 19 - 恢復跑 15k',
+          startDate: '2025-04-27T08:46:21',
           sportType: 'Run',
           distance: 15.01,
           movingTime: '02:10:17',
@@ -2539,7 +2539,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14286727755,
           name: '晨間跑步',
-          startDate: '2025-04-26T00:44:48Z',
+          startDate: '2025-04-26T08:44:48',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:14:18',
@@ -2549,8 +2549,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14286727486,
-          name: 'SYD 18 -zone2 20k',
-          startDate: '2025-04-25T22:56:00Z',
+          name: 'SYD 18 -長距離 z2 20k',
+          startDate: '2025-04-26T06:56:00',
           sportType: 'Run',
           distance: 20.01,
           movingTime: '01:42:05',
@@ -2561,7 +2561,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14286726201,
           name: '晨間跑步',
-          startDate: '2025-04-25T22:32:11Z',
+          startDate: '2025-04-26T06:32:11',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:13:41',
@@ -2571,8 +2571,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14272324997,
-          name: 'SYD 17 - 300m間歇+100m跑休*25',
-          startDate: '2025-04-24T11:05:53Z',
+          name: 'SYD 17 - 短間歇 300m*25 p70-72s r100m',
+          startDate: '2025-04-24T19:05:53',
           sportType: 'Run',
           distance: 10.23,
           movingTime: '00:57:25',
@@ -2583,7 +2583,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14272323688,
           name: '傍晚跑步',
-          startDate: '2025-04-24T10:54:53Z',
+          startDate: '2025-04-24T18:54:53',
           sportType: 'Run',
           distance: 1.35,
           movingTime: '00:08:40',
@@ -2593,8 +2593,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14261785368,
-          name: 'SYD 16 - 10k easy pace',
-          startDate: '2025-04-23T11:10:02Z',
+          name: 'SYD 16 - Easy Run 10k',
+          startDate: '2025-04-23T19:10:02',
           sportType: 'Run',
           distance: 10.01,
           movingTime: '01:00:46',
@@ -2605,7 +2605,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14252135243,
           name: '晚間跑步',
-          startDate: '2025-04-22T13:05:55Z',
+          startDate: '2025-04-22T21:05:55',
           sportType: 'Run',
           distance: 1,
           movingTime: '00:05:55',
@@ -2615,8 +2615,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14252134693,
-          name: 'SYD 15 - 森跑敏捷訓練',
-          startDate: '2025-04-22T12:12:30Z',
+          name: 'SYD 15 - Easy Run 敏捷訓練',
+          startDate: '2025-04-22T20:12:30',
           sportType: 'Run',
           distance: 7.03,
           movingTime: '00:41:30',
@@ -2627,7 +2627,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14252133601,
           name: '傍晚跑步',
-          startDate: '2025-04-22T11:33:34Z',
+          startDate: '2025-04-22T19:33:34',
           sportType: 'Run',
           distance: 2.75,
           movingTime: '00:17:30',
@@ -2638,7 +2638,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14246834661,
           name: 'easy run',
-          startDate: '2025-04-21T22:00:24Z',
+          startDate: '2025-04-22T06:00:24',
           sportType: 'Run',
           distance: 5.58,
           movingTime: '00:32:50',
@@ -2648,8 +2648,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14236985038,
-          name: 'SYD 14 - 恢復跑',
-          startDate: '2025-04-20T22:02:15Z',
+          name: 'SYD 14 - 恢復跑 5k',
+          startDate: '2025-04-21T06:02:15',
           sportType: 'Run',
           distance: 5.45,
           movingTime: '00:37:41',
@@ -2659,8 +2659,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14228103634,
-          name: 'SYD 13 - 追火車第二棒 海神棒',
-          startDate: '2025-04-19T23:40:46Z',
+          name: 'SYD 13 - 賽事 追火車第二棒 海神棒',
+          startDate: '2025-04-20T07:40:46',
           sportType: 'Run',
           distance: 15.16,
           movingTime: '01:15:30',
@@ -2670,8 +2670,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14203146984,
-          name: 'SYD 12 - 48-50s/200m + 跑休/200m * 25趟',
-          startDate: '2025-04-17T11:19:34Z',
+          name: 'SYD 12 - 短間歇 200m*25 p48-50s r200m',
+          startDate: '2025-04-17T19:19:34',
           sportType: 'Run',
           distance: 10.02,
           movingTime: '00:54:50',
@@ -2682,7 +2682,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14203145406,
           name: '傍晚跑步',
-          startDate: '2025-04-17T10:59:59Z',
+          startDate: '2025-04-17T18:59:59',
           sportType: 'Run',
           distance: 1.32,
           movingTime: '00:08:11',
@@ -2692,8 +2692,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14193780914,
-          name: 'SYD 11 - easy pace 40min',
-          startDate: '2025-04-16T12:05:05Z',
+          name: 'SYD 11 - Easy Run 40min',
+          startDate: '2025-04-16T20:05:05',
           sportType: 'Run',
           distance: 8.01,
           movingTime: '00:45:05',
@@ -2704,7 +2704,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14184571252,
           name: '晚間跑步',
-          startDate: '2025-04-15T13:14:23Z',
+          startDate: '2025-04-15T21:14:23',
           sportType: 'Run',
           distance: 1.01,
           movingTime: '00:04:54',
@@ -2714,8 +2714,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14184570690,
-          name: 'SYD 10 - 森跑肌力訓練',
-          startDate: '2025-04-15T12:15:38Z',
+          name: 'SYD 10 - Easy Run 肌力訓練',
+          startDate: '2025-04-15T20:15:38',
           sportType: 'Run',
           distance: 6.95,
           movingTime: '00:40:00',
@@ -2726,7 +2726,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14184569818,
           name: '傍晚跑步',
-          startDate: '2025-04-15T11:43:36Z',
+          startDate: '2025-04-15T19:43:36',
           sportType: 'Run',
           distance: 2.68,
           movingTime: '00:16:18',
@@ -2736,8 +2736,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14170195874,
-          name: 'SYD 9 - 恢復跑',
-          startDate: '2025-04-13T22:09:58Z',
+          name: 'SYD 9 - 恢復跑 30min',
+          startDate: '2025-04-14T06:09:58',
           sportType: 'Run',
           distance: 5.58,
           movingTime: '00:32:51',
@@ -2748,7 +2748,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14159664442,
           name: '晨間跑步',
-          startDate: '2025-04-12T21:47:15Z',
+          startDate: '2025-04-13T05:47:15',
           sportType: 'Run',
           distance: 0.49,
           movingTime: '00:04:54',
@@ -2758,8 +2758,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14150749070,
-          name: 'SYD 8 - 長距離漸速跑',
-          startDate: '2025-04-11T22:29:01Z',
+          name: 'SYD 8 - 漸速跑 6k p5:10-5:20 + 6k p5:00-5:10 +6k p4:40-4:50',
+          startDate: '2025-04-12T06:29:01',
           sportType: 'Run',
           distance: 18.01,
           movingTime: '01:30:43',
@@ -2770,7 +2770,7 @@ export const mockTrainingData: TrainingResponseData = {
         {
           id: 14150747733,
           name: '晨間跑步',
-          startDate: '2025-04-11T22:02:32Z',
+          startDate: '2025-04-12T06:02:32',
           sportType: 'Run',
           distance: 2.01,
           movingTime: '00:12:09',
@@ -2780,8 +2780,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14141094390,
-          name: 'SYD 7 -easy pace',
-          startDate: '2025-04-10T22:02:22Z',
+          name: 'SYD 7 -Easy Run 30min',
+          startDate: '2025-04-11T06:02:22',
           sportType: 'Run',
           distance: 5.58,
           movingTime: '00:30:50',
@@ -2791,8 +2791,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14131481019,
-          name: 'SYD 6  - 漸速 wp 1k mp 3k mp-20s 1k',
-          startDate: '2025-04-09T21:56:37Z',
+          name: 'SYD 6  - 漸速跑 wp 1k +  mp 3k +  mp-20s 1k',
+          startDate: '2025-04-10T05:56:37',
           sportType: 'Run',
           distance: 5.56,
           movingTime: '00:27:37',
@@ -2802,8 +2802,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14121371620,
-          name: 'SYD 5  -5k easy pace',
-          startDate: '2025-04-08T21:52:14Z',
+          name: 'SYD 5  - Easy Run 30min',
+          startDate: '2025-04-09T05:52:14',
           sportType: 'Run',
           distance: 5.46,
           movingTime: '00:31:05',
@@ -2813,8 +2813,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14111037013,
-          name: 'SYD 4 - 5k 漸速 30% 2k 50% 2k  70% 1k',
-          startDate: '2025-04-07T21:51:05Z',
+          name: 'SYD 4 - 漸速跑 30% 2k +  50% 2k + 70% 1k',
+          startDate: '2025-04-08T05:51:05',
           sportType: 'Run',
           distance: 5.58,
           movingTime: '00:28:09',
@@ -2824,8 +2824,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14102207591,
-          name: 'SYD 3 - 5k easy run',
-          startDate: '2025-04-06T21:57:21Z',
+          name: 'SYD 3 - Easy Run 5k',
+          startDate: '2025-04-07T05:57:21',
           sportType: 'Run',
           distance: 5.43,
           movingTime: '00:28:47',
@@ -2835,8 +2835,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14092537956,
-          name: 'SYD 2 -落地方式調整 marathon pace 3k + 5k pace 1k',
-          startDate: '2025-04-06T01:18:52Z',
+          name: 'SYD 2 - 漸速跑 mp 3k + 5k pace 1k',
+          startDate: '2025-04-06T09:18:52',
           sportType: 'Run',
           distance: 4.5,
           movingTime: '00:21:22',
@@ -2846,8 +2846,8 @@ export const mockTrainingData: TrainingResponseData = {
         },
         {
           id: 14082622503,
-          name: 'SYD 1 -落地方式調整',
-          startDate: '2025-04-05T00:47:52Z',
+          name: 'SYD 1 - Easy Run 20min 落地方式調整',
+          startDate: '2025-04-05T08:47:52',
           sportType: 'Run',
           distance: 3.72,
           movingTime: '00:20:10',
