@@ -27,7 +27,6 @@
           <MonthlyStatsChart :monthly-data="monthlyData" :key="`monthly-${chartKey}`" />
         </div>
         <div class="chart-container h-80">
-          <h3 class="text-lg font-semibold mb-4">訓練類型分布</h3>
           <TrainingTypeChart :records="allRecords" :key="`type-${chartKey}`" />
         </div>
       </div>
@@ -85,10 +84,8 @@ const handleResize = () => {
   // 如果手機/桌機模式切換了，重新渲染圖表
   if (wasMobile !== isMobile.value) {
     forceChartsResize()
-  } else {
-    // 只是尺寸變化，發送 resize 事件
-    window.dispatchEvent(new Event('resize'))
   }
+  // 移除了會造成無限遞歸的 window.dispatchEvent
 }
 
 const trainingData = computed(() => store.trainingData)

@@ -30,10 +30,10 @@ export interface TrainingResponseData {
 }
 
 export const mockTrainingData: TrainingResponseData = {
-  totalDistance: 1460.55,
-  totalMovingTime: '149:26:23',
-  mainTrainingCount: 105,
-  totalElevationGain: 8580,
+  totalDistance: 1501.84,
+  totalMovingTime: '153:58:43',
+  mainTrainingCount: 108,
+  totalElevationGain: 8676,
   monthlyData: [
     {
       year: 2025,
