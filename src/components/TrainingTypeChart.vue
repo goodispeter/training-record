@@ -12,13 +12,13 @@
     </div>
 
     <!-- 圓餅圖容器 -->
-    <div class="relative">
+    <div class="relative overflow-visible">
       <!-- 主要訓練類型圓餅圖 -->
-      <div v-show="activeChart === 'main'" class="w-full">
+      <div v-show="activeChart === 'main'" class="w-full overflow-visible">
         <v-chart
           v-if="mainCategoryData && mainCategoryData.length > 0"
           :option="mainCategoryOption"
-          class="w-full h-80"
+          class="w-full h-80 overflow-visible"
           ref="mainChartRef"
           :autoresize="true"
         />
@@ -29,11 +29,11 @@
       <div
         v-show="activeChart === 'intensity'"
         v-if="intensitySubTypeData && intensitySubTypeData.length > 0"
-        class="w-full"
+        class="w-full overflow-visible"
       >
         <v-chart
           :option="intensitySubTypeOption"
-          class="w-full h-80"
+          class="w-full h-80 overflow-visible"
           ref="intensityChartRef"
           :autoresize="true"
         />
@@ -206,6 +206,8 @@ const mainCategoryOption = computed(() => {
         const data = params.data
         return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
       },
+      appendToBody: true,
+      confine: false,
     },
     legend: {
       orient: 'vertical',
@@ -265,6 +267,8 @@ const intensitySubTypeOption = computed(() => {
         const data = params.data
         return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
       },
+      appendToBody: true,
+      confine: false,
     },
     legend: {
       orient: 'vertical',

@@ -113,7 +113,7 @@ export function matchTrainingType(trainingName: string): RunType[] {
     { keyword: 'easy run', type: EasyRun },
     { keyword: 'long run', type: LongRun },
     { keyword: 'recovery', type: RecoveryRun },
-    { keyword: 'trail', type: Trail },
+    { keyword: '越野跑', type: Trail },
     { keyword: '恢復', type: RecoveryRun },
     { keyword: '賽事', type: Race },
     { keyword: '漸速跑', type: ProgressionRun },
