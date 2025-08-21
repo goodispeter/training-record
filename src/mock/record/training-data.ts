@@ -38,10 +38,10 @@ export const mockTrainingData: TrainingResponseData = {
     {
       year: 2025,
       month: 8,
-      monthDistance: 182.68,
-      monthMovingTime: '17:41:49',
-      monthMainTrainingCount: 3,
-      monthElevationGain: 277,
+      monthDistance: 223.97,
+      monthMovingTime: '22:14:09',
+      monthMainTrainingCount: 13,
+      monthElevationGain: 794,
       trainingRecords: [
         {
           id: 15524801412,
