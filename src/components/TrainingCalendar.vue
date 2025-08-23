@@ -76,7 +76,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { NTag, NModal } from 'naive-ui'
-import type { TrainingRecord } from '@/stores/training'
+import type { TrainingRecord } from '@/types/training'
 
 interface Props {
   records: TrainingRecord[]

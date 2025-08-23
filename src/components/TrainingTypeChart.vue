@@ -19,6 +19,8 @@
           v-if="mainCategoryData && mainCategoryData.length > 0"
           :option="mainCategoryOption"
           class="w-full h-80 overflow-visible"
+          width="100%"
+          height="320px"
           ref="mainChartRef"
           :autoresize="true"
         />
@@ -26,17 +28,19 @@
       </div>
 
       <!-- 強度訓練子類型圓餅圖 -->
-      <div
-        v-show="activeChart === 'intensity'"
-        v-if="intensitySubTypeData && intensitySubTypeData.length > 0"
-        class="w-full overflow-visible"
-      >
+      <div v-show="activeChart === 'intensity'" class="w-full overflow-visible">
         <v-chart
+          v-if="intensitySubTypeData && intensitySubTypeData.length > 0"
           :option="intensitySubTypeOption"
           class="w-full h-80 overflow-visible"
+          width="100%"
+          height="320px"
           ref="intensityChartRef"
           :autoresize="true"
         />
+        <div v-else class="flex items-center justify-center h-80 text-gray-500">
+          暫無強度訓練資料
+        </div>
       </div>
     </div>
   </div>
@@ -50,7 +54,7 @@ import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
 import { PieChart } from 'echarts/charts'
 import { TitleComponent, TooltipComponent, LegendComponent } from 'echarts/components'
-import type { TrainingRecord } from '@/stores/training'
+import type { TrainingRecord } from '@/types/training'
 import {
   MAIN_CATEGORIES,
   INTENSITY_SUB_TYPES,

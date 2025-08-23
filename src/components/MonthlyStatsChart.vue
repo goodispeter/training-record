@@ -4,6 +4,8 @@
       v-if="chartData && chartData.length > 0"
       :option="chartOption"
       class="w-full h-64"
+      width="100%"
+      height="256px"
       ref="chartRef"
       :autoresize="true"
     />
@@ -18,7 +20,7 @@ import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
 import { BarChart } from 'echarts/charts'
 import { TitleComponent, LegendComponent, GridComponent } from 'echarts/components'
-import type { MonthlyTrainingData } from '@/stores/training'
+import type { MonthlyTrainingData } from '@/types/training'
 
 use([CanvasRenderer, BarChart, TitleComponent, LegendComponent, GridComponent])
 

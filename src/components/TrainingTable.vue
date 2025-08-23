@@ -73,7 +73,7 @@
 import { ref, computed, h, watch } from 'vue'
 import { NDataTable, NTag, NSelect } from 'naive-ui'
 import type { DataTableColumns, SelectOption } from 'naive-ui'
-import type { TrainingRecord } from '@/stores/training'
+import type { TrainingRecord } from '@/types/training'
 import {
   MAIN_CATEGORIES,
   INTENSITY_SUB_TYPES,

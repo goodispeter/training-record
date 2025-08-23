@@ -1,28 +1,27 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import { mockTrainingData, type TrainingResponseData } from '@/mock/record/training-data'
+import { getTrainingData } from '@/services/trainingService'
+import type { TrainingResponseData, ChartDataPoint } from '@/types/training'
 
-export type { TrainingRecord, MonthlyTrainingData } from '@/mock/record/training-data'
-
-export interface TrainingSummary {
-  totalDistance: number
-  totalMovingTime: string
-  mainTrainingCount: number
-  totalElevationGain: number
-}
-
-export interface TrainingResponse {
-  code: string
-  message: string
-  success: boolean
-  data: TrainingResponseData
-}
+export type { TrainingRecord, MonthlyTrainingData, TrainingSummary } from '@/types/training'
 
 export const useTrainingStore = defineStore('training', () => {
   const trainingData = ref<TrainingResponseData | null>(null)
+  const isLoading = ref<boolean>(false)
+  const error = ref<string | null>(null)
 
   const fetchTrainingData = async () => {
-    trainingData.value = mockTrainingData
+    isLoading.value = true
+    error.value = null
+
+    try {
+      trainingData.value = await getTrainingData()
+    } catch (err) {
+      error.value = err instanceof Error ? err.message : 'Failed to fetch training data'
+      console.error('Error fetching training data:', err)
+    } finally {
+      isLoading.value = false
+    }
   }
 
   const allRecords = computed(() => {
@@ -38,7 +37,7 @@ export const useTrainingStore = defineStore('training', () => {
   })
 
   const chartData = computed(() => {
-    if (!trainingData.value) return null
+    if (!trainingData.value) return []
 
     const records = allRecords.value
     const dailyDistance = new Map<string, number>()
@@ -51,7 +50,7 @@ export const useTrainingStore = defineStore('training', () => {
 
     return Array.from(dailyDistance.entries())
       .sort(([a], [b]) => a.localeCompare(b))
-      .map(([date, distance]) => ({ date, distance }))
+      .map(([date, distance]) => ({ date, distance })) as ChartDataPoint[]
   })
 
   return {
@@ -59,6 +58,8 @@ export const useTrainingStore = defineStore('training', () => {
     allRecords,
     monthlyData,
     chartData,
+    isLoading,
+    error,
     fetchTrainingData,
   }
 })
