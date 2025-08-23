@@ -63,7 +63,9 @@
         :bordered="false"
         :size="'small'"
         :single-line="false"
+        :row-class-name="getRowClassName"
         class="training-table"
+        :row-props="getRowProps"
       />
     </div>
   </div>
@@ -71,7 +73,7 @@
 
 <script setup lang="ts">
 import { ref, computed, h, watch } from 'vue'
-import { NDataTable, NTag, NSelect, NButton } from 'naive-ui'
+import { NDataTable, NTag, NSelect } from 'naive-ui'
 import type { DataTableColumns, SelectOption } from 'naive-ui'
 import type { TrainingRecord } from '@/types/training'
 import {
@@ -105,6 +107,37 @@ const toggleDescription = (id: number) => {
     newSet.add(id)
   }
   expandedDescriptions.value = newSet
+}
+
+// Get row class name for styling
+const getRowClassName = (row: TrainingRecord) => {
+  const hasDescription = row.description && row.description.trim() !== ''
+
+  if (hasDescription && row.isMainTraining) {
+    return 'main-training-row clickable-row'
+  } else if (hasDescription) {
+    return 'clickable-row'
+  }
+  return ''
+}
+
+// Handle row click
+const handleRowClick = (row: TrainingRecord) => {
+  const hasDescription = row.description && row.description.trim() !== ''
+  if (hasDescription) {
+    toggleDescription(row.id)
+  }
+}
+
+// Get row props for click handling
+const getRowProps = (row: TrainingRecord) => {
+  const hasDescription = row.description && row.description.trim() !== ''
+  if (hasDescription) {
+    return {
+      onClick: () => handleRowClick(row),
+    }
+  }
+  return {}
 }
 
 // 監聽主副選擇的變化，當選擇"副"時清空訓練類型
@@ -274,42 +307,31 @@ const columns: DataTableColumns<TrainingRecord> = [
       const hasDescription = row.description && row.description.trim() !== ''
       const isExpanded = expandedDescriptions.value.has(row.id)
 
-      return h('div', { class: 'training-cell' }, [
-        // 訓練名稱
-        h('div', { class: 'training-name' }, row.name),
-        // 訓練資訊
-        h('div', { class: 'training-meta' }, [
-          `${row.distance}km | ${row.movingTime} | ${row.pace}`,
-          h('span', { class: 'training-type-tag' }, trainingTypeDisplay),
-        ]),
-        // 展開/收起按鈕 (在下方)
-        hasDescription &&
-          h(
-            NButton,
-            {
-              text: true,
-              size: 'small',
-              class: isExpanded ? 'expand-button expanded' : 'expand-button collapsed',
-              onClick: (e: Event) => {
-                e.stopPropagation()
-                toggleDescription(row.id)
+      return h(
+        'div',
+        {
+          class: 'training-cell',
+        },
+        [
+          // 訓練名稱
+          h('div', { class: 'training-name' }, row.name),
+          // 訓練資訊
+          h('div', { class: 'training-meta' }, [
+            `${row.distance}km | ${row.movingTime} | ${row.pace}`,
+            h('span', { class: 'training-type-tag' }, trainingTypeDisplay),
+          ]),
+          // 描述內容 (條件顯示)
+          hasDescription &&
+            isExpanded &&
+            h(
+              'div',
+              {
+                class: 'training-description',
               },
-            },
-            {
-              default: () => (isExpanded ? '收起' : '展開'),
-            },
-          ),
-        // 描述內容 (條件顯示)
-        hasDescription &&
-          isExpanded &&
-          h(
-            'div',
-            {
-              class: 'training-description',
-            },
-            row.description,
-          ),
-      ])
+              row.description,
+            ),
+        ],
+      )
     },
     ellipsis: false,
   },
@@ -318,14 +340,11 @@ const columns: DataTableColumns<TrainingRecord> = [
     key: 'isMainTraining',
     render: (row) => {
       return h(
-        NTag,
+        'span',
         {
-          type: row.isMainTraining ? 'success' : 'default',
-          size: 'small',
+          class: row.isMainTraining ? 'main-tag' : 'casual-tag',
         },
-        {
-          default: () => (row.isMainTraining ? '主' : '副'),
-        },
+        row.isMainTraining ? '主' : '副',
       )
     },
     width: 50,
@@ -420,6 +439,7 @@ const columns: DataTableColumns<TrainingRecord> = [
 
 .training-cell {
   padding: 4px 0;
+  margin: 0;
 }
 
 .training-name {
@@ -444,28 +464,17 @@ const columns: DataTableColumns<TrainingRecord> = [
   word-break: break-word;
 }
 
-/* 展開/收起按鈕樣式 */
-:deep(.expand-button) {
-  margin-top: 4px;
-  padding: 2px 8px !important;
-  font-size: 12px !important;
-  align-self: flex-start;
+/* 主副標籤樣式 */
+.main-tag {
+  color: #059669;
+  font-weight: 500;
+  font-size: 12px;
 }
 
-:deep(.expand-button.expanded) {
-  color: #6b7280 !important; /* 收起時為灰色 */
-}
-
-:deep(.expand-button.collapsed) {
-  color: #059669 !important; /* 展開時為綠色 */
-}
-
-:deep(.expand-button:hover.expanded) {
-  color: #4b5563 !important;
-}
-
-:deep(.expand-button:hover.collapsed) {
-  color: #047857 !important;
+.casual-tag {
+  color: #6b7280;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .training-meta {
@@ -507,5 +516,57 @@ const columns: DataTableColumns<TrainingRecord> = [
 
 :deep(.n-data-table-base-table-body) {
   overflow: hidden !important;
+}
+
+/* 直接使用 class 選擇器，不使用 :deep */
+.main-training-row {
+  background-color: #dcfce7 !important;
+}
+
+.main-training-row:hover {
+  background-color: #bbf7d0 !important;
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.clickable-row:not(.main-training-row):hover {
+  background-color: #f9fafb !important;
+}
+
+/* 確保主訓練樣式生效並填滿整格 */
+:deep(.clickable-row) {
+  cursor: pointer;
+}
+
+:deep(.n-data-table tbody .main-training-row) {
+  background-color: #dcfce7 !important;
+}
+
+:deep(.n-data-table tbody .main-training-row:hover) {
+  background-color: #bbf7d0 !important;
+}
+
+:deep(.n-data-table tbody .clickable-row:not(.main-training-row):hover) {
+  background-color: #f9fafb !important;
+}
+
+/* 強制覆蓋所有可能的表格樣式 */
+:deep(.n-data-table tbody .main-training-row td) {
+  background-color: #dcfce7 !important;
+}
+
+:deep(.n-data-table tbody .main-training-row:hover td) {
+  background-color: #bbf7d0 !important;
+}
+
+/* 確保表格單元格沒有額外間距 */
+:deep(.n-data-table td) {
+  padding: 8px !important;
+}
+
+:deep(.n-data-table .n-data-table-td) {
+  padding: 8px !important;
 }
 </style>

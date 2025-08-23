@@ -210,8 +210,30 @@ const mainCategoryOption = computed(() => {
         const data = params.data
         return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
       },
-      appendToBody: true,
-      confine: false,
+      appendToBody: false,
+      confine: true,
+      position: function (point: any, params: any, dom: any, rect: any, size: any) {
+        // 自定義定位邏輯，確保在小屏幕上也能正確顯示
+        const x = point[0] + 10
+        const y = point[1] - 10
+
+        // 確保不超出容器邊界
+        const containerWidth = size.viewSize[0]
+        const tooltipWidth = size.contentSize[0]
+
+        let finalX = x
+        let finalY = y
+
+        if (x + tooltipWidth > containerWidth) {
+          finalX = point[0] - tooltipWidth - 10
+        }
+
+        if (y < 0) {
+          finalY = point[1] + 20
+        }
+
+        return [finalX, finalY]
+      },
     },
     legend: {
       orient: 'vertical',
@@ -271,8 +293,32 @@ const intensitySubTypeOption = computed(() => {
         const data = params.data
         return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
       },
-      appendToBody: true,
-      confine: false,
+      appendToBody: false,
+      confine: true,
+      position: function (point: any, params: any, dom: any, rect: any, size: any) {
+        // 自定義定位邏輯，確保在小屏幕上也能正確顯示
+        const x = point[0] + 10
+        const y = point[1] - 10
+
+        // 確保不超出容器邊界
+        const containerWidth = size.viewSize[0]
+        const containerHeight = size.viewSize[1]
+        const tooltipWidth = size.contentSize[0]
+        const tooltipHeight = size.contentSize[1]
+
+        let finalX = x
+        let finalY = y
+
+        if (x + tooltipWidth > containerWidth) {
+          finalX = point[0] - tooltipWidth - 10
+        }
+
+        if (y < 0) {
+          finalY = point[1] + 20
+        }
+
+        return [finalX, finalY]
+      },
     },
     legend: {
       orient: 'vertical',
