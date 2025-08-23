@@ -9,6 +9,7 @@ export interface TrainingRecord {
   elevationGain: number
   pace: string
   isMainTraining: boolean
+  description: string
 }
 
 export interface MonthlyTrainingData {

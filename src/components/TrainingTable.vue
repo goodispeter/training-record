@@ -71,7 +71,7 @@
 
 <script setup lang="ts">
 import { ref, computed, h, watch } from 'vue'
-import { NDataTable, NTag, NSelect } from 'naive-ui'
+import { NDataTable, NTag, NSelect, NButton } from 'naive-ui'
 import type { DataTableColumns, SelectOption } from 'naive-ui'
 import type { TrainingRecord } from '@/types/training'
 import {
@@ -92,6 +92,20 @@ const selectedMonth = ref<string>('')
 const selectedMainType = ref<string>('')
 const selectedTrainingType = ref<string>('')
 const selectedIntensityType = ref<string>('')
+
+// Description expansion state
+const expandedDescriptions = ref<Set<number>>(new Set())
+
+// Toggle description expansion
+const toggleDescription = (id: number) => {
+  const newSet = new Set(expandedDescriptions.value)
+  if (newSet.has(id)) {
+    newSet.delete(id)
+  } else {
+    newSet.add(id)
+  }
+  expandedDescriptions.value = newSet
+}
 
 // 監聽主副選擇的變化，當選擇"副"時清空訓練類型
 watch(selectedMainType, (newValue) => {
@@ -257,12 +271,44 @@ const columns: DataTableColumns<TrainingRecord> = [
     key: 'name',
     render: (row) => {
       const trainingTypeDisplay = getTrainingTypeDisplay(row.name)
+      const hasDescription = row.description && row.description.trim() !== ''
+      const isExpanded = expandedDescriptions.value.has(row.id)
+
       return h('div', { class: 'training-cell' }, [
+        // 訓練名稱
         h('div', { class: 'training-name' }, row.name),
+        // 訓練資訊
         h('div', { class: 'training-meta' }, [
           `${row.distance}km | ${row.movingTime} | ${row.pace}`,
           h('span', { class: 'training-type-tag' }, trainingTypeDisplay),
         ]),
+        // 展開/收起按鈕 (在下方)
+        hasDescription &&
+          h(
+            NButton,
+            {
+              text: true,
+              size: 'small',
+              class: isExpanded ? 'expand-button expanded' : 'expand-button collapsed',
+              onClick: (e: Event) => {
+                e.stopPropagation()
+                toggleDescription(row.id)
+              },
+            },
+            {
+              default: () => (isExpanded ? '收起' : '展開'),
+            },
+          ),
+        // 描述內容 (條件顯示)
+        hasDescription &&
+          isExpanded &&
+          h(
+            'div',
+            {
+              class: 'training-description',
+            },
+            row.description,
+          ),
       ])
     },
     ellipsis: false,
@@ -383,6 +429,43 @@ const columns: DataTableColumns<TrainingRecord> = [
   margin-bottom: 2px;
   white-space: normal;
   word-break: break-word;
+}
+
+.training-description {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #374151;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* 展開/收起按鈕樣式 */
+:deep(.expand-button) {
+  margin-top: 4px;
+  padding: 2px 8px !important;
+  font-size: 12px !important;
+  align-self: flex-start;
+}
+
+:deep(.expand-button.expanded) {
+  color: #6b7280 !important; /* 收起時為灰色 */
+}
+
+:deep(.expand-button.collapsed) {
+  color: #059669 !important; /* 展開時為綠色 */
+}
+
+:deep(.expand-button:hover.expanded) {
+  color: #4b5563 !important;
+}
+
+:deep(.expand-button:hover.collapsed) {
+  color: #047857 !important;
 }
 
 .training-meta {

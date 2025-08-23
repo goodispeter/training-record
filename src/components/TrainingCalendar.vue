@@ -55,11 +55,17 @@
           class="training-detail-card"
         >
           <div class="flex justify-between items-start">
-            <div>
+            <div class="training-info">
               <h5 class="font-medium">{{ training.name }}</h5>
               <div class="text-sm text-gray-600" style="margin-top: 4px">
                 距離: {{ training.distance }}km | 時間: {{ training.movingTime }} | 配速:
                 {{ training.pace }}
+              </div>
+              <div
+                v-if="training.description && training.description.trim()"
+                class="training-description-modal"
+              >
+                {{ training.description }}
               </div>
             </div>
             <n-tag :type="training.isMainTraining ? 'success' : 'default'" size="small">
@@ -244,6 +250,24 @@ onMounted(() => {
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
+}
+
+.training-info {
+  flex: 1;
+  margin-right: 12px;
+}
+
+.training-description-modal {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #374151;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .training-indicators {
