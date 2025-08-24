@@ -4,19 +4,31 @@
   "success": true,
   "data": {
     "target": "2025 雪梨馬拉松",
-    "totalDistance": 1526.87,
-    "totalMovingTime": "156:07:40",
-    "mainTrainingCount": 110,
-    "totalElevationGain": 8807,
+    "totalDistance": 1532.53,
+    "totalMovingTime": "156:43:19",
+    "mainTrainingCount": 111,
+    "totalElevationGain": 8808,
     "trainingRecords": [
       {
         "year": 2025,
         "month": 8,
-        "monthDistance": 249,
-        "monthMovingTime": "24:23:06",
-        "monthMainTrainingCount": 15,
-        "monthElevationGain": 925,
+        "monthDistance": 254.66,
+        "monthMovingTime": "24:58:45",
+        "monthMainTrainingCount": 16,
+        "monthElevationGain": 926,
         "trainingRecords": [
+          {
+            "id": 15563177317,
+            "name": "SYD 111 - 恢復跑 30min",
+            "startDate": "2025-08-24T06:09:09",
+            "sportType": "Run",
+            "distance": 5.19,
+            "movingTime": "00:30:13",
+            "elevationGain": 1,
+            "pace": "5:49",
+            "isMainTraining": true,
+            "description": "低心率慢跑，好好檢視一下身體有沒有什麼不舒服的地方，右腳肌腱感覺緊繃，身體左右依舊感覺不太對稱，但總體來說感覺都不是很明顯，今天要好好斷食，希望意志力能夠取勝。"
+          },
           {
             "id": 15552024858,
             "name": "SYD 110 - Tempo 12k",
