@@ -3,6 +3,7 @@
   "message": "Success",
   "success": true,
   "data": {
+    "target": "2025 雪梨馬拉松",
     "totalDistance": 1526.87,
     "totalMovingTime": "156:07:40",
     "mainTrainingCount": 110,
