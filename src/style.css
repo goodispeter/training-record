@@ -256,6 +256,18 @@ body {
   max-width: 100vw;
 }
 
+/* 移動端底部安全區域和額外間距 */
+@media (max-width: 768px) {
+  .dashboard-container {
+    /* 支援 iOS 安全區域 */
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+    /* 額外的底部間距防止被瀏覽器工具列遮擋 */
+    margin-bottom: 60px;
+    /* 確保有足夠的滾動空間 */
+    min-height: calc(100vh + 60px);
+  }
+}
+
 .dashboard-content {
   max-width: 1400px;
   margin: 0 auto;
@@ -511,6 +523,9 @@ body {
     overflow: visible !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    /* 額外底部間距確保最後一筆資料完全可見 */
+    margin-bottom: 80px !important;
+    padding-bottom: max(20px, env(safe-area-inset-bottom)) !important;
   }
 
   /* 移除所有內部滾動 */
@@ -574,4 +589,12 @@ body {
 /* 響應式內容區域 */
 .responsive-content {
   margin-top: 32px;
+}
+
+/* 移動端響應式內容額外底部間距 */
+@media (max-width: 768px) {
+  .responsive-content {
+    margin-bottom: 100px;
+    padding-bottom: max(40px, env(safe-area-inset-bottom));
+  }
 }

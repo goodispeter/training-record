@@ -302,9 +302,7 @@ const intensitySubTypeOption = computed(() => {
 
         // 確保不超出容器邊界
         const containerWidth = size.viewSize[0]
-        const containerHeight = size.viewSize[1]
         const tooltipWidth = size.contentSize[0]
-        const tooltipHeight = size.contentSize[1]
 
         let finalX = x
         let finalY = y

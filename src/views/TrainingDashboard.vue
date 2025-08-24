@@ -1,39 +1,10 @@
 <template>
   <div class="dashboard-container">
-    <!-- Loading 狀態 -->
-    <div v-if="store.isLoading" class="flex items-center justify-center min-h-screen">
-      <div class="text-center">
-        <div
-          class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"
-        ></div>
-        <p class="text-gray-600">載入訓練資料中...</p>
-      </div>
-    </div>
-
-    <!-- Error 狀態 -->
-    <div v-else-if="store.error" class="flex items-center justify-center min-h-screen">
-      <div class="text-center">
-        <div class="text-red-500 text-6xl mb-4">⚠️</div>
-        <h2 class="text-xl font-semibold text-gray-900 mb-2">載入失敗</h2>
-        <p class="text-gray-600 mb-4">{{ store.error }}</p>
-        <button
-          @click="store.fetchTrainingData()"
-          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-        >
-          重新載入
-        </button>
-      </div>
-    </div>
-
-    <!-- 正常顯示內容 -->
-    <div v-else class="dashboard-content">
-      <!-- Header -->
+    <div class="dashboard-content">
       <div class="dashboard-header">
-        <h1 class="text-3xl font-bold text-gray-900 mb-2">雪梨馬訓練日誌</h1>
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ target }}訓練日誌</h1>
         <p class="text-gray-600">共 {{ totalRecords }} 筆訓練記錄</p>
       </div>
-
-      <!-- Summary Cards -->
       <div class="summary-cards-grid">
         <SummaryCard title="總距離" :value="trainingData?.totalDistance" unit="km" icon="🏃" />
         <SummaryCard title="總時間" :value="trainingData?.totalMovingTime" unit="" icon="⏱️" />
@@ -56,17 +27,9 @@
           <TrainingTypeChart :records="allRecords" :key="`type-${chartKey}`" />
         </div>
       </div>
-
-      <!-- Mobile: Table, Desktop: Calendar -->
       <div v-if="trainingData && allRecords.length > 0" class="responsive-content">
-        <!-- 手機顯示表格 -->
-        <div v-if="isMobile">
-          <TrainingTable :records="allRecords" />
-        </div>
-        <!-- 桌機顯示日曆 -->
-        <div v-else>
-          <TrainingCalendar :records="allRecords" />
-        </div>
+        <TrainingCalendar :records="allRecords" />
+        <TrainingTable :records="allRecords" />
       </div>
     </div>
   </div>
@@ -83,16 +46,14 @@ import TrainingCalendar from '@/components/TrainingCalendar.vue'
 
 const store = useTrainingStore()
 
-// 響應式狀態
 const isMobile = ref(false)
-const chartKey = ref(0) // 用於強制重新渲染圖表
+const chartKey = ref(0)
 
 // 檢查是否為手機設備
 const checkIsMobile = () => {
   isMobile.value = window.innerWidth <= 768
 }
 
-// 強制圖表重新渲染
 const forceChartsResize = async () => {
   chartKey.value++
   await nextTick()
@@ -115,6 +76,7 @@ const trainingData = computed(() => store.trainingData)
 const allRecords = computed(() => store.allRecords)
 const monthlyData = computed(() => store.monthlyData)
 const totalRecords = computed(() => allRecords.value.length)
+const target = computed(() => store.trainingData?.target)
 
 onMounted(() => {
   checkIsMobile()

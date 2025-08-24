@@ -23,6 +23,7 @@ export interface MonthlyTrainingData {
 }
 
 export interface TrainingResponseData {
+  target: string
   totalDistance: number
   totalMovingTime: string
   mainTrainingCount: number

@@ -8,6 +8,7 @@ import type {
  * Sydney.json 的資料結構（與我們的型別稍有不同）
  */
 interface SydneyApiData {
+  target: string
   totalDistance: number
   totalMovingTime: string
   mainTrainingCount: number
@@ -85,6 +86,7 @@ class TrainingApiService {
 
       // 轉換資料結構以符合我們的型別
       const transformedData: TrainingResponseData = {
+        target: result.data.target,
         totalDistance: result.data.totalDistance,
         totalMovingTime: result.data.totalMovingTime,
         mainTrainingCount: result.data.mainTrainingCount,

@@ -5,6 +5,7 @@ import type { TrainingResponseData } from '@/types/training'
  * Sydney.json 的 API 回應格式（與我們的型別稍有不同）
  */
 interface SydneyApiData {
+  target: string
   totalDistance: number
   totalMovingTime: string
   mainTrainingCount: number
@@ -43,15 +44,13 @@ class TrainingService {
    */
   async getTrainingData(): Promise<TrainingResponseData> {
     try {
-      // 動態建構正確的路徑
       const basePath = this.getBasePath()
       const apiUrl = `${basePath}/mock/pan/sydney.json`
 
-      // 使用通用 API 工具發送請求
       const result = await apiUtil.doGet<SydneyApiResponse>(apiUrl)
 
-      // 轉換資料結構以符合我們的型別
       const transformedData: TrainingResponseData = {
+        target: result.data.target,
         totalDistance: result.data.totalDistance,
         totalMovingTime: result.data.totalMovingTime,
         mainTrainingCount: result.data.mainTrainingCount,
@@ -66,9 +65,6 @@ class TrainingService {
     }
   }
 
-  /**
-   * 測試 API 路徑是否可用
-   */
   async testApiPath(): Promise<{ success: boolean; url: string; error?: string }> {
     try {
       const basePath = this.getBasePath()
@@ -93,10 +89,8 @@ class TrainingService {
   }
 }
 
-// 建立單例實例
 export const trainingService = new TrainingService()
 
-// 也可以直接導出方法，使用更簡潔
 export async function getTrainingData(): Promise<TrainingResponseData> {
   return trainingService.getTrainingData()
 }

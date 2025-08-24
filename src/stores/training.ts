@@ -7,20 +7,12 @@ export type { TrainingRecord, MonthlyTrainingData, TrainingSummary } from '@/typ
 
 export const useTrainingStore = defineStore('training', () => {
   const trainingData = ref<TrainingResponseData | null>(null)
-  const isLoading = ref<boolean>(false)
-  const error = ref<string | null>(null)
 
   const fetchTrainingData = async () => {
-    isLoading.value = true
-    error.value = null
-
     try {
       trainingData.value = await getTrainingData()
     } catch (err) {
-      error.value = err instanceof Error ? err.message : 'Failed to fetch training data'
       console.error('Error fetching training data:', err)
-    } finally {
-      isLoading.value = false
     }
   }
 
@@ -58,8 +50,6 @@ export const useTrainingStore = defineStore('training', () => {
     allRecords,
     monthlyData,
     chartData,
-    isLoading,
-    error,
     fetchTrainingData,
   }
 })
