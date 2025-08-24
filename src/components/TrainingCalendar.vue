@@ -45,7 +45,7 @@
     <n-modal
       v-model:show="showModal"
       preset="card"
-      :title="selectedDateString + ' 的訓練'"
+      :title="selectedDateString"
       style="width: 600px; max-width: 90vw"
     >
       <div v-if="selectedDateTrainings.length > 0" class="training-list">
