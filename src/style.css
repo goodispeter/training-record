@@ -518,14 +518,8 @@ body {
   /* 確保所有容器不會溢出 */
   .chart-container,
   .training-table-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: visible !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    /* 額外底部間距確保最後一筆資料完全可見 */
-    margin-bottom: 80px !important;
-    padding-bottom: max(20px, env(safe-area-inset-bottom)) !important;
+    margin-bottom: 24px !important;
+    padding-bottom: 0 !important;
   }
 
   /* 移除所有內部滾動 */
@@ -575,25 +569,14 @@ body {
   }
 }
 
-/* 桌機顯示日曆 */
-@media (min-width: 769px) {
-  .mobile-only {
-    display: none;
-  }
-
-  .desktop-only {
-    display: block;
-  }
-}
-
-/* 響應式內容區域 */
-.responsive-content {
+/* 底部內容區域 */
+.bottom-content {
   margin-top: 32px;
 }
 
 /* 移動端響應式內容額外底部間距 */
 @media (max-width: 768px) {
-  .responsive-content {
+  .bottom-content {
     margin-bottom: 100px;
     padding-bottom: max(40px, env(safe-area-inset-bottom));
   }

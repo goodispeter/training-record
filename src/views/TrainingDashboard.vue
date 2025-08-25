@@ -27,10 +27,10 @@
           <TrainingTypeChart :records="allRecords" :key="`type-${chartKey}`" />
         </div>
       </div>
-      <div v-if="trainingData && allRecords.length > 0" class="responsive-content">
+      <div v-if="trainingData && allRecords.length > 0">
         <TrainingCalendar :records="allRecords" />
       </div>
-      <div v-if="trainingData && allRecords.length > 0" class="responsive-content">
+      <div v-if="trainingData && allRecords.length > 0" class="bottom-content">
         <TrainingTable :records="allRecords" />
       </div>
     </div>
