@@ -7,13 +7,13 @@
       <!-- 第一行：月份 -->
       <div class="filter-row">
         <div class="filter-item">
-          <label class="filter-label">月份：</label>
+          <label>月份：</label>
           <n-select
             v-model:value="selectedMonth"
             :options="monthOptions"
             placeholder="選擇月份"
             size="small"
-            class="filter-select"
+            style="width: 110px"
           />
         </div>
       </div>
@@ -21,35 +21,35 @@
       <!-- 第二行：主副和類型 -->
       <div class="filter-row">
         <div class="filter-item">
-          <label class="filter-label">主副：</label>
+          <label>主副：</label>
           <n-select
             v-model:value="selectedMainType"
             :options="mainTypeOptions"
             placeholder="主副訓練"
             size="small"
-            class="filter-select"
+            style="width: 110px"
           />
         </div>
         <!-- 只有在選擇"主"或"全部"時才顯示訓練類型 -->
         <div v-if="selectedMainType !== 'casual'" class="filter-item">
-          <label class="filter-label">類型：</label>
+          <label>類型：</label>
           <n-select
             v-model:value="selectedTrainingType"
             :options="trainingTypeOptions"
             placeholder="訓練類型"
             size="small"
-            class="filter-select"
+            style="width: 110px"
           />
         </div>
         <!-- 第三項：強度類型（只有選擇強度訓練時才顯示） -->
         <div v-if="selectedTrainingType === 'INT'" class="filter-item">
-          <label class="filter-label">子類型：</label>
+          <label>子類型：</label>
           <n-select
             v-model:value="selectedIntensityType"
             :options="intensityTypeOptions"
             placeholder="選擇強度類型"
             size="small"
-            class="filter-select"
+            style="width: 130px"
           />
         </div>
       </div>
@@ -64,7 +64,6 @@
         :size="'small'"
         :single-line="false"
         :row-class-name="getRowClassName"
-        class="training-table"
         :row-props="getRowProps"
       />
     </div>
@@ -377,71 +376,17 @@ const columns: DataTableColumns<TrainingRecord> = [
   display: flex;
   gap: 16px;
   align-items: center;
-  flex-wrap: wrap; /* 允許換行 */
+  flex-wrap: wrap;
 }
 
 .filter-item {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex: 0 0 auto;
-  white-space: nowrap; /* 防止標籤換行 */
-}
-
-.filter-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #374151;
-  white-space: nowrap;
-  min-width: 40px;
-}
-
-.filter-select {
-  width: 110px;
-}
-
-@media (max-width: 768px) {
-  .filter-controls {
-    gap: 8px;
-  }
-
-  .filter-row {
-    flex-direction: column;
-    gap: 8px;
-    align-items: stretch;
-    flex-wrap: nowrap; /* 手機版不換行 */
-  }
-
-  .filter-item {
-    flex: 1;
-    min-width: 0;
-    white-space: nowrap;
-  }
-
-  .filter-label {
-    min-width: 50px; /* 增加手機版標籤寬度 */
-  }
-
-  .filter-select {
-    width: 100%;
-    min-width: 80px;
-  }
-}
-
-.table-wrapper {
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: visible;
-}
-
-.training-table {
-  width: 100%;
-  table-layout: fixed;
 }
 
 .training-cell {
   padding: 4px 0;
-  margin: 0;
 }
 
 .training-name {
@@ -449,7 +394,6 @@ const columns: DataTableColumns<TrainingRecord> = [
   font-size: 14px;
   line-height: 1.3;
   margin-bottom: 2px;
-  white-space: normal;
   word-break: break-word;
 }
 
@@ -466,7 +410,6 @@ const columns: DataTableColumns<TrainingRecord> = [
   word-break: break-word;
 }
 
-/* 主副標籤樣式 */
 .main-tag {
   color: #059669;
   font-weight: 500;
@@ -500,27 +443,6 @@ const columns: DataTableColumns<TrainingRecord> = [
   width: fit-content;
 }
 
-/* 移除所有內部滾動並固定表格佈局 */
-:deep(.n-data-table) {
-  overflow: hidden !important;
-  table-layout: fixed !important;
-}
-
-:deep(.n-data-table-wrapper) {
-  overflow-x: hidden !important;
-  overflow-y: visible !important;
-}
-
-:deep(.n-data-table-base-table) {
-  overflow: hidden !important;
-  table-layout: fixed !important;
-}
-
-:deep(.n-data-table-base-table-body) {
-  overflow: hidden !important;
-}
-
-/* 直接使用 class 選擇器，不使用 :deep */
 .main-training-row {
   background-color: #dcfce7 !important;
 }
@@ -537,11 +459,6 @@ const columns: DataTableColumns<TrainingRecord> = [
   background-color: #f9fafb !important;
 }
 
-/* 確保主訓練樣式生效並填滿整格 */
-:deep(.clickable-row) {
-  cursor: pointer;
-}
-
 :deep(.n-data-table tbody .main-training-row) {
   background-color: #dcfce7 !important;
 }
@@ -550,25 +467,11 @@ const columns: DataTableColumns<TrainingRecord> = [
   background-color: #bbf7d0 !important;
 }
 
-:deep(.n-data-table tbody .clickable-row:not(.main-training-row):hover) {
-  background-color: #f9fafb !important;
-}
-
-/* 強制覆蓋所有可能的表格樣式 */
 :deep(.n-data-table tbody .main-training-row td) {
   background-color: #dcfce7 !important;
 }
 
 :deep(.n-data-table tbody .main-training-row:hover td) {
   background-color: #bbf7d0 !important;
-}
-
-/* 確保表格單元格沒有額外間距 */
-:deep(.n-data-table td) {
-  padding: 8px !important;
-}
-
-:deep(.n-data-table .n-data-table-td) {
-  padding: 8px !important;
 }
 </style>
