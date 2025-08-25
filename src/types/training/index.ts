@@ -4,6 +4,8 @@ export interface TrainingRecord {
   name: string
   startDate: string
   sportType: string
+  runType: string
+  parentRunType: string
   distance: number
   movingTime: string
   elevationGain: number

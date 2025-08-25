@@ -55,13 +55,7 @@ import { CanvasRenderer } from 'echarts/renderers'
 import { PieChart } from 'echarts/charts'
 import { TitleComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import type { TrainingRecord } from '@/types/training'
-import {
-  MAIN_CATEGORIES,
-  INTENSITY_SUB_TYPES,
-  Intensity,
-  matchTrainingType,
-  type RunType,
-} from '@/types/run-types'
+import { getRunTypeName, getParentRunTypeName, PARENT_RUN_TYPE_NAMES } from '@/types/run-types'
 
 use([CanvasRenderer, PieChart, TitleComponent, TooltipComponent, LegendComponent])
 
@@ -96,25 +90,25 @@ onUnmounted(() => {
 
 // 分類訓練記錄的函數
 const categorizeTrainingRecord = (record: TrainingRecord) => {
-  const matches = matchTrainingType(record.name)
+  // 使用記錄中的 runType 和 parentRunType
+  const runType = record.runType
+  const parentRunType = record.parentRunType
 
-  // 如果沒有匹配到，返回null
-  if (matches.length === 0) return { mainCategory: null, subCategory: null }
+  // 如果沒有類型資訊，返回null
+  if (!runType && !parentRunType) return { mainCategory: null, subCategory: null }
 
-  // 找到最具體的類型（有父類別的）
-  const specificType = matches.find((type) => type.parent) || matches[0]
-
-  // 確定主分類
-  let mainCategory: RunType | null = null
-  if (specificType.parent) {
-    mainCategory = specificType.parent
-  } else {
-    mainCategory = MAIN_CATEGORIES.find((cat) => cat.code === specificType.code) || null
+  // 如果有父類別，使用父類別作為主分類，具體類型作為子分類
+  if (parentRunType) {
+    return {
+      mainCategory: { code: parentRunType, name: getParentRunTypeName(parentRunType) },
+      subCategory: { code: runType, name: getRunTypeName(runType) },
+    }
   }
 
+  // 沒有父類別的類型直接作為主分類
   return {
-    mainCategory,
-    subCategory: specificType.parent ? specificType : null,
+    mainCategory: { code: runType, name: getRunTypeName(runType) },
+    subCategory: null,
   }
 }
 
@@ -122,19 +116,20 @@ const categorizeTrainingRecord = (record: TrainingRecord) => {
 const mainCategoryData = computed(() => {
   if (!props.records || props.records.length === 0) return []
 
-  const categoryStats = new Map<string, { distance: number; count: number; runType: RunType }>()
+  const categoryStats = new Map<string, { distance: number; count: number; name: string }>()
 
-  // 初始化所有主分類
-  MAIN_CATEGORIES.forEach((category) => {
-    categoryStats.set(category.code, { distance: 0, count: 0, runType: category })
+  // 初始化所有父類別
+  Object.entries(PARENT_RUN_TYPE_NAMES).forEach(([code, name]) => {
+    categoryStats.set(code, { distance: 0, count: 0, name })
   })
+
+  // 初始化獨立類型
+  categoryStats.set('LR', { distance: 0, count: 0, name: '長距離' })
+  categoryStats.set('RACE', { distance: 0, count: 0, name: '賽事' })
+  categoryStats.set('TRAIL', { distance: 0, count: 0, name: '越野跑' })
 
   // 其他分類（未匹配的）
-  categoryStats.set('OTHER', {
-    distance: 0,
-    count: 0,
-    runType: { code: 'OTHER', name: 'Other', chineseName: '其他' },
-  })
+  categoryStats.set('OTHER', { distance: 0, count: 0, name: '其他' })
 
   props.records.forEach((record) => {
     const { mainCategory } = categorizeTrainingRecord(record)
@@ -156,10 +151,10 @@ const mainCategoryData = computed(() => {
   })
 
   // 過濾掉沒有數據的分類
-  return Array.from(categoryStats.values())
-    .filter((stats) => stats.count > 0)
-    .map((stats) => ({
-      name: stats.runType.chineseName,
+  return Array.from(categoryStats.entries())
+    .filter(([_, stats]) => stats.count > 0)
+    .map(([code, stats]) => ({
+      name: stats.name,
       value: Number(stats.distance.toFixed(1)),
       count: stats.count,
     }))
@@ -169,18 +164,28 @@ const mainCategoryData = computed(() => {
 const intensitySubTypeData = computed(() => {
   if (!props.records || props.records.length === 0) return []
 
-  const subTypeStats = new Map<string, { distance: number; count: number; runType: RunType }>()
+  const subTypeStats = new Map<string, { distance: number; count: number; name: string }>()
 
   // 初始化所有強度訓練子分類
-  INTENSITY_SUB_TYPES.forEach((subType) => {
-    subTypeStats.set(subType.code, { distance: 0, count: 0, runType: subType })
+  const intensityTypes = [
+    { code: 'PROG', name: '漸速跑' },
+    { code: 'Slope', name: '坡度訓練' },
+    { code: 'FARTLEK', name: '法特雷克' },
+    { code: 'I-S', name: '短間歇' },
+    { code: 'I-L', name: '長間歇' },
+    { code: 'PYRAMID', name: '金字塔' },
+    { code: 'T', name: '節奏跑' },
+  ]
+
+  intensityTypes.forEach((type) => {
+    subTypeStats.set(type.code, { distance: 0, count: 0, name: type.name })
   })
 
   props.records.forEach((record) => {
     const { mainCategory, subCategory } = categorizeTrainingRecord(record)
 
     // 只統計強度訓練的子分類
-    if (mainCategory && mainCategory.code === Intensity.code && subCategory) {
+    if (mainCategory && mainCategory.code === 'INT' && subCategory) {
       const stats = subTypeStats.get(subCategory.code)
       if (stats) {
         stats.distance += record.distance
@@ -190,10 +195,10 @@ const intensitySubTypeData = computed(() => {
   })
 
   // 過濾掉沒有數據的子分類
-  return Array.from(subTypeStats.values())
-    .filter((stats) => stats.count > 0)
-    .map((stats) => ({
-      name: stats.runType.chineseName,
+  return Array.from(subTypeStats.entries())
+    .filter(([_, stats]) => stats.count > 0)
+    .map(([code, stats]) => ({
+      name: stats.name,
       value: Number(stats.distance.toFixed(1)),
       count: stats.count,
     }))

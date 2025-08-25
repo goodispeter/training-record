@@ -73,15 +73,10 @@
 
 <script setup lang="ts">
 import { ref, computed, h, watch } from 'vue'
-import { NDataTable, NTag, NSelect } from 'naive-ui'
+import { NDataTable, NSelect } from 'naive-ui'
 import type { DataTableColumns, SelectOption } from 'naive-ui'
 import type { TrainingRecord } from '@/types/training'
-import {
-  MAIN_CATEGORIES,
-  INTENSITY_SUB_TYPES,
-  matchTrainingType,
-  getTrainingTypeDisplay,
-} from '@/types/run-types'
+import { getRunTypeName, PARENT_RUN_TYPE_NAMES } from '@/types/run-types'
 
 interface Props {
   records: TrainingRecord[]
@@ -192,12 +187,15 @@ const mainTypeOptions = computed<SelectOption[]>(() => [
 const trainingTypeOptions = computed<SelectOption[]>(() => {
   const options: SelectOption[] = [{ label: '全部類型', value: '' }]
 
-  // 添加主要分類
-  MAIN_CATEGORIES.forEach((category) => {
-    options.push({ label: category.chineseName, value: category.code })
+  // 添加父類別
+  Object.entries(PARENT_RUN_TYPE_NAMES).forEach(([code, name]) => {
+    options.push({ label: name, value: code })
   })
 
-  // 添加其他類型
+  // 添加獨立類型（沒有父類別的）
+  options.push({ label: '長距離', value: 'LR' })
+  options.push({ label: '賽事', value: 'RACE' })
+  options.push({ label: '越野跑', value: 'TRAIL' })
   options.push({ label: '其他', value: 'OTHER' })
 
   return options
@@ -207,8 +205,19 @@ const trainingTypeOptions = computed<SelectOption[]>(() => {
 const intensityTypeOptions = computed<SelectOption[]>(() => {
   const options: SelectOption[] = [{ label: '全部強度類型', value: '' }]
 
-  INTENSITY_SUB_TYPES.forEach((type) => {
-    options.push({ label: type.chineseName, value: type.code })
+  // 添加強度訓練的子類型
+  const intensityTypes = [
+    { code: 'PROG', name: '漸速跑' },
+    { code: 'Slope', name: '坡度訓練' },
+    { code: 'FARTLEK', name: '法特雷克' },
+    { code: 'I-S', name: '短間歇' },
+    { code: 'I-L', name: '長間歇' },
+    { code: 'PYRAMID', name: '金字塔' },
+    { code: 'T', name: '節奏跑' },
+  ]
+
+  intensityTypes.forEach((type) => {
+    options.push({ label: type.name, value: type.code })
   })
 
   return options
@@ -245,18 +254,14 @@ const filteredRecords = computed(() => {
         return true
       }
 
-      const matchedTypes = matchTrainingType(record.name)
-
       if (selectedTrainingType.value === 'OTHER') {
-        // 如果選擇的是"其他"，則顯示沒有匹配到任何類型的記錄
-        if (matchedTypes.length > 0) return false
+        // 如果選擇的是"其他"，則顯示沒有類型的記錄
+        if (record.runType || record.parentRunType) return false
       } else {
         // 檢查是否匹配選擇的訓練類型或其父類別
-        const hasMatch = matchedTypes.some(
-          (type) =>
-            type.code === selectedTrainingType.value ||
-            type.parent?.code === selectedTrainingType.value,
-        )
+        const hasMatch =
+          record.runType === selectedTrainingType.value ||
+          record.parentRunType === selectedTrainingType.value
         if (!hasMatch) return false
       }
     }
@@ -267,10 +272,7 @@ const filteredRecords = computed(() => {
       selectedIntensityType.value !== '' &&
       selectedTrainingType.value === 'INT'
     ) {
-      const matchedTypes = matchTrainingType(record.name)
-      const hasIntensityMatch = matchedTypes.some(
-        (type) => type.code === selectedIntensityType.value,
-      )
+      const hasIntensityMatch = record.runType === selectedIntensityType.value
       if (!hasIntensityMatch) return false
     }
 
@@ -303,7 +305,7 @@ const columns: DataTableColumns<TrainingRecord> = [
     title: '訓練',
     key: 'name',
     render: (row) => {
-      const trainingTypeDisplay = getTrainingTypeDisplay(row.name)
+      const trainingTypeDisplay = getRunTypeName(row.runType)
       const hasDescription = row.description && row.description.trim() !== ''
       const isExpanded = expandedDescriptions.value.has(row.id)
 
