@@ -28,10 +28,26 @@
         </div>
       </div>
       <div v-if="trainingData && allRecords.length > 0" class="chart-container">
-        <TrainingCalendar :records="allRecords" />
-      </div>
-      <div v-if="trainingData && allRecords.length > 0" class="bottom-content">
-        <TrainingTable :records="allRecords" />
+        <div style="margin-bottom: 16px; display: flex; justify-content: left">
+          <n-button-group>
+            <n-button
+              :type="showCalendar ? 'primary' : 'default'"
+              @click="showCalendar = true"
+              size="medium"
+            >
+              📅 日曆
+            </n-button>
+            <n-button
+              :type="!showCalendar ? 'primary' : 'default'"
+              @click="showCalendar = false"
+              size="medium"
+            >
+              📋 表格
+            </n-button>
+          </n-button-group>
+        </div>
+        <TrainingCalendar v-if="showCalendar" :records="allRecords" />
+        <TrainingTable v-else :records="allRecords" />
       </div>
     </div>
   </div>
@@ -50,6 +66,7 @@ const store = useTrainingStore()
 
 const isMobile = ref(false)
 const chartKey = ref(0)
+const showCalendar = ref(true)
 
 // 檢查是否為手機設備
 const checkIsMobile = () => {

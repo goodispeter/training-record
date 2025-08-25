@@ -1,72 +1,68 @@
 <template>
-  <div class="training-table-container">
-    <h3 class="text-lg font-semibold mb-4">訓練記錄</h3>
-
-    <!-- Filter Controls -->
-    <div class="filter-controls mb-4">
-      <!-- 第一行：月份 -->
-      <div class="filter-row">
-        <div class="filter-item">
-          <label>月份：</label>
-          <n-select
-            v-model:value="selectedMonth"
-            :options="monthOptions"
-            placeholder="選擇月份"
-            size="small"
-            style="width: 110px"
-          />
-        </div>
-      </div>
-
-      <!-- 第二行：主副和類型 -->
-      <div class="filter-row">
-        <div class="filter-item">
-          <label>主副：</label>
-          <n-select
-            v-model:value="selectedMainType"
-            :options="mainTypeOptions"
-            placeholder="主副訓練"
-            size="small"
-            style="width: 110px"
-          />
-        </div>
-        <!-- 只有在選擇"主"或"全部"時才顯示訓練類型 -->
-        <div v-if="selectedMainType !== 'casual'" class="filter-item">
-          <label>類型：</label>
-          <n-select
-            v-model:value="selectedTrainingType"
-            :options="trainingTypeOptions"
-            placeholder="訓練類型"
-            size="small"
-            style="width: 110px"
-          />
-        </div>
-        <!-- 第三項：強度類型（只有選擇強度訓練時才顯示） -->
-        <div v-if="selectedTrainingType === 'INT'" class="filter-item">
-          <label>子類型：</label>
-          <n-select
-            v-model:value="selectedIntensityType"
-            :options="intensityTypeOptions"
-            placeholder="選擇強度類型"
-            size="small"
-            style="width: 130px"
-          />
-        </div>
+  <!-- Filter Controls -->
+  <div class="filter-controls mb-4">
+    <!-- 第一行：月份 -->
+    <div class="filter-row">
+      <div class="filter-item">
+        <label>月份：</label>
+        <n-select
+          v-model:value="selectedMonth"
+          :options="monthOptions"
+          placeholder="選擇月份"
+          size="small"
+          style="width: 110px"
+        />
       </div>
     </div>
 
-    <div class="table-wrapper">
-      <n-data-table
-        :columns="columns"
-        :data="filteredRecords"
-        :row-key="rowKey"
-        :bordered="false"
-        :size="'small'"
-        :single-line="false"
-        :row-class-name="getRowClassName"
-        :row-props="getRowProps"
-      />
+    <!-- 第二行：主副和類型 -->
+    <div class="filter-row">
+      <div class="filter-item">
+        <label>主副：</label>
+        <n-select
+          v-model:value="selectedMainType"
+          :options="mainTypeOptions"
+          placeholder="主副訓練"
+          size="small"
+          style="width: 110px"
+        />
+      </div>
+      <!-- 只有在選擇"主"或"全部"時才顯示訓練類型 -->
+      <div v-if="selectedMainType !== 'casual'" class="filter-item">
+        <label>類型：</label>
+        <n-select
+          v-model:value="selectedTrainingType"
+          :options="trainingTypeOptions"
+          placeholder="訓練類型"
+          size="small"
+          style="width: 110px"
+        />
+      </div>
+      <!-- 第三項：強度類型（只有選擇強度訓練時才顯示） -->
+      <div v-if="selectedTrainingType === 'INT'" class="filter-item">
+        <label>子類型：</label>
+        <n-select
+          v-model:value="selectedIntensityType"
+          :options="intensityTypeOptions"
+          placeholder="選擇強度類型"
+          size="small"
+          style="width: 130px"
+        />
+      </div>
     </div>
+  </div>
+
+  <div class="table-wrapper">
+    <n-data-table
+      :columns="columns"
+      :data="filteredRecords"
+      :row-key="rowKey"
+      :bordered="false"
+      :size="'small'"
+      :single-line="false"
+      :row-class-name="getRowClassName"
+      :row-props="getRowProps"
+    />
   </div>
 </template>
 
@@ -354,14 +350,6 @@ const columns: DataTableColumns<TrainingRecord> = [
 </script>
 
 <style scoped>
-.training-table-container {
-  background: white;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-}
-
 .filter-controls {
   background: #f9fafb;
   border-radius: 6px;

@@ -1,6 +1,4 @@
 <template>
-  <h3 class="text-lg font-semibold mb-4">訓練日曆</h3>
-
   <!-- Calendar Header -->
   <div class="calendar-header">
     <div class="calendar-nav">
