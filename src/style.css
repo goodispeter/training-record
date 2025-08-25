@@ -515,13 +515,6 @@ body {
     max-width: 100%;
   }
 
-  /* 確保所有容器不會溢出 */
-  .chart-container,
-  .training-table-container {
-    margin-bottom: 24px !important;
-    padding-bottom: 0 !important;
-  }
-
   /* 移除所有內部滾動 */
   * {
     overflow-x: visible !important;

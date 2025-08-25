@@ -1,82 +1,80 @@
 <template>
-  <div class="chart-container">
-    <h3 class="text-lg font-semibold mb-4">訓練日曆</h3>
+  <h3 class="text-lg font-semibold mb-4">訓練日曆</h3>
 
-    <!-- Calendar Header -->
-    <div class="calendar-header">
-      <div class="calendar-nav">
-        <button class="calendar-nav-btn" @click="previousMonth">‹</button>
-        <span class="calendar-title">{{ currentMonthYear }}</span>
-        <button class="calendar-nav-btn" @click="nextMonth">›</button>
-      </div>
-      <button class="calendar-nav-btn" @click="goToToday">今日</button>
+  <!-- Calendar Header -->
+  <div class="calendar-header">
+    <div class="calendar-nav">
+      <button class="calendar-nav-btn" @click="previousMonth">‹</button>
+      <span class="calendar-title">{{ currentMonthYear }}</span>
+      <button class="calendar-nav-btn" @click="nextMonth">›</button>
     </div>
-
-    <!-- Calendar Grid -->
-    <div class="calendar-grid">
-      <!-- Day Headers -->
-      <div v-for="day in dayHeaders" :key="day" class="day-header">
-        {{ day }}
-      </div>
-
-      <!-- Calendar Days -->
-      <div
-        v-for="date in calendarDays"
-        :key="date.dateString"
-        :class="getDayCellClass(date)"
-        class="day-cell"
-        @click="selectDate(date)"
-      >
-        <div class="day-number">{{ date.day }}</div>
-        <div v-if="date.trainings.length > 0" class="training-indicators">
-          <div
-            v-for="training in date.trainings"
-            :key="training.id"
-            :class="['training-dot', { 'main-training-dot': training.isMainTraining }]"
-          ></div>
-        </div>
-        <div v-if="date.trainings.length > 0" class="training-summary">
-          {{ date.trainings.length }}次 {{ getTotalDistance(date.trainings) }}km
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal for Selected Date Details -->
-    <n-modal
-      v-model:show="showModal"
-      preset="card"
-      :title="selectedDateString"
-      style="width: 600px; max-width: 90vw"
-    >
-      <div v-if="selectedDateTrainings.length > 0" class="training-list">
-        <div
-          v-for="training in selectedDateTrainings"
-          :key="training.id"
-          class="training-detail-card"
-        >
-          <div class="flex justify-between items-start">
-            <div class="training-info">
-              <h5 class="font-medium">{{ training.name }}</h5>
-              <div class="text-sm text-gray-600" style="margin-top: 4px">
-                距離: {{ training.distance }}km | 時間: {{ training.movingTime }} | 配速:
-                {{ training.pace }}
-              </div>
-              <div
-                v-if="training.description && training.description.trim()"
-                class="training-description-modal"
-              >
-                {{ training.description }}
-              </div>
-            </div>
-            <n-tag :type="training.isMainTraining ? 'success' : 'default'" size="small">
-              {{ training.isMainTraining ? '主訓練' : '輕鬆跑' }}
-            </n-tag>
-          </div>
-        </div>
-      </div>
-      <div v-else class="text-center text-gray-500 py-4">此日期沒有訓練記錄</div>
-    </n-modal>
+    <button class="calendar-nav-btn" @click="goToToday">今日</button>
   </div>
+
+  <!-- Calendar Grid -->
+  <div class="calendar-grid">
+    <!-- Day Headers -->
+    <div v-for="day in dayHeaders" :key="day" class="day-header">
+      {{ day }}
+    </div>
+
+    <!-- Calendar Days -->
+    <div
+      v-for="date in calendarDays"
+      :key="date.dateString"
+      :class="getDayCellClass(date)"
+      class="day-cell"
+      @click="selectDate(date)"
+    >
+      <div class="day-number">{{ date.day }}</div>
+      <div v-if="date.trainings.length > 0" class="training-indicators">
+        <div
+          v-for="training in date.trainings"
+          :key="training.id"
+          :class="['training-dot', { 'main-training-dot': training.isMainTraining }]"
+        ></div>
+      </div>
+      <div v-if="date.trainings.length > 0" class="training-summary">
+        {{ date.trainings.length }}次 {{ getTotalDistance(date.trainings) }}km
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Selected Date Details -->
+  <n-modal
+    v-model:show="showModal"
+    preset="card"
+    :title="selectedDateString"
+    style="width: 600px; max-width: 90vw"
+  >
+    <div v-if="selectedDateTrainings.length > 0" class="training-list">
+      <div
+        v-for="training in selectedDateTrainings"
+        :key="training.id"
+        class="training-detail-card"
+      >
+        <div class="flex justify-between items-start">
+          <div class="training-info">
+            <h5 class="font-medium">{{ training.name }}</h5>
+            <div class="text-sm text-gray-600" style="margin-top: 4px">
+              距離: {{ training.distance }}km | 時間: {{ training.movingTime }} | 配速:
+              {{ training.pace }}
+            </div>
+            <div
+              v-if="training.description && training.description.trim()"
+              class="training-description-modal"
+            >
+              {{ training.description }}
+            </div>
+          </div>
+          <n-tag :type="training.isMainTraining ? 'success' : 'default'" size="small">
+            {{ training.isMainTraining ? '主訓練' : '輕鬆跑' }}
+          </n-tag>
+        </div>
+      </div>
+    </div>
+    <div v-else class="text-center text-gray-500 py-4">此日期沒有訓練記錄</div>
+  </n-modal>
 </template>
 
 <script setup lang="ts">
