@@ -29,6 +29,8 @@
       </div>
       <div v-if="trainingData && allRecords.length > 0" class="responsive-content">
         <TrainingCalendar :records="allRecords" />
+      </div>
+      <div v-if="trainingData && allRecords.length > 0" class="responsive-content">
         <TrainingTable :records="allRecords" />
       </div>
     </div>

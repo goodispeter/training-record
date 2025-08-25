@@ -215,29 +215,13 @@ const mainCategoryOption = computed(() => {
         const data = params.data
         return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
       },
-      appendToBody: false,
-      confine: true,
+      appendToBody: true,
+      confine: false,
       position: function (point: any, params: any, dom: any, rect: any, size: any) {
-        // 自定義定位邏輯，確保在小屏幕上也能正確顯示
+        // 簡化定位邏輯，讓 ECharts 自動處理邊界
         const x = point[0] + 10
         const y = point[1] - 10
-
-        // 確保不超出容器邊界
-        const containerWidth = size.viewSize[0]
-        const tooltipWidth = size.contentSize[0]
-
-        let finalX = x
-        let finalY = y
-
-        if (x + tooltipWidth > containerWidth) {
-          finalX = point[0] - tooltipWidth - 10
-        }
-
-        if (y < 0) {
-          finalY = point[1] + 20
-        }
-
-        return [finalX, finalY]
+        return [x, y]
       },
     },
     legend: {
@@ -298,29 +282,13 @@ const intensitySubTypeOption = computed(() => {
         const data = params.data
         return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
       },
-      appendToBody: false,
-      confine: true,
+      appendToBody: true,
+      confine: false,
       position: function (point: any, params: any, dom: any, rect: any, size: any) {
-        // 自定義定位邏輯，確保在小屏幕上也能正確顯示
+        // 簡化定位邏輯，讓 ECharts 自動處理邊界
         const x = point[0] + 10
         const y = point[1] - 10
-
-        // 確保不超出容器邊界
-        const containerWidth = size.viewSize[0]
-        const tooltipWidth = size.contentSize[0]
-
-        let finalX = x
-        let finalY = y
-
-        if (x + tooltipWidth > containerWidth) {
-          finalX = point[0] - tooltipWidth - 10
-        }
-
-        if (y < 0) {
-          finalY = point[1] + 20
-        }
-
-        return [finalX, finalY]
+        return [x, y]
       },
     },
     legend: {
