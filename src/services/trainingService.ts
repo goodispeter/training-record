@@ -10,7 +10,7 @@ interface SydneyApiData {
   totalMovingTime: string
   mainTrainingCount: number
   totalElevationGain: number
-  trainingRecords: import('@/types/training').MonthlyTrainingData[] // 在 sydney.json 中這個欄位包含月份資料
+  monthlyTrainingRecords: import('@/types/training').MonthlyTrainingData[] // 在 sydney.json 中這個欄位包含月份資料
 }
 
 interface SydneyApiResponse {
@@ -55,7 +55,7 @@ class TrainingService {
         totalMovingTime: result.data.totalMovingTime,
         mainTrainingCount: result.data.mainTrainingCount,
         totalElevationGain: result.data.totalElevationGain,
-        monthlyData: result.data.trainingRecords, // sydney.json 中的 trainingRecords 實際上是 monthlyData
+        monthlyData: result.data.monthlyTrainingRecords, // sydney.json 中的 trainingRecords 實際上是 monthlyData
       }
 
       return transformedData
