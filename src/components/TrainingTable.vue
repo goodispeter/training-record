@@ -81,54 +81,20 @@ const props = defineProps<Props>()
 
 // Filter states
 const selectedMonth = ref<string>('')
-const selectedMainType = ref<string>('')
+const selectedMainType = ref<string>('main')
 const selectedTrainingType = ref<string>('')
 const selectedIntensityType = ref<string>('')
 
-// Description expansion state
-const expandedDescriptions = ref<Set<number>>(new Set())
-
-// Toggle description expansion
-const toggleDescription = (id: number) => {
-  const newSet = new Set(expandedDescriptions.value)
-  if (newSet.has(id)) {
-    newSet.delete(id)
-  } else {
-    newSet.add(id)
-  }
-  expandedDescriptions.value = newSet
-}
+// Helper function to check if record has description
+const hasDescription = (row: TrainingRecord) => row.description && row.description.trim() !== ''
 
 // Get row class name for styling
 const getRowClassName = (row: TrainingRecord) => {
-  const hasDescription = row.description && row.description.trim() !== ''
-
-  if (hasDescription && row.isMainTraining) {
-    return 'main-training-row clickable-row'
-  } else if (hasDescription) {
-    return 'clickable-row'
-  }
-  return ''
+  return !row.isMainTraining ? 'casual-training-row' : ''
 }
 
-// Handle row click
-const handleRowClick = (row: TrainingRecord) => {
-  const hasDescription = row.description && row.description.trim() !== ''
-  if (hasDescription) {
-    toggleDescription(row.id)
-  }
-}
-
-// Get row props for click handling
-const getRowProps = (row: TrainingRecord) => {
-  const hasDescription = row.description && row.description.trim() !== ''
-  if (hasDescription) {
-    return {
-      onClick: () => handleRowClick(row),
-    }
-  }
-  return {}
-}
+// Get row props (no longer needed for click handling)
+const getRowProps = () => ({})
 
 // 監聽主副選擇的變化，當選擇"副"時清空訓練類型
 watch(selectedMainType, (newValue) => {
@@ -171,36 +137,32 @@ const monthOptions = computed<SelectOption[]>(() => {
   return [{ label: '全部月份', value: '' }, ...sortedMonths]
 })
 
-// Main type options (主副訓練)
+// Main type options
 const mainTypeOptions = computed<SelectOption[]>(() => [
   { label: '全部', value: '' },
-  { label: '主', value: 'main' },
-  { label: '副', value: 'casual' },
+  { label: '主訓練', value: 'main' },
+  { label: '其他', value: 'casual' },
 ])
 
 // Training type options (訓練類型)
 const trainingTypeOptions = computed<SelectOption[]>(() => {
-  const options: SelectOption[] = [{ label: '全部類型', value: '' }]
+  const parentOptions = Object.entries(PARENT_RUN_TYPE_NAMES).map(([code, name]) => ({
+    label: name,
+    value: code,
+  }))
 
-  // 添加父類別
-  Object.entries(PARENT_RUN_TYPE_NAMES).forEach(([code, name]) => {
-    options.push({ label: name, value: code })
-  })
+  const independentTypes = [
+    { label: '長距離', value: 'LR' },
+    { label: '賽事', value: 'RACE' },
+    { label: '越野跑', value: 'TRAIL' },
+    { label: '其他', value: 'OTHER' },
+  ]
 
-  // 添加獨立類型（沒有父類別的）
-  options.push({ label: '長距離', value: 'LR' })
-  options.push({ label: '賽事', value: 'RACE' })
-  options.push({ label: '越野跑', value: 'TRAIL' })
-  options.push({ label: '其他', value: 'OTHER' })
-
-  return options
+  return [{ label: '全部類型', value: '' }, ...parentOptions, ...independentTypes]
 })
 
 // Intensity type options (強度訓練子類型)
 const intensityTypeOptions = computed<SelectOption[]>(() => {
-  const options: SelectOption[] = [{ label: '全部強度類型', value: '' }]
-
-  // 添加強度訓練的子類型
   const intensityTypes = [
     { code: 'PROG', name: '漸速跑' },
     { code: 'Slope', name: '坡度訓練' },
@@ -209,79 +171,62 @@ const intensityTypeOptions = computed<SelectOption[]>(() => {
     { code: 'I-L', name: '長間歇' },
     { code: 'PYRAMID', name: '金字塔' },
     { code: 'T', name: '節奏跑' },
-  ]
+  ].map((type) => ({ label: type.name, value: type.code }))
 
-  intensityTypes.forEach((type) => {
-    options.push({ label: type.name, value: type.code })
-  })
-
-  return options
+  return [{ label: '全部強度類型', value: '' }, ...intensityTypes]
 })
+
+// Filter helper functions
+const matchesMonthFilter = (record: TrainingRecord) => {
+  if (!selectedMonth.value) return true
+
+  const date = new Date(record.startDate)
+  const recordMonth = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
+  return recordMonth === selectedMonth.value
+}
+
+const matchesMainTypeFilter = (record: TrainingRecord) => {
+  if (!selectedMainType.value) return true
+
+  return selectedMainType.value === 'main' ? record.isMainTraining : !record.isMainTraining
+}
+
+const matchesTrainingTypeFilter = (record: TrainingRecord) => {
+  if (!selectedTrainingType.value) return true
+
+  // 訓練類型過濾只適用於主訓練
+  if (!record.isMainTraining && !selectedMainType.value) return false
+  if (selectedMainType.value === 'casual') return true
+
+  if (selectedTrainingType.value === 'OTHER') {
+    return !record.runType && !record.parentRunType
+  }
+
+  return (
+    record.runType === selectedTrainingType.value ||
+    record.parentRunType === selectedTrainingType.value
+  )
+}
+
+const matchesIntensityTypeFilter = (record: TrainingRecord) => {
+  if (!selectedIntensityType.value || selectedTrainingType.value !== 'INT') return true
+  return record.runType === selectedIntensityType.value
+}
 
 // Filtered records
 const filteredRecords = computed(() => {
   if (!props.records) return []
 
-  const filtered = props.records.filter((record) => {
-    // Month filter
-    if (selectedMonth.value && selectedMonth.value !== '') {
-      const date = new Date(record.startDate)
-      const recordMonth = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
-      if (recordMonth !== selectedMonth.value) return false
-    }
+  const filtered = props.records.filter(
+    (record) =>
+      matchesMonthFilter(record) &&
+      matchesMainTypeFilter(record) &&
+      matchesTrainingTypeFilter(record) &&
+      matchesIntensityTypeFilter(record),
+  )
 
-    // Main type filter (主副訓練)
-    if (selectedMainType.value && selectedMainType.value !== '') {
-      const isMain = record.isMainTraining
-      if (selectedMainType.value === 'main' && !isMain) return false
-      if (selectedMainType.value === 'casual' && isMain) return false
-    }
-
-    // Training type filter (訓練類型) - 只有在非副訓練時才應用
-    if (selectedTrainingType.value && selectedTrainingType.value !== '') {
-      // 如果選擇了訓練類型，就只顯示主訓練（除非明確選擇了主副）
-      if (selectedMainType.value === '') {
-        // 如果沒有選擇主副，但選擇了訓練類型，就只顯示主訓練
-        if (!record.isMainTraining) return false
-      } else if (selectedMainType.value === 'casual') {
-        // 如果選擇了副訓練，就不應用訓練類型過濾
-        // 這個條件不應該出現，因為UI已經隱藏了類型選擇
-        return true
-      }
-
-      if (selectedTrainingType.value === 'OTHER') {
-        // 如果選擇的是"其他"，則顯示沒有類型的記錄
-        if (record.runType || record.parentRunType) return false
-      } else {
-        // 檢查是否匹配選擇的訓練類型或其父類別
-        const hasMatch =
-          record.runType === selectedTrainingType.value ||
-          record.parentRunType === selectedTrainingType.value
-        if (!hasMatch) return false
-      }
-    }
-
-    // Intensity type filter (強度類型過濾) - 只有選擇強度訓練時才應用
-    if (
-      selectedIntensityType.value &&
-      selectedIntensityType.value !== '' &&
-      selectedTrainingType.value === 'INT'
-    ) {
-      const hasIntensityMatch = record.runType === selectedIntensityType.value
-      if (!hasIntensityMatch) return false
-    }
-
-    return true
-  })
-
-  // 強制按日期倒敘排序（最新的在上面）- 使用更明確的排序
-  const sorted = filtered.sort((a, b) => {
-    const dateA = new Date(a.startDate).getTime()
-    const dateB = new Date(b.startDate).getTime()
-    return dateB - dateA // 倒敘：最新的在前面
-  })
-
-  return sorted
+  // 按日期倒敘排序（最新的在上面）
+  return filtered.sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
 })
 
 const rowKey = (row: TrainingRecord) => row.id
@@ -290,45 +235,29 @@ const columns: DataTableColumns<TrainingRecord> = [
   {
     title: '日期',
     key: 'startDate',
-    render: (row) => {
-      const date = new Date(row.startDate)
-      return date.toLocaleDateString('zh-TW', { month: 'numeric', day: 'numeric' })
-    },
+    render: (row) =>
+      new Date(row.startDate).toLocaleDateString('zh-TW', {
+        month: 'numeric',
+        day: 'numeric',
+      }),
     width: 60,
   },
   {
     title: '訓練',
     key: 'name',
     render: (row) => {
-      const hasDescription = row.description && row.description.trim() !== ''
-      const isExpanded = expandedDescriptions.value.has(row.id)
+      const hasDesc = hasDescription(row)
 
-      return h(
-        'div',
-        {
-          class: 'training-cell',
-        },
-        [
-          // 訓練名稱
-          h('div', { class: 'training-name' }, row.name),
-          // 訓練資訊
-          h(
-            'div',
-            { class: 'training-meta' },
-            `${row.distance}km | ${row.movingTime} | ${row.pace}`,
-          ),
-          // 描述內容 (條件顯示)
-          hasDescription &&
-            isExpanded &&
-            h(
-              'div',
-              {
-                class: 'training-description',
-              },
-              row.description,
-            ),
-        ],
-      )
+      const children = [
+        h('div', { class: 'training-name' }, row.name),
+        h('div', { class: 'training-meta' }, `${row.distance}km | ${row.movingTime} | ${row.pace}`),
+      ]
+
+      if (hasDesc) {
+        children.push(h('div', { class: 'training-description' }, row.description))
+      }
+
+      return h('div', { class: 'training-cell' }, children)
     },
     ellipsis: false,
   },
@@ -393,35 +322,20 @@ const columns: DataTableColumns<TrainingRecord> = [
   gap: 2px;
 }
 
-.main-training-row {
-  background-color: #dcfce7 !important;
+.casual-training-row {
+  background-color: #f5f5f5 !important;
 }
 
-.main-training-row:hover {
-  background-color: #bbf7d0 !important;
+/* 主訓練 hover 效果 */
+:deep(.n-data-table tbody tr:not(.casual-training-row):hover),
+:deep(.n-data-table tbody tr:not(.casual-training-row):hover td) {
+  background-color: #f0f9ff !important;
+  transition: background-color 0.2s ease;
 }
 
-.clickable-row {
-  cursor: pointer;
-}
-
-.clickable-row:not(.main-training-row):hover {
-  background-color: #f9fafb !important;
-}
-
-:deep(.n-data-table tbody .main-training-row) {
-  background-color: #dcfce7 !important;
-}
-
-:deep(.n-data-table tbody .main-training-row:hover) {
-  background-color: #bbf7d0 !important;
-}
-
-:deep(.n-data-table tbody .main-training-row td) {
-  background-color: #dcfce7 !important;
-}
-
-:deep(.n-data-table tbody .main-training-row:hover td) {
-  background-color: #bbf7d0 !important;
+/* Ensure casual training row styling works with naive-ui table */
+:deep(.n-data-table tbody .casual-training-row),
+:deep(.n-data-table tbody .casual-training-row td) {
+  background-color: #f5f5f5 !important;
 }
 </style>

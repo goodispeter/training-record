@@ -2,11 +2,12 @@
   <!-- Calendar Header -->
   <div class="calendar-header">
     <div class="calendar-nav">
-      <button class="calendar-nav-btn" @click="previousMonth">‹</button>
+      <button class="calendar-nav-btn" :disabled="!canGoToPreviousMonth" @click="previousMonth">
+        ‹
+      </button>
       <span class="calendar-title">{{ currentMonthYear }}</span>
-      <button class="calendar-nav-btn" @click="nextMonth">›</button>
+      <button class="calendar-nav-btn" :disabled="!canGoToNextMonth" @click="nextMonth">›</button>
     </div>
-    <button class="calendar-nav-btn" @click="goToToday">今日</button>
   </div>
 
   <!-- Calendar Grid -->
@@ -98,7 +99,59 @@ const currentDate = ref(new Date())
 const selectedDate = ref<Date | null>(null)
 const showModal = ref(false)
 
+// 計算資料的日期範圍
+const dataDateRange = computed(() => {
+  if (!props.records || props.records.length === 0) {
+    return { min: null, max: null }
+  }
+
+  const dates = props.records.map((record) => new Date(record.startDate))
+  const minDate = new Date(Math.min(...dates.map((d) => d.getTime())))
+  const maxDate = new Date(Math.max(...dates.map((d) => d.getTime())))
+
+  return {
+    min: new Date(minDate.getFullYear(), minDate.getMonth(), 1), // 月份第一天
+    max: new Date(maxDate.getFullYear(), maxDate.getMonth(), 1), // 月份第一天
+  }
+})
+
+// 檢查是否可以導航到上一個月
+const canGoToPreviousMonth = computed(() => {
+  if (!dataDateRange.value.min) return false
+  const currentMonth = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth(), 1)
+  return currentMonth > dataDateRange.value.min
+})
+
+// 檢查是否可以導航到下一個月
+const canGoToNextMonth = computed(() => {
+  if (!dataDateRange.value.max) return false
+  const currentMonth = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth(), 1)
+  return currentMonth < dataDateRange.value.max
+})
+
 const dayHeaders = ['一', '二', '三', '四', '五', '六', '日']
+
+// 檢查日期是否在資料範圍內並導航到合適的月份
+const navigateToValidMonth = () => {
+  const today = new Date()
+  const todayMonth = new Date(today.getFullYear(), today.getMonth(), 1)
+
+  if (dataDateRange.value.min && dataDateRange.value.max) {
+    if (todayMonth >= dataDateRange.value.min && todayMonth <= dataDateRange.value.max) {
+      // 今天在資料範圍內
+      currentDate.value = today
+      selectedDate.value = today
+    } else {
+      // 導航到有資料的最新月份
+      currentDate.value = new Date(dataDateRange.value.max)
+      selectedDate.value = new Date(dataDateRange.value.max)
+    }
+  } else {
+    // 如果沒有資料，使用今天
+    currentDate.value = today
+    selectedDate.value = today
+  }
+}
 
 // 當前月份年份顯示
 const currentMonthYear = computed(() => {
@@ -128,38 +181,40 @@ const calendarDays = computed(() => {
   const year = currentDate.value.getFullYear()
   const month = currentDate.value.getMonth()
 
-  // 當月第一天
+  // 當月第一天和最後一天
   const firstDay = new Date(year, month, 1)
-  // 當月最後一天
   const lastDay = new Date(year, month + 1, 0)
 
-  // 計算週一開始的日曆
-  // 獲取當月第一天是週幾 (0=週日, 1=週一, ..., 6=週六)
+  // 計算週一開始的日曆範圍
   const firstDayOfWeek = firstDay.getDay()
-  // 轉換為以週一為起始 (週一=0, 週二=1, ..., 週日=6)
   const mondayBasedFirstDay = firstDayOfWeek === 0 ? 6 : firstDayOfWeek - 1
 
-  // 日曆開始日期（包含上月末尾）
   const startDate = new Date(firstDay)
   startDate.setDate(startDate.getDate() - mondayBasedFirstDay)
 
-  // 計算當月最後一天是週幾
   const lastDayOfWeek = lastDay.getDay()
   const mondayBasedLastDay = lastDayOfWeek === 0 ? 6 : lastDayOfWeek - 1
 
-  // 日曆結束日期（包含下月開頭）
   const endDate = new Date(lastDay)
   endDate.setDate(endDate.getDate() + (6 - mondayBasedLastDay))
 
+  // 預先建立日期對應的訓練記錄映射
+  const trainingsByDate = new Map<string, TrainingRecord[]>()
+  props.records.forEach((record) => {
+    const dateString = formatDateString(new Date(record.startDate))
+    if (!trainingsByDate.has(dateString)) {
+      trainingsByDate.set(dateString, [])
+    }
+    trainingsByDate.get(dateString)!.push(record)
+  })
+
+  // 生成日曆天數
   const days: CalendarDay[] = []
   const current = new Date(startDate)
 
   while (current <= endDate) {
     const dateString = formatDateString(current)
-    const trainings = props.records.filter((record) => {
-      const recordDate = formatDateString(new Date(record.startDate))
-      return recordDate === dateString
-    })
+    const trainings = trainingsByDate.get(dateString) || []
 
     days.push({
       day: current.getDate(),
@@ -204,16 +259,23 @@ const getTotalDistance = (trainings: TrainingRecord[]): string => {
 }
 
 const previousMonth = () => {
-  currentDate.value = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth() - 1, 1)
+  if (canGoToPreviousMonth.value) {
+    currentDate.value = new Date(
+      currentDate.value.getFullYear(),
+      currentDate.value.getMonth() - 1,
+      1,
+    )
+  }
 }
 
 const nextMonth = () => {
-  currentDate.value = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth() + 1, 1)
-}
-
-const goToToday = () => {
-  currentDate.value = new Date()
-  selectedDate.value = new Date()
+  if (canGoToNextMonth.value) {
+    currentDate.value = new Date(
+      currentDate.value.getFullYear(),
+      currentDate.value.getMonth() + 1,
+      1,
+    )
+  }
 }
 
 const selectDate = (date: CalendarDay) => {
@@ -222,18 +284,11 @@ const selectDate = (date: CalendarDay) => {
 }
 
 onMounted(() => {
-  // 默認選擇今天
-  selectedDate.value = new Date()
+  navigateToValidMonth()
 })
 </script>
 
 <style scoped>
-.selected-date-details {
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 1px solid #e5e7eb;
-}
-
 .training-list {
   display: flex;
   flex-direction: column;
