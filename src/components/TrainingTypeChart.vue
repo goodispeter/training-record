@@ -237,7 +237,7 @@ const mainCategoryOption = computed(() => {
         name: '訓練類型',
         type: 'pie',
         radius: '45%',
-        center: ['50%', '40%'],
+        center: ['60%', '30%'],
         data: mainCategoryData.value,
         emphasis: {
           itemStyle: {
@@ -304,7 +304,7 @@ const intensitySubTypeOption = computed(() => {
         name: '強度訓練類型',
         type: 'pie',
         radius: '45%',
-        center: ['50%', '40%'],
+        center: ['60%', '30%'],
         data: intensitySubTypeData.value,
         emphasis: {
           itemStyle: {
