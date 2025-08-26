@@ -71,7 +71,7 @@ import { ref, computed, h, watch } from 'vue'
 import { NDataTable, NSelect } from 'naive-ui'
 import type { DataTableColumns, SelectOption } from 'naive-ui'
 import type { TrainingRecord } from '@/types/training'
-import { getRunTypeName, PARENT_RUN_TYPE_NAMES } from '@/types/run-types'
+import { PARENT_RUN_TYPE_NAMES } from '@/types/run-types'
 
 interface Props {
   records: TrainingRecord[]
@@ -300,7 +300,6 @@ const columns: DataTableColumns<TrainingRecord> = [
     title: '訓練',
     key: 'name',
     render: (row) => {
-      const trainingTypeDisplay = getRunTypeName(row.runType)
       const hasDescription = row.description && row.description.trim() !== ''
       const isExpanded = expandedDescriptions.value.has(row.id)
 
@@ -313,10 +312,11 @@ const columns: DataTableColumns<TrainingRecord> = [
           // 訓練名稱
           h('div', { class: 'training-name' }, row.name),
           // 訓練資訊
-          h('div', { class: 'training-meta' }, [
+          h(
+            'div',
+            { class: 'training-meta' },
             `${row.distance}km | ${row.movingTime} | ${row.pace}`,
-            h('span', { class: 'training-type-tag' }, trainingTypeDisplay),
-          ]),
+          ),
           // 描述內容 (條件顯示)
           hasDescription &&
             isExpanded &&
@@ -331,20 +331,6 @@ const columns: DataTableColumns<TrainingRecord> = [
       )
     },
     ellipsis: false,
-  },
-  {
-    title: '主副',
-    key: 'isMainTraining',
-    render: (row) => {
-      return h(
-        'span',
-        {
-          class: row.isMainTraining ? 'main-tag' : 'casual-tag',
-        },
-        row.isMainTraining ? '主' : '副',
-      )
-    },
-    width: 50,
   },
 ]
 </script>
@@ -398,18 +384,6 @@ const columns: DataTableColumns<TrainingRecord> = [
   word-break: break-word;
 }
 
-.main-tag {
-  color: #059669;
-  font-weight: 500;
-  font-size: 12px;
-}
-
-.casual-tag {
-  color: #6b7280;
-  font-weight: 500;
-  font-size: 12px;
-}
-
 .training-meta {
   font-size: 12px;
   color: #6b7280;
@@ -417,18 +391,6 @@ const columns: DataTableColumns<TrainingRecord> = [
   display: flex;
   flex-direction: column;
   gap: 2px;
-}
-
-.training-type-tag {
-  display: inline-block;
-  background-color: #e0f2fe;
-  color: #0369a1;
-  font-size: 10px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-weight: 500;
-  margin-top: 2px;
-  width: fit-content;
 }
 
 .main-training-row {

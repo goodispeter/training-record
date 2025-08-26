@@ -55,8 +55,7 @@
           <div class="training-info">
             <h5 class="font-medium">{{ training.name }}</h5>
             <div class="text-sm text-gray-600" style="margin-top: 4px">
-              距離: {{ training.distance }}km | 時間: {{ training.movingTime }} | 配速:
-              {{ training.pace }}
+              {{ training.distance }}km | {{ training.movingTime }} | {{ training.pace }}
             </div>
             <div
               v-if="training.description && training.description.trim()"
