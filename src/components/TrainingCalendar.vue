@@ -43,35 +43,56 @@
   <n-modal
     v-model:show="showModal"
     preset="card"
-    :title="selectedDateString"
+    :title="modalTitle"
     style="width: 600px; max-width: 90vw"
   >
-    <div v-if="selectedDateTrainings.length > 0" class="training-list">
+    <div class="modal-container">
+      <!-- 左側點擊區域 -->
       <div
-        v-for="training in selectedDateTrainings"
-        :key="training.id"
-        class="training-detail-card"
+        v-if="hasPreviousRecord"
+        class="nav-area nav-area-left"
+        @click="goToPreviousRecord"
+        title="上一次訓練"
       >
-        <div class="flex justify-between items-start">
-          <div class="training-info">
-            <h5 class="font-medium">{{ training.name }}</h5>
-            <div class="text-sm text-gray-600" style="margin-top: 4px">
-              {{ training.distance }}km | {{ training.movingTime }} | {{ training.pace }}
+        <div class="nav-arrow">‹</div>
+      </div>
+
+      <!-- 右側點擊區域 -->
+      <div
+        v-if="hasNextRecord"
+        class="nav-area nav-area-right"
+        @click="goToNextRecord"
+        title="下一次訓練"
+      >
+        <div class="nav-arrow">›</div>
+      </div>
+      <!-- 訓練記錄內容 -->
+      <div class="training-list">
+        <div
+          v-for="training in selectedDateTrainings"
+          :key="training.id"
+          class="training-detail-card"
+        >
+          <div class="flex justify-between items-start">
+            <div class="training-info">
+              <h5 class="font-medium">{{ training.name }}</h5>
+              <div class="text-sm text-gray-600" style="margin-top: 4px">
+                {{ training.distance }}km | {{ training.movingTime }} | {{ training.pace }}
+              </div>
+              <div
+                v-if="training.description && training.description.trim()"
+                class="training-description-modal"
+              >
+                {{ training.description }}
+              </div>
             </div>
-            <div
-              v-if="training.description && training.description.trim()"
-              class="training-description-modal"
-            >
-              {{ training.description }}
-            </div>
+            <n-tag :type="training.isMainTraining ? 'success' : 'default'" size="small">
+              {{ training.isMainTraining ? '主訓練' : '輕鬆跑' }}
+            </n-tag>
           </div>
-          <n-tag :type="training.isMainTraining ? 'success' : 'default'" size="small">
-            {{ training.isMainTraining ? '主訓練' : '輕鬆跑' }}
-          </n-tag>
         </div>
       </div>
     </div>
-    <div v-else class="text-center text-gray-500 py-4">此日期沒有訓練記錄</div>
   </n-modal>
 </template>
 
@@ -279,8 +300,66 @@ const nextMonth = () => {
 }
 
 const selectDate = (date: CalendarDay) => {
-  selectedDate.value = date.date
-  showModal.value = true
+  if (date.trainings.length > 0) {
+    selectedDate.value = date.date
+    showModal.value = true
+  }
+}
+
+// 導航相關的計算屬性和方法
+// 所有有訓練記錄的日期，按時間排序
+const recordDates = computed(() => {
+  const dates = [...new Set(props.records.map((r) => r.startDate.split('T')[0]))]
+  return dates.sort((a, b) => new Date(a).getTime() - new Date(b).getTime())
+})
+
+// 當前選中日期的格式化字符串
+const currentSelectedDateString = computed(() => {
+  if (!selectedDate.value) return ''
+  return formatDateString(selectedDate.value)
+})
+
+// 當前日期在記錄列表中的索引
+const currentRecordIndex = computed(() =>
+  recordDates.value.findIndex((date) => date === currentSelectedDateString.value),
+)
+
+// 總記錄日期數
+const totalRecordDates = computed(() => recordDates.value.length)
+
+// 是否有上一個記錄
+const hasPreviousRecord = computed(() => currentRecordIndex.value > 0)
+
+// 是否有下一個記錄
+const hasNextRecord = computed(
+  () => currentRecordIndex.value >= 0 && currentRecordIndex.value < recordDates.value.length - 1,
+)
+
+// 彈窗標題
+const modalTitle = computed(() => {
+  if (!selectedDate.value) return ''
+  const date = selectedDate.value
+  return date.toLocaleDateString('zh-TW', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+})
+
+// 跳到上一個記錄
+const goToPreviousRecord = () => {
+  if (hasPreviousRecord.value) {
+    const prevDate = recordDates.value[currentRecordIndex.value - 1]
+    selectedDate.value = new Date(prevDate)
+  }
+}
+
+// 跳到下一個記錄
+const goToNextRecord = () => {
+  if (hasNextRecord.value) {
+    const nextDate = recordDates.value[currentRecordIndex.value + 1]
+    selectedDate.value = new Date(nextDate)
+  }
 }
 
 onMounted(() => {
@@ -289,6 +368,62 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.modal-container {
+  position: relative;
+  min-height: 200px;
+}
+
+.nav-area {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.nav-area:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.nav-area-left {
+  left: -20px;
+  border-radius: 0 8px 8px 0;
+}
+
+.nav-area-right {
+  right: -20px;
+  border-radius: 8px 0 0 8px;
+}
+
+.nav-arrow {
+  font-size: 24px;
+  font-weight: bold;
+  color: #666;
+  user-select: none;
+}
+
+.record-counter {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+  z-index: 20;
+}
+
 .training-list {
   display: flex;
   flex-direction: column;
