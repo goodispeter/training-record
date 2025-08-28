@@ -211,6 +211,7 @@ const mainCategoryOption = computed(() => {
   return {
     tooltip: {
       trigger: 'item',
+      triggerOn: 'mousemove|click',
       formatter: function (params: any) {
         const data = params.data
         return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
@@ -278,6 +279,7 @@ const intensitySubTypeOption = computed(() => {
   return {
     tooltip: {
       trigger: 'item',
+      triggerOn: 'mousemove|click',
       formatter: function (params: any) {
         const data = params.data
         return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
