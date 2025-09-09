@@ -19,7 +19,7 @@
         "trainingRecords": [
           {
             "id": 15642662044,
-            "name": "SYD FINAL - 2025 雪梨馬拉松",
+            "name": "SYD FINAL - 賽事 2025 雪梨馬拉松",
             "startDate": "2025-08-31T04:37:48",
             "sportType": "Run",
             "runType": null,
@@ -352,6 +352,20 @@
             "pace": "11:19",
             "isMainTraining": false,
             "description": ""
+          },
+          {
+            "id": 15500181984,
+            "name": "傍晚重量訓練",
+            "startDate": "2025-08-18T19:39:37",
+            "sportType": "WeightTraining",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0,
+            "movingTime": "00:50:59",
+            "elevationGain": 0,
+            "pace": null,
+            "isMainTraining": true,
+            "description": null
           },
           {
             "id": 15500182003,
