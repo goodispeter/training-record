@@ -155,6 +155,7 @@ const trainingTypeOptions = computed<SelectOption[]>(() => {
     { label: '長距離', value: 'LR' },
     { label: '賽事', value: 'RACE' },
     { label: '越野跑', value: 'TRAIL' },
+    { label: '重量訓練', value: 'WeightTraining' },
     { label: '其他', value: 'OTHER' },
   ]
 
@@ -199,7 +200,12 @@ const matchesTrainingTypeFilter = (record: TrainingRecord) => {
   if (selectedMainType.value === 'casual') return true
 
   if (selectedTrainingType.value === 'OTHER') {
-    return !record.runType && !record.parentRunType
+    return !record.runType && !record.parentRunType && record.sportType !== 'WeightTraining'
+  }
+
+  // 處理重量訓練類型
+  if (selectedTrainingType.value === 'WeightTraining') {
+    return record.sportType === 'WeightTraining'
   }
 
   return (
@@ -248,10 +254,21 @@ const columns: DataTableColumns<TrainingRecord> = [
     render: (row) => {
       const hasDesc = hasDescription(row)
 
-      const children = [
-        h('div', { class: 'training-name' }, row.name),
-        h('div', { class: 'training-meta' }, `${row.distance}km | ${row.movingTime} | ${row.pace}`),
-      ]
+      const children = [h('div', { class: 'training-name' }, row.name)]
+
+      // 只有非重量訓練才顯示距離、時間、配速
+      if (row.sportType !== 'WeightTraining') {
+        children.push(
+          h(
+            'div',
+            { class: 'training-meta' },
+            `${row.distance}km | ${row.movingTime} | ${row.pace}`,
+          ),
+        )
+      } else {
+        // 重量訓練只顯示時間
+        children.push(h('div', { class: 'training-meta' }, `時間: ${row.movingTime}`))
+      }
 
       if (hasDesc) {
         children.push(h('div', { class: 'training-description' }, row.description))

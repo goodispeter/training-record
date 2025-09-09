@@ -34,7 +34,7 @@
         ></div>
       </div>
       <div v-if="date.trainings.length > 0" class="training-summary">
-        {{ date.trainings.length }}次 {{ getTotalDistance(date.trainings) }}km
+        {{ getTrainingSummary(date.trainings) }}
       </div>
     </div>
   </div>
@@ -76,8 +76,15 @@
           <div class="flex justify-between items-start">
             <div class="training-info">
               <h5 class="font-medium">{{ training.name }}</h5>
-              <div class="text-sm text-gray-600" style="margin-top: 4px">
+              <div
+                v-if="training.sportType !== 'WeightTraining'"
+                class="text-sm text-gray-600"
+                style="margin-top: 4px"
+              >
                 {{ training.distance }}km | {{ training.movingTime }} | {{ training.pace }}
+              </div>
+              <div v-else class="text-sm text-gray-600" style="margin-top: 4px">
+                時間: {{ training.movingTime }}
               </div>
               <div
                 v-if="training.description && training.description.trim()"
@@ -277,6 +284,20 @@ const getDayCellClass = (date: CalendarDay): string => {
 const getTotalDistance = (trainings: TrainingRecord[]): string => {
   const total = trainings.reduce((sum, training) => sum + training.distance, 0)
   return total.toFixed(1)
+}
+
+const getTrainingSummary = (trainings: TrainingRecord[]): string => {
+  const runningTrainings = trainings.filter((t) => t.sportType !== 'WeightTraining')
+  const weightTrainings = trainings.filter((t) => t.sportType === 'WeightTraining')
+
+  let summary = `${trainings.length}次`
+
+  if (runningTrainings.length > 0) {
+    const totalDistance = runningTrainings.reduce((sum, training) => sum + training.distance, 0)
+    summary += ` ${totalDistance.toFixed(1)}km`
+  }
+
+  return summary
 }
 
 const previousMonth = () => {

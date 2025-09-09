@@ -90,6 +90,14 @@ onUnmounted(() => {
 
 // 分類訓練記錄的函數
 const categorizeTrainingRecord = (record: TrainingRecord) => {
+  // 處理重量訓練
+  if (record.sportType === 'WeightTraining') {
+    return {
+      mainCategory: { code: 'WeightTraining', name: '重量訓練' },
+      subCategory: null,
+    }
+  }
+
   // 使用記錄中的 runType 和 parentRunType
   const runType = record.runType
   const parentRunType = record.parentRunType
@@ -127,6 +135,7 @@ const mainCategoryData = computed(() => {
   categoryStats.set('LR', { distance: 0, count: 0, name: '長距離' })
   categoryStats.set('RACE', { distance: 0, count: 0, name: '賽事' })
   categoryStats.set('TRAIL', { distance: 0, count: 0, name: '越野跑' })
+  categoryStats.set('WeightTraining', { distance: 0, count: 0, name: '重量訓練' })
 
   // 其他分類（未匹配的）
   categoryStats.set('OTHER', { distance: 0, count: 0, name: '其他' })
@@ -137,7 +146,12 @@ const mainCategoryData = computed(() => {
     if (mainCategory) {
       const stats = categoryStats.get(mainCategory.code)
       if (stats) {
-        stats.distance += record.distance
+        // 重量訓練不累加距離，只計算次數
+        if (mainCategory.code === 'WeightTraining') {
+          stats.distance += 1 // 用次數代替距離
+        } else {
+          stats.distance += record.distance
+        }
         stats.count += 1
       }
     } else {
@@ -214,7 +228,12 @@ const mainCategoryOption = computed(() => {
       triggerOn: 'mousemove|click',
       formatter: function (params: any) {
         const data = params.data
-        return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
+        // 如果是重量訓練，顯示次數而不是距離
+        if (data.name === '重量訓練') {
+          return `${data.name}: ${data.count}次<br/>佔比: ${params.percent}%`
+        } else {
+          return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
+        }
       },
       appendToBody: true,
       confine: false,
@@ -263,8 +282,19 @@ const mainCategoryOption = computed(() => {
         },
         itemStyle: {
           color: (params: any) => {
-            const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#6b7280']
-            return colors[params.dataIndex % colors.length]
+            // 為不同訓練類型設定特定顏色
+            const colorMap: { [key: string]: string } = {
+              強度訓練: '#ef4444', // 紅色 - 強度訓練
+              長距離: '#3b82f6', // 藍色 - 長距離
+              慢跑: '#10b981', // 綠色 - 慢跑
+              重量訓練: '#f59e0b', // 橙色 - 重量訓練
+              賽事: '#8b5cf6', // 紫色 - 賽事
+              越野跑: '#06b6d4', // 青色 - 越野跑
+              其他: '#6b7280', // 灰色 - 其他
+            }
+
+            const dataName = params.data.name
+            return colorMap[dataName] || '#6b7280' // 預設灰色
           },
         },
       },
