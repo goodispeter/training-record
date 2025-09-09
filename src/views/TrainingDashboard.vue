@@ -54,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, computed, ref, nextTick } from 'vue'
+import { onMounted, onUnmounted, computed, ref, nextTick, watch } from 'vue'
 import { useTrainingStore } from '@/stores/training'
 import SummaryCard from '@/components/SummaryCard.vue'
 import MonthlyStatsChart from '@/components/MonthlyStatsChart.vue'
@@ -62,6 +62,13 @@ import TrainingTypeChart from '@/components/TrainingTypeChart.vue'
 import TrainingTable from '@/components/TrainingTable.vue'
 import TrainingCalendar from '@/components/TrainingCalendar.vue'
 
+// 接收路由參數
+interface Props {
+  person: string
+  target: string
+}
+
+const props = defineProps<Props>()
 const store = useTrainingStore()
 
 const isMobile = ref(false)
@@ -97,10 +104,24 @@ const monthlyData = computed(() => store.monthlyData)
 const totalRecords = computed(() => allRecords.value.length)
 const target = computed(() => store.trainingData?.target)
 
+// 載入資料的函數
+const loadTrainingData = () => {
+  store.fetchTrainingData(props.person, props.target)
+}
+
+// 監聽路由參數變化
+watch(
+  () => [props.person, props.target],
+  () => {
+    loadTrainingData()
+  },
+  { immediate: false },
+)
+
 onMounted(() => {
   checkIsMobile()
   window.addEventListener('resize', handleResize)
-  store.fetchTrainingData()
+  loadTrainingData()
 })
 
 onUnmounted(() => {

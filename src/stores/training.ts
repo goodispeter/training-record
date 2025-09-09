@@ -8,9 +8,9 @@ export type { TrainingRecord, MonthlyTrainingData, TrainingSummary } from '@/typ
 export const useTrainingStore = defineStore('training', () => {
   const trainingData = ref<TrainingResponseData | null>(null)
 
-  const fetchTrainingData = async () => {
+  const fetchTrainingData = async (person?: string, target?: string) => {
     try {
-      trainingData.value = await getTrainingData()
+      trainingData.value = await getTrainingData(person, target)
     } catch (err) {
       console.error('Error fetching training data:', err)
     }

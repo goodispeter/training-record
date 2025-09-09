@@ -6,8 +6,13 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      redirect: '/pan/taipei',
+    },
+    {
+      path: '/:person/:target',
       name: 'dashboard',
       component: TrainingDashboard,
+      props: true,
     },
   ],
 })

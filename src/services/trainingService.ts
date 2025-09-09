@@ -29,9 +29,9 @@ class TrainingService {
    * 取得正確的 API 基礎路徑
    */
   private getBasePath(): string {
-    // 在開發環境中，使用相對路徑
+    // 在開發環境中，使用正確的基礎路徑
     if (import.meta.env.DEV) {
-      return '.'
+      return '/training-record'
     }
 
     // 在生產環境中，使用 Vite 的 base 路徑
@@ -39,15 +39,38 @@ class TrainingService {
   }
 
   /**
-   * 從 sydney.json 取得訓練資料
+   * 從指定的 JSON 檔案取得訓練資料
+   * @param person - 人員名稱 (例如: pan, sung)
+   * @param target - 目標資料來源 (例如: sydney, taipei, tpe)
    * @returns Promise<TrainingResponseData>
    */
-  async getTrainingData(): Promise<TrainingResponseData> {
+  async getTrainingData(
+    person: string = 'pan',
+    target: string = 'taipei',
+  ): Promise<TrainingResponseData> {
     try {
       const basePath = this.getBasePath()
-      const apiUrl = `${basePath}/mock/pan/sydney.json`
+      const apiUrl = `${basePath}/mock/${person}/${target}.json`
 
-      const result = await apiUtil.doGet<SydneyApiResponse>(apiUrl)
+      console.log('Fetching data from:', apiUrl)
+
+      // 直接用 fetch 替代 apiUtil
+      const response = await fetch(apiUrl)
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+      }
+
+      const result = await response.json()
+      console.log('JSON data loaded:', result)
+
+      if (!result) {
+        throw new Error('API returned null or undefined result')
+      }
+
+      if (!result.data) {
+        console.error('Result structure:', JSON.stringify(result, null, 2))
+        throw new Error('API result does not contain data property')
+      }
 
       const transformedData: TrainingResponseData = {
         target: result.data.target,
@@ -55,20 +78,29 @@ class TrainingService {
         totalMovingTime: result.data.totalMovingTime,
         mainTrainingCount: result.data.mainTrainingCount,
         totalElevationGain: result.data.totalElevationGain,
-        monthlyData: result.data.monthlyTrainingRecords, // sydney.json 中的 trainingRecords 實際上是 monthlyData
+        monthlyData: result.data.monthlyTrainingRecords,
       }
 
       return transformedData
     } catch (error) {
       console.error('Failed to fetch training data:', error)
+      console.error('Error details:', {
+        person,
+        target,
+        basePath: this.getBasePath(),
+        apiUrl: `${this.getBasePath()}/mock/${person}/${target}.json`,
+      })
       throw error
     }
   }
 
-  async testApiPath(): Promise<{ success: boolean; url: string; error?: string }> {
+  async testApiPath(
+    person: string = 'pan',
+    target: string = 'taipei',
+  ): Promise<{ success: boolean; url: string; error?: string }> {
     try {
       const basePath = this.getBasePath()
-      const apiUrl = `${basePath}/mock/pan/sydney.json`
+      const apiUrl = `${basePath}/mock/${person}/${target}.json`
 
       await apiUtil.doGet(apiUrl)
 
@@ -78,7 +110,7 @@ class TrainingService {
       }
     } catch (error) {
       const basePath = this.getBasePath()
-      const apiUrl = `${basePath}/mock/pan/sydney.json`
+      const apiUrl = `${basePath}/mock/${person}/${target}.json`
 
       return {
         success: false,
@@ -91,6 +123,9 @@ class TrainingService {
 
 export const trainingService = new TrainingService()
 
-export async function getTrainingData(): Promise<TrainingResponseData> {
-  return trainingService.getTrainingData()
+export async function getTrainingData(
+  person?: string,
+  target?: string,
+): Promise<TrainingResponseData> {
+  return trainingService.getTrainingData(person, target)
 }
