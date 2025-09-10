@@ -88,7 +88,12 @@
         >
           <div class="flex justify-between items-start">
             <div class="training-info">
-              <h5 class="font-medium">{{ training.name }}</h5>
+              <div class="flex justify-between items-center">
+                <h5 class="font-medium">{{ training.name }}</h5>
+                <n-tag :type="training.isMainTraining ? 'success' : 'default'" size="small">
+                  {{ training.isMainTraining ? '主訓練' : '輕鬆跑' }}
+                </n-tag>
+              </div>
               <div
                 v-if="training.sportType !== 'WeightTraining'"
                 class="text-sm text-gray-600"
@@ -106,9 +111,6 @@
                 {{ training.description }}
               </div>
             </div>
-            <n-tag :type="training.isMainTraining ? 'success' : 'default'" size="small">
-              {{ training.isMainTraining ? '主訓練' : '輕鬆跑' }}
-            </n-tag>
           </div>
         </div>
       </div>
