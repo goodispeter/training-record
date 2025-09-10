@@ -12,7 +12,7 @@
     </div>
 
     <!-- 圓餅圖容器 -->
-    <div class="relative overflow-visible">
+    <div class="relative overflow-visible" style="position: relative; z-index: 1">
       <!-- 主要訓練類型圓餅圖 -->
       <div v-show="activeChart === 'main'" class="w-full overflow-visible">
         <v-chart
@@ -23,6 +23,7 @@
           height="320px"
           ref="mainChartRef"
           :autoresize="true"
+          style="position: relative; z-index: 2"
         />
         <div v-else class="flex items-center justify-center h-80 text-gray-500">暫無資料</div>
       </div>
@@ -37,6 +38,7 @@
           height="320px"
           ref="intensityChartRef"
           :autoresize="true"
+          style="position: relative; z-index: 2"
         />
         <div v-else class="flex items-center justify-center h-80 text-gray-500">
           暫無強度訓練資料
@@ -225,7 +227,7 @@ const mainCategoryOption = computed(() => {
   return {
     tooltip: {
       trigger: 'item',
-      triggerOn: 'mousemove|click',
+      triggerOn: window.innerWidth <= 768 ? 'click' : 'mousemove|click',
       formatter: function (params: any) {
         const data = params.data
         // 如果是重量訓練，顯示次數而不是距離
@@ -235,14 +237,14 @@ const mainCategoryOption = computed(() => {
           return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
         }
       },
-      appendToBody: true,
-      confine: false,
-      position: function (point: any, params: any, dom: any, rect: any, size: any) {
-        // 簡化定位邏輯，讓 ECharts 自動處理邊界
-        const x = point[0] + 10
-        const y = point[1] - 10
-        return [x, y]
+      confine: true,
+      backgroundColor: 'rgba(50, 50, 50, 0.9)',
+      borderColor: 'rgba(255, 255, 255, 0.2)',
+      textStyle: {
+        color: '#fff',
       },
+      extraCssText:
+        'max-width: 300px; word-wrap: break-word; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3);',
     },
     legend: {
       orient: 'vertical',
@@ -309,19 +311,19 @@ const intensitySubTypeOption = computed(() => {
   return {
     tooltip: {
       trigger: 'item',
-      triggerOn: 'mousemove|click',
+      triggerOn: window.innerWidth <= 768 ? 'click' : 'mousemove|click',
       formatter: function (params: any) {
         const data = params.data
         return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
       },
-      appendToBody: true,
-      confine: false,
-      position: function (point: any, params: any, dom: any, rect: any, size: any) {
-        // 簡化定位邏輯，讓 ECharts 自動處理邊界
-        const x = point[0] + 10
-        const y = point[1] - 10
-        return [x, y]
+      confine: true,
+      backgroundColor: 'rgba(50, 50, 50, 0.9)',
+      borderColor: 'rgba(255, 255, 255, 0.2)',
+      textStyle: {
+        color: '#fff',
       },
+      extraCssText:
+        'max-width: 300px; word-wrap: break-word; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3);',
     },
     legend: {
       orient: 'vertical',
