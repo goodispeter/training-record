@@ -53,8 +53,6 @@ class TrainingService {
       const basePath = this.getBasePath()
       const apiUrl = `${basePath}/mock/${person}/${target}.json`
 
-      console.log('Fetching data from:', apiUrl)
-
       // 直接用 fetch 替代 apiUtil
       const response = await fetch(apiUrl)
       if (!response.ok) {
@@ -62,14 +60,12 @@ class TrainingService {
       }
 
       const result = await response.json()
-      console.log('JSON data loaded:', result)
 
       if (!result) {
         throw new Error('API returned null or undefined result')
       }
 
       if (!result.data) {
-        console.error('Result structure:', JSON.stringify(result, null, 2))
         throw new Error('API result does not contain data property')
       }
 
@@ -81,16 +77,8 @@ class TrainingService {
         totalElevationGain: result.data.totalElevationGain,
         monthlyData: result.data.monthlyTrainingRecords,
       }
-
       return transformedData
     } catch (error) {
-      console.error('Failed to fetch training data:', error)
-      console.error('Error details:', {
-        person,
-        target,
-        basePath: this.getBasePath(),
-        apiUrl: `${this.getBasePath()}/mock/${person}/${target}.json`,
-      })
       throw error
     }
   }

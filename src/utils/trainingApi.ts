@@ -96,7 +96,6 @@ class TrainingApiService {
 
       return transformedData
     } catch (error) {
-      console.error('Failed to fetch training data:', error)
       throw error
     }
   }

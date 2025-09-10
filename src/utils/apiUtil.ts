@@ -31,7 +31,6 @@ class ApiUtil {
 
       return response.data
     } catch (error) {
-      console.error(`GET request failed for URL: ${url}`, error)
       throw error
     }
   }
