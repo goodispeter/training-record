@@ -227,7 +227,7 @@ const mainCategoryOption = computed(() => {
   return {
     tooltip: {
       trigger: 'item',
-      triggerOn: window.innerWidth <= 768 ? 'click' : 'mousemove|click',
+      triggerOn: 'click',
       formatter: function (params: any) {
         const data = params.data
         // 如果是重量訓練，顯示次數而不是距離
@@ -237,14 +237,15 @@ const mainCategoryOption = computed(() => {
           return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
         }
       },
-      confine: true,
+      confine: false,
       backgroundColor: 'rgba(50, 50, 50, 0.9)',
       borderColor: 'rgba(255, 255, 255, 0.2)',
       textStyle: {
         color: '#fff',
       },
       extraCssText:
-        'max-width: 300px; word-wrap: break-word; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3);',
+        'max-width: 300px; word-wrap: break-word; z-index: 99999; box-shadow: 0 4px 12px rgba(0,0,0,0.3); position: absolute;',
+      appendToBody: true,
     },
     legend: {
       orient: 'vertical',
@@ -311,19 +312,20 @@ const intensitySubTypeOption = computed(() => {
   return {
     tooltip: {
       trigger: 'item',
-      triggerOn: window.innerWidth <= 768 ? 'click' : 'mousemove|click',
+      triggerOn: 'click',
       formatter: function (params: any) {
         const data = params.data
         return `${data.name}: ${data.value}km<br/>次數: ${data.count}次<br/>佔比: ${params.percent}%`
       },
-      confine: true,
+      confine: false,
       backgroundColor: 'rgba(50, 50, 50, 0.9)',
       borderColor: 'rgba(255, 255, 255, 0.2)',
       textStyle: {
         color: '#fff',
       },
       extraCssText:
-        'max-width: 300px; word-wrap: break-word; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3);',
+        'max-width: 300px; word-wrap: break-word; z-index: 99999; box-shadow: 0 4px 12px rgba(0,0,0,0.3); position: absolute;',
+      appendToBody: true,
     },
     legend: {
       orient: 'vertical',
