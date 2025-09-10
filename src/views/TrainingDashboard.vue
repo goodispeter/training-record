@@ -55,6 +55,7 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, computed, ref, nextTick, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { useTrainingStore } from '@/stores/training'
 import SummaryCard from '@/components/SummaryCard.vue'
 import MonthlyStatsChart from '@/components/MonthlyStatsChart.vue'
@@ -70,6 +71,7 @@ interface Props {
 
 const props = defineProps<Props>()
 const store = useTrainingStore()
+const router = useRouter()
 
 const isMobile = ref(false)
 const chartKey = ref(0)
@@ -105,8 +107,15 @@ const totalRecords = computed(() => allRecords.value.length)
 const target = computed(() => store.trainingData?.target)
 
 // 載入資料的函數
-const loadTrainingData = () => {
-  store.fetchTrainingData(props.person, props.target)
+const loadTrainingData = async () => {
+  try {
+    await store.fetchTrainingData(props.person, props.target)
+  } catch (error) {
+    // 如果不是預設路徑且載入失敗，重導到預設頁面
+    if (!(props.person === 'pan' && props.target === 'taipei')) {
+      await router.push('/pan/taipei')
+    }
+  }
 }
 
 // 監聽路由參數變化

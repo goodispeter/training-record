@@ -12,7 +12,7 @@ export const useTrainingStore = defineStore('training', () => {
     try {
       trainingData.value = await getTrainingData(person, target)
     } catch (err) {
-      console.error('Error fetching training data:', err)
+      throw err
     }
   }
 
