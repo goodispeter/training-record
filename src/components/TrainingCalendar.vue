@@ -8,6 +8,19 @@
       <span class="calendar-title">{{ currentMonthYear }}</span>
       <button class="calendar-nav-btn" :disabled="!canGoToNextMonth" @click="nextMonth">›</button>
     </div>
+    <div class="flex justify-end">
+      <div class="calendar-filter">
+        <label class="filter-label">類型：</label>
+        <n-select
+          v-model:value="selectedTrainingType"
+          :options="trainingTypeOptions"
+          placeholder="選擇訓練類型"
+          size="small"
+          style="width: 140px"
+          clearable
+        />
+      </div>
+    </div>
   </div>
 
   <!-- Calendar Grid -->
@@ -105,7 +118,8 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { NTag, NModal } from 'naive-ui'
+import { NTag, NModal, NSelect } from 'naive-ui'
+import type { SelectOption } from 'naive-ui'
 import type { TrainingRecord } from '@/types/training'
 
 interface Props {
@@ -113,6 +127,19 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+
+// 篩選狀態
+const selectedTrainingType = ref<string | null>(null)
+
+// 訓練類型選項
+const trainingTypeOptions: SelectOption[] = [
+  { label: '強度訓練', value: 'INT' },
+  { label: '慢跑', value: 'SW' },
+  { label: '長距離', value: 'LR' },
+  { label: '賽事', value: 'RACE' },
+  { label: '越野跑', value: 'TRAIL' },
+  { label: '重量訓練', value: 'WeightTraining' },
+]
 
 interface CalendarDay {
   day: number
@@ -271,12 +298,45 @@ const isToday = (date: Date): boolean => {
   return formatDateString(date) === formatDateString(today)
 }
 
+// 檢查訓練記錄是否符合篩選條件
+const matchesFilter = (training: TrainingRecord): boolean => {
+  if (!selectedTrainingType.value) return true
+
+  switch (selectedTrainingType.value) {
+    case 'INT':
+      return training.parentRunType === 'INT'
+    case 'SW':
+      return training.parentRunType === 'SW'
+    case 'LR':
+      return training.runType === 'LR'
+    case 'RACE':
+      return training.runType === 'RACE'
+    case 'TRAIL':
+      return training.runType === 'TRAIL'
+    case 'WeightTraining':
+      return training.sportType === 'WeightTraining'
+    default:
+      return false
+  }
+}
+
+// 檢查日期是否有符合篩選條件的訓練
+const dateHasMatchingTraining = (trainings: TrainingRecord[]): boolean => {
+  if (!selectedTrainingType.value) return trainings.length > 0
+  return trainings.some(matchesFilter)
+}
+
 const getDayCellClass = (date: CalendarDay): string => {
   const classes = []
 
   if (!date.isCurrentMonth) classes.push('other-month')
   if (date.isToday) classes.push('today')
   if (date.trainings.length > 0) classes.push('has-training')
+
+  // 根據篩選條件添加高亮樣式
+  if (selectedTrainingType.value && dateHasMatchingTraining(date.trainings)) {
+    classes.push('filtered-match')
+  }
 
   return classes.join(' ')
 }
@@ -481,5 +541,27 @@ onMounted(() => {
   flex-wrap: wrap;
   gap: 2px;
   margin-top: 2px;
+}
+
+/* 篩選器樣式 */
+.calendar-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 14px;
+  color: #4b5563;
+  white-space: nowrap;
+}
+
+/* 篩選匹配的日期樣式 */
+.day-cell.filtered-match {
+  background: #fc9090;
+}
+
+.day-cell.filtered-match .training-summary {
+  color: #ffffff;
 }
 </style>
