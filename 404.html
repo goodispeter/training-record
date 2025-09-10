@@ -1,23 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Training Record</title>
     <script type="text/javascript">
       // GitHub Pages SPA 404 重導
-      (function(l) {
+      ;(function (l) {
         // 取得完整路徑（移除 /training-record 前綴）
-        var path = l.pathname.replace('/training-record', '') || '/';
-        var query = l.search || '';
-        var hash = l.hash || '';
-        
+        var path = l.pathname.replace('/training-record', '') || '/'
+        var query = l.search || ''
+        var hash = l.hash || ''
+
         // 重導到根路徑，並將原始路徑編碼到查詢參數中
-        var redirect = '/training-record/?p=' + encodeURIComponent(path) + 
-                      (query ? '&q=' + encodeURIComponent(query.slice(1)) : '') +
-                      (hash ? '&h=' + encodeURIComponent(hash.slice(1)) : '');
-        
-        window.location.replace(redirect);
-      }(window.location))
+        var redirect =
+          '/training-record/?p=' +
+          encodeURIComponent(path) +
+          (query ? '&q=' + encodeURIComponent(query.slice(1)) : '') +
+          (hash ? '&h=' + encodeURIComponent(hash.slice(1)) : '')
+
+        window.location.replace(redirect)
+      })(window.location)
     </script>
   </head>
   <body>
