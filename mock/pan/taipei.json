@@ -19,7 +19,7 @@
         "trainingRecords": [
           {
             "id": 15752009626,
-            "name": "TPE 11 - 恢復跑 大安森*5",
+            "name": "TPE 12 - 恢復跑 大安森*5",
             "startDate": "2025-09-09T19:50:43",
             "sportType": "Run",
             "runType": "REC",
@@ -29,21 +29,21 @@
             "elevationGain": 6,
             "pace": "5:49",
             "isMainTraining": true,
-            "description": null
+            "description": "恢復跑但也不能無腦跑，要感覺跑的被人提，肚臍向前，腳步聲不要太大，然後還是好難🫠然後莫名其妙今天跑了26k"
           },
           {
             "id": 15752004556,
-            "name": "傍晚跑步",
+            "name": "TPE 11 - 恢復跑 大安森*2",
             "startDate": "2025-09-09T18:23:52",
             "sportType": "Run",
-            "runType": null,
-            "parentRunType": null,
+            "runType": "REC",
+            "parentRunType": "SW",
             "distance": 6.08,
             "movingTime": "00:35:26",
             "elevationGain": 2,
             "pace": "5:49",
-            "isMainTraining": false,
-            "description": null
+            "isMainTraining": true,
+            "description": "課前再繼續跑個恢復，避免等等上課一點都不恢復?有同學共跑時間就是過比較快。"
           },
           {
             "id": 15745286305,
