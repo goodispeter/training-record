@@ -34,8 +34,9 @@ class TrainingService {
       return '/training-record'
     }
 
-    // 在生產環境中，使用 Vite 的 base 路徑
-    return import.meta.env.BASE_URL.replace(/\/$/, '')
+    // 在生產環境中，確保使用正確的基礎路徑
+    // GitHub Pages 會將檔案放在 /training-record/ 下
+    return '/training-record'
   }
 
   /**

@@ -14,6 +14,11 @@ const router = createRouter({
       component: TrainingDashboard,
       props: true,
     },
+    // 處理所有未匹配的路由，重導到預設頁面
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/pan/taipei',
+    },
   ],
 })
 
