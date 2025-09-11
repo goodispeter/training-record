@@ -8,7 +8,6 @@ export interface PersonConfig {
 
 export interface TargetConfig {
   displayName: string
-  emoji: string
   link?: string
 }
 
@@ -36,11 +35,9 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
 export const TARGET_CONFIG: Record<string, TargetConfig> = {
   taipei: {
     displayName: '2025 臺北馬拉松',
-    emoji: '🐯',
   },
   sydney: {
     displayName: '2025 雪梨馬拉松',
-    emoji: '🐨',
     link: 'https://www.instagram.com/p/DOTegmfE5CU/?igsh=MWd6bzlsbDV3ZXBrag==',
   },
 }
@@ -58,7 +55,7 @@ export const getAvailableYears = (person: string): string[] => {
 // 輔助函數：取得目標顯示名稱
 export const getTargetDisplayName = (target: string): string => {
   const config = TARGET_CONFIG[target]
-  return config ? `${config.emoji} ${config.displayName}` : target
+  return config ? ` ${config.displayName}` : target
 }
 
 // 輔助函數：取得人員顯示名稱

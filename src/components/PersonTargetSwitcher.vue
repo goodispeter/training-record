@@ -17,7 +17,7 @@
         @update:value="switchTarget"
         :options="targetOptions"
         size="small"
-        style="width: 180px"
+        style="width: 150px"
       />
     </div>
     <!-- 完賽心得按鈕 -->
