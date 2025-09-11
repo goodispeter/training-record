@@ -1,14 +1,28 @@
 <template>
   <n-config-provider>
     <n-global-style />
-    <router-view />
-    <Footer />
+    <div class="app-layout">
+      <NavBar />
+      <main class="main-content">
+        <router-view />
+      </main>
+      <Footer />
+    </div>
   </n-config-provider>
 </template>
 
 <script setup lang="ts">
-import { NConfigProvider, NGlobalStyle, NLayout, NLayoutContent } from 'naive-ui'
+import { NConfigProvider, NGlobalStyle } from 'naive-ui'
+import NavBar from '@/components/NavBar.vue'
 import Footer from '@/components/Footer.vue'
 </script>
 
-<style scoped></style>
+<style scoped>
+.app-layout {
+  min-height: 100vh;
+}
+
+.main-content {
+  padding-top: 70px; /* 給 NavBar 留出空間，避免內容被遮住 */
+}
+</style>

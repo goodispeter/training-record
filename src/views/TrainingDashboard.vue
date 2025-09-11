@@ -1,9 +1,6 @@
 <template>
   <div class="dashboard-container">
     <div class="dashboard-content">
-      <div class="dashboard-header">
-        <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ target }}訓練日誌</h1>
-      </div>
       <div class="summary-cards-grid">
         <SummaryCard title="總距離" :value="trainingData?.totalDistance" unit="km" icon="🏃" />
         <SummaryCard title="總時間" :value="trainingData?.totalMovingTime" unit="" icon="⏱️" />

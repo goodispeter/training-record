@@ -115,6 +115,19 @@ watch(selectedTrainingType, (newValue) => {
   }
 })
 
+// 監聽 records 變化，當切換人員/目標時重置所有篩選條件
+watch(
+  () => props.records,
+  () => {
+    // 重置所有篩選條件為預設值
+    selectedMonth.value = ''
+    selectedMainType.value = 'main'
+    selectedTrainingType.value = ''
+    selectedIntensityType.value = ''
+  },
+  { deep: true },
+)
+
 // Month options
 const monthOptions = computed<SelectOption[]>(() => {
   if (!props.records || props.records.length === 0) return [{ label: '全部月份', value: '' }]

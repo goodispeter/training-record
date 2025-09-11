@@ -119,7 +119,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { NTag, NModal, NSelect } from 'naive-ui'
 import type { SelectOption } from 'naive-ui'
 import type { TrainingRecord } from '@/types/training'
@@ -444,6 +444,15 @@ const goToNextRecord = () => {
     selectedDate.value = new Date(nextDate)
   }
 }
+
+// 監聽 records 變化，當切換人員/目標時重新導航到合適的月份
+watch(
+  () => props.records,
+  () => {
+    navigateToValidMonth()
+  },
+  { immediate: true },
+)
 
 onMounted(() => {
   navigateToValidMonth()
