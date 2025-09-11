@@ -71,7 +71,7 @@
     <n-modal v-model:show="showDetailModal" preset="card" style="width: 500px; max-width: 90vw">
       <n-data-table
         :columns="columns"
-        :data="currentChartData"
+        :data="tableDataWithTotal"
         :bordered="false"
         :single-line="false"
         :single-column="false"
@@ -82,7 +82,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted, h } from 'vue'
 import { NTabs, NTabPane, NModal, NRadioGroup, NRadioButton, NDataTable, NButton } from 'naive-ui'
 import VChart from 'vue-echarts'
 import { use } from 'echarts/core'
@@ -96,6 +96,9 @@ use([CanvasRenderer, PieChart, TitleComponent, TooltipComponent, LegendComponent
 
 interface Props {
   records: TrainingRecord[]
+  totalDistance: number
+  totalMovingTime: string
+  totalRecordsCount: number
 }
 
 const props = defineProps<Props>()
@@ -118,23 +121,46 @@ const columns = [
     title: '類型',
     key: 'name',
     align: 'left' as const,
+    render: (row: any) => {
+      if (row.isTotal) {
+        return h('span', { style: { fontWeight: 'bold', color: '#1890ff' } }, '總和')
+      }
+      return row.name
+    },
   },
   {
     title: '次數',
     key: 'count',
     align: 'center' as const,
+    render: (row: any) => {
+      if (row.isTotal) {
+        return h('span', { style: { fontWeight: 'bold', color: '#1890ff' } }, `${row.count}次`)
+      }
+      return row.count
+    },
   },
   {
     title: '距離/km',
     key: 'value',
     align: 'center' as const,
-    render: (row: any) => (row.name === '重量訓練' ? '-' : `${row.value}`),
+    render: (row: any) => {
+      if (row.isTotal) {
+        return h('span', { style: { fontWeight: 'bold', color: '#1890ff' } }, `${row.value}km`)
+      }
+      return row.name === '重量訓練' ? '-' : `${row.value}`
+    },
   },
   {
     title: '時間',
     key: 'time',
     align: 'center' as const,
-    render: (row: any) => `${Math.floor(row.time / 60)}h${Math.round(row.time % 60)}m`,
+    render: (row: any) => {
+      const timeText = `${Math.floor(row.time / 60)}h${Math.round(row.time % 60)}m`
+      if (row.isTotal) {
+        return h('span', { style: { fontWeight: 'bold', color: '#1890ff' } }, timeText)
+      }
+      return timeText
+    },
   },
 ]
 
@@ -366,28 +392,30 @@ const intensitySubTypeChartData = computed(() => {
     }
   })
 })
+// 包含總和統計的表格數據
+const tableDataWithTotal = computed(() => {
+  // 表格數據始終顯示所有類型，不進行篩選
+  const allData = activeChart.value === 'main' ? mainCategoryData.value : intensitySubTypeData.value
 
-// 當前圖表數據（用於彈窗顯示）
-const currentChartData = computed(() => {
-  let data = activeChart.value === 'main' ? mainCategoryData.value : intensitySubTypeData.value
-
-  // 根據百分比計算模式篩選和計算數據
+  // 用於計算百分比的數據（可能需要篩選）
+  let calculationData = allData
   if (percentageMode.value === 'distance') {
-    // 距離模式：排除重量訓練
-    data = data.filter((item) => item.name !== '重量訓練')
+    // 距離模式：計算百分比時排除重量訓練
+    calculationData = allData.filter((item) => item.name !== '重量訓練')
   }
 
-  // 計算總值
+  // 計算總值（用於百分比計算的篩選後數據）
   let totalValue = 0
   if (percentageMode.value === 'count') {
-    totalValue = data.reduce((sum, item) => sum + item.count, 0)
+    totalValue = calculationData.reduce((sum, item) => sum + item.count, 0)
   } else if (percentageMode.value === 'distance') {
-    totalValue = data.reduce((sum, item) => sum + item.value, 0)
+    totalValue = calculationData.reduce((sum, item) => sum + item.value, 0)
   } else if (percentageMode.value === 'time') {
-    totalValue = data.reduce((sum, item) => sum + item.time, 0)
+    totalValue = calculationData.reduce((sum, item) => sum + item.time, 0)
   }
 
-  return data.map((item) => {
+  // 所有數據（帶百分比），表格顯示所有類型
+  const dataWithPercent = allData.map((item) => {
     let itemValue = 0
     if (percentageMode.value === 'count') {
       itemValue = item.count
@@ -402,6 +430,45 @@ const currentChartData = computed(() => {
       percent: totalValue > 0 ? ((itemValue / totalValue) * 100).toFixed(1) : '0',
     }
   })
+
+  // 根據圖表類型使用不同的總和計算方式
+  let totalCount: number
+  let totalDistance: number
+  let totalTimeMinutes: number
+
+  if (activeChart.value === 'main') {
+    // 訓練類型分布：使用 API 傳入的總和數據
+    totalCount = props.totalRecordsCount
+    totalDistance = props.totalDistance
+
+    // 解析 API 時間字串
+    const parseApiTime = (timeStr: string): number => {
+      if (!timeStr) return 0
+      const parts = timeStr.split(':').map(Number)
+      if (parts.length === 3) {
+        return parts[0] * 60 + parts[1] + parts[2] / 60 // 轉換為分鐘
+      }
+      return 0
+    }
+    totalTimeMinutes = parseApiTime(props.totalMovingTime)
+  } else {
+    // 強度訓練分布：從表格數據直接加總
+    totalCount = allData.reduce((sum, item) => sum + item.count, 0)
+    totalDistance = allData.reduce((sum, item) => sum + item.value, 0)
+    totalTimeMinutes = allData.reduce((sum, item) => sum + item.time, 0)
+  }
+
+  // 添加總和行
+  const totalRow = {
+    name: '總和',
+    count: totalCount,
+    value: Number(totalDistance.toFixed(1)),
+    time: Number(totalTimeMinutes.toFixed(1)),
+    percent: '100.0',
+    isTotal: true, // 標記這是總和行，用於樣式區分
+  }
+
+  return [...dataWithPercent, totalRow]
 })
 
 // 主要分類圖表選項
@@ -424,6 +491,7 @@ const mainCategoryOption = computed(() => {
         radius: '45%',
         center: ['60%', '30%'],
         data: mainCategoryChartData.value,
+        silent: true,
         label: {
           show: true,
           position: 'inside',
@@ -480,6 +548,7 @@ const intensitySubTypeOption = computed(() => {
         radius: '45%',
         center: ['60%', '30%'],
         data: intensitySubTypeChartData.value,
+        silent: true,
         label: {
           show: true,
           position: 'inside',

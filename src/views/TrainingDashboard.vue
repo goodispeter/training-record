@@ -3,7 +3,6 @@
     <div class="dashboard-content">
       <div class="dashboard-header">
         <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ target }}訓練日誌</h1>
-        <p class="text-gray-600">共 {{ totalRecords }} 筆訓練記錄</p>
       </div>
       <div class="summary-cards-grid">
         <SummaryCard title="總距離" :value="trainingData?.totalDistance" unit="km" icon="🏃" />
@@ -24,7 +23,13 @@
           <MonthlyStatsChart :monthly-data="monthlyData" :key="`monthly-${chartKey}`" />
         </div>
         <div class="chart-container h-80">
-          <TrainingTypeChart :records="allRecords" :key="`type-${chartKey}`" />
+          <TrainingTypeChart
+            :records="allRecords"
+            :total-distance="trainingData?.totalDistance || 0"
+            :total-moving-time="trainingData?.totalMovingTime || '0:0:0'"
+            :total-records-count="allRecords.length"
+            :key="`type-${chartKey}`"
+          />
         </div>
       </div>
       <div v-if="trainingData && allRecords.length > 0" class="chart-container">
@@ -100,10 +105,10 @@ const handleResize = () => {
   }
 }
 
+// 使用 computed 確保響應性
 const trainingData = computed(() => store.trainingData)
 const allRecords = computed(() => store.allRecords)
 const monthlyData = computed(() => store.monthlyData)
-const totalRecords = computed(() => allRecords.value.length)
 const target = computed(() => store.trainingData?.target)
 
 // 載入資料的函數
