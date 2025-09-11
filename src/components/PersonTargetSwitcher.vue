@@ -34,19 +34,21 @@ import {
 
 interface Props {
   person: string
+  year: string
   target: string
 }
 
 const props = defineProps<Props>()
 const router = useRouter()
 
-// 當前選中的人員和目標
+// 當前選中的人員、年份和目標
 const currentPerson = computed(() => props.person)
+const currentYear = computed(() => props.year)
 const currentTarget = computed(() => props.target)
 
-// 目標選項（根據當前人員動態調整）
+// 目標選項（根據當前人員和年份動態調整）
 const targetOptions = computed(() => {
-  const availableTargets = getAvailableTargets(currentPerson.value)
+  const availableTargets = getAvailableTargets(currentPerson.value, currentYear.value)
   return availableTargets.map((target) => ({
     label: getTargetDisplayName(target),
     value: target,
@@ -57,21 +59,22 @@ const targetOptions = computed(() => {
 const switchPerson = async (newPerson: string) => {
   if (newPerson !== props.person) {
     let newTarget = props.target
+    const currentYear = props.year
 
-    // 檢查新人員是否有當前目標，如果沒有則使用第一個可用目標
-    if (!hasTarget(newPerson, props.target)) {
-      const availableTargets = getAvailableTargets(newPerson)
+    // 檢查新人員在當前年份是否有當前目標，如果沒有則使用第一個可用目標
+    if (!hasTarget(newPerson, currentYear, props.target)) {
+      const availableTargets = getAvailableTargets(newPerson, currentYear)
       newTarget = availableTargets[0] || 'taipei' // 如果沒有可用目標，回退到 taipei
     }
 
-    await router.push(`/${newPerson}/${newTarget}`)
+    await router.push(`/${newPerson}/${currentYear}/${newTarget}`)
   }
 }
 
 // 切換目標地點
 const switchTarget = async (newTarget: string) => {
   if (newTarget !== props.target) {
-    await router.push(`/${props.person}/${newTarget}`)
+    await router.push(`/${props.person}/${props.year}/${newTarget}`)
   }
 }
 </script>

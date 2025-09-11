@@ -2,7 +2,8 @@
 export interface PersonConfig {
   displayName: string
   emoji: string
-  targets: string[]
+  years: string[]
+  targets: Record<string, string[]> // year -> targets[]
 }
 
 export interface TargetConfig {
@@ -15,12 +16,18 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
   pan: {
     displayName: 'Pan',
     emoji: '👨',
-    targets: ['taipei', 'sydney'],
+    years: ['2025'],
+    targets: {
+      '2025': ['taipei', 'sydney'],
+    },
   },
   sung: {
     displayName: 'Sung',
     emoji: '👩',
-    targets: ['taipei'],
+    years: ['2025'],
+    targets: {
+      '2025': ['taipei'],
+    },
   },
 }
 
@@ -36,9 +43,14 @@ export const TARGET_CONFIG: Record<string, TargetConfig> = {
   },
 }
 
-// 輔助函數：取得人員的可用目標
-export const getAvailableTargets = (person: string): string[] => {
-  return PERSON_CONFIG[person]?.targets || []
+// 輔助函數：取得人員在指定年份的可用目標
+export const getAvailableTargets = (person: string, year: string): string[] => {
+  return PERSON_CONFIG[person]?.targets[year] || []
+}
+
+// 輔助函數：取得人員的可用年份
+export const getAvailableYears = (person: string): string[] => {
+  return PERSON_CONFIG[person]?.years || []
 }
 
 // 輔助函數：取得目標顯示名稱
@@ -52,7 +64,7 @@ export const getPersonDisplayName = (person: string): string => {
   return PERSON_CONFIG[person]?.displayName || person
 }
 
-// 輔助函數：檢查人員是否有某個目標
-export const hasTarget = (person: string, target: string): boolean => {
-  return getAvailableTargets(person).includes(target)
+// 輔助函數：檢查人員在指定年份是否有某個目標
+export const hasTarget = (person: string, year: string, target: string): boolean => {
+  return getAvailableTargets(person, year).includes(target)
 }
