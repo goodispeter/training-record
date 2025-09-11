@@ -27,7 +27,7 @@
         type="default"
         size="medium"
         @click="openLink"
-        round
+        text
       >
         🏁 完賽心得
       </n-button>
