@@ -29,7 +29,7 @@
         @click="openLink"
         text
       >
-        🏁 完賽心得
+        完賽心得
       </n-button>
     </div>
   </div>
