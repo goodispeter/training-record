@@ -1,23 +1,37 @@
 <template>
-  <div class="flex flex-wrap gap-4 mb-4">
-    <n-button-group>
-      <n-button
-        v-for="(config, personKey) in PERSON_CONFIG"
-        :key="personKey"
-        :type="currentPerson === personKey ? 'primary' : 'default'"
-        @click="switchPerson(personKey)"
+  <div class="flex items-center justify-between w-full mb-4">
+    <div class="flex gap-4">
+      <n-button-group>
+        <n-button
+          v-for="(config, personKey) in PERSON_CONFIG"
+          :key="personKey"
+          :type="currentPerson === personKey ? 'primary' : 'default'"
+          @click="switchPerson(personKey)"
+          size="small"
+        >
+          {{ config.emoji }} {{ config.displayName }}
+        </n-button>
+      </n-button-group>
+      <n-select
+        :value="currentTarget"
+        @update:value="switchTarget"
+        :options="targetOptions"
         size="small"
+        style="width: 180px"
+      />
+    </div>
+    <!-- 完賽心得按鈕 -->
+    <div class="ml-auto">
+      <n-button
+        v-if="currentTargetConfig?.link"
+        type="default"
+        size="medium"
+        @click="openLink"
+        round
       >
-        {{ config.emoji }} {{ config.displayName }}
+        🏁 完賽心得
       </n-button>
-    </n-button-group>
-    <n-select
-      :value="currentTarget"
-      @update:value="switchTarget"
-      :options="targetOptions"
-      size="small"
-      style="width: 180px"
-    />
+    </div>
   </div>
 </template>
 
@@ -30,6 +44,7 @@ import {
   getTargetDisplayName,
   hasTarget,
   PERSON_CONFIG,
+  TARGET_CONFIG,
 } from '@/utils/personTargetConfig'
 
 interface Props {
@@ -45,6 +60,11 @@ const router = useRouter()
 const currentPerson = computed(() => props.person)
 const currentYear = computed(() => props.year)
 const currentTarget = computed(() => props.target)
+
+// 當前目標的配置
+const currentTargetConfig = computed(() => {
+  return TARGET_CONFIG[currentTarget.value]
+})
 
 // 目標選項（根據當前人員和年份動態調整）
 const targetOptions = computed(() => {
@@ -75,6 +95,13 @@ const switchPerson = async (newPerson: string) => {
 const switchTarget = async (newTarget: string) => {
   if (newTarget !== props.target) {
     await router.push(`/${props.person}/${props.year}/${newTarget}`)
+  }
+}
+
+// 開啟完賽心得連結
+const openLink = () => {
+  if (currentTargetConfig.value?.link) {
+    window.open(currentTargetConfig.value.link, '_blank')
   }
 }
 </script>

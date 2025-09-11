@@ -9,6 +9,7 @@ export interface PersonConfig {
 export interface TargetConfig {
   displayName: string
   emoji: string
+  link?: string
 }
 
 // 人員設定
@@ -40,6 +41,7 @@ export const TARGET_CONFIG: Record<string, TargetConfig> = {
   sydney: {
     displayName: '2025 雪梨馬拉松',
     emoji: '🐨',
+    link: 'https://www.instagram.com/p/DOTegmfE5CU/?igsh=MWd6bzlsbDV3ZXBrag==',
   },
 }
 
