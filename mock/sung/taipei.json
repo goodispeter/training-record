@@ -1,0 +1,53 @@
+{
+  "code": "200",
+  "message": "Success",
+  "success": true,
+  "data": {
+    "target": "2025 臺北馬拉松",
+    "totalDistance": 5.12,
+    "totalMovingTime": "00:42:33",
+    "mainTrainingCount": 2,
+    "totalElevationGain": 0,
+    "monthlyTrainingRecords": [
+      {
+        "year": 2025,
+        "month": 9,
+        "monthDistance": 5.12,
+        "monthMovingTime": "00:42:33",
+        "monthMainTrainingCount": 2,
+        "monthElevationGain": 0,
+        "trainingRecords": [
+          {
+            "id": 15763900059,
+            "name": "TPE 1 - Tempo 5k(NIKE開訓測5000)",
+            "startDate": "2025-09-10T21:06:22",
+            "sportType": "Run",
+            "runType": "T",
+            "parentRunType": "INT",
+            "distance": 5.12,
+            "movingTime": "00:23:50",
+            "elevationGain": 0,
+            "pace": "4:39",
+            "isMainTraining": true,
+            "description": "開訓第一堂直接包場測5000，平日晚上北田沒人會不會太舒適🥹"
+          },
+          {
+            "id": 15763570075,
+            "name": "TPE 1 - NIKE開訓肌力檢測",
+            "startDate": "2025-09-10T20:38:21",
+            "sportType": "WeightTraining",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 0,
+            "movingTime": "00:18:43",
+            "elevationGain": 0,
+            "pace": null,
+            "isMainTraining": true,
+            "description": ""
+          }
+        ]
+      }
+    ]
+  },
+  "timestamp": "2025-09-11T00:50:05.0181233Z"
+}
