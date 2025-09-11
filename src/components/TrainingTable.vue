@@ -18,11 +18,10 @@
     <!-- 第二行：主副和類型 -->
     <div class="filter-row">
       <div class="filter-item">
-        <label>主副：</label>
+        <label>性質：</label>
         <n-select
           v-model:value="selectedMainType"
           :options="mainTypeOptions"
-          placeholder="主副訓練"
           size="small"
           style="width: 110px"
         />
@@ -33,7 +32,6 @@
         <n-select
           v-model:value="selectedTrainingType"
           :options="trainingTypeOptions"
-          placeholder="訓練類型"
           size="small"
           style="width: 110px"
         />
@@ -44,7 +42,6 @@
         <n-select
           v-model:value="selectedIntensityType"
           :options="intensityTypeOptions"
-          placeholder="選擇強度類型"
           size="small"
           style="width: 130px"
         />
