@@ -68,7 +68,7 @@
 
 <script setup lang="ts">
 import { ref, computed, h, watch } from 'vue'
-import { NDataTable, NSelect } from 'naive-ui'
+import { NDataTable, NSelect, NTag } from 'naive-ui'
 import type { DataTableColumns, SelectOption } from 'naive-ui'
 import type { TrainingRecord } from '@/types/training'
 import { PARENT_RUN_TYPE_NAMES } from '@/types/run-types'
@@ -267,27 +267,46 @@ const columns: DataTableColumns<TrainingRecord> = [
     render: (row) => {
       const hasDesc = hasDescription(row)
 
-      const children = [h('div', { class: 'training-name' }, row.name)]
+      const children = [
+        h(
+          'div',
+          {
+            style: {
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            },
+          },
+          [
+            h('span', { class: 'training-name' }, row.name),
+            // 添加主訓練標籤
+            row.isMainTraining
+              ? h(
+                  NTag,
+                  {
+                    type: 'success',
+                    size: 'small',
+                  },
+                  { default: () => '主訓練' },
+                )
+              : null,
+          ].filter(Boolean),
+        ),
+      ]
 
       // 只有非重量訓練才顯示距離、時間、配速
       if (row.sportType !== 'WeightTraining') {
-        children.push(
-          h(
-            'div',
-            { class: 'training-meta' },
-            `${row.distance}km | ${row.movingTime} | ${row.pace}`,
-          ),
-        )
+        children.push(h('div', `${row.distance}km | ${row.movingTime} | ${row.pace}`))
       } else {
         // 重量訓練只顯示時間
-        children.push(h('div', { class: 'training-meta' }, `時間: ${row.movingTime}`))
+        children.push(h('div', `${row.movingTime}`))
       }
 
       if (hasDesc) {
-        children.push(h('div', { class: 'training-description' }, row.description))
+        children.push(h('div', row.description))
       }
 
-      return h('div', { class: 'training-cell' }, children)
+      return h('div', children)
     },
     ellipsis: false,
   },
@@ -321,37 +340,6 @@ const columns: DataTableColumns<TrainingRecord> = [
 .training-cell {
   padding: 4px 0;
 }
-
-.training-name {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.3;
-  margin-bottom: 2px;
-  word-break: break-word;
-}
-
-.training-description {
-  margin-top: 8px;
-  padding: 8px;
-  background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  font-size: 13px;
-  line-height: 1.4;
-  color: #374151;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-.training-meta {
-  font-size: 12px;
-  color: #6b7280;
-  line-height: 1.2;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
 .casual-training-row {
   background-color: #f5f5f5 !important;
 }

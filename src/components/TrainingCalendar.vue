@@ -91,7 +91,7 @@
               <div class="flex justify-between items-center">
                 <h5 class="font-medium">{{ training.name }}</h5>
                 <n-tag :type="training.isMainTraining ? 'success' : 'default'" size="small">
-                  {{ training.isMainTraining ? '主訓練' : '輕鬆跑' }}
+                  {{ training.isMainTraining ? '主訓練' : '' }}
                 </n-tag>
               </div>
               <div
