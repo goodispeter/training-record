@@ -90,9 +90,7 @@
             <div class="training-info">
               <div class="flex justify-between items-center">
                 <h5 class="font-medium">{{ training.name }}</h5>
-                <n-tag :type="training.isMainTraining ? 'success' : 'default'" size="small">
-                  {{ training.isMainTraining ? '主訓練' : '' }}
-                </n-tag>
+                <n-tag v-if="training.isMainTraining" type="success" size="small"> 主訓練 </n-tag>
               </div>
               <div
                 v-if="training.sportType !== 'WeightTraining'"
