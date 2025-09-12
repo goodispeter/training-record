@@ -1,6 +1,7 @@
 <template>
   <n-layout-footer class="footer-container">
     <div class="footer-content">
+      <span class="footer-text">Created by</span>
       <n-button
         text
         tag="a"
@@ -46,6 +47,11 @@ const instagramUrl = 'https://www.instagram.com/goodispeter?igsh=YzByaWIwMHlnN2h
 
 <style scoped>
 .footer-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
   border-top: 1px solid #e9ecef;
   padding: 16px 0;
   background-color: #f8f9fa;
@@ -55,6 +61,11 @@ const instagramUrl = 'https://www.instagram.com/goodispeter?igsh=YzByaWIwMHlnN2h
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.footer-text {
+  color: #6b7280;
+  margin-right: 10px;
 }
 
 .ig-button {

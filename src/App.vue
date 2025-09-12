@@ -24,5 +24,6 @@ import Footer from '@/components/Footer.vue'
 
 .main-content {
   padding-top: 70px; /* 給 NavBar 留出空間，避免內容被遮住 */
+  padding-bottom: 80px; /* 給 Footer 留出空間，避免內容被遮住 */
 }
 </style>
