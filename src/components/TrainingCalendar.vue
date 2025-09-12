@@ -14,10 +14,8 @@
         <n-select
           v-model:value="selectedTrainingType"
           :options="trainingTypeOptions"
-          placeholder="選擇訓練類型"
           size="small"
           style="width: 140px"
-          clearable
         />
       </div>
     </div>
@@ -129,16 +127,18 @@ interface Props {
 const props = defineProps<Props>()
 
 // 篩選狀態
-const selectedTrainingType = ref<string | null>(null)
+const selectedTrainingType = ref<string>('')
 
 // 訓練類型選項
 const trainingTypeOptions: SelectOption[] = [
+  { label: '不選擇類型', value: '' },
   { label: '強度訓練', value: 'INT' },
   { label: '慢跑', value: 'SW' },
   { label: '長距離', value: 'LR' },
   { label: '賽事', value: 'RACE' },
   { label: '越野跑', value: 'TRAIL' },
   { label: '重量訓練', value: 'WeightTraining' },
+  { label: '其它', value: 'OTHER' },
 ]
 
 interface CalendarDay {
@@ -225,12 +225,6 @@ const selectedDateTrainings = computed(() => {
   })
 })
 
-// 選中日期的字符串
-const selectedDateString = computed(() => {
-  if (!selectedDate.value) return ''
-  return selectedDate.value.toLocaleDateString('zh-TW')
-})
-
 // 生成日曆天數
 const calendarDays = computed(() => {
   const year = currentDate.value.getFullYear()
@@ -315,6 +309,8 @@ const matchesFilter = (training: TrainingRecord): boolean => {
       return training.runType === 'TRAIL'
     case 'WeightTraining':
       return training.sportType === 'WeightTraining'
+    case 'OTHER':
+      return !training.isMainTraining // 篩選副訓練（非主訓練）
     default:
       return false
   }
@@ -341,14 +337,8 @@ const getDayCellClass = (date: CalendarDay): string => {
   return classes.join(' ')
 }
 
-const getTotalDistance = (trainings: TrainingRecord[]): string => {
-  const total = trainings.reduce((sum, training) => sum + training.distance, 0)
-  return total.toFixed(1)
-}
-
 const getTrainingSummary = (trainings: TrainingRecord[]): string => {
   const runningTrainings = trainings.filter((t) => t.sportType !== 'WeightTraining')
-  const weightTrainings = trainings.filter((t) => t.sportType === 'WeightTraining')
 
   let summary = `${trainings.length}次`
 
@@ -567,7 +557,11 @@ onMounted(() => {
 
 /* 篩選匹配的日期樣式 */
 .day-cell.filtered-match {
-  background: #fc9090;
+  background: #fc9090 !important;
+}
+
+.day-cell.filtered-match.today {
+  background: #fc9090 !important;
 }
 
 .day-cell.filtered-match .training-summary {
