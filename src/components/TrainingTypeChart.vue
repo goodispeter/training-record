@@ -132,7 +132,8 @@ const columns = [
   {
     title: '類型',
     key: 'name',
-    align: 'left' as const,
+    align: 'center' as const,
+    width: 80,
     render: (row: any) => {
       if (row.isTotal) {
         return h('span', { style: { fontWeight: 'bold', color: '#1890ff' } }, '總和')
@@ -144,6 +145,7 @@ const columns = [
     title: '次數',
     key: 'count',
     align: 'center' as const,
+    width: 100,
     render: (row: any) => {
       if (row.isTotal) {
         return h(
@@ -159,6 +161,7 @@ const columns = [
     title: '距離/km',
     key: 'value',
     align: 'center' as const,
+    width: 100,
     render: (row: any) => {
       if (row.isTotal) {
         return h(
@@ -177,6 +180,7 @@ const columns = [
     title: '時間',
     key: 'time',
     align: 'center' as const,
+    width: 100,
     render: (row: any) => {
       const timeText = `${Math.floor(row.time / 60)}h${Math.round(row.time % 60)}m`
       if (row.isTotal) {
