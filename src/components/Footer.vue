@@ -35,7 +35,9 @@
         @goodispeter
       </n-button>
       <n-divider vertical style="margin: 0 16px" />
-      <span style="color: #999; font-size: 13px"> {{ days }} </span>
+      <n-button text @click="showDaysModal = true" style="color: #999; font-size: 13px">
+        {{ days }}
+      </n-button>
       <n-divider vertical style="margin: 0 16px" />
       <n-button
         text
@@ -71,11 +73,40 @@
         @csi_run_sis
       </n-button>
     </div>
+
+    <!-- 天數詳細彈窗 -->
+    <n-modal
+      v-model:show="showDaysModal"
+      :mask-closable="true"
+      :auto-focus="false"
+      :close-on-esc="true"
+      :z-index="2025"
+      :trap-focus="false"
+      :block-scroll="false"
+      :animated="false"
+      :mask-style="{ backgroundColor: 'rgba(0,0,0,0.08)' }"
+    >
+      <n-card
+        style="width: 240px; box-shadow: none"
+        :bordered="true"
+        size="small"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div style="text-align: center; padding: 12px 0">
+          <n-text depth="3" style="font-size: 14px; display: block; margin-bottom: 8px">
+            {{ formattedDuration }}
+          </n-text>
+          <n-text depth="3" style="font-size: 14px; display: block"> 總計 {{ days }} 天 </n-text>
+        </div>
+      </n-card>
+    </n-modal>
   </n-layout-footer>
 </template>
 
 <script setup lang="ts">
-import { NLayoutFooter, NButton, NIcon } from 'naive-ui'
+import { ref, computed } from 'vue'
+import { NLayoutFooter, NButton, NIcon, NDivider, NModal, NCard, NText } from 'naive-ui'
 
 const panUrl = 'https://www.instagram.com/goodispeter?igsh=YzByaWIwMHlnN2hy&utm_source=qr'
 const sungUrl = 'https://www.instagram.com/csi_run_sis?igsh=MXMxbXk0cnJhcWthcw=='
@@ -84,6 +115,36 @@ const sungUrl = 'https://www.instagram.com/csi_run_sis?igsh=MXMxbXk0cnJhcWthcw==
 const startDate = new Date('2025-01-03')
 const today = new Date()
 const days = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1
+
+// 彈窗狀態
+const showDaysModal = ref(false)
+
+// 計算年月日
+const formattedDuration = computed(() => {
+  const start = new Date('2025-01-03')
+  const now = new Date()
+
+  let years = now.getFullYear() - start.getFullYear()
+  let months = now.getMonth() - start.getMonth()
+  let daysDiff = now.getDate() - start.getDate()
+
+  if (daysDiff < 0) {
+    months--
+    const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0)
+    daysDiff += lastMonth.getDate()
+  }
+
+  if (months < 0) {
+    years--
+    months += 12
+  }
+
+  if (years > 0) {
+    return `${years} 年 ${months} 個月 ${daysDiff} 日`
+  } else {
+    return `${months} 個月 ${daysDiff} 日`
+  }
+})
 </script>
 
 <style scoped>
