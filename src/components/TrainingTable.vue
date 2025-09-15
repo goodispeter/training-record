@@ -93,9 +93,13 @@ const getRowClassName = (row: TrainingRecord) => {
 // Get row props (no longer needed for click handling)
 const getRowProps = () => ({})
 
-// 監聽主副選擇的變化，當選擇"副"時清空訓練類型
+// 監聽選擇性質的變化，當選擇"其它"時清空訓練類型
 watch(selectedMainType, (newValue) => {
   if (newValue === 'casual') {
+    selectedTrainingType.value = ''
+    selectedIntensityType.value = ''
+  }
+  if (newValue === '') {
     selectedTrainingType.value = ''
     selectedIntensityType.value = ''
   }

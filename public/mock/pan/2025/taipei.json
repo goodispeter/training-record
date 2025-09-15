@@ -89,10 +89,10 @@
           },
           {
             "id": 15802660377,
-            "name": "TPE 19 - z1 7k + z2 7k + cd 1.5k",
+            "name": "TPE 19 -Long Run z1 7k + z2 7k + cd 1.5k",
             "startDate": "2025-09-14T05:57:11",
             "sportType": "Run",
-            "runType": null,
+            "runType": "LR",
             "parentRunType": null,
             "distance": 14.01,
             "movingTime": "01:16:48",
