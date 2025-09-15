@@ -69,6 +69,15 @@
 
     <!-- 詳細資訊彈窗 -->
     <n-modal v-model:show="showDetailModal" preset="card" style="width: 500px; max-width: 90vw">
+      <template #header>
+        <div class="flex justify-between items-center w-full">
+          <span>詳細資訊</span>
+          <n-radio-group v-model:value="detailDisplayMode" size="small">
+            <n-radio-button value="value">實際數字</n-radio-button>
+            <n-radio-button value="percent">百分比</n-radio-button>
+          </n-radio-group>
+        </div>
+      </template>
       <n-data-table
         :columns="columns"
         :data="tableDataWithTotal"
@@ -115,12 +124,16 @@ const intensityChartRef = ref()
 // 詳細資訊彈窗
 const showDetailModal = ref(false)
 
+// 詳細資訊表格顯示模式：'value' 實際數字, 'percent' 百分比
+const detailDisplayMode = ref<'value' | 'percent'>('value')
+
 // 表格欄位配置
 const columns = [
   {
     title: '類型',
     key: 'name',
-    align: 'left' as const,
+    align: 'center' as const,
+    width: 80,
     render: (row: any) => {
       if (row.isTotal) {
         return h('span', { style: { fontWeight: 'bold', color: '#1890ff' } }, '總和')
@@ -132,34 +145,52 @@ const columns = [
     title: '次數',
     key: 'count',
     align: 'center' as const,
+    width: 100,
     render: (row: any) => {
       if (row.isTotal) {
-        return h('span', { style: { fontWeight: 'bold', color: '#1890ff' } }, `${row.count}次`)
+        return h(
+          'span',
+          { style: { fontWeight: 'bold', color: '#1890ff' } },
+          detailDisplayMode.value === 'value' ? `${row.count}次` : '100',
+        )
       }
-      return row.count
+      return detailDisplayMode.value === 'value' ? `${row.count}` : `${row.countPercent}`
     },
   },
   {
     title: '距離/km',
     key: 'value',
     align: 'center' as const,
+    width: 100,
     render: (row: any) => {
       if (row.isTotal) {
-        return h('span', { style: { fontWeight: 'bold', color: '#1890ff' } }, `${row.value}km`)
+        return h(
+          'span',
+          { style: { fontWeight: 'bold', color: '#1890ff' } },
+          detailDisplayMode.value === 'value' ? `${row.value}km` : '100',
+        )
       }
-      return row.name === '重量訓練' ? '-' : `${row.value}`
+      if (row.name === '重量訓練') {
+        return '-'
+      }
+      return detailDisplayMode.value === 'value' ? `${row.value}` : `${row.distancePercent}`
     },
   },
   {
     title: '時間',
     key: 'time',
     align: 'center' as const,
+    width: 100,
     render: (row: any) => {
       const timeText = `${Math.floor(row.time / 60)}h${Math.round(row.time % 60)}m`
       if (row.isTotal) {
-        return h('span', { style: { fontWeight: 'bold', color: '#1890ff' } }, timeText)
+        return h(
+          'span',
+          { style: { fontWeight: 'bold', color: '#1890ff' } },
+          detailDisplayMode.value === 'value' ? timeText : '100',
+        )
       }
-      return timeText
+      return detailDisplayMode.value === 'value' ? timeText : `${row.timePercent}`
     },
   },
 ]
@@ -397,40 +428,6 @@ const tableDataWithTotal = computed(() => {
   // 表格數據始終顯示所有類型，不進行篩選
   const allData = activeChart.value === 'main' ? mainCategoryData.value : intensitySubTypeData.value
 
-  // 用於計算百分比的數據（可能需要篩選）
-  let calculationData = allData
-  if (percentageMode.value === 'distance') {
-    // 距離模式：計算百分比時排除重量訓練
-    calculationData = allData.filter((item) => item.name !== '重量訓練')
-  }
-
-  // 計算總值（用於百分比計算的篩選後數據）
-  let totalValue = 0
-  if (percentageMode.value === 'count') {
-    totalValue = calculationData.reduce((sum, item) => sum + item.count, 0)
-  } else if (percentageMode.value === 'distance') {
-    totalValue = calculationData.reduce((sum, item) => sum + item.value, 0)
-  } else if (percentageMode.value === 'time') {
-    totalValue = calculationData.reduce((sum, item) => sum + item.time, 0)
-  }
-
-  // 所有數據（帶百分比），表格顯示所有類型
-  const dataWithPercent = allData.map((item) => {
-    let itemValue = 0
-    if (percentageMode.value === 'count') {
-      itemValue = item.count
-    } else if (percentageMode.value === 'distance') {
-      itemValue = item.value
-    } else if (percentageMode.value === 'time') {
-      itemValue = item.time
-    }
-
-    return {
-      ...item,
-      percent: totalValue > 0 ? ((itemValue / totalValue) * 100).toFixed(1) : '0',
-    }
-  })
-
   // 根據圖表類型使用不同的總和計算方式
   let totalCount: number
   let totalDistance: number
@@ -458,13 +455,36 @@ const tableDataWithTotal = computed(() => {
     totalTimeMinutes = allData.reduce((sum, item) => sum + item.time, 0)
   }
 
+  // 計算用於距離百分比的總和（排除重量訓練）
+  const totalDistanceForPercent = allData
+    .filter((item) => item.name !== '重量訓練')
+    .reduce((sum, item) => sum + item.value, 0)
+
+  // 所有數據（帶各自的百分比）
+  const dataWithPercent = allData.map((item) => {
+    const countPercent = totalCount > 0 ? ((item.count / totalCount) * 100).toFixed(1) : '0'
+    const distancePercent =
+      totalDistanceForPercent > 0 ? ((item.value / totalDistanceForPercent) * 100).toFixed(1) : '0'
+    const timePercent =
+      totalTimeMinutes > 0 ? ((item.time / totalTimeMinutes) * 100).toFixed(1) : '0'
+
+    return {
+      ...item,
+      countPercent,
+      distancePercent,
+      timePercent,
+    }
+  })
+
   // 添加總和行
   const totalRow = {
     name: '總和',
     count: totalCount,
     value: Number(totalDistance.toFixed(1)),
     time: Number(totalTimeMinutes.toFixed(1)),
-    percent: '100.0',
+    countPercent: '100.0',
+    distancePercent: '100.0',
+    timePercent: '100.0',
     isTotal: true, // 標記這是總和行，用於樣式區分
   }
 
