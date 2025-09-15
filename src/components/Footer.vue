@@ -1,11 +1,10 @@
 <template>
   <n-layout-footer class="footer-container">
     <div class="footer-content">
-      <span class="footer-text">Created by</span>
       <n-button
         text
         tag="a"
-        :href="instagramUrl"
+        :href="panUrl"
         target="_blank"
         rel="noopener noreferrer"
         class="ig-button"
@@ -35,6 +34,42 @@
         </template>
         @goodispeter
       </n-button>
+      <n-divider vertical style="margin: 0 16px" />
+      <span style="color: #999; font-size: 13px"> {{ days }} </span>
+      <n-divider vertical style="margin: 0 16px" />
+      <n-button
+        text
+        tag="a"
+        :href="sungUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="ig-button"
+      >
+        <template #icon>
+          <n-icon size="20">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect
+                x="2"
+                y="2"
+                width="20"
+                height="20"
+                rx="5"
+                ry="5"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" />
+              <path
+                d="M16.5 7.5h.01"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </n-icon>
+        </template>
+        @csi_run_sis
+      </n-button>
     </div>
   </n-layout-footer>
 </template>
@@ -42,7 +77,13 @@
 <script setup lang="ts">
 import { NLayoutFooter, NButton, NIcon } from 'naive-ui'
 
-const instagramUrl = 'https://www.instagram.com/goodispeter?igsh=YzByaWIwMHlnN2hy&utm_source=qr'
+const panUrl = 'https://www.instagram.com/goodispeter?igsh=YzByaWIwMHlnN2hy&utm_source=qr'
+const sungUrl = 'https://www.instagram.com/csi_run_sis?igsh=MXMxbXk0cnJhcWthcw=='
+
+// 計算天數
+const startDate = new Date('2025-01-03')
+const today = new Date()
+const days = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)) + 1
 </script>
 
 <style scoped>
@@ -61,11 +102,6 @@ const instagramUrl = 'https://www.instagram.com/goodispeter?igsh=YzByaWIwMHlnN2h
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.footer-text {
-  color: #6b7280;
-  margin-right: 10px;
 }
 
 .ig-button {
