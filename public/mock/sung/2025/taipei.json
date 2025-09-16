@@ -4,19 +4,61 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 54.05,
-    "totalMovingTime": "06:00:41",
-    "mainTrainingCount": 5,
-    "totalElevationGain": 29,
+    "totalDistance": 67.78,
+    "totalMovingTime": "07:18:08",
+    "mainTrainingCount": 6,
+    "totalElevationGain": 36,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 9,
-        "monthDistance": 54.05,
-        "monthMovingTime": "06:00:41",
-        "monthMainTrainingCount": 5,
-        "monthElevationGain": 29,
+        "monthDistance": 67.78,
+        "monthMovingTime": "07:18:08",
+        "monthMainTrainingCount": 6,
+        "monthElevationGain": 36,
         "trainingRecords": [
+          {
+            "id": 15824883475,
+            "name": "Cool down",
+            "startDate": "2025-09-16T07:17:28",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0.21,
+            "movingTime": "00:01:51",
+            "elevationGain": 0,
+            "pace": "8:51",
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
+            "id": 15824883846,
+            "name": "TPE 6 - Tempo 12k@5’30”",
+            "startDate": "2025-09-16T06:11:23",
+            "sportType": "Run",
+            "runType": "T",
+            "parentRunType": "INT",
+            "distance": 12.03,
+            "movingTime": "01:05:36",
+            "elevationGain": 6,
+            "pace": "5:27",
+            "isMainTraining": true,
+            "description": "見光死🫠前10k順順完食，後2k🌞大到無以復加，撐住完成✅\n自評強度8，腳拐到的地方確認無礙👍"
+          },
+          {
+            "id": 15824231928,
+            "name": "Warm up",
+            "startDate": "2025-09-16T05:58:18",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 1.49,
+            "movingTime": "00:10:00",
+            "elevationGain": 1,
+            "pace": "6:43",
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 15814213597,
             "name": "Cool down",
@@ -99,7 +141,7 @@
             "elevationGain": 5,
             "pace": "5:46",
             "isMainTraining": true,
-            "description": "順順跑完，還可以一路說說笑笑，比起上週跑爆真是太好了😢"
+            "description": "順順跑完，還可以一路說說笑笑，比起上週跑爆真是太好了🥹"
           },
           {
             "id": 15802694869,
@@ -225,11 +267,11 @@
             "elevationGain": 0,
             "pace": "4:39",
             "isMainTraining": true,
-            "description": "開訓第一堂直接包場測5000，平日晚上北田沒人會不會太舒適😂"
+            "description": "開訓第一堂直接包場測5000，平日晚上北田沒人會不會太舒適🥹"
           },
           {
             "id": 15763570075,
-            "name": "TPE 1 - NIKE開訓肌力檢測",
+            "name": "NIKE開訓肌力檢測",
             "startDate": "2025-09-10T20:38:21",
             "sportType": "WeightTraining",
             "runType": "E",
@@ -238,12 +280,12 @@
             "movingTime": "00:18:43",
             "elevationGain": 0,
             "pace": null,
-            "isMainTraining": true,
+            "isMainTraining": false,
             "description": ""
           }
         ]
       }
     ]
   },
-  "timestamp": "2025-09-11T00:50:05.0181233Z"
+  "timestamp": "2025-09-16T03:13:17.1963058Z"
 }
