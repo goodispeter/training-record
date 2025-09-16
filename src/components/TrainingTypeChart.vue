@@ -512,6 +512,10 @@ const mainCategoryOption = computed(() => {
         center: ['60%', '30%'],
         data: mainCategoryChartData.value,
         silent: true,
+        emphasis: {
+          scale: false, // 關閉 hover 放大
+          focus: 'none', // 不做高亮聚焦
+        },
         label: {
           show: true,
           position: 'inside',
@@ -569,6 +573,10 @@ const intensitySubTypeOption = computed(() => {
         center: ['60%', '30%'],
         data: intensitySubTypeChartData.value,
         silent: true,
+        emphasis: {
+          scale: false, // 關閉 hover 放大
+          focus: 'none', // 不做高亮聚焦
+        },
         label: {
           show: true,
           position: 'inside',
