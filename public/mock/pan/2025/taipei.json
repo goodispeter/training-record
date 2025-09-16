@@ -19,7 +19,7 @@
         "trainingRecords": [
           {
             "id": 15824509186,
-            "name": "TPE 22 - 短間歇 wp 15min + 90% 1min r3min * 8 + cd 10 min",
+            "name": "TPE 23 - 短間歇 wp 15min + 90% 1min r3min * 8 + cd 10 min",
             "startDate": "2025-09-16T05:44:07",
             "sportType": "Run",
             "runType": "I-S",
@@ -61,7 +61,7 @@
           },
           {
             "id": 15819045250,
-            "name": "TPE 21 - 背部、下肢強化",
+            "name": "TPE 22 - 背部、下肢強化",
             "startDate": "2025-09-15T20:23:03",
             "sportType": "WeightTraining",
             "runType": null,
