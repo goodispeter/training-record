@@ -4,19 +4,47 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 239.38,
-    "totalMovingTime": "26:00:19",
-    "mainTrainingCount": 23,
-    "totalElevationGain": 841,
+    "totalDistance": 257.57,
+    "totalMovingTime": "27:34:24",
+    "mainTrainingCount": 25,
+    "totalElevationGain": 862,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 9,
-        "monthDistance": 239.38,
-        "monthMovingTime": "26:00:19",
-        "monthMainTrainingCount": 23,
-        "monthElevationGain": 841,
+        "monthDistance": 257.57,
+        "monthMovingTime": "27:34:24",
+        "monthMainTrainingCount": 25,
+        "monthElevationGain": 862,
         "trainingRecords": [
+          {
+            "id": 15830905057,
+            "name": "TPE 25 - 長間歇 大安森 p4:20-4:40 *5 r60-120s",
+            "startDate": "2025-09-16T19:53:02",
+            "sportType": "Run",
+            "runType": "I-L",
+            "parentRunType": "INT",
+            "distance": 13.01,
+            "movingTime": "01:03:59",
+            "elevationGain": 16,
+            "pace": "4:55",
+            "isMainTraining": true,
+            "description": "沒想到這堂課從定速跑變成長間歇，馬配半馬配這樣輪替，但體感意外的還行，心率也都在160-165，看來天氣真的轉涼了？然後今天是個莫名其妙跑了30k的日子，本來想說明天可以好好休息，赫然想到明天晚上是 GRC養成班最後一堂😱"
+          },
+          {
+            "id": 15830899771,
+            "name": "TPE 24 - 恢復跑 5k",
+            "startDate": "2025-09-16T18:34:01",
+            "sportType": "Run",
+            "runType": "REC",
+            "parentRunType": "SW",
+            "distance": 5.18,
+            "movingTime": "00:30:06",
+            "elevationGain": 5,
+            "pace": "5:48",
+            "isMainTraining": true,
+            "description": "早上跑強度，辦公室坐一天，課前做點動態恢復，天氣好像開始轉涼？"
+          },
           {
             "id": 15824509186,
             "name": "TPE 23 - 短間歇 wp 15min + 90% 1min r3min * 8 + cd 10 min",
@@ -623,5 +651,5 @@
       }
     ]
   },
-  "timestamp": "2025-09-16T03:12:37.8405258Z"
+  "timestamp": "2025-09-17T00:36:35.3881448Z"
 }
