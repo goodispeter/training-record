@@ -4,19 +4,75 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 67.78,
-    "totalMovingTime": "07:18:08",
-    "mainTrainingCount": 6,
-    "totalElevationGain": 36,
+    "totalDistance": 77.81,
+    "totalMovingTime": "08:25:47",
+    "mainTrainingCount": 7,
+    "totalElevationGain": 46,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 9,
-        "monthDistance": 67.78,
-        "monthMovingTime": "07:18:08",
-        "monthMainTrainingCount": 6,
-        "monthElevationGain": 36,
+        "monthDistance": 77.81,
+        "monthMovingTime": "08:25:47",
+        "monthMainTrainingCount": 7,
+        "monthElevationGain": 46,
         "trainingRecords": [
+          {
+            "id": 15836754098,
+            "name": "Cool down",
+            "startDate": "2025-09-17T07:07:25",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 1.36,
+            "movingTime": "00:10:23",
+            "elevationGain": 0,
+            "pace": "7:38",
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
+            "id": 15836643157,
+            "name": "TPE 7 - Easy run 50mins",
+            "startDate": "2025-09-17T06:25:10",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 6.19,
+            "movingTime": "00:40:11",
+            "elevationGain": 4,
+            "pace": "6:29",
+            "isMainTraining": true,
+            "description": "昨日伸展稍稍舒緩了肌肉，不過強度的些微疲勞感還在；最近左肩頸到上臂出現卡卡的狀況，可能是工作坐姿問題，調整觀察中，也該是時候進廠保養了😅"
+          },
+          {
+            "id": 15836252718,
+            "name": "Warm up",
+            "startDate": "2025-09-17T06:10:52",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 1.45,
+            "movingTime": "00:10:12",
+            "elevationGain": 3,
+            "pace": "7:01",
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
+            "id": 15830706296,
+            "name": "晚間步行",
+            "startDate": "2025-09-16T21:10:37",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 1.03,
+            "movingTime": "00:06:53",
+            "elevationGain": 3,
+            "pace": "6:41",
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 15824883475,
             "name": "Cool down",
@@ -287,5 +343,5 @@
       }
     ]
   },
-  "timestamp": "2025-09-16T03:13:17.1963058Z"
+  "timestamp": "2025-09-17T00:37:03.9277709Z"
 }
