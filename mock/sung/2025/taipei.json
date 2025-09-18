@@ -4,18 +4,18 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 77.81,
-    "totalMovingTime": "08:25:47",
+    "totalDistance": 76.78,
+    "totalMovingTime": "08:18:54",
     "mainTrainingCount": 7,
-    "totalElevationGain": 46,
+    "totalElevationGain": 43,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 9,
-        "monthDistance": 77.81,
-        "monthMovingTime": "08:25:47",
+        "monthDistance": 76.78,
+        "monthMovingTime": "08:18:54",
         "monthMainTrainingCount": 7,
-        "monthElevationGain": 46,
+        "monthElevationGain": 43,
         "trainingRecords": [
           {
             "id": 15836754098,
@@ -56,20 +56,6 @@
             "movingTime": "00:10:12",
             "elevationGain": 3,
             "pace": "7:01",
-            "isMainTraining": false,
-            "description": ""
-          },
-          {
-            "id": 15830706296,
-            "name": "晚間步行",
-            "startDate": "2025-09-16T21:10:37",
-            "sportType": "Run",
-            "runType": null,
-            "parentRunType": null,
-            "distance": 1.03,
-            "movingTime": "00:06:53",
-            "elevationGain": 3,
-            "pace": "6:41",
             "isMainTraining": false,
             "description": ""
           },
@@ -343,5 +329,5 @@
       }
     ]
   },
-  "timestamp": "2025-09-17T00:37:03.9277709Z"
+  "timestamp": "2025-09-18T02:51:40.6572652Z"
 }

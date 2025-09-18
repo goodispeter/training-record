@@ -4,19 +4,89 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 257.57,
-    "totalMovingTime": "27:34:24",
-    "mainTrainingCount": 25,
-    "totalElevationGain": 862,
+    "totalDistance": 279.93,
+    "totalMovingTime": "29:42:16",
+    "mainTrainingCount": 28,
+    "totalElevationGain": 890,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 9,
-        "monthDistance": 257.57,
-        "monthMovingTime": "27:34:24",
-        "monthMainTrainingCount": 25,
-        "monthElevationGain": 862,
+        "monthDistance": 279.93,
+        "monthMovingTime": "29:42:16",
+        "monthMainTrainingCount": 28,
+        "monthElevationGain": 890,
         "trainingRecords": [
+          {
+            "id": 15847918260,
+            "name": "晨間跑步",
+            "startDate": "2025-09-18T06:30:47",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0.68,
+            "movingTime": "00:08:59",
+            "elevationGain": 4,
+            "pace": "13:16",
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
+            "id": 15847918424,
+            "name": "TPE 28 - Tempo 200m p56-58s *40",
+            "startDate": "2025-09-18T05:41:05",
+            "sportType": "Run",
+            "runType": "T",
+            "parentRunType": "INT",
+            "distance": 8,
+            "movingTime": "00:39:03",
+            "elevationGain": 0,
+            "pace": "4:52",
+            "isMainTraining": true,
+            "description": "預計12k，跑了6k炸掉休息一下，然後撐了2k真的是跑不下去了，跑不太起來，我好廢，到底為啥在操場跑這個速度會跑到z3，在大稻埕卻是舒服的z2？"
+          },
+          {
+            "id": 15847914468,
+            "name": "晨間跑步",
+            "startDate": "2025-09-18T05:19:14",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 2.02,
+            "movingTime": "00:14:04",
+            "elevationGain": 6,
+            "pace": "6:58",
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
+            "id": 15842548032,
+            "name": "TPE 27 - 恢復跑 25min",
+            "startDate": "2025-09-17T19:59:05",
+            "sportType": "Run",
+            "runType": "REC",
+            "parentRunType": "SW",
+            "distance": 4.36,
+            "movingTime": "00:25:20",
+            "elevationGain": 2,
+            "pace": "5:48",
+            "isMainTraining": true,
+            "description": "GRC最後一堂，慢跑20分鐘+直線快彎道慢2圈，跟著 Pacer 順順跑完，直線也沒加什麼速度，剛好當作恢復訓練"
+          },
+          {
+            "id": 15842548053,
+            "name": "TPE 26 - Easy Run 40min",
+            "startDate": "2025-09-17T18:35:03",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 7.3,
+            "movingTime": "00:40:26",
+            "elevationGain": 16,
+            "pace": "5:32",
+            "isMainTraining": true,
+            "description": "GRC課前簡單跑個輕鬆跑，天氣舒適跑感不錯，昨天晚上聽跑班同學建議右腿貼紮睡覺，好想頗有功效？"
+          },
           {
             "id": 15830905057,
             "name": "TPE 25 - 長間歇 大安森 p4:20-4:40 *5 r60-120s",
@@ -651,5 +721,5 @@
       }
     ]
   },
-  "timestamp": "2025-09-17T00:36:35.3881448Z"
+  "timestamp": "2025-09-18T02:18:26.1986863Z"
 }
