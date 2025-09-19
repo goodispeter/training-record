@@ -28,8 +28,8 @@
             "movingTime": "00:10:59",
             "elevationGain": 9,
             "pace": "10:06",
-            "averageHeartRate": null,
-            "maxHeartRate": null,
+            "averageHeartRate": 87.9,
+            "maxHeartRate": 100,
             "isMainTraining": false,
             "description": ""
           },
@@ -837,5 +837,5 @@
       }
     ]
   },
-  "timestamp": "2025-09-19T05:46:56.5193105Z"
+  "timestamp": "2025-09-19T06:33:32.0256814Z"
 }
