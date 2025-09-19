@@ -4,19 +4,35 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 279.93,
-    "totalMovingTime": "29:42:16",
+    "totalDistance": 281.02,
+    "totalMovingTime": "29:53:15",
     "mainTrainingCount": 28,
-    "totalElevationGain": 890,
+    "totalElevationGain": 899,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 9,
-        "monthDistance": 279.93,
-        "monthMovingTime": "29:42:16",
+        "monthDistance": 281.02,
+        "monthMovingTime": "29:53:15",
         "monthMainTrainingCount": 28,
-        "monthElevationGain": 890,
+        "monthElevationGain": 899,
         "trainingRecords": [
+          {
+            "id": 15850721911,
+            "name": "午間跑步",
+            "startDate": "2025-09-18T12:05:16",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 1.09,
+            "movingTime": "00:10:59",
+            "elevationGain": 9,
+            "pace": "10:06",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 15847918260,
             "name": "晨間跑步",
@@ -28,6 +44,8 @@
             "movingTime": "00:08:59",
             "elevationGain": 4,
             "pace": "13:16",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -42,6 +60,8 @@
             "movingTime": "00:39:03",
             "elevationGain": 0,
             "pace": "4:52",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "預計12k，跑了6k炸掉休息一下，然後撐了2k真的是跑不下去了，跑不太起來，我好廢，到底為啥在操場跑這個速度會跑到z3，在大稻埕卻是舒服的z2？"
           },
@@ -56,6 +76,8 @@
             "movingTime": "00:14:04",
             "elevationGain": 6,
             "pace": "6:58",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -70,6 +92,8 @@
             "movingTime": "00:25:20",
             "elevationGain": 2,
             "pace": "5:48",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "GRC最後一堂，慢跑20分鐘+直線快彎道慢2圈，跟著 Pacer 順順跑完，直線也沒加什麼速度，剛好當作恢復訓練"
           },
@@ -84,6 +108,8 @@
             "movingTime": "00:40:26",
             "elevationGain": 16,
             "pace": "5:32",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "GRC課前簡單跑個輕鬆跑，天氣舒適跑感不錯，昨天晚上聽跑班同學建議右腿貼紮睡覺，好想頗有功效？"
           },
@@ -98,6 +124,8 @@
             "movingTime": "01:03:59",
             "elevationGain": 16,
             "pace": "4:55",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "沒想到這堂課從定速跑變成長間歇，馬配半馬配這樣輪替，但體感意外的還行，心率也都在160-165，看來天氣真的轉涼了？然後今天是個莫名其妙跑了30k的日子，本來想說明天可以好好休息，赫然想到明天晚上是 GRC養成班最後一堂😱"
           },
@@ -112,6 +140,8 @@
             "movingTime": "00:30:06",
             "elevationGain": 5,
             "pace": "5:48",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "早上跑強度，辦公室坐一天，課前做點動態恢復，天氣好像開始轉涼？"
           },
@@ -126,6 +156,8 @@
             "movingTime": "00:57:01",
             "elevationGain": 12,
             "pace": "5:41",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "早上起床身體狀況不錯感觸可以吃個小強度，Garmin 今日建議剛好就跳出這個課表，於是就試著吃吃看，好像也真的很久沒有刺激過這種無氧區間，跑完感覺還不錯。"
           },
@@ -140,6 +172,8 @@
             "movingTime": "00:15:02",
             "elevationGain": 5,
             "pace": "7:23",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -154,6 +188,8 @@
             "movingTime": "00:14:04",
             "elevationGain": 5,
             "pace": "10:57",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -168,6 +204,8 @@
             "movingTime": "00:28:34",
             "elevationGain": 0,
             "pace": null,
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "繼續面對重訓，以積少成多的概念慢慢做，不知道有朝一日會不會有那種做重訓真的有差的感覺。"
           },
@@ -182,6 +220,8 @@
             "movingTime": "00:30:03",
             "elevationGain": 0,
             "pace": "4:50",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "繼續把恢復做好，以應付明早的微強度，跑跑步機就是可以很放空什麼都不用想，30分鐘一下就過了。"
           },
@@ -196,6 +236,8 @@
             "movingTime": "00:09:31",
             "elevationGain": 0,
             "pace": "7:42",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -210,6 +252,8 @@
             "movingTime": "01:10:43",
             "elevationGain": 77,
             "pace": "7:03",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "低心率恢復跑，除了一些上坡路段，心率儘量控制在130上下，久違開啟節拍器練步頻，不過前兩日的疲勞感果然不能忽視，7分多速跑上坡會受不了小走一段，然後右腳明顯緊繃但還在可接受範圍。"
           },
@@ -224,6 +268,8 @@
             "movingTime": "00:15:28",
             "elevationGain": 3,
             "pace": "12:14",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -238,6 +284,8 @@
             "movingTime": "00:05:22",
             "elevationGain": 0,
             "pace": "8:33",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -252,6 +300,8 @@
             "movingTime": "00:08:34",
             "elevationGain": 0,
             "pace": "8:29",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -266,6 +316,8 @@
             "movingTime": "00:11:52",
             "elevationGain": 2,
             "pace": "7:26",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -280,6 +332,8 @@
             "movingTime": "01:16:48",
             "elevationGain": 11,
             "pace": "5:28",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "彩虹橋這邊也太曬了，繼續做耐熱訓練？後面 7k 想說體感還行就加點速度小小刺激一下，總之假日兩天 50k 達成。"
           },
@@ -294,6 +348,8 @@
             "movingTime": "00:35:18",
             "elevationGain": 3,
             "pace": "7:03",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "連續兩天 Long Run，先緩跑 5k 看看昨天的長距離是否有造成任何不適，身體有些疲勞但好像沒有任何不舒服或特別疲勞的地方。"
           },
@@ -308,6 +364,8 @@
             "movingTime": "00:13:09",
             "elevationGain": 2,
             "pace": "6:32",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -322,6 +380,8 @@
             "movingTime": "02:09:31",
             "elevationGain": 9,
             "pace": "4:58",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "久違適合長跑的好天氣（雖然還是比不上雪梨），好久沒有再大稻埕跑進目標配速了，感謝 M37 家良  前16k的陪跑，有人陪跑感覺就會比較輕鬆，真神奇，還順便偷吃了一下別人的課表😆然後這週還沒結束，大家稍安勿躁。"
           },
@@ -336,6 +396,8 @@
             "movingTime": "00:11:38",
             "elevationGain": 1,
             "pace": "5:46",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -350,6 +412,8 @@
             "movingTime": "00:15:55",
             "elevationGain": 11,
             "pace": "7:54",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -364,6 +428,8 @@
             "movingTime": "00:49:50",
             "elevationGain": 0,
             "pace": "4:53",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "好久沒跑200場練心，跑到後面心率一度逼近180，但雪梨馬時配速可能還比這個快一點心率卻在160上下而已，天氣的影響真的好大，或是我是什麼比賽型跑者？總之跑完有很累，有達到 Tempo 的目的就好（安慰自己"
           },
@@ -378,6 +444,8 @@
             "movingTime": "00:13:56",
             "elevationGain": 3,
             "pace": "6:55",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -392,6 +460,8 @@
             "movingTime": "00:31:57",
             "elevationGain": 0,
             "pace": null,
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "交叉登山式、抬臀、單車式捲腹、起跑平衡弓箭步、對側手腳交叉平衡、棒式抬手，40秒 r20秒共三組，一早起床右臀好緊，先不出去跑，稍微觀察一下。"
           },
@@ -406,6 +476,8 @@
             "movingTime": "00:31:56",
             "elevationGain": 0,
             "pace": "5:10",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "GRC第九堂，繼續用輕鬆的配速跟完課表，雖然很涼但汗整個止不住，最後5分鐘pacer加速到5分配心率一度到160上下，看來今天乖乖把恢復做好是對的。"
           },
@@ -420,6 +492,8 @@
             "movingTime": "00:07:38",
             "elevationGain": 1,
             "pace": "7:36",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -434,6 +508,8 @@
             "movingTime": "00:33:54",
             "elevationGain": 7,
             "pace": "6:28",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "昨天有跑強度，今天就繼續乖乖把恢復做好，天氣下過雨後微涼，但濕氣很重身體還是沉沉的。"
           },
@@ -448,6 +524,8 @@
             "movingTime": "01:07:10",
             "elevationGain": 6,
             "pace": "5:49",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "恢復跑但也不能無腦跑，要感覺跑的被人提，肚臍向前，腳步聲不要太大，然後還是好難🫠然後莫名其妙今天跑了26k"
           },
@@ -462,6 +540,8 @@
             "movingTime": "00:35:26",
             "elevationGain": 2,
             "pace": "5:49",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "課前再繼續跑個恢復，避免等等上課一點都不恢復?有同學共跑時間就是過比較快。"
           },
@@ -476,6 +556,8 @@
             "movingTime": "00:14:15",
             "elevationGain": 3,
             "pace": "7:05",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -490,6 +572,8 @@
             "movingTime": "00:28:59",
             "elevationGain": 0,
             "pace": "5:03",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "本來想跑個每圈從54秒漸進到48秒的變速間歇跑，結果配速配的一蹋糊塗，就算了，每趟有比上一趟快一點就好🫠"
           },
@@ -504,6 +588,8 @@
             "movingTime": "00:14:18",
             "elevationGain": 2,
             "pace": "7:07",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -518,6 +604,8 @@
             "movingTime": "00:09:14",
             "elevationGain": 2,
             "pace": "7:51",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -532,6 +620,8 @@
             "movingTime": "00:45:01",
             "elevationGain": 0,
             "pace": null,
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "恢復跑完面對不想面對的肌力，不過其實也沒什麼好不想面對的，畢竟輔助訓練（其實很重要）就不要讓自己太累(｡･ω･｡)ﾉ"
           },
@@ -546,6 +636,8 @@
             "movingTime": "00:24:42",
             "elevationGain": 0,
             "pace": "4:53",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "繼續把恢復做好，看明天早上起床狀況如何再看要不要吃強度（課表說明天上課是跑恢復跑…先姑且相信）"
           },
@@ -560,6 +652,8 @@
             "movingTime": "00:08:58",
             "elevationGain": 0,
             "pace": "7:36",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -574,6 +668,8 @@
             "movingTime": "00:45:02",
             "elevationGain": 35,
             "pace": "6:15",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "昨晚下過雨後今早天氣挺好，本來還想說要不要吃點強度，結果熱身時發現體感雖然不錯但配速卻在6:30-7:00 之間，還是乖乖跑恢復了，2k後身體熱開，輕鬆的體感下配速到6分初頭，也不打算特別提速，好好把恢復做好。\n然後等一下要去上班了，我不想上班(;´༎ຶД༎ຶ`)"
           },
@@ -588,6 +684,8 @@
             "movingTime": "00:15:01",
             "elevationGain": 2,
             "pace": "7:29",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -602,6 +700,8 @@
             "movingTime": "02:03:27",
             "elevationGain": 7,
             "pace": "5:08",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "9月的大稻埕明顯人變多，比起前幾個月的小貓兩三隻熱鬧多了，天氣好像沒有之前熱，太陽也沒有之前大，但還是好累，熱適應果然沒這麼快能適應🫠最後2k心率拉到180上下，阿怎麼沒跑進雪梨馬時的配速，真奇妙。"
           },
@@ -616,6 +716,8 @@
             "movingTime": "00:12:30",
             "elevationGain": 2,
             "pace": "6:13",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -630,6 +732,8 @@
             "movingTime": "00:23:30",
             "elevationGain": 0,
             "pace": null,
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "沒想到 Garmin 給的重訓課表是會爆汗的\n抬臀 伏地挺身 深蹲 登山式 對側手腳交叉平衡 寬窄深蹲跳 單車式捲腹\n各40秒，間休20秒，3輪\n第一次知道手錶會提示要怎麼做動作😆"
           },
@@ -644,6 +748,8 @@
             "movingTime": "01:00:01",
             "elevationGain": 150,
             "pace": "5:37",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "一落地回家馬上換裝出去熱適應一下，腳步意外沒有很重，本來還以為6分速以內就會覺得有點難受，沒想到起步還在530上下，避免1小時跑同樣路線太無聊乾脆又跑去明志坡了，預計5k折返，但剛好最後1k是上坡路段，在最後200公尺直接原地爆炸，還好不久後就接下坡了，但回去整路心率都在170上下，雖然體感是還好啦，肯定是身體在熱適應😆"
           },
@@ -658,6 +764,8 @@
             "movingTime": "02:00:03",
             "elevationGain": 174,
             "pace": "5:32",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "晚上就要離開雪梨了，把握好天氣再尬一個長距離，本來妄想跑個30k，但全身沒膠也沒帶水的情況下還是不要衝動好了，好在世紀公園有飲水機可以多少喝幾口水再繼續，身體感覺恢復的差不多，原本想說可以很輕鬆的用5分速跑完，但還是太高估自己的心肺了😆回台灣重練。"
           },
@@ -672,6 +780,8 @@
             "movingTime": "01:00:05",
             "elevationGain": 115,
             "pace": "5:26",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "因為人還在雪梨所以錯過森跑的開課日，看大家跑了 10k 輕鬆跑也想跟大家同步一下，畢竟難得可以短暫逃離台灣的夏天，怎麼捨得休息！跑感不錯，看起來恢復很好，但雪梨市區的紅綠燈好多，快不起來😆"
           },
@@ -686,6 +796,8 @@
             "movingTime": "00:01:53",
             "elevationGain": 1,
             "pace": "8:05",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -700,6 +812,8 @@
             "movingTime": "01:24:37",
             "elevationGain": 109,
             "pace": "11:19",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": false,
             "description": ""
           },
@@ -714,6 +828,8 @@
             "movingTime": "00:48:23",
             "elevationGain": 79,
             "pace": "6:32",
+            "averageHeartRate": null,
+            "maxHeartRate": null,
             "isMainTraining": true,
             "description": "雪梨馬後的第二天，同久久未見的跑班同學 Carmina 從中央車站跑到 Bondi 海灘，沒有什麼單點疼痛的感覺，只是右腳小腿微微緊繃，落地方式改變真的很有感！"
           }
@@ -721,5 +837,5 @@
       }
     ]
   },
-  "timestamp": "2025-09-18T02:18:26.1986863Z"
+  "timestamp": "2025-09-19T05:46:56.5193105Z"
 }
