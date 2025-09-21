@@ -4,19 +4,35 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 98.07,
-    "totalMovingTime": "11:35:54",
-    "mainTrainingCount": 9,
-    "totalElevationGain": 65,
+    "totalDistance": 118.1,
+    "totalMovingTime": "13:28:26",
+    "mainTrainingCount": 11,
+    "totalElevationGain": 81,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 9,
-        "monthDistance": 98.07,
-        "monthMovingTime": "11:35:54",
-        "monthMainTrainingCount": 9,
-        "monthElevationGain": 65,
+        "monthDistance": 118.1,
+        "monthMovingTime": "13:28:26",
+        "monthMainTrainingCount": 11,
+        "monthElevationGain": 81,
         "trainingRecords": [
+          {
+            "id": 15881438983,
+            "name": "TPE 10 - Long run 20k@5’40” aka. Garmin run 10k",
+            "startDate": "2025-09-21T04:39:08",
+            "sportType": "Run",
+            "runType": "LR",
+            "parentRunType": null,
+            "distance": 20.03,
+            "movingTime": "01:52:32",
+            "elevationGain": 16,
+            "pace": "5:37",
+            "averageHeartRate": 167.1,
+            "maxHeartRate": 181,
+            "isMainTraining": true,
+            "description": "提早4:40先跑課表，前半程逆風撐住；5:35過10k起點接著後半程，賽道人多超車稍稍累，整體體感、心率表現都很棒👏（不過6:30🌞出來還是好曬🥹）謝謝最佳配速員 Peter Pan💗"
+          },
           {
             "id": 15859501989,
             "name": "Cool down",
@@ -179,7 +195,7 @@
           },
           {
             "id": 15830645898,
-            "name": "NTC 皮拉提斯 1",
+            "name": "TPE - NTC 皮拉提斯 1",
             "startDate": "2025-09-16T20:12:57",
             "sportType": "Yoga",
             "runType": null,
@@ -190,8 +206,8 @@
             "pace": null,
             "averageHeartRate": 64.6,
             "maxHeartRate": 102,
-            "isMainTraining": false,
-            "description": ""
+            "isMainTraining": true,
+            "description": "早上跑了Tempo 12k，晚上伸展髖關節，放鬆全身，希望晚點好眠💤"
           },
           {
             "id": 15824883475,
@@ -501,5 +517,5 @@
       }
     ]
   },
-  "timestamp": "2025-09-19T06:32:53.1650513Z"
+  "timestamp": "2025-09-21T12:26:53.3132521Z"
 }
