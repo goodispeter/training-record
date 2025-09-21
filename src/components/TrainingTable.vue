@@ -170,6 +170,7 @@ const trainingTypeOptions = computed<SelectOption[]>(() => {
     { label: '賽事', value: 'RACE' },
     { label: '越野跑', value: 'TRAIL' },
     { label: '重量訓練', value: 'WeightTraining' },
+    { label: '瑜珈', value: 'Yoga' },
     { label: '其他', value: 'OTHER' },
   ]
 
@@ -217,9 +218,12 @@ const matchesTrainingTypeFilter = (record: TrainingRecord) => {
     return !record.runType && !record.parentRunType && record.sportType !== 'WeightTraining'
   }
 
-  // 處理重量訓練類型
+  // 處理重量訓練類型 & 瑜珈
   if (selectedTrainingType.value === 'WeightTraining') {
     return record.sportType === 'WeightTraining'
+  }
+  if (selectedTrainingType.value === 'Yoga') {
+    return record.sportType === 'Yoga'
   }
 
   return (

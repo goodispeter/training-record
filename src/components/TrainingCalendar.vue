@@ -138,6 +138,7 @@ const trainingTypeOptions: SelectOption[] = [
   { label: '賽事', value: 'RACE' },
   { label: '越野跑', value: 'TRAIL' },
   { label: '重量訓練', value: 'WeightTraining' },
+  { label: '瑜珈', value: 'Yoga' },
   { label: '其它', value: 'OTHER' },
 ]
 
@@ -309,6 +310,8 @@ const matchesFilter = (training: TrainingRecord): boolean => {
       return training.runType === 'TRAIL'
     case 'WeightTraining':
       return training.sportType === 'WeightTraining'
+    case 'Yoga':
+      return training.sportType === 'Yoga'
     case 'OTHER':
       return !training.isMainTraining // 篩選副訓練（非主訓練）
     default:

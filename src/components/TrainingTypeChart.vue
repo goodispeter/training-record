@@ -170,7 +170,7 @@ const columns = [
           detailDisplayMode.value === 'value' ? `${row.value}km` : '100',
         )
       }
-      if (row.name === '重量訓練') {
+      if (row.name === '重量訓練' || row.name === '瑜珈') {
         return '-'
       }
       return detailDisplayMode.value === 'value' ? `${row.value}` : `${row.distancePercent}`
@@ -235,10 +235,16 @@ const parseTimeToMinutes = (timeStr: string): number => {
 
 // 分類訓練記錄的函數
 const categorizeTrainingRecord = (record: TrainingRecord) => {
-  // 處理重量訓練
+  // 處理重量訓練 & 瑜珈
   if (record.sportType === 'WeightTraining') {
     return {
       mainCategory: { code: 'WeightTraining', name: '重量訓練' },
+      subCategory: null,
+    }
+  }
+  if (record.sportType === 'Yoga') {
+    return {
+      mainCategory: { code: 'Yoga', name: '瑜珈' },
       subCategory: null,
     }
   }
@@ -284,6 +290,7 @@ const mainCategoryData = computed(() => {
   categoryStats.set('RACE', { distance: 0, count: 0, time: 0, name: '賽事' })
   categoryStats.set('TRAIL', { distance: 0, count: 0, time: 0, name: '越野跑' })
   categoryStats.set('WeightTraining', { distance: 0, count: 0, time: 0, name: '重量訓練' })
+  categoryStats.set('Yoga', { distance: 0, count: 0, time: 0, name: '瑜珈' })
 
   // 其他分類（未匹配的）
   categoryStats.set('OTHER', { distance: 0, count: 0, time: 0, name: '其他' })
@@ -295,7 +302,7 @@ const mainCategoryData = computed(() => {
       const stats = categoryStats.get(mainCategory.code)
       if (stats) {
         // 重量訓練不累加距離，只計算次數
-        if (mainCategory.code === 'WeightTraining') {
+        if (mainCategory.code === 'WeightTraining' || mainCategory.code === 'Yoga') {
           stats.distance += 1 // 用次數代替距離
         } else {
           stats.distance += record.distance
@@ -538,6 +545,7 @@ const mainCategoryOption = computed(() => {
               長距離: '#3b82f6', // 藍色 - 長距離
               慢跑: '#10b981', // 綠色 - 慢跑
               重量訓練: '#f59e0b', // 橙色 - 重量訓練
+              瑜珈: '#ec4899', // 粉色 - 瑜珈
               賽事: '#8b5cf6', // 紫色 - 賽事
               越野跑: '#06b6d4', // 青色 - 越野跑
               其他: '#6b7280', // 灰色 - 其他
