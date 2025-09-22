@@ -299,11 +299,11 @@ const columns: DataTableColumns<TrainingRecord> = [
         ),
       ]
 
-      // 只有非重量訓練才顯示距離、時間、配速
-      if (row.sportType !== 'WeightTraining') {
+      // 只有非重量訓練和非瑜珈才顯示距離、時間、配速
+      if (row.sportType !== 'WeightTraining' && row.sportType !== 'Yoga') {
         children.push(h('div', `${row.distance}km | ${row.movingTime} | ${row.pace}`))
       } else {
-        // 重量訓練只顯示時間
+        // 重量訓練和瑜珈只顯示時間
         children.push(h('div', `${row.movingTime}`))
       }
 
