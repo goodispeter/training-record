@@ -4,26 +4,42 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 333.09,
-    "totalMovingTime": "34:36:30",
-    "mainTrainingCount": 30,
-    "totalElevationGain": 929,
+    "totalDistance": 341.63,
+    "totalMovingTime": "35:36:32",
+    "mainTrainingCount": 31,
+    "totalElevationGain": 962,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 9,
-        "monthDistance": 333.09,
-        "monthMovingTime": "34:36:30",
-        "monthMainTrainingCount": 30,
-        "monthElevationGain": 929,
+        "monthDistance": 341.63,
+        "monthMovingTime": "35:36:32",
+        "monthMainTrainingCount": 31,
+        "monthElevationGain": 962,
         "trainingRecords": [
+          {
+            "id": 15893405979,
+            "name": "TPE 31 - 恢復跑 1 hr",
+            "startDate": "2025-09-22T05:27:04",
+            "sportType": "Run",
+            "runType": "REC",
+            "parentRunType": "SW",
+            "distance": 8.54,
+            "movingTime": "01:00:02",
+            "elevationGain": 33,
+            "pace": "7:01",
+            "averageHeartRate": 125.8,
+            "maxHeartRate": 144,
+            "isMainTraining": true,
+            "description": "早上起跑不久後下大雨，忽然有種在這種天氣慢慢跑好像才叫恢復跑，之前的應該都要叫做耐熱訓練才對😑"
+          },
           {
             "id": 15881270209,
             "name": "TPE 30 - Long Run feat. Garmin Run 共20k",
             "startDate": "2025-09-21T04:39:08",
             "sportType": "Run",
-            "runType": "T",
-            "parentRunType": "INT",
+            "runType": "LR",
+            "parentRunType": null,
             "distance": 20.04,
             "movingTime": "01:52:37",
             "elevationGain": 19,
@@ -901,5 +917,5 @@
       }
     ]
   },
-  "timestamp": "2025-09-21T12:26:11.0979774Z"
+  "timestamp": "2025-09-22T00:53:43.2079053Z"
 }
