@@ -2,6 +2,7 @@
 export interface TrainingRecord {
   id: number
   name: string
+  planWeek: number
   startDate: string
   sportType: string
   runType: string
@@ -10,6 +11,8 @@ export interface TrainingRecord {
   movingTime: string
   elevationGain: number
   pace: string
+  averageHeartRate: number | null
+  maxHeartRate: number | null
   isMainTraining: boolean
   description: string
 }

@@ -95,10 +95,13 @@
                 class="text-sm text-gray-600"
                 style="margin-top: 4px"
               >
-                {{ training.distance }}km | {{ training.movingTime }} | {{ training.pace }}
+                📏 {{ training.distance }} ⏱️ {{ training.movingTime }} ⚡ {{ training.pace }}
+                <template v-if="training.averageHeartRate && training.maxHeartRate">
+                  ❤️ {{ training.averageHeartRate }} 🔥 {{ training.maxHeartRate }}
+                </template>
               </div>
               <div v-else class="text-sm text-gray-600" style="margin-top: 4px">
-                時間: {{ training.movingTime }}
+                ⏱️: {{ training.movingTime }}
               </div>
               <div
                 v-if="training.description && training.description.trim()"

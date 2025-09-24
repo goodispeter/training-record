@@ -301,10 +301,14 @@ const columns: DataTableColumns<TrainingRecord> = [
 
       // 只有非重量訓練和非瑜珈才顯示距離、時間、配速
       if (row.sportType !== 'WeightTraining' && row.sportType !== 'Yoga') {
-        children.push(h('div', `${row.distance}km | ${row.movingTime} | ${row.pace}`))
+        let trainingInfo = `📏 ${row.distance}km ⏱️ ${row.movingTime} ⚡ ${row.pace}`
+        if (row.averageHeartRate && row.maxHeartRate) {
+          trainingInfo += ` ❤️ ${row.averageHeartRate} 🔥 ${row.maxHeartRate}`
+        }
+        children.push(h('div', trainingInfo))
       } else {
         // 重量訓練和瑜珈只顯示時間
-        children.push(h('div', `${row.movingTime}`))
+        children.push(h('div', `⏱️ ${row.movingTime}`))
       }
 
       if (hasDesc) {

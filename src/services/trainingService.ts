@@ -2,25 +2,6 @@ import { apiUtil } from '@/utils/apiUtil'
 import type { TrainingResponseData } from '@/types/training'
 
 /**
- * Sydney.json 的 API 回應格式（與我們的型別稍有不同）
- */
-interface SydneyApiData {
-  target: string
-  totalDistance: number
-  totalMovingTime: string
-  mainTrainingCount: number
-  totalElevationGain: number
-  monthlyTrainingRecords: import('@/types/training').MonthlyTrainingData[] // 在 sydney.json 中這個欄位包含月份資料
-}
-
-interface SydneyApiResponse {
-  code: string
-  message: string
-  success: boolean
-  data: SydneyApiData
-}
-
-/**
  * 訓練資料服務類
  * 負責處理所有與訓練資料相關的 API 操作
  */
