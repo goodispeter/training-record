@@ -4,19 +4,83 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 341.63,
-    "totalMovingTime": "35:36:32",
-    "mainTrainingCount": 31,
-    "totalElevationGain": 962,
+    "totalDistance": 351.4,
+    "totalMovingTime": "36:27:11",
+    "mainTrainingCount": 32,
+    "totalElevationGain": 975,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 9,
-        "monthDistance": 341.63,
-        "monthMovingTime": "35:36:32",
-        "monthMainTrainingCount": 31,
-        "monthElevationGain": 962,
+        "monthDistance": 351.4,
+        "monthMovingTime": "36:27:11",
+        "monthMainTrainingCount": 32,
+        "monthElevationGain": 975,
         "trainingRecords": [
+          {
+            "id": 15909492342,
+            "name": "傍晚跑步",
+            "startDate": "2025-09-23T20:40:16",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 1.1,
+            "movingTime": "00:07:08",
+            "elevationGain": 0,
+            "pace": "6:29",
+            "averageHeartRate": 137.6,
+            "maxHeartRate": 149,
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
+            "id": 15909492359,
+            "name": "TPE 32 - Tempo 5k 400m p100-102s",
+            "startDate": "2025-09-23T20:15:24",
+            "sportType": "Run",
+            "runType": "T",
+            "parentRunType": "INT",
+            "distance": 4.99,
+            "movingTime": "00:20:53",
+            "elevationGain": 3,
+            "pace": "4:11",
+            "averageHeartRate": 178.1,
+            "maxHeartRate": 195,
+            "isMainTraining": true,
+            "description": "久違的測5k，終於踩到20分台，最後一圈硬生生再把心率逼到極限，今天台大田徑場人很少完全沒有超車問題，結果紀錄也硬生生少了20公尺，不過圈數肯定還是最準的(安慰自己），總之能達到這個目標還是很開心，但速度課表真的吃太少跑這個配速還是好吃力。"
+          },
+          {
+            "id": 15909486448,
+            "name": "傍晚跑步",
+            "startDate": "2025-09-23T19:43:06",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 2.61,
+            "movingTime": "00:15:52",
+            "elevationGain": 7,
+            "pace": "6:04",
+            "averageHeartRate": 135.7,
+            "maxHeartRate": 145,
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
+            "id": 15909486387,
+            "name": "傍晚跑步",
+            "startDate": "2025-09-23T19:32:24",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 1.07,
+            "movingTime": "00:06:46",
+            "elevationGain": 3,
+            "pace": "6:20",
+            "averageHeartRate": 131.1,
+            "maxHeartRate": 142,
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 15893405979,
             "name": "TPE 31 - 恢復跑 1 hr",
@@ -836,7 +900,7 @@
           {
             "id": 15699277156,
             "name": "TPE 3 - Long Run 2 hr MP+60s",
-            "startDate": "2025-09-05T03:06:45",
+            "startDate": "2025-09-05T05:06:45",
             "sportType": "Run",
             "runType": "LR",
             "parentRunType": null,
@@ -852,7 +916,7 @@
           {
             "id": 15680162502,
             "name": "TPE 2 - Easy Run 1 hr",
-            "startDate": "2025-09-03T15:33:04",
+            "startDate": "2025-09-03T17:33:04",
             "sportType": "Run",
             "runType": "E",
             "parentRunType": "SW",
@@ -868,7 +932,7 @@
           {
             "id": 15680162443,
             "name": "午後跑步",
-            "startDate": "2025-09-03T12:22:05",
+            "startDate": "2025-09-03T14:22:05",
             "sportType": "Run",
             "runType": null,
             "parentRunType": null,
@@ -884,7 +948,7 @@
           {
             "id": 15667302889,
             "name": "午後跑步",
-            "startDate": "2025-09-02T12:53:35",
+            "startDate": "2025-09-02T14:53:35",
             "sportType": "Run",
             "runType": null,
             "parentRunType": null,
@@ -900,7 +964,7 @@
           {
             "id": 15666393905,
             "name": "TPE 1  - 恢復跑",
-            "startDate": "2025-09-02T10:21:47",
+            "startDate": "2025-09-02T12:21:47",
             "sportType": "Run",
             "runType": "REC",
             "parentRunType": "SW",
@@ -917,5 +981,5 @@
       }
     ]
   },
-  "timestamp": "2025-09-22T00:53:43.2079053Z"
+  "timestamp": "2025-09-24T02:58:56.3250456Z"
 }
