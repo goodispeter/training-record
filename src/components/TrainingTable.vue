@@ -69,6 +69,7 @@ import { NDataTable, NSelect, NTag } from 'naive-ui'
 import type { DataTableColumns, SelectOption } from 'naive-ui'
 import type { TrainingRecord } from '@/types/training'
 import { PARENT_RUN_TYPE_NAMES } from '@/types/run-types'
+import { formatTime, formatDistance } from '@/utils/formatUtil'
 
 interface Props {
   records: TrainingRecord[]
@@ -254,7 +255,6 @@ const filteredRecords = computed(() => {
 })
 
 const rowKey = (row: TrainingRecord) => row.id
-
 const columns: DataTableColumns<TrainingRecord> = [
   {
     title: '日期',
@@ -301,9 +301,9 @@ const columns: DataTableColumns<TrainingRecord> = [
 
       // 只有非重量訓練和非瑜珈才顯示距離、時間、配速
       if (row.sportType !== 'WeightTraining' && row.sportType !== 'Yoga') {
-        let trainingInfo = `📏 ${row.distance}km ⏱️ ${row.movingTime} ⚡ ${row.pace}`
+        let trainingInfo = `📏${formatDistance(row.distance)}⏱️${formatTime(row.movingTime)}⚡${row.pace}`
         if (row.averageHeartRate && row.maxHeartRate) {
-          trainingInfo += ` ❤️ ${row.averageHeartRate} 🔥 ${row.maxHeartRate}`
+          trainingInfo += `❤️${row.averageHeartRate}🔥${row.maxHeartRate}`
         }
         children.push(h('div', trainingInfo))
       } else {

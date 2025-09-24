@@ -91,17 +91,19 @@
                 <n-tag v-if="training.isMainTraining" type="success" size="small"> 主訓練 </n-tag>
               </div>
               <div
-                v-if="training.sportType !== 'WeightTraining'"
+                v-if="training.sportType !== 'WeightTraining' && training.sportType !== 'Yoga'"
                 class="text-sm text-gray-600"
                 style="margin-top: 4px"
               >
-                📏 {{ training.distance }} ⏱️ {{ training.movingTime }} ⚡ {{ training.pace }}
+                📏{{ formatDistance(training.distance) }}⏱️{{ formatTime(training.movingTime) }}⚡{{
+                  training.pace
+                }}
                 <template v-if="training.averageHeartRate && training.maxHeartRate">
-                  ❤️ {{ training.averageHeartRate }} 🔥 {{ training.maxHeartRate }}
+                  ❤️{{ training.averageHeartRate }}🔥{{ training.maxHeartRate }}
                 </template>
               </div>
               <div v-else class="text-sm text-gray-600" style="margin-top: 4px">
-                ⏱️: {{ training.movingTime }}
+                ⏱️{{ formatTime(training.movingTime) }}
               </div>
               <div
                 v-if="training.description && training.description.trim()"
@@ -122,6 +124,7 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { NTag, NModal, NSelect } from 'naive-ui'
 import type { SelectOption } from 'naive-ui'
 import type { TrainingRecord } from '@/types/training'
+import { formatTime, formatDistance } from '@/utils/formatUtil'
 
 interface Props {
   records: TrainingRecord[]
