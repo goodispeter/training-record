@@ -4,22 +4,70 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 137.99,
-    "totalMovingTime": "15:34:47",
-    "mainTrainingCount": 13,
-    "totalElevationGain": 129,
+    "totalDistance": 147.01,
+    "totalMovingTime": "16:35:36",
+    "mainTrainingCount": 14,
+    "totalElevationGain": 207,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 9,
-        "monthDistance": 137.99,
-        "monthMovingTime": "15:34:47",
-        "monthMainTrainingCount": 13,
-        "monthElevationGain": 129,
+        "monthDistance": 147.01,
+        "monthMovingTime": "16:35:36",
+        "monthMainTrainingCount": 14,
+        "monthElevationGain": 207,
         "trainingRecords": [
           {
-            "id": 15903878731,
+            "id": 15915338190,
+            "name": "Cool down",
+            "startDate": "2025-09-24T06:53:08",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 1.46,
+            "movingTime": "00:10:17",
+            "elevationGain": 9,
+            "pace": "7:03",
+            "averageHeartRate": 133.8,
+            "maxHeartRate": 143,
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
+            "id": 15915217369,
+            "name": "TPE 13 - Easy run 40mins",
+            "startDate": "2025-09-24T06:10:26",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 6.21,
+            "movingTime": "00:40:26",
+            "elevationGain": 44,
+            "pace": "6:30",
+            "averageHeartRate": 144.6,
+            "maxHeartRate": 160,
+            "isMainTraining": true,
+            "description": "颱風🌀走了，大風吹起來很舒服😌幸運遇到純玉和古人晨練，小粉絲只能偷偷側拍，假裝鎮定輕鬆跑過，今天會很順利吧！"
+          },
+          {
+            "id": 15914822615,
             "name": "Warm up",
+            "startDate": "2025-09-24T05:55:04",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 1.35,
+            "movingTime": "00:10:06",
+            "elevationGain": 25,
+            "pace": "7:27",
+            "averageHeartRate": 126,
+            "maxHeartRate": 139,
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
+            "id": 15903878731,
+            "name": "Cool donw",
             "startDate": "2025-09-23T07:17:10",
             "sportType": "Run",
             "runType": null,
@@ -613,5 +661,5 @@
       }
     ]
   },
-  "timestamp": "2025-09-23T00:44:01.604341Z"
+  "timestamp": "2025-09-24T03:00:07.8510391Z"
 }
