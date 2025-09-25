@@ -4,19 +4,36 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 351.4,
-    "totalMovingTime": "36:27:11",
-    "mainTrainingCount": 32,
-    "totalElevationGain": 975,
+    "totalDistance": 361.41,
+    "totalMovingTime": "37:31:07",
+    "mainTrainingCount": 33,
+    "totalElevationGain": 1121,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 9,
-        "monthDistance": 351.4,
-        "monthMovingTime": "36:27:11",
-        "monthMainTrainingCount": 32,
-        "monthElevationGain": 975,
+        "monthDistance": 361.41,
+        "monthMovingTime": "37:31:07",
+        "monthMainTrainingCount": 33,
+        "monthElevationGain": 1121,
         "trainingRecords": [
+          {
+            "id": 15926309472,
+            "name": "TPE 33 - Easy Run 1 hr",
+            "planWeek": 4,
+            "startDate": "2025-09-25T05:20:16",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 10.01,
+            "movingTime": "01:03:56",
+            "elevationGain": 146,
+            "pace": "6:23",
+            "averageHeartRate": 136,
+            "maxHeartRate": 167,
+            "isMainTraining": true,
+            "description": "早上本來想說天氣好涼好像可以把 Tempo 跑一跑，後來發現昨天針灸後的針感還在還是乖乖慢跑就好，久違的練了一下坡，心率還是都能控在zone 1 - zone 2。"
+          },
           {
             "id": 15909492342,
             "name": "傍晚跑步",
@@ -1045,11 +1062,28 @@
         "planWeek": 4,
         "weekStartDate": "2025-09-22T00:00:00",
         "weekEndDate": "2025-09-28T00:00:00",
-        "weekDistance": 18.31,
-        "weekMovingTime": "01:50:41",
-        "weekMainTrainingCount": 2,
-        "weekElevationGain": 46,
+        "weekDistance": 28.32,
+        "weekMovingTime": "02:54:37",
+        "weekMainTrainingCount": 3,
+        "weekElevationGain": 192,
         "trainingRecords": [
+          {
+            "id": 15926309472,
+            "name": "TPE 33 - Easy Run 1 hr",
+            "planWeek": 4,
+            "startDate": "2025-09-25T05:20:16",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 10.01,
+            "movingTime": "01:03:56",
+            "elevationGain": 146,
+            "pace": "6:23",
+            "averageHeartRate": 136,
+            "maxHeartRate": 167,
+            "isMainTraining": true,
+            "description": "早上本來想說天氣好涼好像可以把 Tempo 跑一跑，後來發現昨天針灸後的針感還在還是乖乖慢跑就好，久違的練了一下坡，心率還是都能控在zone 1 - zone 2。"
+          },
           {
             "id": 15909492342,
             "name": "傍晚跑步",
@@ -2107,5 +2141,5 @@
       }
     ]
   },
-  "timestamp": "2025-09-24T08:21:27.7410621Z"
+  "timestamp": "2025-09-25T03:16:13.4935602Z"
 }
