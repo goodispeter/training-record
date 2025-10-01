@@ -5,18 +5,35 @@
   "data": {
     "target": "2025 臺北馬拉松",
     "totalDistance": 219.43,
-    "totalMovingTime": "24:47:34",
-    "mainTrainingCount": 20,
+    "totalMovingTime": "25:38:04",
+    "mainTrainingCount": 21,
     "totalElevationGain": 249,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 9,
         "monthDistance": 219.43,
-        "monthMovingTime": "24:47:34",
-        "monthMainTrainingCount": 20,
+        "monthMovingTime": "25:38:04",
+        "monthMainTrainingCount": 21,
         "monthElevationGain": 249,
         "trainingRecords": [
+          {
+            "id": 15986438728,
+            "name": "TPE - NTC 皮拉提斯2",
+            "planWeek": 4,
+            "startDate": "2025-09-30T20:12:56",
+            "sportType": "Yoga",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0,
+            "movingTime": "00:50:30",
+            "elevationGain": 0,
+            "pace": null,
+            "averageHeartRate": 58.7,
+            "maxHeartRate": 80,
+            "isMainTraining": true,
+            "description": ""
+          },
           {
             "id": 15980929561,
             "name": "Cool down",
@@ -893,10 +910,27 @@
         "weekStartDate": "2025-09-29T00:00:00",
         "weekEndDate": "2025-10-05T00:00:00",
         "weekDistance": 24.46,
-        "weekMovingTime": "02:46:31",
-        "weekMainTrainingCount": 2,
+        "weekMovingTime": "03:37:01",
+        "weekMainTrainingCount": 3,
         "weekElevationGain": 14,
         "trainingRecords": [
+          {
+            "id": 15986438728,
+            "name": "TPE - NTC 皮拉提斯2",
+            "planWeek": 4,
+            "startDate": "2025-09-30T20:12:56",
+            "sportType": "Yoga",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0,
+            "movingTime": "00:50:30",
+            "elevationGain": 0,
+            "pace": null,
+            "averageHeartRate": 58.7,
+            "maxHeartRate": 80,
+            "isMainTraining": true,
+            "description": ""
+          },
           {
             "id": 15980929561,
             "name": "Cool down",
@@ -1801,5 +1835,5 @@
       }
     ]
   },
-  "timestamp": "2025-09-30T01:02:06.0011267Z"
+  "timestamp": "2025-10-01T00:56:48.1520184Z"
 }
