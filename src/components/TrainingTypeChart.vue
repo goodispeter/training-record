@@ -68,31 +68,19 @@
     </div>
 
     <!-- 詳細資訊彈窗 -->
-    <n-modal v-model:show="showDetailModal" preset="card" style="width: 500px; max-width: 90vw">
-      <template #header>
-        <div class="flex justify-between items-center w-full">
-          <span>詳細資訊</span>
-          <n-radio-group v-model:value="detailDisplayMode" size="small">
-            <n-radio-button value="value">實際數字</n-radio-button>
-            <n-radio-button value="percent">百分比</n-radio-button>
-          </n-radio-group>
-        </div>
-      </template>
-      <n-data-table
-        :columns="columns"
-        :data="tableDataWithTotal"
-        :bordered="false"
-        :single-line="false"
-        :single-column="false"
-        size="small"
-      />
-    </n-modal>
+    <TypeChartDetail
+      v-model:show="showDetailModal"
+      :data="currentChartData"
+      :total-count="props.totalRecordsCount"
+      :total-distance="props.totalDistance"
+      :total-time-minutes="totalTimeMinutes"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted, h } from 'vue'
-import { NTabs, NTabPane, NModal, NRadioGroup, NRadioButton, NDataTable, NButton } from 'naive-ui'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { NTabs, NTabPane, NRadioGroup, NRadioButton, NButton } from 'naive-ui'
 import VChart from 'vue-echarts'
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
@@ -100,6 +88,7 @@ import { PieChart } from 'echarts/charts'
 import { TitleComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import type { TrainingRecord } from '@/types/training'
 import { getRunTypeName, getParentRunTypeName, PARENT_RUN_TYPE_NAMES } from '@/types/run-types'
+import TypeChartDetail from './TypeChartDetail.vue'
 
 use([CanvasRenderer, PieChart, TitleComponent, TooltipComponent, LegendComponent])
 
@@ -123,77 +112,6 @@ const intensityChartRef = ref()
 
 // 詳細資訊彈窗
 const showDetailModal = ref(false)
-
-// 詳細資訊表格顯示模式：'value' 實際數字, 'percent' 百分比
-const detailDisplayMode = ref<'value' | 'percent'>('value')
-
-// 表格欄位配置
-const columns = [
-  {
-    title: '類型',
-    key: 'name',
-    align: 'center' as const,
-    width: 80,
-    render: (row: any) => {
-      if (row.isTotal) {
-        return h('span', { style: { fontWeight: 'bold', color: '#1890ff' } }, '總和')
-      }
-      return row.name
-    },
-  },
-  {
-    title: '次數',
-    key: 'count',
-    align: 'center' as const,
-    width: 100,
-    render: (row: any) => {
-      if (row.isTotal) {
-        return h(
-          'span',
-          { style: { fontWeight: 'bold', color: '#1890ff' } },
-          detailDisplayMode.value === 'value' ? `${row.count}次` : '100',
-        )
-      }
-      return detailDisplayMode.value === 'value' ? `${row.count}` : `${row.countPercent}`
-    },
-  },
-  {
-    title: '距離/km',
-    key: 'value',
-    align: 'center' as const,
-    width: 100,
-    render: (row: any) => {
-      if (row.isTotal) {
-        return h(
-          'span',
-          { style: { fontWeight: 'bold', color: '#1890ff' } },
-          detailDisplayMode.value === 'value' ? `${row.value}km` : '100',
-        )
-      }
-      if (row.name === '重量訓練' || row.name === '瑜珈') {
-        return '-'
-      }
-      return detailDisplayMode.value === 'value' ? `${row.value}` : `${row.distancePercent}`
-    },
-  },
-  {
-    title: '時間',
-    key: 'time',
-    align: 'center' as const,
-    width: 100,
-    render: (row: any) => {
-      const timeText = `${Math.floor(row.time / 60)}h${Math.round(row.time % 60)}m`
-      if (row.isTotal) {
-        return h(
-          'span',
-          { style: { fontWeight: 'bold', color: '#1890ff' } },
-          detailDisplayMode.value === 'value' ? timeText : '100',
-        )
-      }
-      return detailDisplayMode.value === 'value' ? timeText : `${row.timePercent}`
-    },
-  },
-]
 
 // 處理視窗大小變化
 const handleResize = () => {
@@ -430,72 +348,30 @@ const intensitySubTypeChartData = computed(() => {
     }
   })
 })
-// 包含總和統計的表格數據
-const tableDataWithTotal = computed(() => {
-  // 表格數據始終顯示所有類型，不進行篩選
-  const allData = activeChart.value === 'main' ? mainCategoryData.value : intensitySubTypeData.value
+// 當前圖表的數據（用於詳細資訊彈窗）
+const currentChartData = computed(() => {
+  const data = activeChart.value === 'main' ? mainCategoryData.value : intensitySubTypeData.value
 
-  // 根據圖表類型使用不同的總和計算方式
-  let totalCount: number
-  let totalDistance: number
-  let totalTimeMinutes: number
+  // 為每個項目添加百分比屬性（初始值，實際計算在 TypeChartDetail 組件中）
+  return data.map((item) => ({
+    ...item,
+    countPercent: '0.0',
+    distancePercent: '0.0',
+    timePercent: '0.0',
+  }))
+})
 
-  if (activeChart.value === 'main') {
-    // 訓練類型分布：使用 API 傳入的總和數據
-    totalCount = props.totalRecordsCount
-    totalDistance = props.totalDistance
-
-    // 解析 API 時間字串
-    const parseApiTime = (timeStr: string): number => {
-      if (!timeStr) return 0
-      const parts = timeStr.split(':').map(Number)
-      if (parts.length === 3) {
-        return parts[0] * 60 + parts[1] + parts[2] / 60 // 轉換為分鐘
-      }
-      return 0
+// 總時間（分鐘）
+const totalTimeMinutes = computed(() => {
+  const parseApiTime = (timeStr: string): number => {
+    if (!timeStr) return 0
+    const parts = timeStr.split(':').map(Number)
+    if (parts.length === 3) {
+      return parts[0] * 60 + parts[1] + parts[2] / 60 // 轉換為分鐘
     }
-    totalTimeMinutes = parseApiTime(props.totalMovingTime)
-  } else {
-    // 強度訓練分布：從表格數據直接加總
-    totalCount = allData.reduce((sum, item) => sum + item.count, 0)
-    totalDistance = allData.reduce((sum, item) => sum + item.value, 0)
-    totalTimeMinutes = allData.reduce((sum, item) => sum + item.time, 0)
+    return 0
   }
-
-  // 計算用於距離百分比的總和（排除重量訓練）
-  const totalDistanceForPercent = allData
-    .filter((item) => item.name !== '重量訓練')
-    .reduce((sum, item) => sum + item.value, 0)
-
-  // 所有數據（帶各自的百分比）
-  const dataWithPercent = allData.map((item) => {
-    const countPercent = totalCount > 0 ? ((item.count / totalCount) * 100).toFixed(1) : '0'
-    const distancePercent =
-      totalDistanceForPercent > 0 ? ((item.value / totalDistanceForPercent) * 100).toFixed(1) : '0'
-    const timePercent =
-      totalTimeMinutes > 0 ? ((item.time / totalTimeMinutes) * 100).toFixed(1) : '0'
-
-    return {
-      ...item,
-      countPercent,
-      distancePercent,
-      timePercent,
-    }
-  })
-
-  // 添加總和行
-  const totalRow = {
-    name: '總和',
-    count: totalCount,
-    value: Number(totalDistance.toFixed(1)),
-    time: Number(totalTimeMinutes.toFixed(1)),
-    countPercent: '100.0',
-    distancePercent: '100.0',
-    timePercent: '100.0',
-    isTotal: true, // 標記這是總和行，用於樣式區分
-  }
-
-  return [...dataWithPercent, totalRow]
+  return parseApiTime(props.totalMovingTime)
 })
 
 // 主要分類圖表選項
