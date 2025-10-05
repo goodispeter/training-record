@@ -388,7 +388,7 @@ const mainCategoryChartData = computed(() => {
   // 根據百分比計算模式篩選數據
   if (percentageMode.value === 'distance') {
     // 距離模式：排除重量訓練
-    data = data.filter((item) => item.name !== '重量訓練')
+    data = data.filter((item) => item.name !== '重量訓練' && item.name !== '瑜珈')
   }
 
   // 根據模式調整圓餅圖的 value（影響扇形大小）
