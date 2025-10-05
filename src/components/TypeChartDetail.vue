@@ -1,5 +1,12 @@
 <template>
-  <n-modal v-model:show="isVisible" preset="card" style="width: 500px; max-width: 90vw">
+  <n-modal
+    v-model:show="isVisible"
+    preset="card"
+    :block-scroll="true"
+    :trap-focus="false"
+    :mask-closable="true"
+    style="width: 500px; max-width: 95vw"
+  >
     <template #header>
       <div class="flex justify-between items-center w-full">
         <span>詳細資訊</span>
@@ -9,7 +16,7 @@
         </n-radio-group>
       </div>
     </template>
-    <div style="overflow-x: auto; width: 100%; min-width: 0">
+    <div style="overflow-x: auto; width: 100%; min-width: 0; max-width: 100%">
       <n-data-table
         :columns="columns"
         :data="tableDataWithTotal"
@@ -17,8 +24,8 @@
         :single-line="false"
         :single-column="false"
         size="small"
-        :scroll-x="380"
-        style="min-width: 380px"
+        :scroll-x="350"
+        style="min-width: 350px; width: 100%"
         :row-props="rowProps"
       />
     </div>
@@ -26,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, h, watch } from 'vue'
+import { computed, ref, h, watch, onUnmounted } from 'vue'
 import { NModal, NRadioGroup, NRadioButton, NDataTable } from 'naive-ui'
 
 interface TableData {
@@ -72,9 +79,19 @@ watch(
   (newShow) => {
     if (newShow) {
       excludedTypes.value.clear()
+      // 手動阻止背景滾動
+      document.body.style.overflow = 'hidden'
+    } else {
+      // 恢復背景滾動
+      document.body.style.overflow = ''
     }
   },
 )
+
+// 組件卸載時恢復滾動
+onUnmounted(() => {
+  document.body.style.overflow = ''
+})
 
 // 行點擊事件處理
 const rowProps = (row: any) => {
@@ -103,7 +120,7 @@ const columns = [
     title: '類型',
     key: 'name',
     align: 'center' as const,
-    width: 80,
+    width: 50,
     render: (row: any) => {
       if (row.isTotal) {
         return h('span', { style: { fontWeight: 'bold', color: '#1890ff' } }, '總和')
@@ -125,13 +142,13 @@ const columns = [
     title: '次數',
     key: 'count',
     align: 'center' as const,
-    width: 100,
+    width: 50,
     render: (row: any) => {
       if (row.isTotal) {
         return h(
           'span',
           { style: { fontWeight: 'bold', color: '#1890ff' } },
-          displayMode.value === 'value' ? `${row.count}次` : '100',
+          displayMode.value === 'value' ? `${row.count}` : '100',
         )
       }
       const isExcluded = excludedTypes.value.has(row.name)
@@ -152,13 +169,13 @@ const columns = [
     title: '距離',
     key: 'value',
     align: 'center' as const,
-    width: 100,
+    width: 50,
     render: (row: any) => {
       if (row.isTotal) {
         return h(
           'span',
           { style: { fontWeight: 'bold', color: '#1890ff' } },
-          displayMode.value === 'value' ? `${row.value}km` : '100',
+          displayMode.value === 'value' ? `${row.value}` : '100',
         )
       }
       if (row.name === '重量訓練' || row.name === '瑜珈') {
@@ -192,7 +209,7 @@ const columns = [
     title: '時間',
     key: 'time',
     align: 'center' as const,
-    width: 100,
+    width: 60,
     render: (row: any) => {
       const timeText = `${Math.floor(row.time / 60)}h${Math.round(row.time % 60)}m`
       if (row.isTotal) {
