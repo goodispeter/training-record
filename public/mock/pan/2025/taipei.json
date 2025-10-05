@@ -4,19 +4,53 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 524.86,
-    "totalMovingTime": "54:29:58",
-    "mainTrainingCount": 47,
-    "totalElevationGain": 1283,
+    "totalDistance": 554.88,
+    "totalMovingTime": "57:19:30",
+    "mainTrainingCount": 48,
+    "totalElevationGain": 1302,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 10,
-        "monthDistance": 45.7,
-        "monthMovingTime": "04:51:12",
-        "monthMainTrainingCount": 5,
-        "monthElevationGain": 57,
+        "monthDistance": 75.72,
+        "monthMovingTime": "07:40:44",
+        "monthMainTrainingCount": 6,
+        "monthElevationGain": 76,
         "trainingRecords": [
+          {
+            "id": 16035874848,
+            "name": "TPE 48 - Long Run wp 2k + z1 18k + z2 10k",
+            "planWeek": 5,
+            "startDate": "2025-10-05T05:22:25",
+            "sportType": "Run",
+            "runType": "LR",
+            "parentRunType": null,
+            "distance": 28.01,
+            "movingTime": "02:34:15",
+            "elevationGain": 17,
+            "pace": "5:30",
+            "averageHeartRate": 157.2,
+            "maxHeartRate": 181,
+            "isMainTraining": true,
+            "description": "今天 Sung Chou 沒跟別人跑了😏 前天右膝不適，昨天直接休跑，今天以防萬一降速跑，膝蓋沒有任何不適，不知道是打了消炎藥真的太神還是前天中邪，總之穩穩跑完真好。"
+          },
+          {
+            "id": 16035871645,
+            "name": "晨間跑步",
+            "planWeek": 5,
+            "startDate": "2025-10-05T04:43:11",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 2.01,
+            "movingTime": "00:15:17",
+            "elevationGain": 2,
+            "pace": "7:36",
+            "averageHeartRate": 118.2,
+            "maxHeartRate": 125,
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 16014506406,
             "name": "TPE 47 - 恢復跑40min",
@@ -1565,11 +1599,45 @@
         "planWeek": 5,
         "weekStartDate": "2025-09-29T00:00:00",
         "weekEndDate": "2025-10-05T00:00:00",
-        "weekDistance": 77.9,
-        "weekMovingTime": "08:33:38",
-        "weekMainTrainingCount": 9,
-        "weekElevationGain": 96,
+        "weekDistance": 107.92,
+        "weekMovingTime": "11:23:10",
+        "weekMainTrainingCount": 10,
+        "weekElevationGain": 115,
         "trainingRecords": [
+          {
+            "id": 16035874848,
+            "name": "TPE 48 - Long Run wp 2k + z1 18k + z2 10k",
+            "planWeek": 5,
+            "startDate": "2025-10-05T05:22:25",
+            "sportType": "Run",
+            "runType": "LR",
+            "parentRunType": null,
+            "distance": 28.01,
+            "movingTime": "02:34:15",
+            "elevationGain": 17,
+            "pace": "5:30",
+            "averageHeartRate": 157.2,
+            "maxHeartRate": 181,
+            "isMainTraining": true,
+            "description": "今天 Sung Chou 沒跟別人跑了😏 前天右膝不適，昨天直接休跑，今天以防萬一降速跑，膝蓋沒有任何不適，不知道是打了消炎藥真的太神還是前天中邪，總之穩穩跑完真好。"
+          },
+          {
+            "id": 16035871645,
+            "name": "晨間跑步",
+            "planWeek": 5,
+            "startDate": "2025-10-05T04:43:11",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 2.01,
+            "movingTime": "00:15:17",
+            "elevationGain": 2,
+            "pace": "7:36",
+            "averageHeartRate": 118.2,
+            "maxHeartRate": 125,
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 16014506406,
             "name": "TPE 47 - 恢復跑40min",
@@ -3148,5 +3216,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-03T01:58:11.1391047Z"
+  "timestamp": "2025-10-05T10:50:08.5791265Z"
 }
