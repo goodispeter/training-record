@@ -19,6 +19,7 @@
         size="small"
         :scroll-x="380"
         style="min-width: 380px"
+        :row-props="rowProps"
       />
     </div>
   </n-modal>
@@ -75,6 +76,27 @@ watch(
   },
 )
 
+// 行點擊事件處理
+const rowProps = (row: any) => {
+  if (row.isTotal) {
+    return {}
+  }
+
+  return {
+    style: {
+      cursor: 'pointer',
+    },
+    onClick: () => {
+      const isExcluded = excludedTypes.value.has(row.name)
+      if (isExcluded) {
+        excludedTypes.value.delete(row.name)
+      } else {
+        excludedTypes.value.add(row.name)
+      }
+    },
+  }
+}
+
 // 表格欄位配置
 const columns = [
   {
@@ -91,16 +113,8 @@ const columns = [
         'span',
         {
           style: {
-            cursor: 'pointer',
             color: isExcluded ? '#ccc' : 'inherit',
             textDecoration: isExcluded ? 'line-through' : 'none',
-          },
-          onClick: () => {
-            if (isExcluded) {
-              excludedTypes.value.delete(row.name)
-            } else {
-              excludedTypes.value.add(row.name)
-            }
           },
         },
         row.name,
