@@ -4,19 +4,36 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 554.88,
-    "totalMovingTime": "57:19:30",
-    "mainTrainingCount": 48,
-    "totalElevationGain": 1302,
+    "totalDistance": 560.91,
+    "totalMovingTime": "58:05:08",
+    "mainTrainingCount": 49,
+    "totalElevationGain": 1387,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 10,
-        "monthDistance": 75.72,
-        "monthMovingTime": "07:40:44",
-        "monthMainTrainingCount": 6,
-        "monthElevationGain": 76,
+        "monthDistance": 81.75,
+        "monthMovingTime": "08:26:22",
+        "monthMainTrainingCount": 7,
+        "monthElevationGain": 161,
         "trainingRecords": [
+          {
+            "id": 16047406794,
+            "name": "TPE 49 - 恢復跑 45min",
+            "planWeek": 6,
+            "startDate": "2025-10-06T07:24:01",
+            "sportType": "Run",
+            "runType": "REC",
+            "parentRunType": "SW",
+            "distance": 6.03,
+            "movingTime": "00:45:38",
+            "elevationGain": 85,
+            "pace": "7:34",
+            "averageHeartRate": 125.5,
+            "maxHeartRate": 153,
+            "isMainTraining": true,
+            "description": "悠閒的恢復跑，跑點坡度小小刺激，整體很輕鬆，身體沒什麼不適。"
+          },
           {
             "id": 16035874848,
             "name": "TPE 48 - Long Run wp 2k + z1 18k + z2 10k",
@@ -1595,6 +1612,34 @@
       }
     ],
     "weeklyTrainingRecords": [
+      {
+        "planWeek": 6,
+        "weekStartDate": "2025-10-06T00:00:00",
+        "weekEndDate": "2025-10-12T00:00:00",
+        "weekDistance": 6.03,
+        "weekMovingTime": "00:45:38",
+        "weekMainTrainingCount": 1,
+        "weekElevationGain": 85,
+        "trainingRecords": [
+          {
+            "id": 16047406794,
+            "name": "TPE 49 - 恢復跑 45min",
+            "planWeek": 6,
+            "startDate": "2025-10-06T07:24:01",
+            "sportType": "Run",
+            "runType": "REC",
+            "parentRunType": "SW",
+            "distance": 6.03,
+            "movingTime": "00:45:38",
+            "elevationGain": 85,
+            "pace": "7:34",
+            "averageHeartRate": 125.5,
+            "maxHeartRate": 153,
+            "isMainTraining": true,
+            "description": "悠閒的恢復跑，跑點坡度小小刺激，整體很輕鬆，身體沒什麼不適。"
+          }
+        ]
+      },
       {
         "planWeek": 5,
         "weekStartDate": "2025-09-29T00:00:00",
@@ -3216,5 +3261,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-05T10:50:08.5791265Z"
+  "timestamp": "2025-10-06T04:54:18.4330131Z"
 }
