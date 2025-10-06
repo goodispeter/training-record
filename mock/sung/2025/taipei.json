@@ -4,19 +4,36 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 277.38,
-    "totalMovingTime": "32:15:42",
-    "mainTrainingCount": 25,
-    "totalElevationGain": 291,
+    "totalDistance": 283.39,
+    "totalMovingTime": "33:01:15",
+    "mainTrainingCount": 26,
+    "totalElevationGain": 376,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 10,
-        "monthDistance": 57.95,
-        "monthMovingTime": "06:37:38",
-        "monthMainTrainingCount": 4,
-        "monthElevationGain": 42,
+        "monthDistance": 63.96,
+        "monthMovingTime": "07:23:11",
+        "monthMainTrainingCount": 5,
+        "monthElevationGain": 127,
         "trainingRecords": [
+          {
+            "id": 16047277779,
+            "name": "TPE 23 - Easy run 40mins",
+            "planWeek": 5,
+            "startDate": "2025-10-06T07:24:01",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 6.01,
+            "movingTime": "00:45:33",
+            "elevationGain": 85,
+            "pace": "7:34",
+            "averageHeartRate": 121.4,
+            "maxHeartRate": 145,
+            "isMainTraining": true,
+            "description": "28k後的疲勞不容小覷，慢慢跑恢復～"
+          },
           {
             "id": 16035653954,
             "name": "TPE 22 - Long run 28k@5’40”-30”",
@@ -1102,6 +1119,34 @@
       }
     ],
     "weeklyTrainingRecords": [
+      {
+        "planWeek": 5,
+        "weekStartDate": "2025-10-06T00:00:00",
+        "weekEndDate": "2025-10-12T00:00:00",
+        "weekDistance": 6.01,
+        "weekMovingTime": "00:45:33",
+        "weekMainTrainingCount": 1,
+        "weekElevationGain": 85,
+        "trainingRecords": [
+          {
+            "id": 16047277779,
+            "name": "TPE 23 - Easy run 40mins",
+            "planWeek": 5,
+            "startDate": "2025-10-06T07:24:01",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 6.01,
+            "movingTime": "00:45:33",
+            "elevationGain": 85,
+            "pace": "7:34",
+            "averageHeartRate": 121.4,
+            "maxHeartRate": 145,
+            "isMainTraining": true,
+            "description": "28k後的疲勞不容小覷，慢慢跑恢復～"
+          }
+        ]
+      },
       {
         "planWeek": 4,
         "weekStartDate": "2025-09-29T00:00:00",
@@ -2219,5 +2264,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-05T10:51:00.0543165Z"
+  "timestamp": "2025-10-06T04:54:50.7131183Z"
 }
