@@ -2,7 +2,7 @@
   <n-modal
     v-model:show="isVisible"
     preset="card"
-    :block-scroll="true"
+    :block-scroll="false"
     :trap-focus="false"
     :mask-closable="true"
     style="width: 500px; max-width: 95vw"
@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, h, watch, onUnmounted } from 'vue'
+import { computed, ref, h, watch } from 'vue'
 import { NModal, NRadioGroup, NRadioButton, NDataTable } from 'naive-ui'
 
 interface TableData {
@@ -79,19 +79,9 @@ watch(
   (newShow) => {
     if (newShow) {
       excludedTypes.value.clear()
-      // 手動阻止背景滾動
-      document.body.style.overflow = 'hidden'
-    } else {
-      // 恢復背景滾動
-      document.body.style.overflow = ''
     }
   },
 )
-
-// 組件卸載時恢復滾動
-onUnmounted(() => {
-  document.body.style.overflow = ''
-})
 
 // 行點擊事件處理
 const rowProps = (row: any) => {
