@@ -4,22 +4,73 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 330.17,
-    "totalMovingTime": "38:59:19",
-    "mainTrainingCount": 31,
-    "totalElevationGain": 697,
+    "totalDistance": 365.88,
+    "totalMovingTime": "42:26:40",
+    "mainTrainingCount": 34,
+    "totalElevationGain": 718,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 10,
-        "monthDistance": 110.74,
-        "monthMovingTime": "13:21:15",
-        "monthMainTrainingCount": 10,
-        "monthElevationGain": 448,
+        "monthDistance": 146.45,
+        "monthMovingTime": "16:48:36",
+        "monthMainTrainingCount": 13,
+        "monthElevationGain": 469,
         "trainingRecords": [
           {
+            "id": 16122393923,
+            "name": "TPE 29 - Easy run 40mins",
+            "planWeek": 6,
+            "startDate": "2025-10-13T06:40:21",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 5.2,
+            "movingTime": "00:40:39",
+            "elevationGain": 2,
+            "pace": "7:48",
+            "averageHeartRate": 119.4,
+            "maxHeartRate": 132,
+            "isMainTraining": true,
+            "description": "5公里，不能再多了😝第一個30後的恢復跑，腳沉～到不行，必須努力放鬆🥲"
+          },
+          {
+            "id": 16111524895,
+            "name": "TPE 28 - Long run 5’40”-30”",
+            "planWeek": 5,
+            "startDate": "2025-10-12T05:07:34",
+            "sportType": "Run",
+            "runType": "LR",
+            "parentRunType": null,
+            "distance": 30.03,
+            "movingTime": "02:43:15",
+            "elevationGain": 19,
+            "pace": "5:26",
+            "averageHeartRate": 164.5,
+            "maxHeartRate": 186,
+            "isMainTraining": true,
+            "description": "起跑狀態很好，第1k看錶後就順體感跑，一直到25k都有餘力提醒自己維持鼻吸鼻吐，最後提速順利完成，9月長距離以來最舒適的一次👍\n自評強度7.5✅"
+          },
+          {
+            "id": 16111524753,
+            "name": "Warm up",
+            "planWeek": 5,
+            "startDate": "2025-10-12T04:52:56",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0.48,
+            "movingTime": "00:03:27",
+            "elevationGain": 0,
+            "pace": "7:09",
+            "averageHeartRate": 130.9,
+            "maxHeartRate": 141,
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
             "id": 16095540191,
-            "name": "NTC 跑者肌力 2",
+            "name": "TPE 跑者肌力 2",
             "planWeek": 5,
             "startDate": "2025-10-10T20:33:34",
             "sportType": "WeightTraining",
@@ -31,7 +82,7 @@
             "pace": null,
             "averageHeartRate": 75,
             "maxHeartRate": 106,
-            "isMainTraining": false,
+            "isMainTraining": true,
             "description": ""
           },
           {
@@ -1307,17 +1358,79 @@
     ],
     "weeklyTrainingRecords": [
       {
+        "planWeek": 6,
+        "weekStartDate": "2025-10-13T00:00:00",
+        "weekEndDate": "2025-10-19T00:00:00",
+        "weekDistance": 5.2,
+        "weekMovingTime": "00:40:39",
+        "weekMainTrainingCount": 1,
+        "weekElevationGain": 2,
+        "trainingRecords": [
+          {
+            "id": 16122393923,
+            "name": "TPE 29 - Easy run 40mins",
+            "planWeek": 6,
+            "startDate": "2025-10-13T06:40:21",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 5.2,
+            "movingTime": "00:40:39",
+            "elevationGain": 2,
+            "pace": "7:48",
+            "averageHeartRate": 119.4,
+            "maxHeartRate": 132,
+            "isMainTraining": true,
+            "description": "5公里，不能再多了😝第一個30後的恢復跑，腳沉～到不行，必須努力放鬆🥲"
+          }
+        ]
+      },
+      {
         "planWeek": 5,
         "weekStartDate": "2025-10-06T00:00:00",
         "weekEndDate": "2025-10-12T00:00:00",
-        "weekDistance": 52.79,
-        "weekMovingTime": "06:43:37",
-        "weekMainTrainingCount": 6,
-        "weekElevationGain": 406,
+        "weekDistance": 83.3,
+        "weekMovingTime": "09:30:19",
+        "weekMainTrainingCount": 8,
+        "weekElevationGain": 425,
         "trainingRecords": [
           {
+            "id": 16111524895,
+            "name": "TPE 28 - Long run 5’40”-30”",
+            "planWeek": 5,
+            "startDate": "2025-10-12T05:07:34",
+            "sportType": "Run",
+            "runType": "LR",
+            "parentRunType": null,
+            "distance": 30.03,
+            "movingTime": "02:43:15",
+            "elevationGain": 19,
+            "pace": "5:26",
+            "averageHeartRate": 164.5,
+            "maxHeartRate": 186,
+            "isMainTraining": true,
+            "description": "起跑狀態很好，第1k看錶後就順體感跑，一直到25k都有餘力提醒自己維持鼻吸鼻吐，最後提速順利完成，9月長距離以來最舒適的一次👍\n自評強度7.5✅"
+          },
+          {
+            "id": 16111524753,
+            "name": "Warm up",
+            "planWeek": 5,
+            "startDate": "2025-10-12T04:52:56",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0.48,
+            "movingTime": "00:03:27",
+            "elevationGain": 0,
+            "pace": "7:09",
+            "averageHeartRate": 130.9,
+            "maxHeartRate": 141,
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
             "id": 16095540191,
-            "name": "NTC 跑者肌力 2",
+            "name": "TPE 跑者肌力 2",
             "planWeek": 5,
             "startDate": "2025-10-10T20:33:34",
             "sportType": "WeightTraining",
@@ -1329,7 +1442,7 @@
             "pace": null,
             "averageHeartRate": 75,
             "maxHeartRate": 106,
-            "isMainTraining": false,
+            "isMainTraining": true,
             "description": ""
           },
           {
@@ -2638,5 +2751,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-11T04:45:19.6252745Z"
+  "timestamp": "2025-10-13T05:47:55.1272118Z"
 }
