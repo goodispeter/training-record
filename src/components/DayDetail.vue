@@ -96,13 +96,14 @@ defineEmits<{
 }
 
 .modal-content.with-navigation {
-  min-height: 200px;
+  min-height: auto; /* 讓高度根據內容自動調整 */
 }
 
 .nav-area {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80px; /* 固定高度而不是撐滿整個容器 */
   width: 60px;
   display: flex;
   align-items: center;
@@ -112,6 +113,7 @@ defineEmits<{
   transition: all 0.2s ease;
   z-index: 10;
   background: rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
 }
 
 .nav-area:hover {
@@ -121,12 +123,10 @@ defineEmits<{
 
 .nav-area-left {
   left: -20px;
-  border-radius: 0 8px 8px 0;
 }
 
 .nav-area-right {
   right: -20px;
-  border-radius: 8px 0 0 8px;
 }
 
 .nav-arrow {
