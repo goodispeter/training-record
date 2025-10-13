@@ -46,6 +46,10 @@
               :key="dayData.date"
               class="day-cell"
               :class="{ 'has-training': getValidTrainings(dayData.trainings).length > 0 }"
+              @click="
+                getValidTrainings(dayData.trainings).length > 0 &&
+                openTrainingDetailModal(getValidTrainings(dayData.trainings))
+              "
             >
               <div class="day-date">{{ dayData.dayOfMonth }}</div>
               <div v-if="getValidTrainings(dayData.trainings).length > 0" class="training-items">
@@ -54,7 +58,6 @@
                   :key="training.id"
                   class="training-item"
                   :class="getTrainingTypeClass(training)"
-                  @click="openTrainingDetailModal([training])"
                 >
                   {{ getSimpleTrainingName(training) }}
                 </div>
@@ -67,56 +70,25 @@
     </div>
 
     <!-- Modal for Training Details -->
-    <n-modal
+    <DayDetail
       v-model:show="showModal"
-      preset="card"
       :title="modalTitle"
-      style="width: 600px; max-width: 90vw"
-    >
-      <div class="training-list">
-        <div v-for="training in selectedTrainings" :key="training.id" class="training-detail-card">
-          <div class="flex justify-between items-start">
-            <div class="training-info">
-              <div class="flex justify-between items-center">
-                <h5 class="font-medium">{{ training.name }}</h5>
-                <n-tag v-if="training.isMainTraining" type="success" size="small"> 主訓練 </n-tag>
-              </div>
-              <div
-                v-if="training.sportType !== 'WeightTraining' && training.sportType !== 'Yoga'"
-                class="text-sm text-gray-600"
-                style="margin-top: 4px"
-              >
-                📏{{ formatDistance(training.distance) }}km ⏱️{{
-                  formatTime(training.movingTime)
-                }}
-                ⚡{{ training.pace }}
-                <template v-if="training.averageHeartRate && training.maxHeartRate">
-                  ❤️{{ training.averageHeartRate }} 🔥{{ training.maxHeartRate }}
-                </template>
-              </div>
-              <div v-else class="text-sm text-gray-600" style="margin-top: 4px">
-                ⏱️{{ formatTime(training.movingTime) }}
-              </div>
-              <div
-                v-if="training.description && training.description.trim()"
-                class="training-description-modal"
-              >
-                {{ training.description }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </n-modal>
+      :trainings="selectedTrainings"
+      :show-navigation="true"
+      :has-previous="hasPreviousDate"
+      :has-next="hasNextDate"
+      @previous="goToPreviousDate"
+      @next="goToNextDate"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { NModal, NTag } from 'naive-ui'
 import { useTrainingStore } from '@/stores/training'
 import type { TrainingRecord, WeeklyTrainingData } from '@/types/training'
 import { formatTime, formatDistance } from '@/utils/formatUtil'
+import DayDetail from './DayDetail.vue'
 
 const store = useTrainingStore()
 const weeklyData = computed(() => store.weeklyData)
@@ -125,6 +97,8 @@ const weeklyData = computed(() => store.weeklyData)
 const showModal = ref(false)
 const modalTitle = ref('')
 const selectedTrainings = ref<TrainingRecord[]>([])
+const selectedDate = ref<string>('')
+const selectedWeekData = ref<WeeklyTrainingData | null>(null)
 
 // 週日期標題
 const dayHeaders = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
@@ -172,10 +146,15 @@ const getWeekDays = (weekData: WeeklyTrainingData) => {
 
     const dateString = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}-${String(currentDate.getDate()).padStart(2, '0')}`
 
-    const dayTrainings = weekData.trainingRecords.filter((record) => {
-      const recordDateStr = record.startDate.split('T')[0]
-      return recordDateStr === dateString
-    })
+    const dayTrainings = weekData.trainingRecords
+      .filter((record) => {
+        const recordDateStr = record.startDate.split('T')[0]
+        return recordDateStr === dateString
+      })
+      .sort((a, b) => {
+        // 按照開始時間排序（從早到晚）
+        return new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+      })
 
     days.push({
       date: dateString,
@@ -252,14 +231,75 @@ const getValidTrainings = (trainings: TrainingRecord[]): TrainingRecord[] => {
   return trainings.filter((training) => getSimpleTrainingName(training) !== null)
 }
 
+// 週內導航邏輯
+const getWeekDatesWithTraining = (weekData: WeeklyTrainingData) => {
+  const dates = []
+  const weekDays = getWeekDays(weekData)
+
+  for (const dayData of weekDays) {
+    const validTrainings = getValidTrainings(dayData.trainings)
+    if (validTrainings.length > 0) {
+      dates.push({
+        date: dayData.date,
+        trainings: validTrainings,
+      })
+    }
+  }
+
+  return dates.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+}
+
+const getCurrentDateIndex = computed(() => {
+  if (!selectedWeekData.value || !selectedDate.value) return -1
+  const datesWithTraining = getWeekDatesWithTraining(selectedWeekData.value)
+  return datesWithTraining.findIndex((item) => item.date === selectedDate.value)
+})
+
+const hasPreviousDate = computed(() => getCurrentDateIndex.value > 0)
+const hasNextDate = computed(() => {
+  if (!selectedWeekData.value) return false
+  const datesWithTraining = getWeekDatesWithTraining(selectedWeekData.value)
+  return getCurrentDateIndex.value >= 0 && getCurrentDateIndex.value < datesWithTraining.length - 1
+})
+
+const goToPreviousDate = () => {
+  if (!selectedWeekData.value || !hasPreviousDate.value) return
+  const datesWithTraining = getWeekDatesWithTraining(selectedWeekData.value)
+  const prevDateData = datesWithTraining[getCurrentDateIndex.value - 1]
+
+  selectedDate.value = prevDateData.date
+  selectedTrainings.value = prevDateData.trainings
+  modalTitle.value = formatTrainingDate(prevDateData.trainings[0].startDate)
+}
+
+const goToNextDate = () => {
+  if (!selectedWeekData.value || !hasNextDate.value) return
+  const datesWithTraining = getWeekDatesWithTraining(selectedWeekData.value)
+  const nextDateData = datesWithTraining[getCurrentDateIndex.value + 1]
+
+  selectedDate.value = nextDateData.date
+  selectedTrainings.value = nextDateData.trainings
+  modalTitle.value = formatTrainingDate(nextDateData.trainings[0].startDate)
+}
+
 // 打開訓練詳情彈窗
 const openTrainingDetailModal = (trainings: TrainingRecord[]) => {
   selectedTrainings.value = trainings
   // 使用第一筆訓練記錄的日期作為標題
   if (trainings.length > 0) {
+    selectedDate.value = trainings[0].startDate.split('T')[0]
     modalTitle.value = formatTrainingDate(trainings[0].startDate)
+    // 找到對應的週數據
+    selectedWeekData.value =
+      weeklyData.value.find((week) =>
+        week.trainingRecords.some(
+          (record) => record.startDate.split('T')[0] === selectedDate.value,
+        ),
+      ) || null
   } else {
     modalTitle.value = '訓練記錄'
+    selectedDate.value = ''
+    selectedWeekData.value = null
   }
   showModal.value = true
 }
@@ -388,6 +428,14 @@ const openTrainingDetailModal = (trainings: TrainingRecord[]) => {
 .day-cell.has-training {
   background: #f0f9ff;
   border-color: #3b82f6;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.day-cell.has-training:hover {
+  background: #e0f2fe;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .day-date {
@@ -411,9 +459,8 @@ const openTrainingDetailModal = (trainings: TrainingRecord[]) => {
   color: white;
   border-radius: 0.25rem;
   text-align: center;
-  cursor: pointer;
-  transition: all 0.2s;
   font-weight: 600;
+  pointer-events: none; /* 禁用個別項目的點擊事件 */
 }
 
 /* 預設訓練樣式 */
@@ -489,41 +536,15 @@ const openTrainingDetailModal = (trainings: TrainingRecord[]) => {
   justify-content: center;
 }
 
-/* Modal 相關樣式 */
-.training-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.training-detail-card {
-  background-color: #f9fafb;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-}
-
-.training-info {
-  flex: 1;
-}
-
-.training-description-modal {
-  margin-top: 8px;
-  padding: 8px;
-  background-color: #ffffff;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  font-size: 13px;
-  line-height: 1.4;
-  color: #374151;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
 /* 響應式設計 */
 @media (max-width: 768px) {
+  .week-training-container {
+    padding: 1rem; /* 確保手機版也有 padding */
+  }
+
   .week-cards-grid {
     grid-template-columns: 1fr;
+    gap: 1rem; /* 減少卡片間距 */
   }
 
   .week-stats {
@@ -533,6 +554,7 @@ const openTrainingDetailModal = (trainings: TrainingRecord[]) => {
 
   .week-card {
     padding: 1rem;
+    margin: 0; /* 確保沒有額外的 margin */
   }
 
   .day-cell {

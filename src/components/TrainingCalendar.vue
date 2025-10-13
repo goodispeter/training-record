@@ -51,80 +51,24 @@
   </div>
 
   <!-- Modal for Selected Date Details -->
-  <n-modal
+  <DayDetail
     v-model:show="showModal"
-    preset="card"
     :title="modalTitle"
-    style="width: 600px; max-width: 90vw"
-  >
-    <div class="modal-container">
-      <!-- 左側點擊區域 -->
-      <div
-        v-if="hasPreviousRecord"
-        class="nav-area nav-area-left"
-        @click="goToPreviousRecord"
-        title="上一次訓練"
-      >
-        <div class="nav-arrow">‹</div>
-      </div>
-
-      <!-- 右側點擊區域 -->
-      <div
-        v-if="hasNextRecord"
-        class="nav-area nav-area-right"
-        @click="goToNextRecord"
-        title="下一次訓練"
-      >
-        <div class="nav-arrow">›</div>
-      </div>
-      <!-- 訓練記錄內容 -->
-      <div class="training-list">
-        <div
-          v-for="training in selectedDateTrainings"
-          :key="training.id"
-          class="training-detail-card"
-        >
-          <div class="flex justify-between items-start">
-            <div class="training-info">
-              <div class="flex justify-between items-center">
-                <h5 class="font-medium">{{ training.name }}</h5>
-                <n-tag v-if="training.isMainTraining" type="success" size="small"> 主訓練 </n-tag>
-              </div>
-              <div
-                v-if="training.sportType !== 'WeightTraining' && training.sportType !== 'Yoga'"
-                class="text-sm text-gray-600"
-                style="margin-top: 4px"
-              >
-                📏{{ formatDistance(training.distance) }}⏱️{{ formatTime(training.movingTime) }}⚡{{
-                  training.pace
-                }}
-                <template v-if="training.averageHeartRate && training.maxHeartRate">
-                  ❤️{{ training.averageHeartRate }}🔥{{ training.maxHeartRate }}
-                </template>
-              </div>
-              <div v-else class="text-sm text-gray-600" style="margin-top: 4px">
-                ⏱️{{ formatTime(training.movingTime) }}
-              </div>
-              <div
-                v-if="training.description && training.description.trim()"
-                class="training-description-modal"
-              >
-                {{ training.description }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </n-modal>
+    :trainings="selectedDateTrainings"
+    :show-navigation="true"
+    :has-previous="hasPreviousRecord"
+    :has-next="hasNextRecord"
+    @previous="goToPreviousRecord"
+    @next="goToNextRecord"
+  />
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
-import { NTag, NModal, NSelect } from 'naive-ui'
+import { NSelect } from 'naive-ui'
 import type { SelectOption } from 'naive-ui'
 import type { TrainingRecord } from '@/types/training'
-import { formatTime, formatDistance } from '@/utils/formatUtil'
+import DayDetail from './DayDetail.vue'
 
 interface Props {
   records: TrainingRecord[]
@@ -226,10 +170,15 @@ const currentMonthYear = computed(() => {
 const selectedDateTrainings = computed(() => {
   if (!selectedDate.value) return []
   const dateString = formatDateString(selectedDate.value)
-  return props.records.filter((record) => {
-    const recordDate = formatDateString(new Date(record.startDate))
-    return recordDate === dateString
-  })
+  return props.records
+    .filter((record) => {
+      const recordDate = formatDateString(new Date(record.startDate))
+      return recordDate === dateString
+    })
+    .sort((a, b) => {
+      // 按照開始時間排序（從早到晚）
+      return new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+    })
 })
 
 // 生成日曆天數
@@ -457,93 +406,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.modal-container {
-  position: relative;
-  min-height: 200px;
-}
-
-.nav-area {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0;
-  transition: all 0.2s ease;
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.03);
-}
-
-.nav-area:hover {
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.08);
-}
-
-.nav-area-left {
-  left: -20px;
-  border-radius: 0 8px 8px 0;
-}
-
-.nav-area-right {
-  right: -20px;
-  border-radius: 8px 0 0 8px;
-}
-
-.nav-arrow {
-  font-size: 24px;
-  font-weight: bold;
-  color: #666;
-  user-select: none;
-}
-
-.record-counter {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: #f3f4f6;
-  border: 1px solid #d1d5db;
-  border-radius: 12px;
-  padding: 2px 8px;
-  font-size: 12px;
-  color: #6b7280;
-  font-weight: 500;
-  z-index: 20;
-}
-
-.training-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.training-detail-card {
-  background-color: #f9fafb;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-}
-
-.training-info {
-  flex: 1;
-  margin-right: 12px;
-}
-
-.training-description-modal {
-  margin-top: 8px;
-  padding: 8px;
-  background-color: #ffffff;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  font-size: 13px;
-  line-height: 1.4;
-  color: #374151;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
 .training-indicators {
   display: flex;
   flex-wrap: wrap;
