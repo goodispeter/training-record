@@ -59,6 +59,7 @@ class TrainingService {
         mainTrainingCount: result.data.mainTrainingCount,
         totalElevationGain: result.data.totalElevationGain,
         monthlyData: result.data.monthlyTrainingRecords,
+        weeklyTrainingRecords: result.data.weeklyTrainingRecords || [],
       }
       return transformedData
     } catch (error) {

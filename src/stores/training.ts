@@ -3,7 +3,12 @@ import { ref, computed } from 'vue'
 import { getTrainingData } from '@/services/trainingService'
 import type { TrainingResponseData, ChartDataPoint } from '@/types/training'
 
-export type { TrainingRecord, MonthlyTrainingData, TrainingSummary } from '@/types/training'
+export type {
+  TrainingRecord,
+  MonthlyTrainingData,
+  TrainingSummary,
+  WeeklyTrainingData,
+} from '@/types/training'
 
 export const useTrainingStore = defineStore('training', () => {
   const trainingData = ref<TrainingResponseData | null>(null)
@@ -45,10 +50,16 @@ export const useTrainingStore = defineStore('training', () => {
       .map(([date, distance]) => ({ date, distance })) as ChartDataPoint[]
   })
 
+  const weeklyData = computed(() => {
+    if (!trainingData.value?.weeklyTrainingRecords) return []
+    return trainingData.value.weeklyTrainingRecords.sort((a, b) => a.planWeek - b.planWeek)
+  })
+
   return {
     trainingData,
     allRecords,
     monthlyData,
+    weeklyData,
     chartData,
     fetchTrainingData,
   }

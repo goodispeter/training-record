@@ -33,23 +33,31 @@
         <div style="margin-bottom: 16px; display: flex; justify-content: left">
           <n-button-group>
             <n-button
-              :type="showCalendar ? 'primary' : 'default'"
-              @click="showCalendar = true"
+              :type="viewMode === 'calendar' ? 'primary' : 'default'"
+              @click="viewMode = 'calendar'"
               size="medium"
             >
               📅 日曆
             </n-button>
             <n-button
-              :type="!showCalendar ? 'primary' : 'default'"
-              @click="showCalendar = false"
+              :type="viewMode === 'table' ? 'primary' : 'default'"
+              @click="viewMode = 'table'"
               size="medium"
             >
               📋 表格
             </n-button>
+            <n-button
+              :type="viewMode === 'week' ? 'primary' : 'default'"
+              @click="viewMode = 'week'"
+              size="medium"
+            >
+              📈 週統計
+            </n-button>
           </n-button-group>
         </div>
-        <TrainingCalendar v-if="showCalendar" :records="allRecords" />
-        <TrainingTable v-else :records="allRecords" />
+        <TrainingCalendar v-if="viewMode === 'calendar'" :records="allRecords" />
+        <TrainingTable v-if="viewMode === 'table'" :records="allRecords" />
+        <WeekTraining v-if="viewMode === 'week'" />
       </div>
     </div>
   </div>
@@ -64,6 +72,7 @@ import MonthlyStatsChart from '@/components/MonthlyStatsChart.vue'
 import TrainingTypeChart from '@/components/TrainingTypeChart.vue'
 import TrainingTable from '@/components/TrainingTable.vue'
 import TrainingCalendar from '@/components/TrainingCalendar.vue'
+import WeekTraining from '@/components/WeekTraining.vue'
 
 // 接收路由參數
 interface Props {
@@ -78,7 +87,7 @@ const router = useRouter()
 
 const isMobile = ref(false)
 const chartKey = ref(0)
-const showCalendar = ref(true)
+const viewMode = ref<'calendar' | 'table' | 'week'>('calendar')
 
 // 檢查是否為手機設備
 const checkIsMobile = () => {
