@@ -15,14 +15,17 @@
         <div class="unified-display-area">
           <!-- 第一行：時間顯示區域 (所有狀態都佔用相同空間) -->
           <div class="time-row">
-            <!-- 完賽狀態：旗子居中顯示 -->
-            <div v-if="trainingPhase === 'finished'" class="finished-flag-container">
+            <!-- 完賽狀態：顯示完賽時間 -->
+            <div v-if="trainingPhase === 'finished'" class="finished-time-container">
               <div
-                class="time-unit finished-flag"
+                class="finished-time-display"
                 :class="{ clickable: raceLink }"
                 @click="handleFinishedClick"
               >
-                <div class="time-number">🏁</div>
+                <div v-if="raceTime">
+                  <div class="race-time">{{ raceTime }}</div>
+                </div>
+                <div v-else class="race-time">0:00:00</div>
               </div>
             </div>
 
@@ -31,9 +34,9 @@
               <div class="race-day-message">這期間吃的苦，今天就要兌現</div>
             </div>
 
-            <!-- 正常狀態：左中右佈局 -->
+            <!-- 正常狀態：日:時:分:秒 佈局 -->
             <template v-else>
-              <!-- 左側時間單位 -->
+              <!-- 日 -->
               <div class="time-unit-container">
                 <div class="time-unit">
                   <div class="time-number">{{ timeLeft.days }}</div>
@@ -41,16 +44,42 @@
                 </div>
               </div>
 
-              <!-- 中間分隔符 -->
+              <!-- 分隔符 -->
               <div class="separator-container">
                 <div class="time-separator">:</div>
               </div>
 
-              <!-- 右側時間單位 -->
+              <!-- 時 -->
               <div class="time-unit-container">
                 <div class="time-unit">
-                  <div class="time-number">{{ timeLeft.hours }}</div>
-                  <div class="time-label">小時</div>
+                  <div class="time-number">{{ String(timeLeft.hours).padStart(2, '0') }}</div>
+                  <div class="time-label">時</div>
+                </div>
+              </div>
+
+              <!-- 分隔符 -->
+              <div class="separator-container">
+                <div class="time-separator">:</div>
+              </div>
+
+              <!-- 分 -->
+              <div class="time-unit-container">
+                <div class="time-unit">
+                  <div class="time-number">{{ String(timeLeft.minutes).padStart(2, '0') }}</div>
+                  <div class="time-label">分</div>
+                </div>
+              </div>
+
+              <!-- 分隔符 -->
+              <div class="separator-container">
+                <div class="time-separator">:</div>
+              </div>
+
+              <!-- 秒 -->
+              <div class="time-unit-container">
+                <div class="time-unit">
+                  <div class="time-number">{{ String(timeLeft.seconds).padStart(2, '0') }}</div>
+                  <div class="time-label">秒</div>
                 </div>
               </div>
             </template>
@@ -85,7 +114,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { getPersonRaceLink } from '@/utils/personTargetConfig'
+import { getPersonRaceLink, getPersonRaceTime } from '@/utils/personTargetConfig'
 
 interface Props {
   raceDate: string
@@ -103,13 +132,15 @@ const timeLeft = computed(() => {
   const diff = race.getTime() - now.getTime()
 
   if (diff <= 0) {
-    return { days: 0, hours: 0 }
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 }
   }
 
   const days = Math.floor(diff / (1000 * 60 * 60 * 24))
   const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000)
 
-  return { days, hours }
+  return { days, hours, minutes, seconds }
 })
 
 // 判斷比賽狀態
@@ -150,6 +181,12 @@ const raceLink = computed(() => {
   return getPersonRaceLink(currentPerson.value, currentTarget.value)
 })
 
+// 取得完賽時間
+const raceTime = computed(() => {
+  if (!isRaceFinished.value) return null
+  return getPersonRaceTime(currentPerson.value, currentTarget.value)
+})
+
 // 處理完賽旗子點擊
 const handleFinishedClick = () => {
   if (isRaceFinished.value && raceLink.value) {
@@ -181,7 +218,7 @@ const statusStyle = computed(() => {
       class: 'status-raceday',
     },
     finished: {
-      text: '已結束',
+      text: '完賽時間',
       icon: '🏆',
       class: 'status-finished',
     },
@@ -220,7 +257,7 @@ const updateTime = () => {
 
 onMounted(() => {
   updateTime()
-  timer = window.setInterval(updateTime, 60000)
+  timer = window.setInterval(updateTime, 1000)
 })
 
 onUnmounted(() => {
@@ -346,16 +383,65 @@ onUnmounted(() => {
   flex: 0 0 auto;
 }
 
-.finished-flag-container {
+.finished-time-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
+.finished-time-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80px;
+  transition: transform 0.3s ease;
+}
+
+.finished-time-display.clickable {
+  cursor: pointer;
+}
+
+.finished-time-display.clickable:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.finished-time-display.clickable:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.race-time-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.race-time {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: white;
+}
+
+@keyframes finished-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+  }
+}
+
+/* 保留旗子樣式作為後備 */
 .time-unit.finished-flag {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
 }
 
 .race-day-container {
@@ -413,7 +499,7 @@ onUnmounted(() => {
 
 .separator-container {
   flex: 0 0 auto;
-  width: 2rem; /* 固定寬度 */
+  width: 1rem; /* 更窄的分隔符 */
   display: flex;
   justify-content: center;
 }
@@ -421,11 +507,11 @@ onUnmounted(() => {
 .time-unit {
   text-align: center;
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 1.25rem 0.75rem;
-  min-width: 90px;
-  width: 90px; /* 固定寬度 */
-  height: 80px; /* 固定高度 */
+  border-radius: 10px;
+  padding: 0.8rem 0.3rem;
+  min-width: 55px;
+  width: 55px; /* 更窄以適應四個單位 */
+  height: 75px; /* 稍微降低高度 */
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: transform 0.3s ease;
@@ -447,8 +533,22 @@ onUnmounted(() => {
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
+/* 完賽旗子的hover效果 - 覆蓋默認樣式 */
+.time-unit.finished-flag.clickable:hover {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  transform: translateY(-2px) scale(1.1);
+}
+
 .time-unit.clickable:active {
   transform: translateY(0) scale(0.98);
+}
+
+/* 完賽旗子的active效果 */
+.time-unit.finished-flag.clickable:active {
+  transform: translateY(0) scale(1.05);
 }
 
 .time-unit:hover {
@@ -456,10 +556,10 @@ onUnmounted(() => {
 }
 
 .time-number {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
   background: linear-gradient(45deg, #ffffff, #e0e7ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -476,10 +576,10 @@ onUnmounted(() => {
 }
 
 .time-label {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 500;
   opacity: 0.9;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .time-separator {

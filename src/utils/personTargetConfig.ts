@@ -4,6 +4,7 @@ export interface PersonConfig {
   emoji: string
   targets: string[] // 直接存放目標陣列（如 2025taipei, 2025sydney）
   raceLinks?: Record<string, string> // target -> link
+  raceTime?: Record<string, string> // target -> time
 }
 
 export interface TargetConfig {
@@ -21,6 +22,9 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
     raceLinks: {
       '2025sydney': 'https://www.instagram.com/p/DOTegmfE5CU/?igsh=MWd6bzlsbDV3ZXBrag==',
     },
+    raceTime: {
+      '2025sydney': '3:27:47',
+    },
   },
   sung: {
     displayName: 'Sung',
@@ -34,7 +38,7 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
 export const TARGET_CONFIG: Record<string, TargetConfig> = {
   '2025taipei': {
     displayName: '2025 臺北馬拉松',
-    raceDate: '2025-12-21T06:30:00',
+    raceDate: '2025-10-14T06:30:00',
   },
   '2025sydney': {
     displayName: '2025 雪梨馬拉松',
@@ -71,4 +75,9 @@ export const getPersonRaceLink = (person: string, target: string): string | unde
 // 輔助函數：取得賽事日期
 export const getRaceDate = (target: string): string | undefined => {
   return TARGET_CONFIG[target]?.raceDate
+}
+
+// 輔助函數：取得個人完賽時間
+export const getPersonRaceTime = (person: string, target: string): string | undefined => {
+  return PERSON_CONFIG[person]?.raceTime?.[target]
 }
