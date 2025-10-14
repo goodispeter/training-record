@@ -20,12 +20,6 @@
         style="width: 150px"
       />
     </div>
-    <!-- 完賽心得按鈕 -->
-    <div class="ml-auto">
-      <n-button v-if="currentRaceLink" type="default" size="medium" @click="openLink" text>
-        完賽心得
-      </n-button>
-    </div>
   </div>
 </template>
 
@@ -39,7 +33,6 @@ import {
   hasTarget,
   getPersonRaceLink,
   PERSON_CONFIG,
-  TARGET_CONFIG,
 } from '@/utils/personTargetConfig'
 
 interface Props {
@@ -53,11 +46,6 @@ const router = useRouter()
 // 當前選中的人員和目標
 const currentPerson = computed(() => props.person)
 const currentTarget = computed(() => props.target)
-
-// 當前目標的配置
-const currentTargetConfig = computed(() => {
-  return TARGET_CONFIG[currentTarget.value]
-})
 
 // 當前人員和目標的賽事連結
 const currentRaceLink = computed(() => {
@@ -92,13 +80,6 @@ const switchPerson = async (newPerson: string) => {
 const switchTarget = async (newTarget: string) => {
   if (newTarget !== props.target) {
     await router.push(`/${props.person}/${newTarget}`)
-  }
-}
-
-// 開啟完賽心得連結
-const openLink = () => {
-  if (currentRaceLink.value) {
-    window.open(currentRaceLink.value, '_blank')
   }
 }
 </script>

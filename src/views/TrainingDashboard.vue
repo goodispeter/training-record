@@ -1,6 +1,9 @@
 <template>
   <div class="dashboard-container">
     <div class="dashboard-content">
+      <!-- 賽事倒數計時器 -->
+      <RaceCountdown v-if="raceDate" :race-date="raceDate" />
+
       <div class="summary-cards-grid">
         <SummaryCard title="總距離" :value="trainingData?.totalDistance" unit="km" icon="🏃" />
         <SummaryCard title="總時間" :value="trainingData?.totalMovingTime" unit="" icon="⏱️" />
@@ -73,6 +76,8 @@ import TrainingTypeChart from '@/components/TrainingTypeChart.vue'
 import TrainingTable from '@/components/TrainingTable.vue'
 import TrainingCalendar from '@/components/TrainingCalendar.vue'
 import WeekTraining from '@/components/WeekTraining.vue'
+import RaceCountdown from '@/components/RaceCountdown.vue'
+import { TARGET_CONFIG } from '@/utils/personTargetConfig'
 
 // 接收路由參數
 interface Props {
@@ -116,6 +121,12 @@ const trainingData = computed(() => store.trainingData)
 const allRecords = computed(() => store.allRecords)
 const monthlyData = computed(() => store.monthlyData)
 const target = computed(() => store.trainingData?.target)
+
+// 取得目標比賽日期
+const raceDate = computed(() => {
+  const targetKey = props.target
+  return TARGET_CONFIG[targetKey]?.raceDate || ''
+})
 
 // 載入資料的函數
 const loadTrainingData = async () => {

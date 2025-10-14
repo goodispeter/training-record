@@ -34,11 +34,11 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
 export const TARGET_CONFIG: Record<string, TargetConfig> = {
   '2025taipei': {
     displayName: '2025 臺北馬拉松',
-    raceDate: '2025-12-21',
+    raceDate: '2025-12-21T06:30:00',
   },
   '2025sydney': {
     displayName: '2025 雪梨馬拉松',
-    raceDate: '2025-08-31',
+    raceDate: '2025-08-31T04:30:00',
   },
 }
 
