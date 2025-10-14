@@ -8,6 +8,7 @@ export interface PersonConfig {
 
 export interface TargetConfig {
   displayName: string
+  raceDate: string
   link?: string
 }
 
@@ -33,9 +34,11 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
 export const TARGET_CONFIG: Record<string, TargetConfig> = {
   '2025taipei': {
     displayName: '2025 臺北馬拉松',
+    raceDate: '2025-12-21',
   },
   '2025sydney': {
     displayName: '2025 雪梨馬拉松',
+    raceDate: '2025-08-31',
   },
 }
 
@@ -63,4 +66,9 @@ export const hasTarget = (person: string, target: string): boolean => {
 // 輔助函數：取得個人的賽事連結
 export const getPersonRaceLink = (person: string, target: string): string | undefined => {
   return PERSON_CONFIG[person]?.raceLinks?.[target]
+}
+
+// 輔助函數：取得賽事日期
+export const getRaceDate = (target: string): string | undefined => {
+  return TARGET_CONFIG[target]?.raceDate
 }

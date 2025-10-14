@@ -1,11 +1,7 @@
-import type {
-  TrainingApiResponse,
-  TrainingResponseData,
-  MonthlyTrainingData,
-} from '@/types/training'
+import type { TrainingResponseData, MonthlyTrainingData } from '@/types/training'
 
 /**
- * Sydney.json 的資料結構（與我們的型別稍有不同）
+ * Sydney.json 的資料結構
  */
 interface SydneyApiData {
   target: string
