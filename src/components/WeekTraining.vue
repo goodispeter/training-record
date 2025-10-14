@@ -91,7 +91,7 @@ import { formatTime, formatDistance } from '@/utils/formatUtil'
 import DayDetail from './DayDetail.vue'
 
 const store = useTrainingStore()
-const weeklyData = computed(() => store.weeklyData)
+const weeklyData = computed(() => [...store.weeklyData].reverse())
 
 // Modal 相關狀態
 const showModal = ref(false)
