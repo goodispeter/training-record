@@ -4,19 +4,53 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 365.88,
-    "totalMovingTime": "42:26:40",
-    "mainTrainingCount": 34,
-    "totalElevationGain": 718,
+    "totalDistance": 382.93,
+    "totalMovingTime": "44:00:46",
+    "mainTrainingCount": 35,
+    "totalElevationGain": 725,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 10,
-        "monthDistance": 146.45,
-        "monthMovingTime": "16:48:36",
-        "monthMainTrainingCount": 13,
-        "monthElevationGain": 469,
+        "monthDistance": 163.5,
+        "monthMovingTime": "18:22:42",
+        "monthMainTrainingCount": 14,
+        "monthElevationGain": 476,
         "trainingRecords": [
+          {
+            "id": 16132233598,
+            "name": "TPE 30 - Tempo 14k@5’20”10” + 2k jog",
+            "planWeek": 6,
+            "startDate": "2025-10-14T05:45:27",
+            "sportType": "Run",
+            "runType": "T",
+            "parentRunType": "INT",
+            "distance": 16.02,
+            "movingTime": "01:26:27",
+            "elevationGain": 7,
+            "pace": "5:23",
+            "averageHeartRate": 164.5,
+            "maxHeartRate": 180,
+            "isMainTraining": true,
+            "description": "第1k 5’15”微超速，體感還行就順著跑，一路跑在5’10”-05”，第9k出現疲勞感，喘氣大於吸氣，調整呼吸順利完食。\n自評強度8✅"
+          },
+          {
+            "id": 16131517506,
+            "name": "Warm up",
+            "planWeek": 6,
+            "startDate": "2025-10-14T05:32:09",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 1.03,
+            "movingTime": "00:07:39",
+            "elevationGain": 0,
+            "pace": "7:26",
+            "averageHeartRate": 126,
+            "maxHeartRate": 137,
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 16122393923,
             "name": "TPE 29 - Easy run 40mins",
@@ -1361,11 +1395,45 @@
         "planWeek": 6,
         "weekStartDate": "2025-10-13T00:00:00",
         "weekEndDate": "2025-10-19T00:00:00",
-        "weekDistance": 5.2,
-        "weekMovingTime": "00:40:39",
-        "weekMainTrainingCount": 1,
-        "weekElevationGain": 2,
+        "weekDistance": 22.25,
+        "weekMovingTime": "02:14:45",
+        "weekMainTrainingCount": 2,
+        "weekElevationGain": 9,
         "trainingRecords": [
+          {
+            "id": 16132233598,
+            "name": "TPE 30 - Tempo 14k@5’20”10” + 2k jog",
+            "planWeek": 6,
+            "startDate": "2025-10-14T05:45:27",
+            "sportType": "Run",
+            "runType": "T",
+            "parentRunType": "INT",
+            "distance": 16.02,
+            "movingTime": "01:26:27",
+            "elevationGain": 7,
+            "pace": "5:23",
+            "averageHeartRate": 164.5,
+            "maxHeartRate": 180,
+            "isMainTraining": true,
+            "description": "第1k 5’15”微超速，體感還行就順著跑，一路跑在5’10”-05”，第9k出現疲勞感，喘氣大於吸氣，調整呼吸順利完食。\n自評強度8✅"
+          },
+          {
+            "id": 16131517506,
+            "name": "Warm up",
+            "planWeek": 6,
+            "startDate": "2025-10-14T05:32:09",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 1.03,
+            "movingTime": "00:07:39",
+            "elevationGain": 0,
+            "pace": "7:26",
+            "averageHeartRate": 126,
+            "maxHeartRate": 137,
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 16122393923,
             "name": "TPE 29 - Easy run 40mins",
@@ -2751,5 +2819,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-13T05:47:55.1272118Z"
+  "timestamp": "2025-10-14T01:45:58.3746315Z"
 }
