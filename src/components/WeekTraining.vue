@@ -1,5 +1,5 @@
 <template>
-  <div class="week-training-container">
+  <div class="px-4 sm:px-6 lg:px-8 py-4">
     <div v-if="weeklyData.length === 0" class="no-data-message">
       <div class="text-center text-gray-500 py-8">
         <div class="text-4xl mb-4">📊</div>
@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <div v-else class="week-cards-grid">
+    <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       <div v-for="weekData in weeklyData" :key="weekData.planWeek" class="week-card">
         <!-- 週次標題 -->
         <div class="week-header">
@@ -306,21 +306,11 @@ const openTrainingDetailModal = (trainings: TrainingRecord[]) => {
 </script>
 
 <style scoped>
-.week-training-container {
-  padding: 1rem;
-}
-
 .no-data-message {
   background: white;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
-}
-
-.week-cards-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
 }
 
 .week-card {
@@ -538,15 +528,6 @@ const openTrainingDetailModal = (trainings: TrainingRecord[]) => {
 
 /* 響應式設計 */
 @media (max-width: 768px) {
-  .week-training-container {
-    padding: 1rem; /* 確保手機版也有 padding */
-  }
-
-  .week-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem; /* 減少卡片間距 */
-  }
-
   .week-stats {
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
