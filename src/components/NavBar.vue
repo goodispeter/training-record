@@ -1,12 +1,7 @@
 <template>
   <nav class="navbar">
     <div class="navbar-container">
-      <PersonTargetSwitcher
-        v-if="person && year && target"
-        :person="person"
-        :year="year"
-        :target="target"
-      />
+      <PersonTargetSwitcher v-if="person && target" :person="person" :target="target" />
     </div>
   </nav>
 </template>
@@ -18,9 +13,8 @@ import PersonTargetSwitcher from './PersonTargetSwitcher.vue'
 
 const route = useRoute()
 
-// 從路由參數取得 person、year 和 target
+// 從路由參數取得 person 和 target
 const person = computed(() => route.params.person as string)
-const year = computed(() => route.params.year as string)
 const target = computed(() => route.params.target as string)
 </script>
 

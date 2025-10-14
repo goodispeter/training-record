@@ -77,7 +77,6 @@ import WeekTraining from '@/components/WeekTraining.vue'
 // 接收路由參數
 interface Props {
   person: string
-  year: string
   target: string
 }
 
@@ -121,18 +120,18 @@ const target = computed(() => store.trainingData?.target)
 // 載入資料的函數
 const loadTrainingData = async () => {
   try {
-    await store.fetchTrainingData(props.person, props.year, props.target)
+    await store.fetchTrainingData(props.person, props.target)
   } catch (error) {
     // 如果不是預設路徑且載入失敗，重導到預設頁面
-    if (!(props.person === 'pan' && props.year === '2025' && props.target === 'taipei')) {
-      await router.push('/pan/2025/taipei')
+    if (!(props.person === 'pan' && props.target === '2025taipei')) {
+      await router.push('/pan/2025taipei')
     }
   }
 }
 
 // 監聽路由參數變化
 watch(
-  () => [props.person, props.year, props.target],
+  () => [props.person, props.target],
   () => {
     loadTrainingData()
   },

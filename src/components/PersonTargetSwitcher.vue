@@ -22,13 +22,7 @@
     </div>
     <!-- 完賽心得按鈕 -->
     <div class="ml-auto">
-      <n-button
-        v-if="currentTargetConfig?.link"
-        type="default"
-        size="medium"
-        @click="openLink"
-        text
-      >
+      <n-button v-if="currentRaceLink" type="default" size="medium" @click="openLink" text>
         完賽心得
       </n-button>
     </div>
@@ -43,22 +37,21 @@ import {
   getAvailableTargets,
   getTargetDisplayName,
   hasTarget,
+  getPersonRaceLink,
   PERSON_CONFIG,
   TARGET_CONFIG,
 } from '@/utils/personTargetConfig'
 
 interface Props {
   person: string
-  year: string
   target: string
 }
 
 const props = defineProps<Props>()
 const router = useRouter()
 
-// 當前選中的人員、年份和目標
+// 當前選中的人員和目標
 const currentPerson = computed(() => props.person)
-const currentYear = computed(() => props.year)
 const currentTarget = computed(() => props.target)
 
 // 當前目標的配置
@@ -66,9 +59,14 @@ const currentTargetConfig = computed(() => {
   return TARGET_CONFIG[currentTarget.value]
 })
 
-// 目標選項（根據當前人員和年份動態調整）
+// 當前人員和目標的賽事連結
+const currentRaceLink = computed(() => {
+  return getPersonRaceLink(currentPerson.value, currentTarget.value)
+})
+
+// 目標選項（根據當前人員動態調整）
 const targetOptions = computed(() => {
-  const availableTargets = getAvailableTargets(currentPerson.value, currentYear.value)
+  const availableTargets = getAvailableTargets(currentPerson.value)
   return availableTargets.map((target) => ({
     label: getTargetDisplayName(target),
     value: target,
@@ -79,29 +77,28 @@ const targetOptions = computed(() => {
 const switchPerson = async (newPerson: string) => {
   if (newPerson !== props.person) {
     let newTarget = props.target
-    const currentYear = props.year
 
-    // 檢查新人員在當前年份是否有當前目標，如果沒有則使用第一個可用目標
-    if (!hasTarget(newPerson, currentYear, props.target)) {
-      const availableTargets = getAvailableTargets(newPerson, currentYear)
-      newTarget = availableTargets[0] || 'taipei' // 如果沒有可用目標，回退到 taipei
+    // 檢查新人員是否有當前目標，如果沒有則使用第一個可用目標
+    if (!hasTarget(newPerson, props.target)) {
+      const availableTargets = getAvailableTargets(newPerson)
+      newTarget = availableTargets[0] || '2025taipei' // 如果沒有可用目標，回退到 2025taipei
     }
 
-    await router.push(`/${newPerson}/${currentYear}/${newTarget}`)
+    await router.push(`/${newPerson}/${newTarget}`)
   }
 }
 
 // 切換目標地點
 const switchTarget = async (newTarget: string) => {
   if (newTarget !== props.target) {
-    await router.push(`/${props.person}/${props.year}/${newTarget}`)
+    await router.push(`/${props.person}/${newTarget}`)
   }
 }
 
 // 開啟完賽心得連結
 const openLink = () => {
-  if (currentTargetConfig.value?.link) {
-    window.open(currentTargetConfig.value.link, '_blank')
+  if (currentRaceLink.value) {
+    window.open(currentRaceLink.value, '_blank')
   }
 }
 </script>

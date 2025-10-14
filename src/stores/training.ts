@@ -13,9 +13,9 @@ export type {
 export const useTrainingStore = defineStore('training', () => {
   const trainingData = ref<TrainingResponseData | null>(null)
 
-  const fetchTrainingData = async (person?: string, year?: string, target?: string) => {
+  const fetchTrainingData = async (person?: string, target?: string) => {
     try {
-      trainingData.value = await getTrainingData(person, year, target)
+      trainingData.value = await getTrainingData(person, target)
     } catch (err) {
       throw err
     }

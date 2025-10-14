@@ -23,18 +23,16 @@ class TrainingService {
   /**
    * 從指定的 JSON 檔案取得訓練資料
    * @param person - 人員名稱 (例如: pan, sung)
-   * @param year - 年份 (例如: 2025)
-   * @param target - 目標資料來源 (例如: sydney, taipei, tpe)
+   * @param target - 目標資料來源 (例如: 2025sydney, 2025taipei)
    * @returns Promise<TrainingResponseData>
    */
   async getTrainingData(
     person: string = 'pan',
-    year: string = '2025',
-    target: string = 'taipei',
+    target: string = '2025taipei',
   ): Promise<TrainingResponseData> {
     try {
       const basePath = this.getBasePath()
-      const apiUrl = `${basePath}/mock/${person}/${year}/${target}.json`
+      const apiUrl = `${basePath}/mock/${person}/${target}.json`
 
       // 直接用 fetch 替代 apiUtil
       const response = await fetch(apiUrl)
@@ -99,8 +97,7 @@ export const trainingService = new TrainingService()
 
 export async function getTrainingData(
   person?: string,
-  year?: string,
   target?: string,
 ): Promise<TrainingResponseData> {
-  return trainingService.getTrainingData(person, year, target)
+  return trainingService.getTrainingData(person, target)
 }
