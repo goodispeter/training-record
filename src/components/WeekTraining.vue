@@ -226,9 +226,11 @@ const getTrainingTypeClass = (training: TrainingRecord): string => {
   return 'default-training' // 預設顏色
 }
 
-// 過濾出有效的訓練（排除其他類型）
+// 過濾出有效的訓練（只顯示主訓練）
 const getValidTrainings = (trainings: TrainingRecord[]): TrainingRecord[] => {
-  return trainings.filter((training) => getSimpleTrainingName(training) !== null)
+  return trainings.filter(
+    (training) => training.isMainTraining && getSimpleTrainingName(training) !== null,
+  )
 }
 
 // 週內導航邏輯
