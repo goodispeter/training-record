@@ -93,7 +93,7 @@
               :class="{ clickable: raceLink }"
               @click="handleFinishedClick"
             >
-              {{ raceLink ? '點擊已觀看完賽心得' : '完賽' }}
+              {{ raceLink ? '點擊觀看完賽心得' : '完賽' }}
             </div>
             <div v-else-if="trainingPhase === 'raceday'" class="race-day-hint">
               不試試看，哪來勝算

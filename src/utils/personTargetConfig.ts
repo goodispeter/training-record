@@ -23,7 +23,7 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
       '2025sydney': 'https://www.instagram.com/p/DOTegmfE5CU/?igsh=MWd6bzlsbDV3ZXBrag==',
     },
     raceTime: {
-      '2025sydney': '3:27:47',
+      '2025sydney': '3:19:47',
     },
   },
   sung: {
