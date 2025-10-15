@@ -4,19 +4,53 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 680.39,
-    "totalMovingTime": "70:49:03",
-    "mainTrainingCount": 60,
-    "totalElevationGain": 1497,
+    "totalDistance": 695.48,
+    "totalMovingTime": "72:09:48",
+    "mainTrainingCount": 62,
+    "totalElevationGain": 1506,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 10,
-        "monthDistance": 201.23,
-        "monthMovingTime": "21:10:17",
-        "monthMainTrainingCount": 18,
-        "monthElevationGain": 271,
+        "monthDistance": 216.32,
+        "monthMovingTime": "22:31:02",
+        "monthMainTrainingCount": 20,
+        "monthElevationGain": 280,
         "trainingRecords": [
+          {
+            "id": 16137695515,
+            "name": "TPE 62 - 法特雷克 大安森*5",
+            "planWeek": 7,
+            "startDate": "2025-10-14T19:47:06",
+            "sportType": "Run",
+            "runType": "FARTLEK",
+            "parentRunType": "INT",
+            "distance": 11.58,
+            "movingTime": "00:58:58",
+            "elevationGain": 7,
+            "pace": "5:05",
+            "averageHeartRate": 162.9,
+            "maxHeartRate": 189,
+            "isMainTraining": true,
+            "description": "課表是快的時候5k配，但一出去不小心太快，聽到旁邊的人說 3:45，認真？想慢下來的時候已經來不及了，同學速度都上來了當然不想當主動放慢的那一個，後果就是後面越跑越累，跑快時候的速度維持不住，加上啟動速度時髖還是都會緊繃一下，但總而言之有跑完沒有放掉還是很開心，這週要好好把跑量回到正常狀態了，平日不要再莫名其妙20+了，我不是什麼精英選手🥹"
+          },
+          {
+            "id": 16137695234,
+            "name": "TPE 61 - 恢復跑 20min",
+            "planWeek": 7,
+            "startDate": "2025-10-14T18:37:08",
+            "sportType": "Run",
+            "runType": "REC",
+            "parentRunType": "SW",
+            "distance": 3.51,
+            "movingTime": "00:21:47",
+            "elevationGain": 2,
+            "pace": "6:12",
+            "averageHeartRate": 125.7,
+            "maxHeartRate": 137,
+            "isMainTraining": true,
+            "description": "昨天大爆休一天配合運動按摩，感覺大腿連接髖的位置有點被放太鬆了，上課前趕緊恢復跑看看體感，不得不說有點寸步難行。"
+          },
           {
             "id": 16112153204,
             "name": "晨間跑步",
@@ -2037,6 +2071,51 @@
       }
     ],
     "weeklyTrainingRecords": [
+      {
+        "planWeek": 7,
+        "weekStartDate": "2025-10-13T00:00:00",
+        "weekEndDate": "2025-10-19T00:00:00",
+        "weekDistance": 15.09,
+        "weekMovingTime": "01:20:45",
+        "weekMainTrainingCount": 2,
+        "weekElevationGain": 9,
+        "trainingRecords": [
+          {
+            "id": 16137695515,
+            "name": "TPE 62 - 法特雷克 大安森*5",
+            "planWeek": 7,
+            "startDate": "2025-10-14T19:47:06",
+            "sportType": "Run",
+            "runType": "FARTLEK",
+            "parentRunType": "INT",
+            "distance": 11.58,
+            "movingTime": "00:58:58",
+            "elevationGain": 7,
+            "pace": "5:05",
+            "averageHeartRate": 162.9,
+            "maxHeartRate": 189,
+            "isMainTraining": true,
+            "description": "課表是快的時候5k配，但一出去不小心太快，聽到旁邊的人說 3:45，認真？想慢下來的時候已經來不及了，同學速度都上來了當然不想當主動放慢的那一個，後果就是後面越跑越累，跑快時候的速度維持不住，加上啟動速度時髖還是都會緊繃一下，但總而言之有跑完沒有放掉還是很開心，這週要好好把跑量回到正常狀態了，平日不要再莫名其妙20+了，我不是什麼精英選手🥹"
+          },
+          {
+            "id": 16137695234,
+            "name": "TPE 61 - 恢復跑 20min",
+            "planWeek": 7,
+            "startDate": "2025-10-14T18:37:08",
+            "sportType": "Run",
+            "runType": "REC",
+            "parentRunType": "SW",
+            "distance": 3.51,
+            "movingTime": "00:21:47",
+            "elevationGain": 2,
+            "pace": "6:12",
+            "averageHeartRate": 125.7,
+            "maxHeartRate": 137,
+            "isMainTraining": true,
+            "description": "昨天大爆休一天配合運動按摩，感覺大腿連接髖的位置有點被放太鬆了，上課前趕緊恢復跑看看體感，不得不說有點寸步難行。"
+          }
+        ]
+      },
       {
         "planWeek": 6,
         "weekStartDate": "2025-10-06T00:00:00",
@@ -4111,5 +4190,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-13T05:51:08.7510878Z"
+  "timestamp": "2025-10-15T00:44:52.946447Z"
 }
