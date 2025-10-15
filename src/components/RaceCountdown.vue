@@ -11,6 +11,11 @@
           </div>
         </div>
 
+        <!-- 比賽日期顯示 -->
+        <div class="race-date-container">
+          <div class="race-date-text">{{ formattedRaceDate }}</div>
+        </div>
+
         <!-- 統一固定高度的顯示區域 -->
         <div class="unified-display-area">
           <!-- 第一行：時間顯示區域 (所有狀態都佔用相同空間) -->
@@ -169,8 +174,16 @@ const trainingPhase = computed(() => {
   // 再檢查是否是比賽日當天
   if (isRaceDay.value) return 'raceday'
 
+  const now = currentTime.value
+  const race = new Date(props.raceDate)
+  const diff = race.getTime() - now.getTime()
+  const hoursLeft = diff / (1000 * 60 * 60)
+
+  // 如果剩餘時間小於24小時且不是比賽日當天，就是賽前一日
+  if (hoursLeft > 0 && hoursLeft <= 24 && !isRaceDay.value) return 'prerace'
+
   const days = timeLeft.value.days
-  if (days === 1) return 'prerace' // 賽前一日
+  if (days === 1) return 'prerace' // 賽前一日 (備用邏輯)
   if (days <= 14) return 'taper'
   if (days <= 21) return 'final'
   return 'training'
@@ -190,6 +203,15 @@ const raceLink = computed(() => {
 const raceTime = computed(() => {
   if (!isRaceFinished.value) return null
   return getPersonRaceTime(currentPerson.value, currentTarget.value)
+})
+
+// 格式化比賽日期
+const formattedRaceDate = computed(() => {
+  const raceDate = new Date(props.raceDate)
+  const year = raceDate.getFullYear()
+  const month = raceDate.getMonth() + 1
+  const day = raceDate.getDate()
+  return `${year}年${month}月${day}日`
 })
 
 // 處理完賽旗子點擊
@@ -372,6 +394,21 @@ onUnmounted(() => {
 
 .status-icon {
   font-size: 1.2rem;
+}
+
+/* 比賽日期顯示 */
+.race-date-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.race-date-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
 }
 
 /* 統一顯示區域 */
