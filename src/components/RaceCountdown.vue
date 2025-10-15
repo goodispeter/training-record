@@ -99,6 +99,10 @@
               不試試看，哪來勝算
               <img src="/pic/nike.png" alt="Nike" class="nike-icon" />
             </div>
+            <div v-else-if="trainingPhase === 'prerace'" class="race-day-hint">
+              不試試看，哪來勝算
+              <img src="/pic/nike.png" alt="Nike" class="nike-icon" />
+            </div>
             <div v-else class="progress-container">
               <div class="progress-bar">
                 <div class="progress-fill" :style="{ width: progressPercentage + '%' }"></div>
@@ -166,6 +170,7 @@ const trainingPhase = computed(() => {
   if (isRaceDay.value) return 'raceday'
 
   const days = timeLeft.value.days
+  if (days === 1) return 'prerace' // 賽前一日
   if (days <= 14) return 'taper'
   if (days <= 21) return 'final'
   return 'training'
@@ -212,6 +217,11 @@ const statusStyle = computed(() => {
       icon: '🧘‍♂️',
       class: 'status-taper',
     },
+    prerace: {
+      text: '賽前一日',
+      icon: '⚡',
+      class: 'status-prerace',
+    },
     raceday: {
       text: '比賽日！',
       icon: '🏃‍♂️',
@@ -235,6 +245,8 @@ const backgroundGradient = computed(() => {
       return 'linear-gradient(135deg, #f97316 0%, #fbbf24 100%)' // 橘黃
     case 'taper':
       return 'linear-gradient(135deg, #22c55e 0%, #4ade80 100%)' // 綠
+    case 'prerace':
+      return 'linear-gradient(135deg, #ef4444 0%, #f87171 100%)' // 紅（與比賽日相同）
     case 'raceday':
       return 'linear-gradient(135deg, #ef4444 0%, #f87171 100%)' // 紅
     case 'finished':
@@ -327,6 +339,12 @@ onUnmounted(() => {
 .status-taper {
   background: rgba(34, 197, 94, 0.3);
   box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+
+.status-prerace {
+  background: rgba(239, 68, 68, 0.3);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+  animation: pulse-glow 2s infinite;
 }
 
 .status-raceday {
