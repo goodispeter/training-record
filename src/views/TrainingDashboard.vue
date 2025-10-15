@@ -36,6 +36,13 @@
         <div style="margin-bottom: 16px; display: flex; justify-content: left">
           <n-button-group>
             <n-button
+              :type="viewMode === 'week' ? 'primary' : 'default'"
+              @click="viewMode = 'week'"
+              size="medium"
+            >
+              📈 週統計
+            </n-button>
+            <n-button
               :type="viewMode === 'calendar' ? 'primary' : 'default'"
               @click="viewMode = 'calendar'"
               size="medium"
@@ -48,13 +55,6 @@
               size="medium"
             >
               📋 表格
-            </n-button>
-            <n-button
-              :type="viewMode === 'week' ? 'primary' : 'default'"
-              @click="viewMode = 'week'"
-              size="medium"
-            >
-              📈 週統計
             </n-button>
           </n-button-group>
         </div>
@@ -91,7 +91,7 @@ const router = useRouter()
 
 const isMobile = ref(false)
 const chartKey = ref(0)
-const viewMode = ref<'calendar' | 'table' | 'week'>('calendar')
+const viewMode = ref<'calendar' | 'table' | 'week'>('week')
 
 // 檢查是否為手機設備
 const checkIsMobile = () => {
