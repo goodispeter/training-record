@@ -4,19 +4,53 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 695.48,
-    "totalMovingTime": "72:09:48",
-    "mainTrainingCount": 62,
-    "totalElevationGain": 1506,
+    "totalDistance": 701.58,
+    "totalMovingTime": "73:07:03",
+    "mainTrainingCount": 64,
+    "totalElevationGain": 1541,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 10,
-        "monthDistance": 216.32,
-        "monthMovingTime": "22:31:02",
-        "monthMainTrainingCount": 20,
-        "monthElevationGain": 280,
+        "monthDistance": 222.42,
+        "monthMovingTime": "23:28:17",
+        "monthMainTrainingCount": 22,
+        "monthElevationGain": 315,
         "trainingRecords": [
+          {
+            "id": 16153991858,
+            "name": "TPE 65  - 下肢強化",
+            "planWeek": 7,
+            "startDate": "2025-10-16T06:13:58",
+            "sportType": "WeightTraining",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0,
+            "movingTime": "00:13:02",
+            "elevationGain": 0,
+            "pace": null,
+            "averageHeartRate": 121,
+            "maxHeartRate": 136,
+            "isMainTraining": true,
+            "description": "恢復跑跑完後做點很久沒做的徒手肌力，主要做的是分腿蹲，做完後感覺左髖舒服很多，接著再做點簡單的保加利亞分腿蹲跟 1min 深蹲，結束早上的訓練，本來想說今天就這樣就好，但分腿蹲完後左髖真的舒服太多了，晚上看看要不要再跑點簡單的小強度。"
+          },
+          {
+            "id": 16153992081,
+            "name": "TPE 64 - 恢復跑 40min",
+            "planWeek": 7,
+            "startDate": "2025-10-16T05:26:44",
+            "sportType": "Run",
+            "runType": "REC",
+            "parentRunType": "SW",
+            "distance": 6.1,
+            "movingTime": "00:44:13",
+            "elevationGain": 35,
+            "pace": "7:15",
+            "averageHeartRate": 124.7,
+            "maxHeartRate": 139,
+            "isMainTraining": true,
+            "description": "低心率恢復跑，起跑時發現左髖還是不太舒服，乖乖慢慢跑，主要重點是控制心率再120上下，盡量不要發出腳步聲，左半身感受發力感，結果是做的一踏糊塗，顧此失彼🥲"
+          },
           {
             "id": 16137695515,
             "name": "TPE 62 - 法特雷克 大安森*5",
@@ -2075,11 +2109,45 @@
         "planWeek": 7,
         "weekStartDate": "2025-10-13T00:00:00",
         "weekEndDate": "2025-10-19T00:00:00",
-        "weekDistance": 15.09,
-        "weekMovingTime": "01:20:45",
-        "weekMainTrainingCount": 2,
-        "weekElevationGain": 9,
+        "weekDistance": 21.19,
+        "weekMovingTime": "02:18:00",
+        "weekMainTrainingCount": 4,
+        "weekElevationGain": 44,
         "trainingRecords": [
+          {
+            "id": 16153991858,
+            "name": "TPE 65  - 下肢強化",
+            "planWeek": 7,
+            "startDate": "2025-10-16T06:13:58",
+            "sportType": "WeightTraining",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0,
+            "movingTime": "00:13:02",
+            "elevationGain": 0,
+            "pace": null,
+            "averageHeartRate": 121,
+            "maxHeartRate": 136,
+            "isMainTraining": true,
+            "description": "恢復跑跑完後做點很久沒做的徒手肌力，主要做的是分腿蹲，做完後感覺左髖舒服很多，接著再做點簡單的保加利亞分腿蹲跟 1min 深蹲，結束早上的訓練，本來想說今天就這樣就好，但分腿蹲完後左髖真的舒服太多了，晚上看看要不要再跑點簡單的小強度。"
+          },
+          {
+            "id": 16153992081,
+            "name": "TPE 64 - 恢復跑 40min",
+            "planWeek": 7,
+            "startDate": "2025-10-16T05:26:44",
+            "sportType": "Run",
+            "runType": "REC",
+            "parentRunType": "SW",
+            "distance": 6.1,
+            "movingTime": "00:44:13",
+            "elevationGain": 35,
+            "pace": "7:15",
+            "averageHeartRate": 124.7,
+            "maxHeartRate": 139,
+            "isMainTraining": true,
+            "description": "低心率恢復跑，起跑時發現左髖還是不太舒服，乖乖慢慢跑，主要重點是控制心率再120上下，盡量不要發出腳步聲，左半身感受發力感，結果是做的一踏糊塗，顧此失彼🥲"
+          },
           {
             "id": 16137695515,
             "name": "TPE 62 - 法特雷克 大安森*5",
@@ -4190,5 +4258,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-15T00:44:52.946447Z"
+  "timestamp": "2025-10-16T08:56:14.9875983Z"
 }
