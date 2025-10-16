@@ -31,7 +31,6 @@ import {
   getAvailableTargets,
   getTargetDisplayName,
   hasTarget,
-  getPersonRaceLink,
   PERSON_CONFIG,
 } from '@/utils/personTargetConfig'
 
@@ -46,11 +45,6 @@ const router = useRouter()
 // 當前選中的人員和目標
 const currentPerson = computed(() => props.person)
 const currentTarget = computed(() => props.target)
-
-// 當前人員和目標的賽事連結
-const currentRaceLink = computed(() => {
-  return getPersonRaceLink(currentPerson.value, currentTarget.value)
-})
 
 // 目標選項（根據當前人員動態調整）
 const targetOptions = computed(() => {
