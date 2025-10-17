@@ -5,18 +5,35 @@
   "data": {
     "target": "2025 臺北馬拉松",
     "totalDistance": 701.58,
-    "totalMovingTime": "73:07:03",
-    "mainTrainingCount": 64,
+    "totalMovingTime": "74:10:51",
+    "mainTrainingCount": 65,
     "totalElevationGain": 1541,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 10,
         "monthDistance": 222.42,
-        "monthMovingTime": "23:28:17",
-        "monthMainTrainingCount": 22,
+        "monthMovingTime": "24:32:05",
+        "monthMainTrainingCount": 23,
         "monthElevationGain": 315,
         "trainingRecords": [
+          {
+            "id": 16159218158,
+            "name": "TPE 66 - 跑者伸展",
+            "planWeek": 7,
+            "startDate": "2025-10-16T19:30:12",
+            "sportType": "Yoga",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0,
+            "movingTime": "01:03:48",
+            "elevationGain": 0,
+            "pace": null,
+            "averageHeartRate": 76.4,
+            "maxHeartRate": 103,
+            "isMainTraining": true,
+            "description": "網路上隨便找個影片跟著做，瑜伽人真的都是軟骨怪 ，做不到他們的一半我就只能哀哀叫，影片中的老師還可以做到底還邊講解，希望今天做完明天身體會很輕盈（做夢）"
+          },
           {
             "id": 16153991858,
             "name": "TPE 65  - 下肢強化",
@@ -2110,10 +2127,27 @@
         "weekStartDate": "2025-10-13T00:00:00",
         "weekEndDate": "2025-10-19T00:00:00",
         "weekDistance": 21.19,
-        "weekMovingTime": "02:18:00",
-        "weekMainTrainingCount": 4,
+        "weekMovingTime": "03:21:48",
+        "weekMainTrainingCount": 5,
         "weekElevationGain": 44,
         "trainingRecords": [
+          {
+            "id": 16159218158,
+            "name": "TPE 66 - 跑者伸展",
+            "planWeek": 7,
+            "startDate": "2025-10-16T19:30:12",
+            "sportType": "Yoga",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0,
+            "movingTime": "01:03:48",
+            "elevationGain": 0,
+            "pace": null,
+            "averageHeartRate": 76.4,
+            "maxHeartRate": 103,
+            "isMainTraining": true,
+            "description": "網路上隨便找個影片跟著做，瑜伽人真的都是軟骨怪 ，做不到他們的一半我就只能哀哀叫，影片中的老師還可以做到底還邊講解，希望今天做完明天身體會很輕盈（做夢）"
+          },
           {
             "id": 16153991858,
             "name": "TPE 65  - 下肢強化",
@@ -4258,5 +4292,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-16T08:56:14.9875983Z"
+  "timestamp": "2025-10-17T01:23:40.0624977Z"
 }
