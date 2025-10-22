@@ -4,19 +4,53 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 728.98,
-    "totalMovingTime": "78:02:46",
-    "mainTrainingCount": 68,
-    "totalElevationGain": 1567,
+    "totalDistance": 739.14,
+    "totalMovingTime": "78:58:24",
+    "mainTrainingCount": 69,
+    "totalElevationGain": 1573,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 10,
-        "monthDistance": 249.82,
-        "monthMovingTime": "28:24:00",
-        "monthMainTrainingCount": 26,
-        "monthElevationGain": 341,
+        "monthDistance": 259.98,
+        "monthMovingTime": "29:19:38",
+        "monthMainTrainingCount": 27,
+        "monthElevationGain": 347,
         "trainingRecords": [
+          {
+            "id": 16210948899,
+            "name": "TPE 70 - 短間歇 800m*5 p4”10 r800m",
+            "planWeek": 8,
+            "startDate": "2025-10-21T19:51:26",
+            "sportType": "Run",
+            "runType": "I-S",
+            "parentRunType": "INT",
+            "distance": 8.05,
+            "movingTime": "00:43:15",
+            "elevationGain": 5,
+            "pace": "5:22",
+            "averageHeartRate": 163.1,
+            "maxHeartRate": 191,
+            "isMainTraining": true,
+            "description": "休了兩天跑個強度，左髖還是不太舒服。但熱開後勉強還跑得起來，然後跟森跑租了NB fuelCell Rebel V4 試穿，腳感不錯，寬楦夠寬，雨戰剛好測試止滑，速度也跑得起來，好像 CP 值算高？"
+          },
+          {
+            "id": 16210948855,
+            "name": "傍晚跑步",
+            "planWeek": 8,
+            "startDate": "2025-10-21T19:37:30",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 2.11,
+            "movingTime": "00:12:23",
+            "elevationGain": 1,
+            "pace": "5:52",
+            "averageHeartRate": 143,
+            "maxHeartRate": 154,
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 16185586932,
             "name": "TPE 69 - 全身循環",
@@ -2207,6 +2241,51 @@
       }
     ],
     "weeklyTrainingRecords": [
+      {
+        "planWeek": 8,
+        "weekStartDate": "2025-10-20T00:00:00",
+        "weekEndDate": "2025-10-26T00:00:00",
+        "weekDistance": 10.16,
+        "weekMovingTime": "00:55:38",
+        "weekMainTrainingCount": 1,
+        "weekElevationGain": 6,
+        "trainingRecords": [
+          {
+            "id": 16210948899,
+            "name": "TPE 70 - 短間歇 800m*5 p4”10 r800m",
+            "planWeek": 8,
+            "startDate": "2025-10-21T19:51:26",
+            "sportType": "Run",
+            "runType": "I-S",
+            "parentRunType": "INT",
+            "distance": 8.05,
+            "movingTime": "00:43:15",
+            "elevationGain": 5,
+            "pace": "5:22",
+            "averageHeartRate": 163.1,
+            "maxHeartRate": 191,
+            "isMainTraining": true,
+            "description": "休了兩天跑個強度，左髖還是不太舒服。但熱開後勉強還跑得起來，然後跟森跑租了NB fuelCell Rebel V4 試穿，腳感不錯，寬楦夠寬，雨戰剛好測試止滑，速度也跑得起來，好像 CP 值算高？"
+          },
+          {
+            "id": 16210948855,
+            "name": "傍晚跑步",
+            "planWeek": 8,
+            "startDate": "2025-10-21T19:37:30",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 2.11,
+            "movingTime": "00:12:23",
+            "elevationGain": 1,
+            "pace": "5:52",
+            "averageHeartRate": 143,
+            "maxHeartRate": 154,
+            "isMainTraining": false,
+            "description": ""
+          }
+        ]
+      },
       {
         "planWeek": 7,
         "weekStartDate": "2025-10-13T00:00:00",
@@ -4462,5 +4541,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-20T00:42:24.4369389Z"
+  "timestamp": "2025-10-22T07:13:44.0242846Z"
 }
