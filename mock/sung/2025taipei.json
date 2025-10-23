@@ -4,19 +4,36 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 446.29,
-    "totalMovingTime": "51:31:27",
-    "mainTrainingCount": 43,
-    "totalElevationGain": 992,
+    "totalDistance": 452.54,
+    "totalMovingTime": "52:12:37",
+    "mainTrainingCount": 44,
+    "totalElevationGain": 1003,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 10,
-        "monthDistance": 226.86,
-        "monthMovingTime": "25:53:23",
-        "monthMainTrainingCount": 22,
-        "monthElevationGain": 743,
+        "monthDistance": 233.11,
+        "monthMovingTime": "26:34:33",
+        "monthMainTrainingCount": 23,
+        "monthElevationGain": 754,
         "trainingRecords": [
+          {
+            "id": 16220830244,
+            "name": "TPE 37 - Easy run 40mins",
+            "planWeek": 7,
+            "startDate": "2025-10-22T18:53:47",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 6.25,
+            "movingTime": "00:41:10",
+            "elevationGain": 11,
+            "pace": "6:34",
+            "averageHeartRate": 134.6,
+            "maxHeartRate": 152,
+            "isMainTraining": true,
+            "description": "吃了藥身體發炎反應逐漸消退，套上防水外層出門繞繞，可能因為吃藥的關係，一開始心率偏高，但調整呼吸後好很多，能好好跑步真好。"
+          },
           {
             "id": 16205921193,
             "name": "Cool down",
@@ -1616,11 +1633,28 @@
         "planWeek": 7,
         "weekStartDate": "2025-10-20T00:00:00",
         "weekEndDate": "2025-10-26T00:00:00",
-        "weekDistance": 17.88,
-        "weekMovingTime": "01:47:20",
-        "weekMainTrainingCount": 2,
-        "weekElevationGain": 14,
+        "weekDistance": 24.13,
+        "weekMovingTime": "02:28:30",
+        "weekMainTrainingCount": 3,
+        "weekElevationGain": 25,
         "trainingRecords": [
+          {
+            "id": 16220830244,
+            "name": "TPE 37 - Easy run 40mins",
+            "planWeek": 7,
+            "startDate": "2025-10-22T18:53:47",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 6.25,
+            "movingTime": "00:41:10",
+            "elevationGain": 11,
+            "pace": "6:34",
+            "averageHeartRate": 134.6,
+            "maxHeartRate": 152,
+            "isMainTraining": true,
+            "description": "吃了藥身體發炎反應逐漸消退，套上防水外層出門繞繞，可能因為吃藥的關係，一開始心率偏高，但調整呼吸後好很多，能好好跑步真好。"
+          },
           {
             "id": 16205921193,
             "name": "Cool down",
@@ -3272,5 +3306,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-22T07:14:14.7711652Z"
+  "timestamp": "2025-10-23T01:23:39.6449384Z"
 }
