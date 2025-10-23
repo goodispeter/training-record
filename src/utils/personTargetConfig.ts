@@ -2,6 +2,7 @@
 export interface PersonConfig {
   displayName: string
   emoji: string
+  nickName?: string | null
   targets: string[] // 直接存放目標陣列（如 2025taipei, 2025sydney）
   raceLinks?: Record<string, string> // target -> link
   raceTime?: Record<string, string> // target -> time
@@ -28,6 +29,7 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
   },
   sung: {
     displayName: 'Sung',
+    nickName: '野鳳凰',
     emoji: '👩',
     targets: ['2025taipei'],
     raceLinks: {},
@@ -80,4 +82,9 @@ export const getRaceDate = (target: string): string | undefined => {
 // 輔助函數：取得個人完賽時間
 export const getPersonRaceTime = (person: string, target: string): string | undefined => {
   return PERSON_CONFIG[person]?.raceTime?.[target]
+}
+
+// 輔助函數：取得個人暱稱
+export const getPersonNickName = (person: string): string | undefined => {
+  return PERSON_CONFIG[person]?.nickName || undefined
 }

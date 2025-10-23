@@ -1,6 +1,13 @@
 <template>
   <div class="race-countdown">
     <div class="countdown-wrapper" :style="{ background: backgroundGradient }">
+      <!-- 暱稱顯示 -->
+      <div v-if="nickName" class="nickname-container">
+        <div class="nickname-badge">
+          <span class="nickname-text">{{ nickName }}</span>
+        </div>
+      </div>
+
       <!-- 主要內容 -->
       <div class="countdown-content">
         <!-- 狀態標籤 -->
@@ -123,7 +130,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { getPersonRaceLink, getPersonRaceTime } from '@/utils/personTargetConfig'
+import { getPersonRaceLink, getPersonRaceTime, getPersonNickName } from '@/utils/personTargetConfig'
 
 interface Props {
   raceDate: string
@@ -203,6 +210,11 @@ const raceLink = computed(() => {
 const raceTime = computed(() => {
   if (!isRaceFinished.value) return null
   return getPersonRaceTime(currentPerson.value, currentTarget.value)
+})
+
+// 取得暱稱
+const nickName = computed(() => {
+  return getPersonNickName(currentPerson.value)
 })
 
 // 格式化比賽日期
@@ -316,6 +328,44 @@ onUnmounted(() => {
   overflow: hidden;
   transition: background 1s ease-in-out; /* 背景顏色平滑切換 */
 }
+
+/* 暱稱 start */
+.nickname-container {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.nickname-badge {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nickname-container:hover .nickname-badge {
+  opacity: 1;
+}
+
+.nickname-text {
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* 手機模式下顯示暱稱 */
+@media (max-width: 768px) {
+  .nickname-badge {
+    opacity: 0.7;
+  }
+
+  .nickname-container:active .nickname-badge {
+    opacity: 1;
+  }
+}
+/* 暱稱 end */
 
 /* 主要內容 */
 .countdown-content {
