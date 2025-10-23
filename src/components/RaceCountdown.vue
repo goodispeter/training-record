@@ -335,15 +335,9 @@ onUnmounted(() => {
   top: 0.75rem;
   left: 0.75rem;
   z-index: 2;
-  cursor: pointer;
 }
 
 .nickname-badge {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.nickname-container:hover .nickname-badge {
   opacity: 1;
 }
 
@@ -352,18 +346,7 @@ onUnmounted(() => {
   font-weight: bold;
   font-style: italic;
   color: white;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-/* 手機模式下顯示暱稱 */
-@media (max-width: 768px) {
-  .nickname-badge {
-    opacity: 0.7;
-  }
-
-  .nickname-container:active .nickname-badge {
-    opacity: 1;
-  }
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 /* 暱稱 end */
 
