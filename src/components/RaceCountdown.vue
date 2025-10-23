@@ -457,7 +457,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   height: 120px; /* 固定高度 */
-  gap: 1.25rem;
+  gap: 0.8rem;
 }
 
 .progress-row {
