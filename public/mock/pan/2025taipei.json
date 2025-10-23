@@ -4,19 +4,53 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 739.14,
-    "totalMovingTime": "78:58:24",
-    "mainTrainingCount": 69,
-    "totalElevationGain": 1573,
+    "totalDistance": 747.28,
+    "totalMovingTime": "80:17:56",
+    "mainTrainingCount": 71,
+    "totalElevationGain": 1688,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 10,
-        "monthDistance": 259.98,
-        "monthMovingTime": "29:19:38",
-        "monthMainTrainingCount": 27,
-        "monthElevationGain": 347,
+        "monthDistance": 268.12,
+        "monthMovingTime": "30:39:10",
+        "monthMainTrainingCount": 29,
+        "monthElevationGain": 462,
         "trainingRecords": [
+          {
+            "id": 16221960072,
+            "name": "TPE 72 - 跑者瑜伽",
+            "planWeek": 8,
+            "startDate": "2025-10-22T21:10:18",
+            "sportType": "Yoga",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0,
+            "movingTime": "00:26:24",
+            "elevationGain": 0,
+            "pace": null,
+            "averageHeartRate": 89.2,
+            "maxHeartRate": 105,
+            "isMainTraining": true,
+            "description": "昨天因為下大雨課表跑完就趕快回森跑洗澡了，拉伸沒有做的很足，剛好今天有時間隨便再 YouTube 找個影片跟著做伸展，大腿內側真的是很緊耶。"
+          },
+          {
+            "id": 16221570938,
+            "name": "TPE 71 - 恢復跑 50min",
+            "planWeek": 8,
+            "startDate": "2025-10-22T19:50:10",
+            "sportType": "Run",
+            "runType": "REC",
+            "parentRunType": "SW",
+            "distance": 8.14,
+            "movingTime": "00:53:08",
+            "elevationGain": 115,
+            "pace": "6:31",
+            "averageHeartRate": 136.8,
+            "maxHeartRate": 157,
+            "isMainTraining": true,
+            "description": "穿最近終於入手的 superblast 2 ，又是個下雨天試鞋的日子，止滑度看起來沒問題，全掌著地比較好感受到甜蜜點，不過礙於起跑時左髖還是有狀況，就不跑太多了，差不多就好，感受一下淋雨的暢快。"
+          },
           {
             "id": 16210948899,
             "name": "TPE 70 - 短間歇 800m*5 p4”10 r800m",
@@ -32,7 +66,7 @@
             "averageHeartRate": 163.1,
             "maxHeartRate": 191,
             "isMainTraining": true,
-            "description": "休了兩天跑個強度，左髖還是不太舒服。但熱開後勉強還跑得起來，然後跟森跑租了NB fuelCell Rebel V4 試穿，腳感不錯，寬楦夠寬，雨戰剛好測試止滑，速度也跑得起來，好像 CP 值算高？"
+            "description": "休了兩天跑個強度，左髖還是不太舒服。但熱開後勉強還跑得起來，然後跟森跑租了NB fuelCell Rebel V5 試穿，腳感不錯，寬楦夠寬，雨戰剛好測試止滑，速度也跑得起來，好像 CP 值算高？"
           },
           {
             "id": 16210948855,
@@ -2245,11 +2279,45 @@
         "planWeek": 8,
         "weekStartDate": "2025-10-20T00:00:00",
         "weekEndDate": "2025-10-26T00:00:00",
-        "weekDistance": 10.16,
-        "weekMovingTime": "00:55:38",
-        "weekMainTrainingCount": 1,
-        "weekElevationGain": 6,
+        "weekDistance": 18.3,
+        "weekMovingTime": "02:15:10",
+        "weekMainTrainingCount": 3,
+        "weekElevationGain": 121,
         "trainingRecords": [
+          {
+            "id": 16221960072,
+            "name": "TPE 72 - 跑者瑜伽",
+            "planWeek": 8,
+            "startDate": "2025-10-22T21:10:18",
+            "sportType": "Yoga",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0,
+            "movingTime": "00:26:24",
+            "elevationGain": 0,
+            "pace": null,
+            "averageHeartRate": 89.2,
+            "maxHeartRate": 105,
+            "isMainTraining": true,
+            "description": "昨天因為下大雨課表跑完就趕快回森跑洗澡了，拉伸沒有做的很足，剛好今天有時間隨便再 YouTube 找個影片跟著做伸展，大腿內側真的是很緊耶。"
+          },
+          {
+            "id": 16221570938,
+            "name": "TPE 71 - 恢復跑 50min",
+            "planWeek": 8,
+            "startDate": "2025-10-22T19:50:10",
+            "sportType": "Run",
+            "runType": "REC",
+            "parentRunType": "SW",
+            "distance": 8.14,
+            "movingTime": "00:53:08",
+            "elevationGain": 115,
+            "pace": "6:31",
+            "averageHeartRate": 136.8,
+            "maxHeartRate": 157,
+            "isMainTraining": true,
+            "description": "穿最近終於入手的 superblast 2 ，又是個下雨天試鞋的日子，止滑度看起來沒問題，全掌著地比較好感受到甜蜜點，不過礙於起跑時左髖還是有狀況，就不跑太多了，差不多就好，感受一下淋雨的暢快。"
+          },
           {
             "id": 16210948899,
             "name": "TPE 70 - 短間歇 800m*5 p4”10 r800m",
@@ -2265,7 +2333,7 @@
             "averageHeartRate": 163.1,
             "maxHeartRate": 191,
             "isMainTraining": true,
-            "description": "休了兩天跑個強度，左髖還是不太舒服。但熱開後勉強還跑得起來，然後跟森跑租了NB fuelCell Rebel V4 試穿，腳感不錯，寬楦夠寬，雨戰剛好測試止滑，速度也跑得起來，好像 CP 值算高？"
+            "description": "休了兩天跑個強度，左髖還是不太舒服。但熱開後勉強還跑得起來，然後跟森跑租了NB fuelCell Rebel V5 試穿，腳感不錯，寬楦夠寬，雨戰剛好測試止滑，速度也跑得起來，好像 CP 值算高？"
           },
           {
             "id": 16210948855,
@@ -4541,5 +4609,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-22T07:13:44.0242846Z"
+  "timestamp": "2025-10-23T01:23:12.0463563Z"
 }
