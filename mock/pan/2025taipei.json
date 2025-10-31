@@ -4,19 +4,53 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 827.55,
-    "totalMovingTime": "89:21:50",
-    "mainTrainingCount": 79,
-    "totalElevationGain": 2020,
+    "totalDistance": 845.87,
+    "totalMovingTime": "90:56:16",
+    "mainTrainingCount": 80,
+    "totalElevationGain": 2031,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 10,
-        "monthDistance": 348.39,
-        "monthMovingTime": "39:43:04",
-        "monthMainTrainingCount": 37,
-        "monthElevationGain": 794,
+        "monthDistance": 366.71,
+        "monthMovingTime": "41:17:30",
+        "monthMainTrainingCount": 38,
+        "monthElevationGain": 805,
         "trainingRecords": [
+          {
+            "id": 16302097917,
+            "name": "TPE 81 - Tempo 16k p4”50-5”00",
+            "planWeek": 9,
+            "startDate": "2025-10-30T19:11:14",
+            "sportType": "Run",
+            "runType": "T",
+            "parentRunType": "INT",
+            "distance": 16.01,
+            "movingTime": "01:19:12",
+            "elevationGain": 10,
+            "pace": "4:56",
+            "averageHeartRate": 163.8,
+            "maxHeartRate": 178,
+            "isMainTraining": true,
+            "description": "總感覺有什麼零件掉了，跑的超卡，而且步頻竟然還是史上新高的187，之前明明170就很難再上去了，不知道身體出了什麼狀況搞的跑得好吃力，雖然心率看起來還好，好怪。"
+          },
+          {
+            "id": 16302097725,
+            "name": "傍晚跑步",
+            "planWeek": 9,
+            "startDate": "2025-10-30T18:45:12",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 2.31,
+            "movingTime": "00:15:14",
+            "elevationGain": 1,
+            "pace": "6:35",
+            "averageHeartRate": 130.9,
+            "maxHeartRate": 138,
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 16291846520,
             "name": "TPE 80 - 恢復跑 1hr",
@@ -2517,11 +2551,45 @@
         "planWeek": 9,
         "weekStartDate": "2025-10-27T00:00:00",
         "weekEndDate": "2025-11-02T00:00:00",
-        "weekDistance": 27.54,
-        "weekMovingTime": "03:43:15",
-        "weekMainTrainingCount": 4,
-        "weekElevationGain": 168,
+        "weekDistance": 45.86,
+        "weekMovingTime": "05:17:41",
+        "weekMainTrainingCount": 5,
+        "weekElevationGain": 179,
         "trainingRecords": [
+          {
+            "id": 16302097917,
+            "name": "TPE 81 - Tempo 16k p4”50-5”00",
+            "planWeek": 9,
+            "startDate": "2025-10-30T19:11:14",
+            "sportType": "Run",
+            "runType": "T",
+            "parentRunType": "INT",
+            "distance": 16.01,
+            "movingTime": "01:19:12",
+            "elevationGain": 10,
+            "pace": "4:56",
+            "averageHeartRate": 163.8,
+            "maxHeartRate": 178,
+            "isMainTraining": true,
+            "description": "總感覺有什麼零件掉了，跑的超卡，而且步頻竟然還是史上新高的187，之前明明170就很難再上去了，不知道身體出了什麼狀況搞的跑得好吃力，雖然心率看起來還好，好怪。"
+          },
+          {
+            "id": 16302097725,
+            "name": "傍晚跑步",
+            "planWeek": 9,
+            "startDate": "2025-10-30T18:45:12",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 2.31,
+            "movingTime": "00:15:14",
+            "elevationGain": 1,
+            "pace": "6:35",
+            "averageHeartRate": 130.9,
+            "maxHeartRate": 138,
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 16291846520,
             "name": "TPE 80 - 恢復跑 1hr",
@@ -5096,5 +5164,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-30T05:53:45.0816033Z"
+  "timestamp": "2025-10-31T08:32:10.2104899Z"
 }
