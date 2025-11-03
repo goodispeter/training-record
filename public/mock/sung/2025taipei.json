@@ -4,11 +4,55 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 546.98,
-    "totalMovingTime": "63:35:26",
-    "mainTrainingCount": 56,
-    "totalElevationGain": 1144,
+    "totalDistance": 583.26,
+    "totalMovingTime": "67:14:39",
+    "mainTrainingCount": 58,
+    "totalElevationGain": 1944,
     "monthlyTrainingRecords": [
+      {
+        "year": 2025,
+        "month": 11,
+        "monthDistance": 36.28,
+        "monthMovingTime": "03:39:13",
+        "monthMainTrainingCount": 2,
+        "monthElevationGain": 800,
+        "trainingRecords": [
+          {
+            "id": 16337098160,
+            "name": "TPE 48 - Easy run 40+10mins",
+            "planWeek": 9,
+            "startDate": "2025-11-03T06:40:58",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 8.03,
+            "movingTime": "00:52:49",
+            "elevationGain": 9,
+            "pace": "6:34",
+            "averageHeartRate": 134.4,
+            "maxHeartRate": 151,
+            "isMainTraining": true,
+            "description": "右小腿緊了幾天，持續放鬆🧘"
+          },
+          {
+            "id": 16316669335,
+            "name": "TPE 47 - Long run 劍風劍🗡️",
+            "planWeek": 8,
+            "startDate": "2025-11-01T06:03:02",
+            "sportType": "Run",
+            "runType": "LR",
+            "parentRunType": null,
+            "distance": 28.25,
+            "movingTime": "02:46:24",
+            "elevationGain": 791,
+            "pace": "5:53",
+            "averageHeartRate": 157,
+            "maxHeartRate": 187,
+            "isMainTraining": true,
+            "description": "感謝跑友 Melven 馬文 陪跑，一路聊天上至善路，喘起來之後兩人很安分地閉嘴。謹記教練叮嚀：上坡身體前傾、不要停、順順跑，天氣有加分，整體舒適登頂風櫃嘴。\n停休約3分鐘，回程下坡一路順體感跑，典型上坡一條🐛、下坡一條🐲，最後2k跑到笑出來，好快樂啊🥳 自評強度7.5✅\n（上半年跑了劍菁劍🌸、矽鴿🕊️、明志之巔*2、烤天鵝🦢，這次劍風劍沒想像中崩潰，是進步了吧🥹）"
+          }
+        ]
+      },
       {
         "year": 2025,
         "month": 10,
@@ -1953,14 +1997,59 @@
     ],
     "weeklyTrainingRecords": [
       {
+        "planWeek": 9,
+        "weekStartDate": "2025-11-03T00:00:00",
+        "weekEndDate": "2025-11-09T00:00:00",
+        "weekDistance": 8.03,
+        "weekMovingTime": "00:52:49",
+        "weekMainTrainingCount": 1,
+        "weekElevationGain": 9,
+        "trainingRecords": [
+          {
+            "id": 16337098160,
+            "name": "TPE 48 - Easy run 40+10mins",
+            "planWeek": 9,
+            "startDate": "2025-11-03T06:40:58",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 8.03,
+            "movingTime": "00:52:49",
+            "elevationGain": 9,
+            "pace": "6:34",
+            "averageHeartRate": 134.4,
+            "maxHeartRate": 151,
+            "isMainTraining": true,
+            "description": "右小腿緊了幾天，持續放鬆🧘"
+          }
+        ]
+      },
+      {
         "planWeek": 8,
         "weekStartDate": "2025-10-27T00:00:00",
         "weekEndDate": "2025-11-02T00:00:00",
-        "weekDistance": 49.69,
-        "weekMovingTime": "06:17:33",
-        "weekMainTrainingCount": 7,
-        "weekElevationGain": 19,
+        "weekDistance": 77.94,
+        "weekMovingTime": "09:03:57",
+        "weekMainTrainingCount": 8,
+        "weekElevationGain": 810,
         "trainingRecords": [
+          {
+            "id": 16316669335,
+            "name": "TPE 47 - Long run 劍風劍🗡️",
+            "planWeek": 8,
+            "startDate": "2025-11-01T06:03:02",
+            "sportType": "Run",
+            "runType": "LR",
+            "parentRunType": null,
+            "distance": 28.25,
+            "movingTime": "02:46:24",
+            "elevationGain": 791,
+            "pace": "5:53",
+            "averageHeartRate": 157,
+            "maxHeartRate": 187,
+            "isMainTraining": true,
+            "description": "感謝跑友 Melven 馬文 陪跑，一路聊天上至善路，喘起來之後兩人很安分地閉嘴。謹記教練叮嚀：上坡身體前傾、不要停、順順跑，天氣有加分，整體舒適登頂風櫃嘴。\n停休約3分鐘，回程下坡一路順體感跑，典型上坡一條🐛、下坡一條🐲，最後2k跑到笑出來，好快樂啊🥳 自評強度7.5✅\n（上半年跑了劍菁劍🌸、矽鴿🕊️、明志之巔*2、烤天鵝🦢，這次劍風劍沒想像中崩潰，是進步了吧🥹）"
+          },
           {
             "id": 16307196553,
             "name": "TPE 46 - Easy run 40mins",
@@ -3963,5 +4052,5 @@
       }
     ]
   },
-  "timestamp": "2025-10-31T08:33:06.6871877Z"
+  "timestamp": "2025-11-03T06:08:00.7580389Z"
 }
