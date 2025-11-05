@@ -148,12 +148,12 @@
           },
           {
             "id": 16301851072,
-            "name": "TPE 45 - Speed run",
+            "name": "TPE 45 - 長間歇",
             "planWeek": 8,
             "startDate": "2025-10-30T19:39:18",
             "sportType": "Run",
-            "runType": null,
-            "parentRunType": null,
+            "runType": "I-L",
+            "parentRunType": "INT",
             "distance": 8.8,
             "movingTime": "00:44:21",
             "elevationGain": 0,
@@ -2188,12 +2188,12 @@
           },
           {
             "id": 16301851072,
-            "name": "TPE 45 - Speed run",
+            "name": "TPE 45 - 長間歇",
             "planWeek": 8,
             "startDate": "2025-10-30T19:39:18",
             "sportType": "Run",
-            "runType": null,
-            "parentRunType": null,
+            "runType": "I-L",
+            "parentRunType": "INT",
             "distance": 8.8,
             "movingTime": "00:44:21",
             "elevationGain": 0,
@@ -4154,5 +4154,5 @@
       }
     ]
   },
-  "timestamp": "2025-11-05T03:00:10.1534518Z"
+  "timestamp": "2025-11-05T03:21:19.9236146Z"
 }
