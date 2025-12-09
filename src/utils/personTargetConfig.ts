@@ -6,6 +6,7 @@ export interface PersonConfig {
   targets: string[] // 直接存放目標陣列（如 2025taipei, 2025sydney）
   raceLinks?: Record<string, string> // target -> link
   raceTime?: Record<string, string> // target -> time
+  pics?: string[] // 背景圖片陣列（用於幻燈片）
 }
 
 export interface TargetConfig {
@@ -26,6 +27,7 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
     raceTime: {
       '2025sydney': '3:19:47',
     },
+    pics: ['/training-record/pic/pan1.jpg', '/training-record/pic/pan2.jpg'],
   },
   sung: {
     displayName: 'Sung',
@@ -33,6 +35,7 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
     emoji: '👩',
     targets: ['2025taipei'],
     raceLinks: {},
+    pics: ['/training-record/pic/sung1.jpg', '/training-record/pic/sung2.jpg'],
   },
 }
 
@@ -87,4 +90,9 @@ export const getPersonRaceTime = (person: string, target: string): string | unde
 // 輔助函數：取得個人暱稱
 export const getPersonNickName = (person: string): string | undefined => {
   return PERSON_CONFIG[person]?.nickName || undefined
+}
+
+// 輔助函數：取得個人背景圖片
+export const getPersonPics = (person: string): string[] | undefined => {
+  return PERSON_CONFIG[person]?.pics
 }

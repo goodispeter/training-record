@@ -1,6 +1,17 @@
 <template>
   <div class="race-countdown">
     <div class="countdown-wrapper" :style="{ background: backgroundGradient }">
+      <!-- 背景幻燈片 -->
+      <div v-if="hasSlideshow" class="background-slideshow">
+        <div
+          v-for="(image, index) in personPics"
+          :key="index"
+          class="background-slide"
+          :class="{ active: index === currentSlideIndex }"
+          :style="{ backgroundImage: `url(${image})` }"
+        ></div>
+      </div>
+
       <!-- 暱稱顯示 -->
       <div v-if="nickName" class="nickname-container">
         <div class="nickname-badge">
@@ -130,7 +141,12 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { getPersonRaceLink, getPersonRaceTime, getPersonNickName } from '@/utils/personTargetConfig'
+import {
+  getPersonRaceLink,
+  getPersonRaceTime,
+  getPersonNickName,
+  getPersonPics,
+} from '@/utils/personTargetConfig'
 
 interface Props {
   raceDate: string
@@ -140,6 +156,10 @@ const props = defineProps<Props>()
 const route = useRoute()
 const currentTime = ref(new Date())
 let timer: number | null = null
+
+// 幻燈片相關
+const currentSlideIndex = ref(0)
+let slideTimer: number | null = null
 
 // 計算剩餘時間
 const timeLeft = computed(() => {
@@ -199,6 +219,10 @@ const trainingPhase = computed(() => {
 // 取得當前路由的 person 和 target
 const currentPerson = computed(() => route.params.person as string)
 const currentTarget = computed(() => route.params.target as string)
+
+// 取得個人背景圖片
+const personPics = computed(() => getPersonPics(currentPerson.value))
+const hasSlideshow = computed(() => personPics.value && personPics.value.length > 0)
 
 // 取得賽事連結
 const raceLink = computed(() => {
@@ -272,6 +296,11 @@ const statusStyle = computed(() => {
 
 // 背景顏色（根據階段變化）
 const backgroundGradient = computed(() => {
+  // 如果有背景圖片，不使用漸層色
+  if (hasSlideshow.value) {
+    return 'transparent'
+  }
+
   switch (trainingPhase.value) {
     case 'training':
       return 'linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)' // 藍紫
@@ -301,14 +330,30 @@ const updateTime = () => {
   currentTime.value = new Date()
 }
 
+const nextSlide = () => {
+  const pics = personPics.value
+  if (pics && pics.length > 0) {
+    currentSlideIndex.value = (currentSlideIndex.value + 1) % pics.length
+  }
+}
+
 onMounted(() => {
   updateTime()
   timer = window.setInterval(updateTime, 1000)
+
+  // 如果有背景圖片，啟動幻燈片輪播
+  const pics = getPersonPics(route.params.person as string)
+  if (pics && pics.length > 0) {
+    slideTimer = window.setInterval(nextSlide, 5000) // 每5秒切換一次
+  }
 })
 
 onUnmounted(() => {
   if (timer) {
     window.clearInterval(timer)
+  }
+  if (slideTimer) {
+    window.clearInterval(slideTimer)
   }
 })
 </script>
@@ -327,6 +372,46 @@ onUnmounted(() => {
   padding: 1.5rem;
   overflow: hidden;
   transition: background 1s ease-in-out; /* 背景顏色平滑切換 */
+}
+
+/* 背景幻燈片 */
+.background-slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.background-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.background-slide.active {
+  opacity: 1;
+}
+
+.background-slide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* 半透明遮罩，讓文字更清晰 */
+  z-index: 1;
 }
 
 /* 暱稱 start */
