@@ -4,19 +4,70 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 1354.91,
-    "totalMovingTime": "142:23:19",
-    "mainTrainingCount": 122,
-    "totalElevationGain": 3201,
+    "totalDistance": 1364.1,
+    "totalMovingTime": "143:09:06",
+    "mainTrainingCount": 123,
+    "totalElevationGain": 3203,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 12,
-        "monthDistance": 89.21,
-        "monthMovingTime": "08:26:26",
-        "monthMainTrainingCount": 6,
-        "monthElevationGain": 74,
+        "monthDistance": 98.4,
+        "monthMovingTime": "09:12:13",
+        "monthMainTrainingCount": 7,
+        "monthElevationGain": 76,
         "trainingRecords": [
+          {
+            "id": 16684472401,
+            "name": "TPE 123 - 長間歇 1600*4 300m p76-78s r120s",
+            "planWeek": 15,
+            "startDate": "2025-12-08T20:37:23",
+            "sportType": "Run",
+            "runType": "I-L",
+            "parentRunType": "INT",
+            "distance": 6.83,
+            "movingTime": "00:30:24",
+            "elevationGain": 0,
+            "pace": "4:27",
+            "averageHeartRate": 160.7,
+            "maxHeartRate": 189,
+            "isMainTraining": true,
+            "description": "東馬訓練營開訓第一堂，也是台北馬減量期的第一週，很有減量期的感覺，好久沒有吃完間歇沒有厭世感，還有那種還想繼續跑的感覺，雖然有定秒數但礙於跑道整修，有時候也想趕快超過大部隊所以秒數略快一點，但都控制在體感舒適的範圍，最後 700m 提升到體感8成力順順跑完。"
+          },
+          {
+            "id": 16684472568,
+            "name": "傍晚跑步",
+            "planWeek": 15,
+            "startDate": "2025-12-08T20:34:06",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0.28,
+            "movingTime": "00:01:19",
+            "elevationGain": 0,
+            "pace": "4:45",
+            "averageHeartRate": 123.6,
+            "maxHeartRate": 163,
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
+            "id": 16684472308,
+            "name": "傍晚跑步",
+            "planWeek": 15,
+            "startDate": "2025-12-08T19:37:05",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 2.08,
+            "movingTime": "00:14:04",
+            "elevationGain": 2,
+            "pace": "6:44",
+            "averageHeartRate": 115.3,
+            "maxHeartRate": 124,
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 16670362032,
             "name": "TPE 122 - Easy Run zone2 11k feat. 耶誕接力第三棒",
@@ -3876,6 +3927,68 @@
       }
     ],
     "weeklyTrainingRecords": [
+      {
+        "planWeek": 15,
+        "weekStartDate": "2025-12-08T00:00:00",
+        "weekEndDate": "2025-12-14T00:00:00",
+        "weekDistance": 9.19,
+        "weekMovingTime": "00:45:47",
+        "weekMainTrainingCount": 1,
+        "weekElevationGain": 2,
+        "trainingRecords": [
+          {
+            "id": 16684472401,
+            "name": "TPE 123 - 長間歇 1600*4 300m p76-78s r120s",
+            "planWeek": 15,
+            "startDate": "2025-12-08T20:37:23",
+            "sportType": "Run",
+            "runType": "I-L",
+            "parentRunType": "INT",
+            "distance": 6.83,
+            "movingTime": "00:30:24",
+            "elevationGain": 0,
+            "pace": "4:27",
+            "averageHeartRate": 160.7,
+            "maxHeartRate": 189,
+            "isMainTraining": true,
+            "description": "東馬訓練營開訓第一堂，也是台北馬減量期的第一週，很有減量期的感覺，好久沒有吃完間歇沒有厭世感，還有那種還想繼續跑的感覺，雖然有定秒數但礙於跑道整修，有時候也想趕快超過大部隊所以秒數略快一點，但都控制在體感舒適的範圍，最後 700m 提升到體感8成力順順跑完。"
+          },
+          {
+            "id": 16684472568,
+            "name": "傍晚跑步",
+            "planWeek": 15,
+            "startDate": "2025-12-08T20:34:06",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 0.28,
+            "movingTime": "00:01:19",
+            "elevationGain": 0,
+            "pace": "4:45",
+            "averageHeartRate": 123.6,
+            "maxHeartRate": 163,
+            "isMainTraining": false,
+            "description": ""
+          },
+          {
+            "id": 16684472308,
+            "name": "傍晚跑步",
+            "planWeek": 15,
+            "startDate": "2025-12-08T19:37:05",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 2.08,
+            "movingTime": "00:14:04",
+            "elevationGain": 2,
+            "pace": "6:44",
+            "averageHeartRate": 115.3,
+            "maxHeartRate": 124,
+            "isMainTraining": false,
+            "description": ""
+          }
+        ]
+      },
       {
         "planWeek": 14,
         "weekStartDate": "2025-12-01T00:00:00",
@@ -7857,5 +7970,5 @@
       }
     ]
   },
-  "timestamp": "2025-12-08T02:52:20.8168175Z"
+  "timestamp": "2025-12-09T06:08:09.8452646Z"
 }
