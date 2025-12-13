@@ -4,19 +4,36 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 1395.57,
-    "totalMovingTime": "146:09:41",
-    "mainTrainingCount": 126,
-    "totalElevationGain": 3330,
+    "totalDistance": 1403.65,
+    "totalMovingTime": "147:01:03",
+    "mainTrainingCount": 127,
+    "totalElevationGain": 3446,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 12,
-        "monthDistance": 129.87,
-        "monthMovingTime": "12:12:48",
-        "monthMainTrainingCount": 10,
-        "monthElevationGain": 203,
+        "monthDistance": 137.95,
+        "monthMovingTime": "13:04:10",
+        "monthMainTrainingCount": 11,
+        "monthElevationGain": 319,
         "trainingRecords": [
+          {
+            "id": 16727106450,
+            "name": "TPE 127 - Easy Run 50min",
+            "planWeek": 15,
+            "startDate": "2025-12-13T10:34:45",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 8.08,
+            "movingTime": "00:51:22",
+            "elevationGain": 116,
+            "pace": "6:21",
+            "averageHeartRate": 142.7,
+            "maxHeartRate": 160,
+            "isMainTraining": true,
+            "description": "淋著小雨慢慢跑，加減跑點小坡，體感舒適，隨便想點什麼就跑完了。"
+          },
           {
             "id": 16712622326,
             "name": "傍晚跑步",
@@ -4016,11 +4033,28 @@
         "planWeek": 15,
         "weekStartDate": "2025-12-08T00:00:00",
         "weekEndDate": "2025-12-14T00:00:00",
-        "weekDistance": 40.66,
-        "weekMovingTime": "03:46:22",
-        "weekMainTrainingCount": 4,
-        "weekElevationGain": 129,
+        "weekDistance": 48.74,
+        "weekMovingTime": "04:37:44",
+        "weekMainTrainingCount": 5,
+        "weekElevationGain": 245,
         "trainingRecords": [
+          {
+            "id": 16727106450,
+            "name": "TPE 127 - Easy Run 50min",
+            "planWeek": 15,
+            "startDate": "2025-12-13T10:34:45",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 8.08,
+            "movingTime": "00:51:22",
+            "elevationGain": 116,
+            "pace": "6:21",
+            "averageHeartRate": 142.7,
+            "maxHeartRate": 160,
+            "isMainTraining": true,
+            "description": "淋著小雨慢慢跑，加減跑點小坡，體感舒適，隨便想點什麼就跑完了。"
+          },
           {
             "id": 16712622326,
             "name": "傍晚跑步",
@@ -8140,5 +8174,5 @@
       }
     ]
   },
-  "timestamp": "2025-12-12T03:36:15.1489054Z"
+  "timestamp": "2025-12-13T07:16:55.2118851Z"
 }
