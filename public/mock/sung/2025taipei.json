@@ -4,19 +4,53 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 1041.28,
-    "totalMovingTime": "114:36:07",
-    "mainTrainingCount": 104,
-    "totalElevationGain": 2608,
+    "totalDistance": 1061.38,
+    "totalMovingTime": "116:19:42",
+    "mainTrainingCount": 105,
+    "totalElevationGain": 2644,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 12,
-        "monthDistance": 128.01,
-        "monthMovingTime": "13:18:24",
-        "monthMainTrainingCount": 15,
-        "monthElevationGain": 76,
+        "monthDistance": 148.11,
+        "monthMovingTime": "15:01:59",
+        "monthMainTrainingCount": 16,
+        "monthElevationGain": 112,
         "trainingRecords": [
+          {
+            "id": 16736323879,
+            "name": "TPE 87 - Long run 18k@5’10”➡️5’00”",
+            "planWeek": 14,
+            "startDate": "2025-12-14T06:23:43",
+            "sportType": "Run",
+            "runType": "LR",
+            "parentRunType": null,
+            "distance": 18.08,
+            "movingTime": "01:30:13",
+            "elevationGain": 35,
+            "pace": "4:59",
+            "averageHeartRate": 154.3,
+            "maxHeartRate": 165,
+            "isMainTraining": true,
+            "description": "一趟6k共3趟，慈、游、頌輪流帶，順順漸速，台北馬也要穩定輸出💪"
+          },
+          {
+            "id": 16736321984,
+            "name": "Warm up",
+            "planWeek": 14,
+            "startDate": "2025-12-14T05:47:25",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 2.02,
+            "movingTime": "00:13:22",
+            "elevationGain": 1,
+            "pace": "6:37",
+            "averageHeartRate": 124.2,
+            "maxHeartRate": 137,
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 16717697402,
             "name": "TPE 86 - Easy run 40mins",
@@ -3234,11 +3268,45 @@
         "planWeek": 14,
         "weekStartDate": "2025-12-08T00:00:00",
         "weekEndDate": "2025-12-14T00:00:00",
-        "weekDistance": 43.62,
-        "weekMovingTime": "05:04:58",
-        "weekMainTrainingCount": 7,
-        "weekElevationGain": 21,
+        "weekDistance": 63.72,
+        "weekMovingTime": "06:48:33",
+        "weekMainTrainingCount": 8,
+        "weekElevationGain": 57,
         "trainingRecords": [
+          {
+            "id": 16736323879,
+            "name": "TPE 87 - Long run 18k@5’10”➡️5’00”",
+            "planWeek": 14,
+            "startDate": "2025-12-14T06:23:43",
+            "sportType": "Run",
+            "runType": "LR",
+            "parentRunType": null,
+            "distance": 18.08,
+            "movingTime": "01:30:13",
+            "elevationGain": 35,
+            "pace": "4:59",
+            "averageHeartRate": 154.3,
+            "maxHeartRate": 165,
+            "isMainTraining": true,
+            "description": "一趟6k共3趟，慈、游、頌輪流帶，順順漸速，台北馬也要穩定輸出💪"
+          },
+          {
+            "id": 16736321984,
+            "name": "Warm up",
+            "planWeek": 14,
+            "startDate": "2025-12-14T05:47:25",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 2.02,
+            "movingTime": "00:13:22",
+            "elevationGain": 1,
+            "pace": "6:37",
+            "averageHeartRate": 124.2,
+            "maxHeartRate": 137,
+            "isMainTraining": false,
+            "description": ""
+          },
           {
             "id": 16717697402,
             "name": "TPE 86 - Easy run 40mins",
@@ -6565,5 +6633,5 @@
       }
     ]
   },
-  "timestamp": "2025-12-12T03:36:29.335542Z"
+  "timestamp": "2025-12-14T13:00:51.1813747Z"
 }
