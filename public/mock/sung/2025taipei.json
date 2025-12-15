@@ -4,19 +4,36 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 1061.38,
-    "totalMovingTime": "116:19:42",
-    "mainTrainingCount": 105,
-    "totalElevationGain": 2644,
+    "totalDistance": 1066.43,
+    "totalMovingTime": "116:52:47",
+    "mainTrainingCount": 106,
+    "totalElevationGain": 2653,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 12,
-        "monthDistance": 148.11,
-        "monthMovingTime": "15:01:59",
-        "monthMainTrainingCount": 16,
-        "monthElevationGain": 112,
+        "monthDistance": 153.16,
+        "monthMovingTime": "15:35:04",
+        "monthMainTrainingCount": 17,
+        "monthElevationGain": 121,
         "trainingRecords": [
+          {
+            "id": 16744899774,
+            "name": "TPE 88 - Easy run 5k",
+            "planWeek": 15,
+            "startDate": "2025-12-15T06:59:13",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 5.05,
+            "movingTime": "00:33:05",
+            "elevationGain": 9,
+            "pace": "6:32",
+            "averageHeartRate": 127.8,
+            "maxHeartRate": 145,
+            "isMainTraining": true,
+            "description": "歡樂減量週開始✌️"
+          },
           {
             "id": 16736323879,
             "name": "TPE 87 - Long run 18k@5’10”➡️5’00”",
@@ -3264,6 +3281,34 @@
       }
     ],
     "weeklyTrainingRecords": [
+      {
+        "planWeek": 15,
+        "weekStartDate": "2025-12-15T00:00:00",
+        "weekEndDate": "2025-12-21T00:00:00",
+        "weekDistance": 5.05,
+        "weekMovingTime": "00:33:05",
+        "weekMainTrainingCount": 1,
+        "weekElevationGain": 9,
+        "trainingRecords": [
+          {
+            "id": 16744899774,
+            "name": "TPE 88 - Easy run 5k",
+            "planWeek": 15,
+            "startDate": "2025-12-15T06:59:13",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 5.05,
+            "movingTime": "00:33:05",
+            "elevationGain": 9,
+            "pace": "6:32",
+            "averageHeartRate": 127.8,
+            "maxHeartRate": 145,
+            "isMainTraining": true,
+            "description": "歡樂減量週開始✌️"
+          }
+        ]
+      },
       {
         "planWeek": 14,
         "weekStartDate": "2025-12-08T00:00:00",
@@ -6633,5 +6678,5 @@
       }
     ]
   },
-  "timestamp": "2025-12-14T13:00:51.1813747Z"
+  "timestamp": "2025-12-15T01:24:09.2111809Z"
 }
