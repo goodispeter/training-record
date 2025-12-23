@@ -12,13 +12,6 @@
         ></div>
       </div>
 
-      <!-- 暱稱顯示 -->
-      <div v-if="nickName" class="nickname-container">
-        <div class="nickname-badge">
-          <span class="nickname-text">{{ nickName }}</span>
-        </div>
-      </div>
-
       <!-- 主要內容 -->
       <div class="countdown-content">
         <!-- 狀態標籤 -->
@@ -141,12 +134,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
-import {
-  getPersonRaceLink,
-  getPersonRaceTime,
-  getPersonNickName,
-  getPersonPics,
-} from '@/utils/personTargetConfig'
+import { getPersonRaceLink, getPersonRaceTime, getPersonPics } from '@/utils/personTargetConfig'
 
 interface Props {
   raceDate: string
@@ -221,7 +209,7 @@ const currentPerson = computed(() => route.params.person as string)
 const currentTarget = computed(() => route.params.target as string)
 
 // 取得個人背景圖片
-const personPics = computed(() => getPersonPics(currentPerson.value))
+const personPics = computed(() => getPersonPics(currentPerson.value, currentTarget.value))
 const hasSlideshow = computed(() => personPics.value && personPics.value.length > 0)
 
 // 取得賽事連結
@@ -234,11 +222,6 @@ const raceLink = computed(() => {
 const raceTime = computed(() => {
   if (!isRaceFinished.value) return null
   return getPersonRaceTime(currentPerson.value, currentTarget.value)
-})
-
-// 取得暱稱
-const nickName = computed(() => {
-  return getPersonNickName(currentPerson.value)
 })
 
 // 格式化比賽日期
@@ -342,9 +325,9 @@ onMounted(() => {
   timer = window.setInterval(updateTime, 1000)
 
   // 如果有背景圖片，啟動幻燈片輪播
-  const pics = getPersonPics(route.params.person as string)
+  const pics = getPersonPics(route.params.person as string, route.params.target as string)
   if (pics && pics.length > 0) {
-    slideTimer = window.setInterval(nextSlide, 5000) // 每5秒切換一次
+    slideTimer = window.setInterval(nextSlide, 3000) // 每3秒切換一次
   }
 })
 
@@ -413,27 +396,6 @@ onUnmounted(() => {
   background: rgba(0, 0, 0, 0.4); /* 半透明遮罩，讓文字更清晰 */
   z-index: 1;
 }
-
-/* 暱稱 start */
-.nickname-container {
-  position: absolute;
-  top: 0.75rem;
-  left: 0.75rem;
-  z-index: 2;
-}
-
-.nickname-badge {
-  opacity: 1;
-}
-
-.nickname-text {
-  font-size: 2rem;
-  font-weight: bold;
-  font-style: italic;
-  color: white;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-}
-/* 暱稱 end */
 
 /* 主要內容 */
 .countdown-content {

@@ -6,7 +6,7 @@ export interface PersonConfig {
   targets: string[] // 直接存放目標陣列（如 2025taipei, 2025sydney）
   raceLinks?: Record<string, string> // target -> link
   raceTime?: Record<string, string> // target -> time
-  pics?: string[] // 背景圖片陣列（用於幻燈片）
+  pics?: Record<string, string[]> // target -> 背景圖片陣列（用於幻燈片）
 }
 
 export interface TargetConfig {
@@ -25,17 +25,32 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
       '2025sydney': 'https://www.instagram.com/p/DOTegmfE5CU/?igsh=MWd6bzlsbDV3ZXBrag==',
     },
     raceTime: {
+      '2025taipei': '3:34:12',
       '2025sydney': '3:19:47',
     },
-    pics: ['/training-record/pic/pan1.jpg', '/training-record/pic/pan2.jpg'],
+    pics: {
+      '2025sydney': ['/training-record/pic/pan1.jpg'],
+      '2025taipei': ['/training-record/pic/pan2.jpg'],
+    },
   },
   sung: {
     displayName: 'Sung',
-    nickName: '野鳳凰',
     emoji: '👩',
     targets: ['2025taipei'],
     raceLinks: {},
-    pics: ['/training-record/pic/sung1.jpg', '/training-record/pic/sung2.jpg'],
+    raceTime: {
+      '2025taipei': '3:34:15',
+    },
+    pics: {
+      '2025taipei': [
+        '/training-record/pic/sung1.jpg',
+        '/training-record/pic/sung2.jpg',
+        '/training-record/pic/sung3.jpg',
+        '/training-record/pic/sung4.jpg',
+        '/training-record/pic/sung5.jpg',
+        '/training-record/pic/sung6.jpg',
+      ],
+    },
   },
 }
 
@@ -93,6 +108,6 @@ export const getPersonNickName = (person: string): string | undefined => {
 }
 
 // 輔助函數：取得個人背景圖片
-export const getPersonPics = (person: string): string[] | undefined => {
-  return PERSON_CONFIG[person]?.pics
+export const getPersonPics = (person: string, target: string): string[] | undefined => {
+  return PERSON_CONFIG[person]?.pics?.[target]
 }
