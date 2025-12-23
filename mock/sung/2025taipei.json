@@ -4,19 +4,53 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 1091.77,
-    "totalMovingTime": "119:19:55",
-    "mainTrainingCount": 109,
-    "totalElevationGain": 2661,
+    "totalDistance": 1138.52,
+    "totalMovingTime": "123:29:41",
+    "mainTrainingCount": 111,
+    "totalElevationGain": 2754,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 12,
-        "monthDistance": 178.5,
-        "monthMovingTime": "18:02:12",
-        "monthMainTrainingCount": 20,
-        "monthElevationGain": 129,
+        "monthDistance": 225.25,
+        "monthMovingTime": "22:11:58",
+        "monthMainTrainingCount": 22,
+        "monthElevationGain": 222,
         "trainingRecords": [
+          {
+            "id": 16798457145,
+            "name": "TPE Final - 2025 Taipei Marathon",
+            "planWeek": 15,
+            "startDate": "2025-12-21T06:32:14",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 42.55,
+            "movingTime": "03:34:14",
+            "elevationGain": 90,
+            "pace": "5:02",
+            "averageHeartRate": 159.5,
+            "maxHeartRate": 170,
+            "isMainTraining": true,
+            "description": ""
+          },
+          {
+            "id": 16784812233,
+            "name": "TPE 92 - Easy run 40mins aka. 賽道小巡禮",
+            "planWeek": 15,
+            "startDate": "2025-12-19T19:56:44",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 4.2,
+            "movingTime": "00:35:32",
+            "elevationGain": 3,
+            "pace": "8:27",
+            "averageHeartRate": 112.5,
+            "maxHeartRate": 142,
+            "isMainTraining": true,
+            "description": "101上的NIKE特別耀眼✨"
+          },
           {
             "id": 16775740534,
             "name": "Cool down",
@@ -3387,11 +3421,45 @@
         "planWeek": 15,
         "weekStartDate": "2025-12-15T00:00:00",
         "weekEndDate": "2025-12-21T00:00:00",
-        "weekDistance": 30.39,
-        "weekMovingTime": "03:00:13",
-        "weekMainTrainingCount": 4,
-        "weekElevationGain": 17,
+        "weekDistance": 77.14,
+        "weekMovingTime": "07:09:59",
+        "weekMainTrainingCount": 6,
+        "weekElevationGain": 110,
         "trainingRecords": [
+          {
+            "id": 16798457145,
+            "name": "TPE Final - 2025 Taipei Marathon",
+            "planWeek": 15,
+            "startDate": "2025-12-21T06:32:14",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 42.55,
+            "movingTime": "03:34:14",
+            "elevationGain": 90,
+            "pace": "5:02",
+            "averageHeartRate": 159.5,
+            "maxHeartRate": 170,
+            "isMainTraining": true,
+            "description": ""
+          },
+          {
+            "id": 16784812233,
+            "name": "TPE 92 - Easy run 40mins aka. 賽道小巡禮",
+            "planWeek": 15,
+            "startDate": "2025-12-19T19:56:44",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 4.2,
+            "movingTime": "00:35:32",
+            "elevationGain": 3,
+            "pace": "8:27",
+            "averageHeartRate": 112.5,
+            "maxHeartRate": 142,
+            "isMainTraining": true,
+            "description": "101上的NIKE特別耀眼✨"
+          },
           {
             "id": 16775740534,
             "name": "Cool down",
@@ -6882,5 +6950,5 @@
       }
     ]
   },
-  "timestamp": "2025-12-19T06:49:43.0374208Z"
+  "timestamp": "2025-12-23T07:41:11.4374802Z"
 }

@@ -4,19 +4,53 @@
   "success": true,
   "data": {
     "target": "2025 臺北馬拉松",
-    "totalDistance": 1446.6,
-    "totalMovingTime": "150:44:31",
-    "mainTrainingCount": 132,
-    "totalElevationGain": 3489,
+    "totalDistance": 1493.43,
+    "totalMovingTime": "154:47:05",
+    "mainTrainingCount": 134,
+    "totalElevationGain": 3579,
     "monthlyTrainingRecords": [
       {
         "year": 2025,
         "month": 12,
-        "monthDistance": 180.9,
-        "monthMovingTime": "16:47:38",
-        "monthMainTrainingCount": 16,
-        "monthElevationGain": 362,
+        "monthDistance": 227.73,
+        "monthMovingTime": "20:50:12",
+        "monthMainTrainingCount": 18,
+        "monthElevationGain": 452,
         "trainingRecords": [
+          {
+            "id": 16798520473,
+            "name": "TPE Final - 2025 臺北馬拉松",
+            "planWeek": 16,
+            "startDate": "2025-12-21T06:32:18",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 42.59,
+            "movingTime": "03:34:14",
+            "elevationGain": 86,
+            "pace": "5:01",
+            "averageHeartRate": 161.4,
+            "maxHeartRate": 172,
+            "isMainTraining": true,
+            "description": "天公不如人意，整趟下來體感算輕鬆（不過肚子有點鬧脾氣），但跑完還是會累（廢話），應該還是可以好好休息幾天再繼續東京馬課表，這個天氣能夠順利完賽的人都不簡單！也算讓我更能知道一些 42k 還不足的細節，東京馬繼續加油！"
+          },
+          {
+            "id": 16784525372,
+            "name": "TPE 133 - Easy Run 30min",
+            "planWeek": 16,
+            "startDate": "2025-12-19T19:56:43",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 4.24,
+            "movingTime": "00:28:20",
+            "elevationGain": 4,
+            "pace": "6:41",
+            "averageHeartRate": 121.1,
+            "maxHeartRate": 139,
+            "isMainTraining": true,
+            "description": "臺北馬賽前輕鬆跑，昨日運動按摩，右腿有一點酸感，但整體來說沒什麼問題，週日加油，期許游刃有餘的完成任務！"
+          },
           {
             "id": 16771612924,
             "name": "晨間跑步",
@@ -4237,11 +4271,45 @@
         "planWeek": 16,
         "weekStartDate": "2025-12-15T00:00:00",
         "weekEndDate": "2025-12-21T00:00:00",
-        "weekDistance": 21.81,
-        "weekMovingTime": "02:02:40",
-        "weekMainTrainingCount": 3,
-        "weekElevationGain": 11,
+        "weekDistance": 68.64,
+        "weekMovingTime": "06:05:14",
+        "weekMainTrainingCount": 5,
+        "weekElevationGain": 101,
         "trainingRecords": [
+          {
+            "id": 16798520473,
+            "name": "TPE Final - 2025 臺北馬拉松",
+            "planWeek": 16,
+            "startDate": "2025-12-21T06:32:18",
+            "sportType": "Run",
+            "runType": null,
+            "parentRunType": null,
+            "distance": 42.59,
+            "movingTime": "03:34:14",
+            "elevationGain": 86,
+            "pace": "5:01",
+            "averageHeartRate": 161.4,
+            "maxHeartRate": 172,
+            "isMainTraining": true,
+            "description": "天公不如人意，整趟下來體感算輕鬆（不過肚子有點鬧脾氣），但跑完還是會累（廢話），應該還是可以好好休息幾天再繼續東京馬課表，這個天氣能夠順利完賽的人都不簡單！也算讓我更能知道一些 42k 還不足的細節，東京馬繼續加油！"
+          },
+          {
+            "id": 16784525372,
+            "name": "TPE 133 - Easy Run 30min",
+            "planWeek": 16,
+            "startDate": "2025-12-19T19:56:43",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 4.24,
+            "movingTime": "00:28:20",
+            "elevationGain": 4,
+            "pace": "6:41",
+            "averageHeartRate": 121.1,
+            "maxHeartRate": 139,
+            "isMainTraining": true,
+            "description": "臺北馬賽前輕鬆跑，昨日運動按摩，右腿有一點酸感，但整體來說沒什麼問題，週日加油，期許游刃有餘的完成任務！"
+          },
           {
             "id": 16771612924,
             "name": "晨間跑步",
@@ -8593,5 +8661,5 @@
       }
     ]
   },
-  "timestamp": "2025-12-19T06:49:26.0242918Z"
+  "timestamp": "2025-12-23T07:40:55.9487197Z"
 }
