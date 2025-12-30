@@ -17,7 +17,7 @@
         @update:value="switchTarget"
         :options="targetOptions"
         size="small"
-        style="width: 150px"
+        style="width: 130px"
       />
     </div>
   </div>
@@ -63,7 +63,7 @@ const switchPerson = async (newPerson: string) => {
     // 檢查新人員是否有當前目標，如果沒有則使用第一個可用目標
     if (!hasTarget(newPerson, props.target)) {
       const availableTargets = getAvailableTargets(newPerson)
-      newTarget = availableTargets[0] || '2025taipei' // 如果沒有可用目標，回退到 2025taipei
+      newTarget = availableTargets[0] || '2026tokyo' // 如果沒有可用目標，回退到 2026tokyo
     }
 
     await router.push(`/${newPerson}/${newTarget}`)

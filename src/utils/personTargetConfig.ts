@@ -20,7 +20,7 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
   pan: {
     displayName: 'Pan',
     emoji: '👨',
-    targets: ['2025taipei', '2025sydney'],
+    targets: ['2025taipei', '2025sydney', '2026tokyo'],
     raceLinks: {
       '2025sydney': 'https://www.instagram.com/p/DOTegmfE5CU/?igsh=MWd6bzlsbDV3ZXBrag==',
     },
@@ -36,8 +36,10 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
   sung: {
     displayName: 'Sung',
     emoji: '👩',
-    targets: ['2025taipei'],
-    raceLinks: {},
+    targets: ['2025taipei', '2026wanginshi'],
+    raceLinks: {
+      '2025taipei': 'https://www.instagram.com/p/DSwlD30Ei5c/?igsh=MTRmd2lzdXRoNXQ2Zg==',
+    },
     raceTime: {
       '2025taipei': '3:34:15',
     },
@@ -57,12 +59,20 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
 // 目標設定
 export const TARGET_CONFIG: Record<string, TargetConfig> = {
   '2025taipei': {
-    displayName: '2025 臺北馬拉松',
+    displayName: '2025 臺北',
     raceDate: '2025-12-21T06:30:00',
   },
   '2025sydney': {
-    displayName: '2025 雪梨馬拉松',
+    displayName: '2025 雪梨',
     raceDate: '2025-08-31T04:30:00',
+  },
+  '2026tokyo': {
+    displayName: '2026 東京',
+    raceDate: '2026-03-01T08:10:00',
+  },
+  '2026wanginshi': {
+    displayName: '2026 萬金石',
+    raceDate: '2026-03-15T06:00:00',
   },
 }
 
