@@ -20,7 +20,7 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
   pan: {
     displayName: 'Pan',
     emoji: '👨',
-    targets: ['2025taipei', '2025sydney', '2026tokyo'],
+    targets: ['2026tokyo', '2025taipei', '2025sydney'],
     raceLinks: {
       '2025sydney': 'https://www.instagram.com/p/DOTegmfE5CU/?igsh=MWd6bzlsbDV3ZXBrag==',
     },
@@ -36,7 +36,7 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
   sung: {
     displayName: 'Sung',
     emoji: '👩',
-    targets: ['2025taipei', '2026wanginshi'],
+    targets: ['2026wanginshi', '2025taipei'],
     raceLinks: {
       '2025taipei': 'https://www.instagram.com/p/DSwlD30Ei5c/?igsh=MTRmd2lzdXRoNXQ2Zg==',
     },
