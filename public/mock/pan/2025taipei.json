@@ -19,11 +19,11 @@
         "trainingRecords": [
           {
             "id": 16798520473,
-            "name": "TPE Final - 2025 臺北馬拉松",
+            "name": "TPE Final - 賽事 2025 臺北馬拉松",
             "planWeek": 16,
             "startDate": "2025-12-21T06:32:18",
             "sportType": "Run",
-            "runType": null,
+            "runType": "RACE",
             "parentRunType": null,
             "distance": 42.59,
             "movingTime": "03:34:14",
@@ -4278,11 +4278,11 @@
         "trainingRecords": [
           {
             "id": 16798520473,
-            "name": "TPE Final - 2025 臺北馬拉松",
+            "name": "TPE Final - 賽事 2025 臺北馬拉松",
             "planWeek": 16,
             "startDate": "2025-12-21T06:32:18",
             "sportType": "Run",
-            "runType": null,
+            "runType": "RACE",
             "parentRunType": null,
             "distance": 42.59,
             "movingTime": "03:34:14",
