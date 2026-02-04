@@ -29,8 +29,14 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
       '2025sydney': '3:19:47',
     },
     pics: {
-      '2025sydney': ['/training-record/pic/pan1.jpg'],
+      '2026tokyo': [
+        '/training-record/pic/pan3.jpg',
+        '/training-record/pic/pan4.jpg',
+        '/training-record/pic/together1.jpg',
+        '/training-record/pic/together2.jpg',
+      ],
       '2025taipei': ['/training-record/pic/pan2.jpg'],
+      '2025sydney': ['/training-record/pic/pan1.jpg'],
     },
   },
   sung: {
@@ -44,6 +50,11 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
       '2025taipei': '3:34:15',
     },
     pics: {
+      '2026wanginshi': [
+        '/training-record/pic/sung7.jpg',
+        '/training-record/pic/together1.jpg',
+        '/training-record/pic/together2.jpg',
+      ],
       '2025taipei': [
         '/training-record/pic/sung1.jpg',
         '/training-record/pic/sung2.jpg',
