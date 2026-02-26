@@ -4,19 +4,36 @@
   "success": true,
   "data": {
     "target": "2026 東京馬拉松",
-    "totalDistance": 862.89,
-    "totalMovingTime": "79:36:07",
-    "mainTrainingCount": 60,
-    "totalElevationGain": 2538,
+    "totalDistance": 868.9,
+    "totalMovingTime": "80:06:42",
+    "mainTrainingCount": 61,
+    "totalElevationGain": 2555,
     "monthlyTrainingRecords": [
       {
         "year": 2026,
         "month": 2,
-        "monthDistance": 273.46,
-        "monthMovingTime": "24:36:29",
-        "monthMainTrainingCount": 19,
-        "monthElevationGain": 502,
+        "monthDistance": 279.47,
+        "monthMovingTime": "25:07:04",
+        "monthMainTrainingCount": 20,
+        "monthElevationGain": 519,
         "trainingRecords": [
+          {
+            "id": 17516515254,
+            "name": "TKY - Easy Run 6k",
+            "planWeek": 10,
+            "startDate": "2026-02-25T18:45:29",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 6.01,
+            "movingTime": "00:30:35",
+            "elevationGain": 17,
+            "pace": "5:05",
+            "averageHeartRate": 155,
+            "maxHeartRate": 174,
+            "isMainTraining": true,
+            "description": "沒意外是賽前在台灣的最後一跑，一切順其自然，相信自己。"
+          },
           {
             "id": 17478584604,
             "name": "晨間跑步",
@@ -2081,6 +2098,34 @@
       }
     ],
     "weeklyTrainingRecords": [
+      {
+        "planWeek": 10,
+        "weekStartDate": "2026-02-23T00:00:00",
+        "weekEndDate": "2026-03-01T00:00:00",
+        "weekDistance": 6.01,
+        "weekMovingTime": "00:30:35",
+        "weekMainTrainingCount": 1,
+        "weekElevationGain": 17,
+        "trainingRecords": [
+          {
+            "id": 17516515254,
+            "name": "TKY - Easy Run 6k",
+            "planWeek": 10,
+            "startDate": "2026-02-25T18:45:29",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 6.01,
+            "movingTime": "00:30:35",
+            "elevationGain": 17,
+            "pace": "5:05",
+            "averageHeartRate": 155,
+            "maxHeartRate": 174,
+            "isMainTraining": true,
+            "description": "沒意外是賽前在台灣的最後一跑，一切順其自然，相信自己。"
+          }
+        ]
+      },
       {
         "planWeek": 9,
         "weekStartDate": "2026-02-16T00:00:00",
@@ -4222,5 +4267,5 @@
       }
     ]
   },
-  "timestamp": "2026-02-23T06:50:53.4491163Z"
+  "timestamp": "2026-02-26T05:46:24.7401521Z"
 }
