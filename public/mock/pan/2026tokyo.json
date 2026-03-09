@@ -4,19 +4,63 @@
   "success": true,
   "data": {
     "target": "2026 東京馬拉松",
-    "totalDistance": 868.9,
-    "totalMovingTime": "80:06:42",
-    "mainTrainingCount": 61,
-    "totalElevationGain": 2555,
+    "totalDistance": 915.43,
+    "totalMovingTime": "83:37:24",
+    "mainTrainingCount": 63,
+    "totalElevationGain": 2647,
     "monthlyTrainingRecords": [
       {
         "year": 2026,
-        "month": 2,
-        "monthDistance": 279.47,
-        "monthMovingTime": "25:07:04",
-        "monthMainTrainingCount": 20,
-        "monthElevationGain": 519,
+        "month": 3,
+        "monthDistance": 42.79,
+        "monthMovingTime": "03:10:07",
+        "monthMainTrainingCount": 1,
+        "monthElevationGain": 90,
         "trainingRecords": [
+          {
+            "id": 17559779645,
+            "name": "TKY FINAL - 賽事 2026 東京馬拉松",
+            "planWeek": 10,
+            "startDate": "2026-03-01T09:11:28",
+            "sportType": "Run",
+            "runType": "RACE",
+            "parentRunType": null,
+            "distance": 42.79,
+            "movingTime": "03:10:07",
+            "elevationGain": 90,
+            "pace": "4:26",
+            "averageHeartRate": 170.8,
+            "maxHeartRate": 188,
+            "isMainTraining": true,
+            "description": "真的很愛跑步，謝謝跑步把我再次帶回這座承載著遺憾、卻充滿美好回憶的城市。隔天一早醒來，回憶湧上心頭，忍不住跟Sung Chou 說：「好想再跑一次。」明明在 38 公里之後，腦海裡只剩下放棄的念頭，進水站甚至只能用走的方式通過，最後 1 公里的石板路，也無法像以往那樣帶著殺氣去追逐前方的跑者，只能單純依靠意志力撐著自己前進，一路連哄帶騙地告訴自己不要停下來。雖然最終的大會時間仍與原先設定的目標差了 6 秒，但一重新回憶時，依然覺得無比美好，或許這份感受，就和我對這座城市的情感一樣吧。"
+          }
+        ]
+      },
+      {
+        "year": 2026,
+        "month": 2,
+        "monthDistance": 283.21,
+        "monthMovingTime": "25:27:39",
+        "monthMainTrainingCount": 21,
+        "monthElevationGain": 521,
+        "trainingRecords": [
+          {
+            "id": 17547214794,
+            "name": "TKY - Easy Run 20min",
+            "planWeek": 10,
+            "startDate": "2026-02-28T08:29:15",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 3.74,
+            "movingTime": "00:20:35",
+            "elevationGain": 2,
+            "pace": "5:30",
+            "averageHeartRate": 151.6,
+            "maxHeartRate": 165,
+            "isMainTraining": true,
+            "description": "東馬前的 shake out run！皇居解鎖（不過沒跑到一圈），天氣感覺偏熱，明天動態調整，加油！"
+          },
           {
             "id": 17516515254,
             "name": "TKY - Easy Run 6k",
@@ -2102,11 +2146,45 @@
         "planWeek": 10,
         "weekStartDate": "2026-02-23T00:00:00",
         "weekEndDate": "2026-03-01T00:00:00",
-        "weekDistance": 6.01,
-        "weekMovingTime": "00:30:35",
-        "weekMainTrainingCount": 1,
-        "weekElevationGain": 17,
+        "weekDistance": 52.54,
+        "weekMovingTime": "04:01:17",
+        "weekMainTrainingCount": 3,
+        "weekElevationGain": 109,
         "trainingRecords": [
+          {
+            "id": 17559779645,
+            "name": "TKY FINAL - 賽事 2026 東京馬拉松",
+            "planWeek": 10,
+            "startDate": "2026-03-01T09:11:28",
+            "sportType": "Run",
+            "runType": "RACE",
+            "parentRunType": null,
+            "distance": 42.79,
+            "movingTime": "03:10:07",
+            "elevationGain": 90,
+            "pace": "4:26",
+            "averageHeartRate": 170.8,
+            "maxHeartRate": 188,
+            "isMainTraining": true,
+            "description": "真的很愛跑步，謝謝跑步把我再次帶回這座承載著遺憾、卻充滿美好回憶的城市。隔天一早醒來，回憶湧上心頭，忍不住跟Sung Chou 說：「好想再跑一次。」明明在 38 公里之後，腦海裡只剩下放棄的念頭，進水站甚至只能用走的方式通過，最後 1 公里的石板路，也無法像以往那樣帶著殺氣去追逐前方的跑者，只能單純依靠意志力撐著自己前進，一路連哄帶騙地告訴自己不要停下來。雖然最終的大會時間仍與原先設定的目標差了 6 秒，但一重新回憶時，依然覺得無比美好，或許這份感受，就和我對這座城市的情感一樣吧。"
+          },
+          {
+            "id": 17547214794,
+            "name": "TKY - Easy Run 20min",
+            "planWeek": 10,
+            "startDate": "2026-02-28T08:29:15",
+            "sportType": "Run",
+            "runType": "E",
+            "parentRunType": "SW",
+            "distance": 3.74,
+            "movingTime": "00:20:35",
+            "elevationGain": 2,
+            "pace": "5:30",
+            "averageHeartRate": 151.6,
+            "maxHeartRate": 165,
+            "isMainTraining": true,
+            "description": "東馬前的 shake out run！皇居解鎖（不過沒跑到一圈），天氣感覺偏熱，明天動態調整，加油！"
+          },
           {
             "id": 17516515254,
             "name": "TKY - Easy Run 6k",
@@ -4267,5 +4345,5 @@
       }
     ]
   },
-  "timestamp": "2026-02-26T05:46:24.7401521Z"
+  "timestamp": "2026-03-09T00:52:29.2593667Z"
 }

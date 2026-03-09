@@ -23,10 +23,13 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
     targets: ['2026tokyo', '2025taipei', '2025sydney'],
     raceLinks: {
       '2025sydney': 'https://www.instagram.com/p/DOTegmfE5CU/?igsh=MWd6bzlsbDV3ZXBrag==',
+      '2025taipei': 'https://www.instagram.com/p/DTDFKPuk4YM/?igsh=ZXo5OGw4YmFmdzVw',
+      '2026tokyo': 'https://www.instagram.com/p/DVn-PXAE0uC/?igsh=d3M4cTZ5b3Bia2lu',
     },
     raceTime: {
       '2025taipei': '3:34:12',
       '2025sydney': '3:19:47',
+      '2026tokyo': '3:10:06',
     },
     pics: {
       '2026tokyo': [
