@@ -51,6 +51,7 @@ export const PERSON_CONFIG: Record<string, PersonConfig> = {
     },
     raceTime: {
       '2025taipei': '3:34:15',
+      '2026wanginshi': '3:43:19',
     },
     pics: {
       '2026wanginshi': [
